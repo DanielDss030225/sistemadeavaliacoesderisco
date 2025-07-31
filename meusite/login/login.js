@@ -28,7 +28,8 @@ function login() {
             }
 
             // Redirecionar
-window.location.href = "../22/index.html";
+window.location.href = "/sistemadeavaliacoesderisco/index.html";
+
         })  
         .catch(error => {      
             ocultarCarregamento();
