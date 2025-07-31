@@ -28,7 +28,7 @@ function login() {
             }
 
             // Redirecionar
-window.location.href = "/Preencher%20Avaliação%20De%20Risco/22/index.html";
+window.location.href = "../22/index.html";
         })  
         .catch(error => {      
             ocultarCarregamento();
