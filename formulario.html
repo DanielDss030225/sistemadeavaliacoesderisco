@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Avaliação de Risco</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+                <link rel="icon" type="image/png" href="./meusite/logo.png"> 
+
+</head>
+<body>
+     
+             
+
+<div class="layout">  
+    <div class="progress-container">
+        <a href="./index.html" class="BackToEnd">Voltar</a>
+       
+        <div class="progress-bar">
+            <div class="progress-step" id="step1" data-step="1">
+                1
+                <span class="progress-step-label">Identificação da Vítima</span>
+            </div>
+            
+            <div class="progress-step" id="step2" data-step="2">
+                2
+                <span class="progress-step-label">Identificação do Agressor</span>
+            </div>
+            <div class="progress-step" id="step3" data-step="3">
+                3
+                <span class="progress-step-label">Situação Atual</span>
+            </div>
+            <div class="progress-step" id="step4" data-step="4">
+                4
+                <span class="progress-step-label">Histórico de Violência</span>
+            </div>
+            <div class="progress-step" id="step5" data-step="5">
+                5
+                <span class="progress-step-label">Sobre o Agressor</span>
+            </div>
+            <div class="progress-step" id="step6" data-step="6">
+                6
+                <span class="progress-step-label">Sobre a Vítima</span>
+            </div>
+            <div class="progress-step" id="step7" data-step="7">
+                7
+                <span class="progress-step-label">Outras Informações</span>
+            </div>
+            <div class="progress-step" id="step8" data-step="8">
+                8
+                <span class="progress-step-label">Conclusão</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="base"> 
+       
+  <!-- Navegação das Abas -->
+   <header >  
+                <ul class="tabs-list">
+                    <li class="tab-item active" data-tab="1">
+                                            </li>
+                    <li class="tab-item" data-tab="2">
+                    </li>
+                    <li class="tab-item" data-tab="3">
+                    </li>
+                    <li class="tab-item" data-tab="4">
+                    </li>
+                    <li class="tab-item" data-tab="5">
+                    </li>
+                    <li class="tab-item" data-tab="6">
+                    </li>
+                    <li class="tab-item" data-tab="7">
+                    </li>
+                    <li class="tab-item" data-tab="8">
+                    </li>
+                </ul>
+</header>
+
+<div class="form-container">
+          
+            <!-- Container das Abas com Slide -->
+            <div class="tabs-container">
+                <div class="tabs-wrapper" id="tabsWrapper">
+                    <form id="avaliacaoRiscoForm">
+                        <!-- Aba 1: Identificação da Vítima -->
+                        <div class="tab-content active" id="tab1">
+                            <div class="tab-header">
+                                <h3>1. Identificação das Partes - Vítima</h3>
+                            </div>
+                            <div class="tab-body">
+                                <!-- Sub-bloco: Dados Pessoais -->
+                                <div class="sub-block">
+                                    <h4>Dados Pessoais</h4>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="nomeVitima">Nome da vítima:</label>
+                                                <input type="text" id="nomeVitima" name="nomeVitima" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="idadeVitima">Idade:</label>
+                                                <input type="number" id="idadeVitima" name="idadeVitima" class="form-control" min="0" max="120">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Estado Civil -->
+                                <div class="sub-block">
+                                    <h4>Estado Civil</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima1" name="estadoCivilVitima" value="solteira">
+                                            <label for="estadoCivilVitima1">Solteira</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima2" name="estadoCivilVitima" value="casada">
+                                            <label for="estadoCivilVitima2">Casada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima3" name="estadoCivilVitima" value="divorciada">
+                                            <label for="estadoCivilVitima3">Divorciada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima4" name="estadoCivilVitima" value="separada">
+                                            <label for="estadoCivilVitima4">Separada judicialmente</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima5" name="estadoCivilVitima" value="viuva">
+                                            <label for="estadoCivilVitima5">Viúva</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilVitima6" name="estadoCivilVitima" value="uniao">
+                                            <label for="estadoCivilVitima6">União estável</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Escolaridade -->
+                                <div class="sub-block">
+                                    <h4>Escolaridade</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima1" name="escolaridadeVitima" value="analfabeta">
+                                            <label for="escolaridadeVitima1">Analfabeta</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima2" name="escolaridadeVitima" value="alfabetizada">
+                                            <label for="escolaridadeVitima2">Alfabetizada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima3" name="escolaridadeVitima" value="fundamental-incompleto">
+                                            <label for="escolaridadeVitima3">Ensino fundamental incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima4" name="escolaridadeVitima" value="fundamental-completo">
+                                            <label for="escolaridadeVitima4">Ensino fundamental completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima5" name="escolaridadeVitima" value="medio-incompleto">
+                                            <label for="escolaridadeVitima5">Ensino médio incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima6" name="escolaridadeVitima" value="medio-completo">
+                                            <label for="escolaridadeVitima6">Ensino médio completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima7" name="escolaridadeVitima" value="superior-incompleto">
+                                            <label for="escolaridadeVitima7">Superior incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima8" name="escolaridadeVitima" value="superior-completo">
+                                            <label for="escolaridadeVitima8">Superior completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeVitima9" name="escolaridadeVitima" value="pos-graduacao">
+                                            <label for="escolaridadeVitima9">Pós-graduação</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Contato -->
+                                <div class="sub-block">
+                                    <h4>Contato</h4>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="telefoneVitima">Telefone:</label>
+                                                <input type="tel" id="telefoneVitima" name="telefoneVitima" class="form-control" placeholder="(00) 00000-0000">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="telefone2Vitima">Segundo Telefone:</label>
+                                                <input type="tel" id="telefone2Vitima" name="telefone2Vitima" class="form-control" placeholder="(00) 00000-0000">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="emailVitima">Email:</label>
+                                                <input type="email" id="emailVitima" name="emailVitima" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="cpfVitima">CPF:</label>
+                                                <input type="text" id="cpfVitima" name="cpfVitima" class="form-control" placeholder="000.000.000-00">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="rgVitima">RG:</label>
+                                                <input type="text" id="rgVitima" name="rgVitima" class="form-control" placeholder="00.000.000-0">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="profissaoVitima">Profissão:</label>
+                                                <input type="text" id="profissaoVitima" name="profissaoVitima" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="horarioTrabalhoVitima">Horário de trabalho:</label>
+                                                <input type="text" id="horarioTrabalhoVitima" name="horarioTrabalhoVitima" class="form-control" placeholder="Ex: 08:00 às 17:00">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Nacionalidade -->
+                                <div class="sub-block">
+                                    <h4>Nacionalidade</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="nacionalidadeVitima1" name="nacionalidadeVitima" value="brasileira">
+                                            <label for="nacionalidadeVitima1">Brasileira</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="nacionalidadeVitima2" name="nacionalidadeVitima" value="estrangeira">
+                                            <label for="nacionalidadeVitima2">Estrangeira</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="paisEstrangeiroVitimaRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="paisEstrangeiroVitima">País:</label>
+                                                <input type="text" id="paisEstrangeiroVitima" name="paisEstrangeiroVitima" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: PM -->
+                                <div class="sub-block">
+                                    <h4>PM</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="pmVitima1" name="pmVitima" value="nao">
+                                            <label for="pmVitima1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="pmVitima2" name="pmVitima" value="sim">
+                                            <label for="pmVitima2">Sim</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="unidadePMVitimaRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="unidadePMVitima">Unidade:</label>
+                                                <input type="text" id="unidadePMVitima" name="unidadePMVitima" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Endereço Profissional -->
+                                <div class="sub-block">
+                                    <div class="form-group">
+                                        <label for="enderecoProfissionalVitima">Endereço profissional:</label>
+                                        <input type="text" id="enderecoProfissionalVitima" name="enderecoProfissionalVitima" class="form-control">
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Cor/Raça -->
+                                <div class="sub-block">
+                                    <h4>Com qual cor/raça você se identifica:</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima1" name="corRacaVitima" value="branca">
+                                            <label for="corRacaVitima1">Branca</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima2" name="corRacaVitima" value="preta">
+                                            <label for="corRacaVitima2">Preta</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima3" name="corRacaVitima" value="parda">
+                                            <label for="corRacaVitima3">Parda</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima4" name="corRacaVitima" value="amarela">
+                                            <label for="corRacaVitima4">Amarela</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima5" name="corRacaVitima" value="indigena">
+                                            <label for="corRacaVitima5">Indígena</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaVitima6" name="corRacaVitima" value="oriental">
+                                            <label for="corRacaVitima6">Oriental</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Relação Vítima/Autor -->
+                                <div class="sub-block">
+                                    <h4>Relação vítima/autor:</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor1" name="relacaoVitimaAutor" value="conjuge">
+                                            <label for="relacaoVitimaAutor1">Cônjuge</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor2" name="relacaoVitimaAutor" value="companheiro">
+                                            <label for="relacaoVitimaAutor2">Companheiro(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor3" name="relacaoVitimaAutor" value="ex-conjuge">
+                                            <label for="relacaoVitimaAutor3">Ex-cônjuge</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor4" name="relacaoVitimaAutor" value="ex-companheiro">
+                                            <label for="relacaoVitimaAutor4">Ex-companheiro(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor5" name="relacaoVitimaAutor" value="namorado">
+                                            <label for="relacaoVitimaAutor5">Namorado(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor6" name="relacaoVitimaAutor" value="ex-namorado">
+                                            <label for="relacaoVitimaAutor6">Ex-namorado</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor7" name="relacaoVitimaAutor" value="caso">
+                                            <label for="relacaoVitimaAutor7">Caso</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="relacaoVitimaAutor8" name="relacaoVitimaAutor" value="relacao-extraconjugal">
+                                            <label for="relacaoVitimaAutor8">Relação extraconjugal</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar1" style="visibility: hidden;">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo1">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 2: Identificação do Agressor -->
+                        <div class="tab-content" id="tab2">
+                            <div class="tab-header">
+                                <h3>2. Identificação das Partes - Agressor</h3>
+                            </div>
+                            <div class="tab-body">
+                                <!-- Sub-bloco: Dados Pessoais -->
+                                <div class="sub-block">
+                                    <h4>Dados Pessoais</h4>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="nomeAgressor">Nome do(a) agressor(a):</label>
+                                                <input type="text" id="nomeAgressor" name="nomeAgressor" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="idadeAgressor">Idade:</label>
+                                                <input type="number" id="idadeAgressor" name="idadeAgressor" class="form-control" min="0" max="120">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Estado Civil -->
+                                <div class="sub-block">
+                                    <h4>Estado Civil</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor1" name="estadoCivilAgressor" value="solteiro">
+                                            <label for="estadoCivilAgressor1">Solteiro(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor2" name="estadoCivilAgressor" value="casado">
+                                            <label for="estadoCivilAgressor2">Casado(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor3" name="estadoCivilAgressor" value="divorciado">
+                                            <label for="estadoCivilAgressor3">Divorciado(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor4" name="estadoCivilAgressor" value="separado">
+                                            <label for="estadoCivilAgressor4">Separado(a) judicialmente</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor5" name="estadoCivilAgressor" value="viuvo">
+                                            <label for="estadoCivilAgressor5">Viúvo(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="estadoCivilAgressor6" name="estadoCivilAgressor" value="uniao">
+                                            <label for="estadoCivilAgressor6">União estável</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Escolaridade -->
+                                <div class="sub-block">
+                                    <h4>Escolaridade</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor1" name="escolaridadeAgressor" value="analfabeto">
+                                            <label for="escolaridadeAgressor1">Analfabeto(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor2" name="escolaridadeAgressor" value="alfabetizado">
+                                            <label for="escolaridadeAgressor2">Alfabetizado(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor3" name="escolaridadeAgressor" value="fundamental-incompleto">
+                                            <label for="escolaridadeAgressor3">Ensino fundamental incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor4" name="escolaridadeAgressor" value="fundamental-completo">
+                                            <label for="escolaridadeAgressor4">Ensino fundamental completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor5" name="escolaridadeAgressor" value="medio-incompleto">
+                                            <label for="escolaridadeAgressor5">Ensino médio incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor6" name="escolaridadeAgressor" value="medio-completo">
+                                            <label for="escolaridadeAgressor6">Ensino médio completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor7" name="escolaridadeAgressor" value="superior-incompleto">
+                                            <label for="escolaridadeAgressor7">Superior incompleto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor8" name="escolaridadeAgressor" value="superior-completo">
+                                            <label for="escolaridadeAgressor8">Superior completo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="escolaridadeAgressor9" name="escolaridadeAgressor" value="pos-graduacao">
+                                            <label for="escolaridadeAgressor9">Pós-graduação</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Contato -->
+                                <div class="sub-block">
+                                    <h4>Contato</h4>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="telefoneAgressor">Telefone:</label>
+                                                <input type="tel" id="telefoneAgressor" name="telefoneAgressor" class="form-control" placeholder="(00) 00000-0000">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="telefone2Agressor">Segundo Telefone:</label>
+                                                <input type="tel" id="telefone2Agressor" name="telefone2Agressor" class="form-control" placeholder="(00) 00000-0000">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="emailAgressor">Email:</label>
+                                                <input type="email" id="emailAgressor" name="emailAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="cpfAgressor">CPF:</label>
+                                                <input type="text" id="cpfAgressor" name="cpfAgressor" class="form-control" placeholder="000.000.000-00" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="rgAgressor">RG:</label>
+                                                <input type="text" id="rgAgressor" name="rgAgressor" class="form-control" placeholder="00.000.000-0">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="profissaoAgressor">Profissão:</label>
+                                                <input type="text" id="profissaoAgressor" name="profissaoAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="horarioTrabalhoAgressor">Horário de trabalho:</label>
+                                                <input type="text" id="horarioTrabalhoAgressor" name="horarioTrabalhoAgressor" class="form-control" placeholder="Ex: 08:00 às 17:00">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Sub-bloco: Nacionalidade -->
+                                <div class="sub-block">
+                                    <h4>Nacionalidade</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="nacionalidadeAgressor1" name="nacionalidadeAgressor" value="brasileiro">
+                                            <label for="nacionalidadeAgressor1">Brasileiro(a)</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="nacionalidadeAgressor2" name="nacionalidadeAgressor" value="estrangeiro">
+                                            <label for="nacionalidadeAgressor2">Estrangeiro(a)</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="paisEstrangeiroAgressorRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="paisEstrangeiroAgressor">País:</label>
+                                                <input type="text" id="paisEstrangeiroAgressor" name="paisEstrangeiroAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: PM -->
+                                <div class="sub-block">
+                                    <h4>PM</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="pmAgressor1" name="pmAgressor" value="nao">
+                                            <label for="pmAgressor1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="pmAgressor2" name="pmAgressor" value="sim">
+                                            <label for="pmAgressor2">Sim</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="unidadePMAgressorRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="unidadePMAgressor">Unidade:</label>
+                                                <input type="text" id="unidadePMAgressor" name="unidadePMAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Endereço Profissional -->
+                                <div class="sub-block">
+                                    <div class="form-group">
+                                        <label for="enderecoProfissionalAgressor">Endereço profissional:</label>
+                                        <input type="text" id="enderecoProfissionalAgressor" name="enderecoProfissionalAgressor" class="form-control">
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Cor/Raça -->
+                                <div class="sub-block">
+                                    <h4>Com qual cor/raça:</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor1" name="corRacaAgressor" value="branca">
+                                            <label for="corRacaAgressor1">Branca</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor2" name="corRacaAgressor" value="preta">
+                                            <label for="corRacaAgressor2">Preta</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor3" name="corRacaAgressor" value="parda">
+                                            <label for="corRacaAgressor3">Parda</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor4" name="corRacaAgressor" value="amarela">
+                                            <label for="corRacaAgressor4">Amarela</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor5" name="corRacaAgressor" value="indigena">
+                                            <label for="corRacaAgressor5">Indígena</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="corRacaAgressor6" name="corRacaAgressor" value="oriental">
+                                            <label for="corRacaAgressor6">Oriental</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Antecedentes Criminais -->
+                                <div class="sub-block">
+                                    <h4>Possui antecedentes criminais?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="antecedentesCriminaisAgressor1" name="antecedentesCriminaisAgressor" value="nao">
+                                            <label for="antecedentesCriminaisAgressor1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="antecedentesCriminaisAgressor2" name="antecedentesCriminaisAgressor" value="sim">
+                                            <label for="antecedentesCriminaisAgressor2">Sim</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="artigosAntecedentesAgressorRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="artigosAntecedentesAgressor">Arts:</label>
+                                                <input type="text" id="artigosAntecedentesAgressor" name="artigosAntecedentesAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar2">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo2">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 3: Situação Atual -->
+                        <div class="tab-content" id="tab3">
+                            <div class="tab-header">
+                                <h3>3. Informações sobre a situação atual entre as partes</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="tempoRelacionamento">Tempo de relacionamento:</label>
+                                            <input type="text" id="tempoRelacionamento" name="tempoRelacionamento" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label>Estão separados?</label>
+                                            <div class="checkbox-group">
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="separados1" name="separados" value="nao">
+                                                    <label for="separados1">Não</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="separados2" name="separados" value="sim">
+                                                    <label for="separados2">Sim</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row" id="tempoSeparacaoRow" style="display: none;">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="tempoSeparacao">Há quanto tempo estão separados:</label>
+                                            <input type="text" id="tempoSeparacao" name="tempoSeparacao" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="tempoViolencia">Há quanto tempo ocorre violência no relacionamento:</label>
+                                            <input type="text" id="tempoViolencia" name="tempoViolencia" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label>Possui Medida Protetiva de Urgência (MPU)?</label>
+                                            <div class="checkbox-group">
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="mpu1" name="mpu" value="sim">
+                                                    <label for="mpu1">Sim</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="mpu2" name="mpu" value="nao">
+                                                    <label for="mpu2">Não</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="mpu3" name="mpu" value="solicitou">
+                                                    <label for="mpu3">Solicitou</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="mpuDetalhesRow" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="numeroProcesso">Nº Processo:</label>
+                                                <input type="text" id="numeroProcesso" name="numeroProcesso" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="dataExpedicao">Data de expedição:</label>
+                                                <input type="date" id="dataExpedicao" name="dataExpedicao" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label>Já representou contra o autor na Delegacia de mulheres?</label>
+                                            <div class="checkbox-group">
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="representou1" name="representou" value="sim">
+                                                    <label for="representou1">Sim</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="representou2" name="representou" value="nao">
+                                                    <label for="representou2">Não</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row" id="dataRepresentacaoRow" style="display: none;">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="dataRepresentacao">Data da representação:</label>
+                                            <input type="date" id="dataRepresentacao" name="dataRepresentacao" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label>Intimação da vítima:</label>
+                                            <div class="checkbox-group">
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="intimacaoVitima1" name="intimacaoVitima" value="sim">
+                                                    <label for="intimacaoVitima1">Sim</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="intimacaoVitima2" name="intimacaoVitima" value="nao">
+                                                    <label for="intimacaoVitima2">Não</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label>O autor já foi intimado:</label>
+                                            <div class="checkbox-group">
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="autorIntimado1" name="autorIntimado" value="sim">
+                                                    <label for="autorIntimado1">Sim</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="autorIntimado2" name="autorIntimado" value="nao">
+                                                    <label for="autorIntimado2">Não</label>
+                                                </div>
+                                                <div class="checkbox-item">
+                                                    <input type="radio" id="autorIntimado3" name="autorIntimado" value="nao-sei">
+                                                    <label for="autorIntimado3">Não sei</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar3">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo3">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 4: Histórico de Violência -->
+                        <div class="tab-content" id="tab4">
+                            <div class="tab-header">
+                                <h3>4. Bloco I - Sobre o histórico de violência</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="sub-block">
+                                    <h4>1. O(A) agressor(a) já praticou alguma(s) destas agressões físicas contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica1" name="agressaoFisica" value="queimadura">
+                                            <label for="agressaoFisica1">Queimadura</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica2" name="agressaoFisica" value="facada">
+                                            <label for="agressaoFisica2">Facada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica3" name="agressaoFisica" value="tiro">
+                                            <label for="agressaoFisica3">Tiro</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica4" name="agressaoFisica" value="puxao-cabelo">
+                                            <label for="agressaoFisica4">Puxão de Cabelo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica5" name="agressaoFisica" value="enforcamento">
+                                            <label for="agressaoFisica5">Enforcamento</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica6" name="agressaoFisica" value="paulada">
+                                            <label for="agressaoFisica6">Paulada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica7" name="agressaoFisica" value="soco">
+                                            <label for="agressaoFisica7">Soco</label>
+                                        </div>
+                                     
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica9" name="agressaoFisica" value="sufocamento">
+                                            <label for="agressaoFisica9">Sufocamento</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica10" name="agressaoFisica" value="chute">
+                                            <label for="agressaoFisica10">Chute</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica11" name="agressaoFisica" value="empurrao">
+                                            <label for="agressaoFisica11">Empurrão</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica12" name="agressaoFisica" value="afogamento">
+                                            <label for="agressaoFisica12">Afogamento</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica13" name="agressaoFisica" value="tapa">
+                                            <label for="agressaoFisica13">Tapa</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica14" name="agressaoFisica" value="estrangulamento">
+                                            <label for="agressaoFisica14">Estrangulamento</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica15" name="agressaoFisica" value="mordida">
+                                            <label for="agressaoFisica15">Mordida</label>
+                                        </div>
+                                           <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoFisica8" name="agressaoFisica" value="nenhuma">
+                                            <label for="agressaoFisica8">Nenhuma agressão física</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="outrasAgressoesFisicas">Outra(s):</label>
+                                                <input type="text" id="outrasAgressoesFisicas" name="outrasAgressoesFisicas" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>2. Você necessitou de atendimento médico e/ou internação após algumas dessas agressões?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="atendimentoMedico1" name="atendimentoMedico" value="sim-atendimento">
+                                            <label for="atendimentoMedico1">Sim, atendimento médico</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="atendimentoMedico2" name="atendimentoMedico" value="sim-internacao">
+                                            <label for="atendimentoMedico2">Sim, internação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="atendimentoMedico3" name="atendimentoMedico" value="nao">
+                                            <label for="atendimentoMedico3">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>3. O(A) agressor(a) já praticou alguma dessas violências psicológicas contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica1" name="violenciaPsicologica" value="ameaca-morte">
+                                            <label for="violenciaPsicologica1">Ameaça de morte</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica2" name="violenciaPsicologica" value="ameaca-arma">
+                                            <label for="violenciaPsicologica2">Ameaça com arma de fogo</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica3" name="violenciaPsicologica" value="ameaca-faca">
+                                            <label for="violenciaPsicologica3">Ameaça com faca</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica4" name="violenciaPsicologica" value="chantagem">
+                                            <label for="violenciaPsicologica4">Chantagem</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica5" name="violenciaPsicologica" value="humilhacao">
+                                            <label for="violenciaPsicologica5">Humilhação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica6" name="violenciaPsicologica" value="manipulacao">
+                                            <label for="violenciaPsicologica6">Manipulação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica7" name="violenciaPsicologica" value="proibicao-visitas">
+                                            <label for="violenciaPsicologica7">Proibiu a vítima de visitar familiares ou amigos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica8" name="violenciaPsicologica" value="proibicao-trabalho">
+                                            <label for="violenciaPsicologica8">Proibiu a vítima de trabalhar ou estudar</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica9" name="violenciaPsicologica" value="gaslighting">
+                                            <label for="violenciaPsicologica9">Distorceu e/ou omitiu fatos para deixar a vítima em dúvida sobre a sua memória e sanidade</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica10" name="violenciaPsicologica" value="ameaca-posse">
+                                            <label for="violenciaPsicologica10">Disse algo parecido com a frase: "se não for minha não será de mais ninguém"</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica11" name="violenciaPsicologica" value="perseguicao">
+                                            <label for="violenciaPsicologica11">Perturbou, perseguiu ou vigiou a vítima nos locais em que frequenta</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica12" name="violenciaPsicologica" value="mensagens-insistentes">
+                                            <label for="violenciaPsicologica12">Fez telefonemas, enviou mensagens pelo celular ou e-mails de forma insistente</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica13" name="violenciaPsicologica" value="ciume-controle">
+                                            <label for="violenciaPsicologica13">Teve outros comportamentos de ciúme excessivo e de controle sobre a vítima</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="violenciaPsicologica14" name="violenciaPsicologica" value="nenhuma">
+                                            <label for="violenciaPsicologica14">Nenhum dos comportamentos acima listados</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="outrasViolenciasPsicologicas">Outra(s):</label>
+                                                <input type="text" id="outrasViolenciasPsicologicas" name="outrasViolenciasPsicologicas" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Agressões Sexuais -->
+                                <div class="sub-block">
+                                    <h4>4. O(A) agressor(a) já praticou alguma(s) destas agressões sexuais contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual1" name="agressaoSexual" value="forcou-uso-contraceptivos">
+                                            <label for="agressaoSexual1">Forçou o uso de contraceptivos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual2" name="agressaoSexual" value="provocou-aborto">
+                                            <label for="agressaoSexual2">Provocou aborto</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual3" name="agressaoSexual" value="impediu-uso-contraceptivos">
+                                            <label for="agressaoSexual3">Impediu o uso de contraceptivos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual4" name="agressaoSexual" value="atos-sexuais-nao-desejados">
+                                            <label for="agressaoSexual4">Atos sexuais não desejados</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual5" name="agressaoSexual" value="forcou-gravidez">
+                                            <label for="agressaoSexual5">Forçou gravidez</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual6" name="agressaoSexual" value="estupro">
+                                            <label for="agressaoSexual6">Estupro</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoSexual7" name="agressaoSexual" value="nenhuma-agressao-sexual">
+                                            <label for="agressaoSexual7">Nenhuma agressão sexual</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="outrasAgressoesSexuais">Outra(s):</label>
+                                                <input type="text" id="outrasAgressoesSexuais" name="outrasAgressoesSexuais" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Agressões Patrimoniais -->
+                                <div class="sub-block">
+                                    <h4>5. O(A) agressor(a) já praticou alguma(s) destas agressões patrimoniais contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial1" name="agressaoPatrimonial" value="danificou-moveis">
+                                            <label for="agressaoPatrimonial1">Danificou móveis</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial2" name="agressaoPatrimonial" value="danificou-roupas">
+                                            <label for="agressaoPatrimonial2">Danificou roupas</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial3" name="agressaoPatrimonial" value="destruiu-documentos">
+                                            <label for="agressaoPatrimonial3">Destruiu/reteve documentos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial4" name="agressaoPatrimonial" value="danificou-utensilios">
+                                            <label for="agressaoPatrimonial4">Danificou utensílios</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial5" name="agressaoPatrimonial" value="quebrou-celular">
+                                            <label for="agressaoPatrimonial5">Quebrou celular</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial6" name="agressaoPatrimonial" value="danificou-eletrodomesticos">
+                                            <label for="agressaoPatrimonial6">Danificou eletrodomésticos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial7" name="agressaoPatrimonial" value="controlou-dinheiro">
+                                            <label for="agressaoPatrimonial7">Controlou dinheiro</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoPatrimonial8" name="agressaoPatrimonial" value="nenhuma-agressao-patrimonial">
+                                            <label for="agressaoPatrimonial8">Nenhuma agressão patrimonial</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="outrasAgressoesPatrimoniais">Outra(s):</label>
+                                                <input type="text" id="outrasAgressoesPatrimoniais" name="outrasAgressoesPatrimoniais" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Agressões Morais -->
+                                <div class="sub-block">
+                                    <h4>6. O(A) agressor(a) já praticou alguma(s) destas agressões morais contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoMoral1" name="agressaoMoral" value="calunia">
+                                            <label for="agressaoMoral1">Calúnia</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoMoral2" name="agressaoMoral" value="difamacao">
+                                            <label for="agressaoMoral2">Difamação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoMoral3" name="agressaoMoral" value="injuria">
+                                            <label for="agressaoMoral3">Injúria</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="outrasAgressoesMorais">Outra(s):</label>
+                                                <input type="text" id="outrasAgressoesMorais" name="outrasAgressoesMorais" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <!-- Sub-bloco: Ocorrência Policial / Medida Protetiva -->
+                                <div class="sub-block">
+                                    <h4>7. Você já registrou ocorrência policial ou formulou pedido de medida protetiva de urgência envolvendo esse(a) mesmo(a) agressor(a)?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="ocorrenciaPolicial1" name="ocorrenciaPolicial" value="sim">
+                                            <label for="ocorrenciaPolicial1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="ocorrenciaPolicial2" name="ocorrenciaPolicial" value="nao">
+                                            <label for="ocorrenciaPolicial2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Ameaças/Agressões Frequentes -->
+                                <div class="sub-block">
+                                    <h4>8. As ameaças ou agressões físicas do(a) agressor(a) contra você se tornaram mais frequentes ou mais graves nos últimos meses?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="ameacasFrequentes1" name="ameacasFrequentes" value="sim">
+                                            <label for="ameacasFrequentes1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="ameacasFrequentes2" name="ameacasFrequentes" value="nao">
+                                            <label for="ameacasFrequentes2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="ameacasFrequentes3" name="ameacasFrequentes" value="nao-sei">
+                                            <label for="ameacasFrequentes3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar4">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo4">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 5: Sobre o Agressor -->
+                        <div class="tab-content" id="tab5">
+                            <div class="tab-header">
+                                <h3>5. Bloco II - Sobre o(a) agressor(a)</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="sub-block">
+                                    <h4>9. O(A) agressor(a) faz uso abusivo de álcool ou de drogas ou medicamentos?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="usoSubstancias1" name="usoSubstancias" value="alcool">
+                                            <label for="usoSubstancias1">Sim, de álcool</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="usoSubstancias2" name="usoSubstancias" value="drogas">
+                                            <label for="usoSubstancias2">Sim, de drogas</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="usoSubstancias3" name="usoSubstancias" value="medicamentos">
+                                            <label for="usoSubstancias3">Sim, de medicamentos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="usoSubstancias4" name="usoSubstancias" value="nao">
+                                            <label for="usoSubstancias4">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="usoSubstancias5" name="usoSubstancias" value="nao-sei">
+                                            <label for="usoSubstancias5">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>10. O(A) agressor(a) tem alguma doença mental comprovada por avaliação médica?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental1" name="doencaMental" value="sim-medicacao">
+                                            <label for="doencaMental1">Sim e faz uso de medicação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental2" name="doencaMental" value="sim-sem-medicacao">
+                                            <label for="doencaMental2">Sim e não faz uso de medicação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental3" name="doencaMental" value="nao">
+                                            <label for="doencaMental3">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental4" name="doencaMental" value="nao-com-medicacao">
+                                            <label for="doencaMental4">Não e faz uso de medicação</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental5" name="doencaMental" value="nao-sei">
+                                            <label for="doencaMental5">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>11. O(A) agressor(a) faz acompanhamento psicológico?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acompanhamentoPsicologico1" name="acompanhamentoPsicologico" value="sim">
+                                            <label for="acompanhamentoPsicologico1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acompanhamentoPsicologico2" name="acompanhamentoPsicologico" value="nao">
+                                            <label for="acompanhamentoPsicologico2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acompanhamentoPsicologico3" name="acompanhamentoPsicologico" value="nao-sei">
+                                            <label for="acompanhamentoPsicologico3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Sub-bloco: Tentativa de Suicídio do Agressor -->
+                                <div class="sub-block">
+                                    <h4>12. O(A) agressor(a) já tentou suicídio ou falou em suicidar-se?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="suicidioAgressor1" name="suicidioAgressor" value="sim">
+                                            <label for="suicidioAgressor1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="suicidioAgressor2" name="suicidioAgressor" value="nao">
+                                            <label for="suicidioAgressor2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="suicidioAgressor3" name="suicidioAgressor" value="nao-sei">
+                                            <label for="suicidioAgressor3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Descumprimento de Medida Protetiva Anterior -->
+                                <div class="sub-block">
+                                    <h4>13. O(A) agressor(a) já descumpriu medida protetiva anteriormente?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="descumpriuMedida1" name="descumpriuMedida" value="sim">
+                                            <label for="descumpriuMedida1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="descumpriuMedida2" name="descumpriuMedida" value="nao">
+                                            <label for="descumpriuMedida2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="descumpriuMedida3" name="descumpriuMedida" value="nao-sei">
+                                            <label for="descumpriuMedida3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Dificuldades Financeiras do Agressor -->
+                                <div class="sub-block">
+                                    <h4>14. O(A) agressor(a) está com dificuldades financeiras, está desempregado ou tem dificuldade de se manter no emprego?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="dificuldadesFinanceiras1" name="dificuldadesFinanceiras" value="sim">
+                                            <label for="dificuldadesFinanceiras1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="dificuldadesFinanceiras2" name="dificuldadesFinanceiras" value="nao">
+                                            <label for="dificuldadesFinanceiras2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="dificuldadesFinanceiras3" name="dificuldadesFinanceiras" value="nao-sei">
+                                            <label for="dificuldadesFinanceiras3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Acesso a Armas -->
+                                <div class="sub-block">
+                                    <h4>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acessoArma1" name="acessoArma" value="sim-usou">
+                                            <label for="acessoArma1">Sim, usou</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acessoArma2" name="acessoArma" value="sim-ameacou">
+                                            <label for="acessoArma2">Sim, ameaçou usar</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acessoArma3" name="acessoArma" value="tem-acesso">
+                                            <label for="acessoArma3">Tem fácil acesso</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acessoArma4" name="acessoArma" value="nao">
+                                            <label for="acessoArma4">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acessoArma5" name="acessoArma" value="nao-sei">
+                                            <label for="acessoArma5">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Agressor Ameaçou/Agrediu Filhos/Familiares/Amigos/Animais -->
+                                <div class="sub-block">
+                                    <h4>16. O(A) agressor(a) já ameaçou ou agrediu seus filhos, outros familiares, amigos, colegas de trabalho, pessoas desconhecidas ou animais?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos1" name="ameacaAgressaoFilhos" value="sim-filhos">
+                                            <label for="ameacaAgressaoFilhos1">Sim, filhos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos2" name="ameacaAgressaoFilhos" value="sim-outros-familiares">
+                                            <label for="ameacaAgressaoFilhos2">Sim, outros familiares</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos3" name="ameacaAgressaoFilhos" value="sim-amigos">
+                                            <label for="ameacaAgressaoFilhos3">Sim, amigos</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos4" name="ameacaAgressaoFilhos" value="sim-colegas-trabalho">
+                                            <label for="ameacaAgressaoFilhos4">Sim, colegas de trabalho</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos5" name="ameacaAgressaoFilhos" value="sim-outras-pessoas">
+                                            <label for="ameacaAgressaoFilhos5">Sim, outras pessoas</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos6" name="ameacaAgressaoFilhos" value="sim-animais">
+                                            <label for="ameacaAgressaoFilhos6">Sim, animais</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos7" name="ameacaAgressaoFilhos" value="nao">
+                                            <label for="ameacaAgressaoFilhos7">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="ameacaAgressaoFilhos8" name="ameacaAgressaoFilhos" value="nao-sei">
+                                            <label for="ameacaAgressaoFilhos8">Não sei</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label>16.1 Meio Utilizado:</label>
+                                                <div class="checkbox-group">
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="meioUtilizado_arma-fogo" name="meioUtilizado" value="arma-fogo">
+                                                        <label for="meioUtilizado_arma-fogo">Arma de fogo</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="meioUtilizado_arma-branca" name="meioUtilizado" value="arma-branca">
+                                                        <label for="meioUtilizado_arma-branca">Arma branca</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="meioUtilizado_fala" name="meioUtilizado" value="fala">
+                                                        <label for="meioUtilizado_fala">Fala</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="outroMeioUtilizado">Outro meio:</label>
+                                                    <input type="text" id="outroMeioUtilizado" name="outroMeioUtilizado" class="form-control" placeholder="Especifique outro meio">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar5">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo5">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 6: Sobre a Vítima -->
+                        <div class="tab-content" id="tab6">
+                            <div class="tab-header">
+                                <h3>6. Bloco III - Sobre você</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="sub-block">
+                                    <h4>17. Você se separou recentemente do(a) agressor(a) ou tentou ou manifestou intenção de se separar?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="separacaoRecente1" name="separacaoRecente" value="sim">
+                                            <label for="separacaoRecente1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="separacaoRecente2" name="separacaoRecente" value="nao">
+                                            <label for="separacaoRecente2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>18. Você tem filhos?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="temFilhos1" name="temFilhos" value="nao">
+                                            <label for="temFilhos1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="temFilhos2" name="temFilhos" value="sim-com-agressor">
+                                            <label for="temFilhos2">Sim, com o agressor</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="temFilhos3" name="temFilhos" value="sim-outro-relacionamento">
+                                            <label for="temFilhos3">Sim, de outro relacionamento</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div id="filhosDetalhesRow" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="quantidadeFilhos">Quantos filhos?</label>
+                                                <input type="number" id="quantidadeFilhos" name="quantidadeFilhos" class="form-control" min="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="nomesIdadesFilhos">Nome e idade:</label>
+                                                <input type="text" id="nomesIdadesFilhos" name="nomesIdadesFilhos" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-bloco: Filho(s) com Deficiência -->
+                                <div class="sub-block">
+                                    <h4>19. Algum de seus filhos é pessoa com deficiência?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhoDeficiencia1" name="filhoDeficiencia" value="sim">
+                                            <label for="filhoDeficiencia1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhoDeficiencia2" name="filhoDeficiencia" value="nao">
+                                            <label for="filhoDeficiencia2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhoDeficiencia3" name="filhoDeficiencia" value="nao-tenho-filhos">
+                                            <label for="filhoDeficiencia3">Não tenho filhos</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Sub-bloco: Conflito Guarda Filhos -->
+                                <div class="sub-block">
+                                    <h4>20. Estão vivendo algum conflito com relação à guarda dos filhos, visitas ou pagamento de pensão pelo agressor (a)?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="conflitoGuardaFilhos1" name="conflitoGuardaFilhos" value="sim">
+                                            <label for="conflitoGuardaFilhos1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="conflitoGuardaFilhos2" name="conflitoGuardaFilhos" value="nao">
+                                            <label for="conflitoGuardaFilhos2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="conflitoGuardaFilhos3" name="conflitoGuardaFilhos" value="nao-tenho-filhos">
+                                            <label for="conflitoGuardaFilhos3">Não tenho filhos</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+
+                                <!-- Sub-bloco: Filho(s) Presenciaram Violência -->
+                                <div class="sub-block">
+                                    <h4>21. Seu(s) filho(s) já presenciaram ato(s) de violência do(a) agressor(a) contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhosPresenciaramViolencia1" name="filhosPresenciaramViolencia" value="sim">
+                                            <label for="filhosPresenciaramViolencia1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhosPresenciaramViolencia2" name="filhosPresenciaramViolencia" value="nao">
+                                            <label for="filhosPresenciaramViolencia2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="filhosPresenciaramViolencia3" name="filhosPresenciaramViolencia" value="nao-tenho-filhos">
+                                            <label for="filhosPresenciaramViolencia3">Não tenho filhos</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Violência Durante a Gravidez/Pós-parto -->
+                                <div class="sub-block">
+                                    <h4>22. Você sofreu algum tipo de violência durante a gravidez ou nos três meses posteriores ao parto?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="violenciaGravidez1" name="violenciaGravidez" value="sim">
+                                            <label for="violenciaGravidez1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="violenciaGravidez2" name="violenciaGravidez" value="nao">
+                                            <label for="violenciaGravidez2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="violenciaGravidez3" name="violenciaGravidez" value="nao-tenho-filhos">
+                                            <label for="violenciaGravidez3">Não tenho filhos</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Gravidez/Bebê Recente -->
+                                <div class="sub-block">
+                                    <h4>23. Você está grávida ou teve bebê nos últimos 18 meses?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="gravidaBebeRecente1" name="gravidaBebeRecente" value="sim">
+                                            <label for="gravidaBebeRecente1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="gravidaBebeRecente2" name="gravidaBebeRecente" value="nao">
+                                            <label for="gravidaBebeRecente2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="sub-block">
+                                    <h4>24. Você está fazendo acompanhamento psicológico?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acompanhamentoPsicologicoVitima1" name="acompanhamentoPsicologicoVitima" value="nao">
+                                            <label for="acompanhamentoPsicologicoVitima1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="acompanhamentoPsicologicoVitima2" name="acompanhamentoPsicologicoVitima" value="sim">
+                                            <label for="acompanhamentoPsicologicoVitima2">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="orgaoAcompanhamentoRow" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="orgaoAcompanhamento">Em qual Órgão?</label>
+                                                <input type="text" id="orgaoAcompanhamento" name="orgaoAcompanhamento" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!-- Sub-bloco: Residência com Agressor -->
+                                <div class="sub-block">
+                                    <h4>25. Você ainda reside com o(a) agressor(a) ou ele tem acesso fácil à sua residência?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="resideComAgressor1" name="resideComAgressor" value="nao">
+                                            <label for="resideComAgressor1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="resideComAgressor2" name="resideComAgressor" value="sim-resido">
+                                            <label for="resideComAgressor2">Sim, resido com ele</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="resideComAgressor3" name="resideComAgressor" value="acesso-facil">
+                                            <label for="resideComAgressor3">Ele tem fácil acesso à minha residência</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Local Seguro -->
+                                <div class="sub-block">
+                                    <h4>26. Você possui algum local seguro para o qual possa deslocar caso sua vida esteja em risco?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="localSeguro1" name="localSeguro" value="nao">
+                                            <label for="localSeguro1">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="localSeguro2" name="localSeguro" value="sim">
+                                            <label for="localSeguro2">Sim</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="localSeguroDetalhesRow" style="display: none;">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="localSeguroDetalhes">Qual?</label>
+                                                <input type="text" id="localSeguroDetalhes" name="localSeguroDetalhes" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar6">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo6">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 7: Outras Informações -->
+                        <div class="tab-content" id="tab7">
+                            <div class="tab-header">
+                                <h3>7. Bloco IV - Outras Informações Importantes</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="sub-block">
+                                    <h4>27. Você considera que mora em bairro, comunidade, área rural ou local de risco de violência?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="localRisco1" name="localRisco" value="sim">
+                                            <label for="localRisco1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="localRisco2" name="localRisco" value="nao">
+                                            <label for="localRisco2">Não</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="localRisco3" name="localRisco" value="nao-sei">
+                                            <label for="localRisco3">Não sei</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>28. Qual sua situação de moradia?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="situacaoMoradia1" name="situacaoMoradia" value="propria">
+                                            <label for="situacaoMoradia1">Própria</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="situacaoMoradia2" name="situacaoMoradia" value="alugada">
+                                            <label for="situacaoMoradia2">Alugada</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="situacaoMoradia3" name="situacaoMoradia" value="cedida">
+                                            <label for="situacaoMoradia3">Cedida ou "de favor"</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cedidaPorQuemRow" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="cedidaPorQuem">Por quem?</label>
+                                                <input type="text" id="cedidaPorQuem" name="cedidaPorQuem" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>29. Você se considera dependente financeiramente do(a) agressor(a)?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="dependenciaFinanceira1" name="dependenciaFinanceira" value="sim">
+                                            <label for="dependenciaFinanceira1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="dependenciaFinanceira2" name="dependenciaFinanceira" value="nao">
+                                            <label for="dependenciaFinanceira2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Sub-bloco: Abrigo Temporário -->
+                                <div class="sub-block">
+                                    <h4>30. Você quer e aceita abrigamento temporário imediato?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="abrigamentoTemporario1" name="abrigamentoTemporario" value="sim">
+                                            <label for="abrigamentoTemporario1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="abrigamentoTemporario2" name="abrigamentoTemporario" value="nao">
+                                            <label for="abrigamentoTemporario2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Sub-bloco: Agressor Voltou a Praticar Violência -->
+                                <div class="sub-block">
+                                    <h4>31. Após o registro do último Boletim de Ocorrência, o agressor voltou a praticar alguma violência contra você?</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="agressorVoltouViolencia1" name="agressorVoltouViolencia" value="sim">
+                                            <label for="agressorVoltouViolencia1">Sim</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="agressorVoltouViolencia2" name="agressorVoltouViolencia" value="nao">
+                                            <label for="agressorVoltouViolencia2">Não</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar7">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnProximo7">Preencher Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba 8: Conclusão -->
+                        <div class="tab-content" id="tab8">
+                            <div class="tab-header">
+                                <h3>8. Conclusão e Assinatura</h3>
+                            </div>
+                            <div class="tab-body">
+                                <div class="sub-block">
+                                    <h4>Declaração</h4>
+                                    <p>Declaro, para os fins de direito, que as informações acima são verídicas e foram prestadas por mim.</p>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="nomeCompleto">Nome Completo:</label>
+                                                <input type="text" id="nomeCompleto" name="nomeCompleto" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="signature-container">
+                                        <input type="file" id="signatureFileInput" accept="image/*" style="display: none;">
+                                        <button type="button" id="btnAssinatura" class="btn-signature">Carregar assinatura</button>
+                                        <div class="imgSalvar" id="signaturePreviewContainer" style="margin-top: 10px; display: none;">
+                                            <img id="signaturePreview" src="#" alt="Pré-visualização da Assinatura" style="max-width: 200px; max-height: 100px; border: 1px solid #ccc;">
+                                              <button type="button" id="btnSalvarAssinatura" class="btn primary" style="margin-left: 10px;">Salvar Assinatura</button>
+                                            <p id="uploadStatus" style="margin-top: 5px;"></p>
+                                        <input type="hidden" id="signatureUrl" name="signatureUrl">
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>PARA PREENCHIMENTO PELO POLICIAL MILITAR:</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="preenchimento1" name="preenchimento" value="sem-ajuda">
+                                            <label for="preenchimento1">Vítima respondeu a este formulário sem ajuda profissional</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="preenchimento2" name="preenchimento" value="com-ajuda">
+                                            <label for="preenchimento2">Vítima respondeu a este formulário com auxílio profissional</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="preenchimento3" name="preenchimento" value="sem-condicoes">
+                                            <label for="preenchimento3">Vítima não teve condições de responder a este formulário</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="preenchimento4" name="preenchimento" value="recusou">
+                                            <label for="preenchimento4">Vítima recusou-se a preencher o formulário</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="preenchimento5" name="preenchimento" value="terceiro">
+                                            <label for="preenchimento5">Terceiro comunicante respondeu a este formulário</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>CONCLUSÃO: Grau de risco baseado nas informações prestadas pela vítima:</h4>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="grauRisco1" name="grauRisco" value="medio">
+                                            <label for="grauRisco1">MÉDIO</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="grauRisco2" name="grauRisco" value="alto">
+                                            <label for="grauRisco2">ALTO</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="grauRisco3" name="grauRisco" value="extremo">
+                                            <label for="grauRisco3">EXTREMO</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-block">
+                                    <h4>Observações:</h4>
+                                    <div class="form-group">
+                                        <textarea id="observacoes" name="observacoes" class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn" id="btnVoltar8">Voltar</button>
+                                    <button type="button" class="btn primary" id="btnSalvar">Salvar Avaliação</button>
+                                    <button type="button" class="btn" id="btnVisualizar" style="display: none;">Visualizar para Impressão</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         </div>
+    </div>
+
+<div class="barraLateral">
+       
+        <div class="progress-bar">
+            <div class="menuButton">  
+                <p class="pMenu"> Modelos de históricos prontos:    </p>
+               <a id="IDV" class="BackToEnd2">Inclusão</a>
+               <a id="RDV" class="BackToEnd2">Recusa</a>
+               <a  id="EDV" class="BackToEnd2">Encam. da Vítima</a>
+               <a id="RDEDV" class="BackToEnd2">Recusa de Enc. da Vítima</a>
+              <a id="NDA" class="BackToEnd2">Notificação do Autor</a>
+               <a id="ADLPV" class="BackToEnd2">Lei para Vítima</a>
+               <a  id="ADLPA" class="BackToEnd2">Lei para Autor</a>
+               <a id="MDV" class="BackToEnd2">Monit. da Vítima</a>
+               <a id="MDA" class="BackToEnd2">Monit. do Autor</a>
+               <a  id="ECAV" class="BackToEnd2">Encerramento</a>
+               <a id = "DSSA"  class="BackToEnd2" >Diligência sem sucesso autor</a>
+               <a id = "DSSV"  class="BackToEnd2" >Diligência sem sucesso Vítima</a>
+                           <a id = "OUTROS"  class="BackToEnd2" >Outros...</a>
+
+            </div>
+
+            </div>
+        </div>
+</div> 
+
+<div class="smartPhone"> 
+    <h1>Olá, Operador PVD!
+</h1>
+    <p class="pAbaixo">Percebi que você está acessando o sistema em um aparelho Android ou iOS. Lembre-se que o app está disponível apenas na Play Store. Clique no botão abaixo para acessá-lo.</p>
+    <a href="https://play.google.com/store/apps/details?id=SEU_ID_DO_APP" target="_blank" class="baixeOapp">Baixe o APP</a>
+
+</div>
+
+        <script type="module" src="formulario.js"></script>
+        <script type="module" src="atualizarDados.js"></script>
+ <script type="module" src="./meusite/atualizarDados.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

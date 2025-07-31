@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULÁRIO DE AVALIAÇÃO DE RISCO</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+                <link rel="icon" type="image/png" href="./meusite/logo.png"> 
+
+</head>
+<body>
+    <div class="container">
+        
+        <section class="section">
+        <div class="header">
+            <div class="logo-left">
+                <img src="logoMarcaPM.png" alt="Polícia Militar de Minas Gerais">
+            </div>
+            <div class="title-center">
+                <h1>FORMULÁRIO DE AVALIAÇÃO DE RISCO</h1>
+            </div>
+            <div class="logo-right">
+                <img src="logoCia.png" alt="3ª CIA PM IND PVD">
+            </div>
+        </div>
+
+            <h2>Identificação das Partes - Vítima</h2>
+            <div class="form-row">
+                <span>Nome da vítima: <span class="input-line" id="nomeVitima"></span></span>
+                <span>Idade: <span class="input-line small" id="idadeVitima"></span> anos</span>
+            </div>
+            <div class="form-row">
+                <span>Estado Civil:</span>
+                <label><input type="checkbox" id="estadoCivilVitima_solteira"> solteira</label>
+                <label><input type="checkbox" id="estadoCivilVitima_casada"> casada</label>
+                <label><input type="checkbox" id="estadoCivilVitima_divorciada"> divorciada</label>
+                <label><input type="checkbox" id="estadoCivilVitima_separada"> separada judicialmente</label>
+                <label><input type="checkbox" id="estadoCivilVitima_viuva"> viúva</label>
+                <label><input type="checkbox" id="estadoCivilVitima_uniao"> união estável</label>
+            </div>
+            <div class="form-row">
+                <span>Escolaridade:</span>
+                <label><input type="checkbox" id="escolaridadeVitima_analfabeta"> Analfabeta</label>
+                <label><input type="checkbox" id="escolaridadeVitima_alfabetizada"> Alfabetizada</label>
+                <label><input type="checkbox" id="escolaridadeVitima_fundamental-incompleto"> Ensino fundamental incompleto</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="escolaridadeVitima_fundamental-completo"> Ensino fundamental completo</label>
+                <label><input type="checkbox" id="escolaridadeVitima_medio-incompleto"> Ensino médio incompleto</label>
+                <label><input type="checkbox" id="escolaridadeVitima_medio-completo"> Ensino médio completo</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="escolaridadeVitima_superior-incompleto"> Superior incompleto</label>
+                <label><input type="checkbox" id="escolaridadeVitima_superior-completo"> Superior completo</label>
+                <label><input type="checkbox" id="escolaridadeVitima_pos-graduacao"> Pós-graduação</label>
+            </div>
+            <div class="form-row">
+                <span>Nacionalidade:</span>
+                <label><input type="checkbox" id="nacionalidadeVitima_brasileira"> brasileira</label>
+                <label><input type="checkbox" id="nacionalidadeVitima_estrangeira"> estrangeira, país:<span class="input-line large" id="paisEstrangeiroVitima"></span></label>
+            </div>
+            <div class="form-row">
+                <span>Tel. 1 <span class="input-line medium" id="telefoneVitima"></span></span>
+                <span>Tel. 2 <span class="input-line medium" id="telefone2Vitima"></span></span>
+                <span>PM:</span>
+                <label><input type="checkbox" id="pmVitima_nao"> Não</label>
+                <label><input type="checkbox" id="pmVitima_sim"> Sim, Unidade: <span class="input-line medium" id="unidadePMVitima"></span></label>
+            </div>
+            <div class="form-row">
+                <span>Profissão: <span class="input-line large" id="profissaoVitima"></span></span>
+                <span>Horário de trabalho: <span class="input-line large" id="horarioTrabalhoVitima"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Endereço profissional: <span class="input-line x-large" id="enderecoVitima"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Com qual cor/raça você se identifica:</span>
+                <label><input type="checkbox" id="corRacaVitima_branca"> branca</label>
+                <label><input type="checkbox" id="corRacaVitima_preta"> preta</label>
+                <label><input type="checkbox" id="corRacaVitima_parda"> parda</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="corRacaVitima_amarela"> amarela</label>
+                <label><input type="checkbox" id="corRacaVitima_indigena"> indígena</label>
+                <label><input type="checkbox" id="corRacaVitima_oriental"> oriental</label>
+            </div>
+            <div class="form-row">
+                <span>Email: <span class="input-line large" id="emailVitima"></span></span>
+                <span>CPF: <span class="input-line large" id="cpfVitima"></span></span>
+                <span>RG: <span class="input-line large" id="rgVitima"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Relação vítima/autor: </span>
+                <label><input type="checkbox" id="relacaoVitimaAutor_conjuge"> cônjuge</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_companheiro"> companheiro(a)</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_ex-conjuge"> ex-cônjuge</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_ex-companheiro"> ex-companheiro(a)</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="relacaoVitimaAutor_namorado"> namorado(a)</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_ex-namorado"> ex-namorado</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_caso"> caso</label>
+                <label><input type="checkbox" id="relacaoVitimaAutor_relacao-extraconjugal"> relação extraconjugal</label>
+            </div>
+    
+            <h2>Identificação das Partes - Agressor</h2>
+            <div class="form-row">
+                <span>Nome do(a) agressor(a): <span class="input-line" id="nomeAgressor"></span></span>
+                <span>Idade: <span class="input-line small" id="idadeAgressor"></span> anos</span>
+            </div>
+            <div class="form-row">
+                <span>Estado Civil:</span>
+                <label><input type="checkbox" id="estadoCivilAgressor_solteiro"> solteiro(a)</label>
+                <label><input type="checkbox" id="estadoCivilAgressor_casado"> casado(a)</label>
+                <label><input type="checkbox" id="estadoCivilAgressor_uniao"> união estável</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="estadoCivilAgressor_divorciado"> divorciado(a)</label>
+                <label><input type="checkbox" id="estadoCivilAgressor_separado"> separado(a) judicialmente</label>
+                <label><input type="checkbox" id="estadoCivilAgressor_viuvo"> viúvo(a)</label>
+            </div>
+            <div class="form-row">
+                <span>Escolaridade:</span>
+                <label><input type="checkbox" id="escolaridadeAgressor_analfabeto"> Analfabeto(a)</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_alfabetizado"> Alfabetizado(a)</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_fundamental-incompleto"> Ensino fundamental incompleto</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="escolaridadeAgressor_fundamental-completo"> Ensino fundamental completo</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_medio-incompleto"> Ensino médio incompleto</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_medio-completo"> Ensino médio completo</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="escolaridadeAgressor_superior-incompleto"> Superior incompleto</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_superior-completo"> Superior completo</label>
+                <label><input type="checkbox" id="escolaridadeAgressor_pos-graduacao"> Pós-graduação</label>
+            </div>
+            <div class="form-row">
+                <span>Nacionalidade:</span>
+                <label><input type="checkbox" id="nacionalidadeAgressor_brasileiro"> brasileiro(a)</label>
+                <label><input type="checkbox" id="nacionalidadeAgressor_estrangeiro"> estrangeiro(a), país: <span class="input-line large" id="paisEstrangeiroAgressor"></span></label>
+            </div>
+            <div class="form-row">
+                <span>Tel. 1 <span class="input-line medium" id="telefoneAgressor"></span></span>
+                <span>Tel. 2 <span class="input-line medium" id="telefone2Agressor"></span></span>
+                <span>PM:</span>
+                <label><input type="checkbox" id="pmAgressor_nao"> Não</label>
+                <label><input type="checkbox" id="pmAgressor_sim"> Sim, Unidade: <span class="input-line medium" id="unidadePMAgressor"></span></label>
+            </div>
+            <div class="form-row">
+                <span>Profissão: <span class="input-line large" id="profissaoAgressor"></span></span>
+                <span>Horário de trabalho: <span class="input-line large" id="horarioTrabalhoAgressor"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Endereço profissional: <span class="input-line x-large" id="enderecoAgressor"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Com qual cor/raça:</span>
+                <label><input type="checkbox" id="corRacaAgressor_branca"> branca</label>
+                <label><input type="checkbox" id="corRacaAgressor_preta"> preta</label>
+                <label><input type="checkbox" id="corRacaAgressor_parda"> parda</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="corRacaAgressor_amarela"> amarela</label>
+                <label><input type="checkbox" id="corRacaAgressor_indigena"> indígena</label>
+                <label><input type="checkbox" id="corRacaAgressor_oriental"> oriental</label>
+            </div>
+            <div class="form-row">
+                <span>Email: <span class="input-line large" id="emailAgressor"></span></span>
+                <span>CPF: <span class="input-line large" id="cpfAgressor"></span></span>
+                <span>RG: <span class="input-line large" id="rgAgressor"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Possui antecedentes criminais?</span>
+                <label><input type="checkbox" id="antecedentesCriminaisAgressor_nao"> Não</label>
+                <label><input type="checkbox" id="antecedentesCriminaisAgressor_sim"> Sim, arts: <span class="input-line large" id="artigosAntecedentesAgressor"></span></label>
+            </div>
+         </section>
+
+        <section class="section">
+            <h2>Informações sobre a situação atual entre as partes</h2>
+            <div class="form-row">
+                <span>Tempo de relacionamento: <span class="input-line medium" id="tempoRelacionamento"></span></span>
+                <span>Estão separados?</span>
+                <label><input type="checkbox" id="separados_nao"> Não</label>
+                <label><input type="checkbox" id="separados_sim"> Sim, há: <span class="input-line medium" id="tempoSeparacao"></span></label>
+            </div>
+            <div class="form-row">
+                <span>Há quanto tempo ocorre violência no relacionamento: <span class="input-line medium" id="tempoViolencia"></span></span>
+                <span>Possui MPU?</span>
+                <label><input type="checkbox" id="mpu_sim"> Sim</label>
+                <label><input type="checkbox" id="mpu_nao"> Não</label>
+                <label><input type="checkbox" id="mpu_solicitou"> Solicitou</label>
+            </div>
+            <div class="form-row">
+                <span>Intimação da vítima:</span>
+                <label><input type="checkbox" id="intimacaoVitima_sim"> Sim</label>
+                <label><input type="checkbox" id="intimacaoVitima_nao"> Não</label>
+                <span>O autor já foi intimado:</span>
+                <label><input type="checkbox" id="autorIntimado_sim"> Sim</label>
+                <label><input type="checkbox" id="autorIntimado_nao"> Não</label>
+                <label><input type="checkbox" id="autorIntimado_nao-sei"> Não sei</label>
+            </div>
+            <div class="form-row">
+                <span>Nº Processo: <span class="input-line large" id="numeroProcesso"></span></span>
+                <span>Data de expedição: <span class="input-line x-small" id="dataExpedicaoDia"></span>/<span class="input-line x-small" id="dataExpedicaoMes"></span>/<span class="input-line x-small" id="dataExpedicaoAno"></span></span>
+            </div>
+            <div class="form-row">
+                <span>Já representou contra o autor na Delegacia de mulheres?</span>
+                <label><input type="checkbox" id="representou_nao"> Não</label>
+                <label><input type="checkbox" id="representou_sim"> Sim:  <span class="input-line x-small" id="dataRepresentacaoDia"></span>/<span class="input-line x-small" id="dataRepresentacaoMes"></span>/<span class="input-line x-small" id="dataRepresentacaoAno"></span></label>
+            </div>
+      
+            <h2>Bloco I - Sobre o histórico de violência</h2>
+            <div class="question">
+                <p><strong>1. O(A) agressor(a) já praticou alguma(s) destas agressões físicas contra você?</strong></p>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" id="agressaoFisica_queimadura"> Queimadura</label>
+                    <label><input type="checkbox" id="agressaoFisica_facada"> Facada</label>
+                    <label><input type="checkbox" id="agressaoFisica_tiro"> Tiro</label>
+                    <label><input type="checkbox" id="agressaoFisica_puxao-cabelo"> Puxão de Cabelo</label>
+                    <label><input type="checkbox" id="agressaoFisica_enforcamento"> Enforcamento</label>
+                    <label><input type="checkbox" id="agressaoFisica_paulada"> Paulada</label>
+                    <label><input type="checkbox" id="agressaoFisica_soco"> Soco</label>
+                    <label><input type="checkbox" id="agressaoFisica_nenhuma"> Nenhuma agressão física</label>
+                    <label><input type="checkbox" id="agressaoFisica_sufocamento"> Sufocamento</label>
+                    <label><input type="checkbox" id="agressaoFisica_chute"> Chute</label>
+                    <label><input type="checkbox" id="agressaoFisica_empurrao"> Empurrão</label>
+                    <label><input type="checkbox" id="agressaoFisica_afogamento"> Afogamento</label>
+                    <label><input type="checkbox" id="agressaoFisica_tapa"> Tapa</label>
+                    <label><input type="checkbox" id="agressaoFisica_estrangulamento"> Estrangulamento</label>
+                    <label><input type="checkbox" id="agressaoFisica_mordida"> Mordida</label>
+                   
+                </div>
+                 <label> Outra(s):  <span class="input-line medium" id="outrasAgressoesFisicas"></span></label>
+            </div>
+
+            <div class="question">
+                <p><strong>2. Você necessitou de atendimento médico e/ou internação após algumas dessas agressões?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="atendimentoMedico_sim-atendimento"> Sim, atendimento médico</label>
+                    <label><input type="checkbox" id="atendimentoMedico_sim-internacao"> Sim, internação</label>
+                    <label><input type="checkbox" id="atendimentoMedico_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>3. O(A) agressor(a) já praticou alguma dessas violências psicológicas contra você?</strong></p>
+                <div class="checkbox-list">
+                    <label><input type="checkbox" id="violenciaPsicologica_ameaca-morte"> Ameaça de morte</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_ameaca-arma"> Ameaça com arma de fogo</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_ameaca-faca"> Ameaça com faca</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_chantagem"> Chantagem</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_humilhacao"> Humilhação</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_manipulacao"> Manipulação</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_proibicao-visitas"> Proibiu você de visitar familiares ou amigos</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_proibicao-trabalho"> Proibiu você de trabalhar ou estudar</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_gaslighting"> Distorceu e/ou omitiu fatos para deixar você em dúvida sobre a sua memória e sanidade</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_ameaca-posse"> Disse algo parecido com a frase: "se não for minha não será de mais ninguém"</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_perseguicao"> Perturbou, perseguiu ou vigiou você nos locais em que frequenta</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_mensagens-insistentes"> Fez telefonemas, enviou mensagens pelo celular ou e-mails de forma insistente</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_ciume-controle"> Teve outros comportamentos de ciúme excessivo e de controle sobre você</label>
+                    <label><input type="checkbox" id="violenciaPsicologica_nenhuma"> Nenhum dos comportamentos acima listados</label>
+                    <label>Outra(s): <span class="input-line large" id="outrasViolenciasPsicologicas"></span></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>4. O(A) agressor(a) já praticou alguma(s) destas agressões sexuais contra você?</strong></p>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" id="agressaoSexual_forcou-uso-contraceptivos"> Forçou o uso de contraceptivos</label>
+                    <label><input type="checkbox" id="agressaoSexual_provocou-aborto"> Provocou aborto</label>
+                    <label><input type="checkbox" id="agressaoSexual_impediu-uso-contraceptivos"> Impediu o uso de contraceptivos</label>
+                    <label><input type="checkbox" id="agressaoSexual_atos-sexuais-nao-desejados"> Atos sexuais não desejados</label>
+                    <label><input type="checkbox" id="agressaoSexual_forcou-gravidez"> Forçou gravidez</label>
+                    <label><input type="checkbox" id="agressaoSexual_estupro"> Estupro</label>
+                    <label><input type="checkbox" id="agressaoSexual_nenhuma-agressao-sexual"> Nenhuma agressão sexual</label>
+                    
+                </div>
+                <label>Outra(s): <span class="input-line large" id="outrasAgressoesSexuais"></span></label>
+            </div>
+  </section>
+
+        <section class="section">
+            <div class="question">
+                <p><strong>5. O(A) agressor(a) já praticou alguma(s) destas agressões patrimoniais contra você?</strong></p>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" id="agressaoPatrimonial_danificou-moveis"> Danificou móveis</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_danificou-roupas"> Danificou roupas</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_destruiu-documentos"> Destruiu/reteve documentos</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_danificou-utensilios"> Danificou utensílios</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_quebrou-celular"> Quebrou celular</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_danificou-eletrodomesticos"> Danificou eletrodomésticos</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_controlou-dinheiro"> Controlou dinheiro</label>
+                    <label><input type="checkbox" id="agressaoPatrimonial_nenhuma-agressao-patrimonial"> Nenhuma agressão patrimonial</label>
+                    
+                </div>
+                <label>Outra(s): <span class="input-line large" id="outrasAgressoesPatrimoniais"></span></label>
+            </div>
+
+            <div class="question">
+                <p><strong>6. O(A) agressor(a) já praticou alguma(s) destas agressões morais contra você?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="agressaoMoral_calunia"> Calúnia</label>
+                    <label><input type="checkbox" id="agressaoMoral_difamacao"> Difamação</label>
+                    <label><input type="checkbox" id="agressaoMoral_injuria"> Injúria</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>7. Você já registrou ocorrência policial ou formulou pedido de medida protetiva de urgência envolvendo esse(a) mesmo(a) agressor(a)?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="ocorrenciaPolicial_sim"> Sim</label>
+                    <label><input type="checkbox" id="ocorrenciaPolicial_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>8. As ameaças ou agressões físicas do(a) agressor(a) contra você se tornaram mais frequentes ou mais graves nos últimos meses?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="ameacasFrequentes_sim"> Sim</label>
+                    <label><input type="checkbox" id="ameacasFrequentes_nao"> Não</label>
+                    <label><input type="checkbox" id="ameacasFrequentes_nao-sei"> Não sei</label>
+                </div>
+            </div>
+       
+            <h2>Bloco II - Sobre o(a) agressor(a)</h2>
+            <div class="question">
+                <p><strong>9. O (A) agressor(a) faz uso abusivo de álcool ou de drogas ou medicamentos?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="usoSubstancias_alcool"> Sim, de álcool</label>
+                    <label><input type="checkbox" id="usoSubstancias_drogas"> Sim, de drogas</label>
+                    <label><input type="checkbox" id="usoSubstancias_medicamentos"> Sim, de medicamentos</label>
+                    <label><input type="checkbox" id="usoSubstancias_nao"> Não</label>
+                    <label><input type="checkbox" id="usoSubstancias_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>10. O(A) agressor(a) tem alguma doença mental comprovada por avaliação médica?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="doencaMental_sim-medicacao"> Sim e faz uso de medicação</label>
+                    <label><input type="checkbox" id="doencaMental_sim-sem-medicacao"> Sim e não faz uso de medicação</label>
+                    <label><input type="checkbox" id="doencaMental_nao"> Não</label>
+                </div>
+                <div class="form-row">
+                    <label><input type="checkbox" id="doencaMental_nao-com-medicacao"> Não e faz uso de medicação</label>
+                    <label><input type="checkbox" id="doencaMental_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>11. O(A) agressor(a) faz acompanhamento psicológico?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="acompanhamentoPsicologico_sim"> Sim</label>
+                    <label><input type="checkbox" id="acompanhamentoPsicologico_nao"> Não</label>
+                    <label><input type="checkbox" id="acompanhamentoPsicologico_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>12. O(A) agressor(a) já tentou suicídio ou falou em suicidar-se?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="suicidioAgressor_sim"> Sim</label>
+                    <label><input type="checkbox" id="suicidioAgressor_nao"> Não</label>
+                    <label><input type="checkbox" id="suicidioAgressor_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>13. O(A) agressor(a) já descumpriu medida protetiva anteriormente?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="descumpriuMedida_sim"> Sim</label>
+                    <label><input type="checkbox" id="descumpriuMedida_nao"> Não</label>
+                    <label><input type="checkbox" id="descumpriuMedida_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>14. O(A) agressor(a) está com dificuldades financeiras, está desempregado ou tem dificuldade de se manter no emprego?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="dificuldadesFinanceiras_sim"> Sim</label>
+                    <label><input type="checkbox" id="dificuldadesFinanceiras_nao"> Não</label>
+                    <label><input type="checkbox" id="dificuldadesFinanceiras_nao-sei"> Não sei</label>
+                </div>
+            </div>
+  </section>
+
+        <section class="section">
+            <div class="question">
+                <p><strong>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="acessoArma_sim-usou"> Sim, usou</label>
+                    <label><input type="checkbox" id="acessoArma_sim-ameacou"> Sim, ameaçou usar</label>
+                    <label><input type="checkbox" id="acessoArma_tem-acesso"> Tem fácil acesso</label>
+                    <label><input type="checkbox" id="acessoArma_nao"> Não</label>
+                    <label><input type="checkbox" id="acessoArma_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>16. O(A) agressor(a) já ameaçou ou agrediu seus filhos, outros familiares, amigos, colegas de trabalho, pessoas desconhecidas ou animais?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-filhos"> Sim, filhos</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-outros-familiares"> Sim, outros familiares</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-amigos"> Sim, amigos</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-colegas-trabalho"> Sim, colegas de trabalho</label>
+                </div>
+                <div class="form-row">
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-outras-pessoas"> Sim, outras pessoas</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_sim-animais"> Sim, animais</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_nao"> Não</label>
+                    <label><input type="checkbox" id="ameacaAgressaoFilhos_nao-sei"> Não sei</label>
+                </div>
+                <div class="form-row">
+                    <span><strong>16.1 Meio Utilizado:</strong></span>
+                    <label><input type="checkbox" id="meioUtilizado_arma-fogo"> arma de fogo</label>
+                    <label><input type="checkbox" id="meioUtilizado_arma-branca"> arma branca</label>
+                    <label><input type="checkbox" id="meioUtilizado_fala"> fala</label>
+                    <label>Outros meios: <span class="input-line medium" id="outroMeioUtilizado"></span></label>
+                </div>
+            </div>
+     
+            <h2>Bloco III - Sobre você</h2>
+            <div class="question">
+                <p><strong>17. Você se separou recentemente do(a) agressor(a) ou tentou ou manifestou intenção de se separar?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="separacaoRecente_sim"> Sim</label>
+                    <label><input type="checkbox" id="separacaoRecente_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>18. Você tem filhos?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="temFilhos_nao"> Não</label>
+                    <label><input type="checkbox" id="temFilhos_sim-com-agressor"> Sim, com o agressor. Quantos? <span class="input-line x-small" id="quantidadeFilhos"></span> Nome e idade: <span class="input-line large" id="nomesIdadesFilhos"></span></label>
+                </div>
+                <div class="form-row">
+                    <label><input type="checkbox" id="temFilhos_sim-outro-relacionamento"> Sim, de outro relacionamento. Quantos? <span class="input-line x-small" id="quantidadeFilhosOutro"></span> Nome e idade: <span class="input-line large" id="nomesIdadesFilhosOutro"></span></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>19. Algum de seus filhos é pessoa com deficiência?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="filhoDeficiencia_sim"> Sim</label>
+                    <label><input type="checkbox" id="filhoDeficiencia_nao"> Não</label>
+                    <label><input type="checkbox" id="filhoDeficiencia_nao-tenho-filhos"> Não tenho filhos</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>20. Você tem conflito pela guarda de seus filhos com o(a) agressor(a)?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="conflitoGuardaFilhos_sim"> Sim</label>
+                    <label><input type="checkbox" id="conflitoGuardaFilhos_nao"> Não</label>
+                    <label><input type="checkbox" id="conflitoGuardaFilhos_nao-tenho-filhos"> Não tenho filhos</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>21. Seu(s) filho(s) já presenciaram ato(s) de violência do(a) agressor(a) contra você?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="filhosPresenciaramViolencia_sim"> Sim</label>
+                    <label><input type="checkbox" id="filhosPresenciaramViolencia_nao"> Não</label>
+                    <label><input type="checkbox" id="filhosPresenciaramViolencia_nao-tenho-filhos-agressor"> Não tenho filhos com o agressor(a)</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>22. Você sofreu algum tipo de violência durante a gravidez ou nos três meses posteriores ao parto?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="violenciaGravidez_sim"> Sim</label>
+                    <label><input type="checkbox" id="violenciaGravidez_nao"> Não</label>
+                    <label><input type="checkbox" id="violenciaGravidez_nao-tenho-filhos"> Não tenho filhos</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>23. Você está grávida ou teve bebê nos últimos 18 meses?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="gravidaBebeRecente_sim"> Sim</label>
+                    <label><input type="checkbox" id="gravidaBebeRecente_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>24. Você está fazendo acompanhamento psicológico?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="acompanhamentoPsicologicoVitima_nao"> Não</label>
+                    <label><input type="checkbox" id="acompanhamentoPsicologicoVitima_sim"> Sim. Em qual Órgão?<span class="input-line large" id="orgaoAcompanhamento"></span></label>
+                </div>
+            </div>
+  </section>
+
+        <section class="section">
+            <div class="question">
+                <p><strong>25. Você ainda reside com o(a) agressor(a) ou ele tem acesso fácil à sua residência?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="resideComAgressor_nao"> Não</label>
+                    <label><input type="checkbox" id="resideComAgressor_sim-resido"> Sim, resido com ele</label>
+                    <label><input type="checkbox" id="resideComAgressor_acesso-facil"> Ele tem fácil acesso à minha residência</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>26. Você possui algum local seguro para o qual possa deslocar caso sua vida esteja em risco?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="localSeguro_nao"> Não</label>
+                    <label><input type="checkbox" id="localSeguro_sim"> Sim: <span class="input-line x-large" id="localSeguroDetalhes"></span></label>
+                </div>
+            </div>
+        
+            <h2>Bloco IV - Outras Informações Importantes</h2>
+            <div class="question">
+                <p><strong>27. Você considera que mora em bairro, comunidade, área rural ou local de risco de violência?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="localRisco_sim"> Sim</label>
+                    <label><input type="checkbox" id="localRisco_nao"> Não</label>
+                    <label><input type="checkbox" id="localRisco_nao-sei"> Não sei</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>28. Qual sua situação de moradia?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="situacaoMoradia_propria"> Própria</label>
+                    <label><input type="checkbox" id="situacaoMoradia_alugada"> Alugada</label>
+                    <label><input type="checkbox" id="situacaoMoradia_cedida"> Cedida ou "de favor". Por quem? <span class="input-line large" id="cedidaPorQuem"></span></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>29. Você se considera dependente financeiramente do(a) agressor(a )?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="dependenciaFinanceira_sim"> Sim</label>
+                    <label><input type="checkbox" id="dependenciaFinanceira_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>30. Você quer e aceita abrigamento temporário imediato?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="abrigamentoTemporario_sim"> Sim</label>
+                    <label><input type="checkbox" id="abrigamentoTemporario_nao"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>31. Após o registro do último Boletim de Ocorrência, o agressor voltou a praticar alguma violência contra você?</strong></p>
+                <div class="form-row">
+                    <label><input type="checkbox" id="agressorVoltouViolencia_sim"> Sim</label>
+                    <label><input type="checkbox" id="agressorVoltouViolencia_nao"> Não</label>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="declaration">
+                <p>Declaro, para os fins de direito, que as informações supra são verídicas e foram prestadas por mim,</p>
+              
+                <div class="divAssinaturaImg"> 
+                    <img id="assinaturaImg" class="assinaturaImg" src="https://firebasestorage.googleapis.com/v0/b/orange-fast.appspot.com/o/assinaturas%2Fassinatura.jpg?alt=media&token=3702d5a5-bb97-4d2d-8000-569952e2df75"></img>
+                    
+                </div>
+             <div class="assP2">    <p class="assDescricao" style="text-align: center; margin-top: 10px;">Assinatura da vítima/terceiro comunicante</p>   </div>
+                 <p class="assP"><span id="nomeCompleto"></span></p>
+                
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>PARA PREENCHIMENTO PELO POLICIAL MILITAR:</h2>
+            <div class="form-row">
+                <label><input type="checkbox" id="preenchimento_sem-ajuda"> Vítima respondeu a este formulário sem ajuda profissional</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="preenchimento_com-ajuda"> Vítima respondeu a este formulário com auxílio profissional</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="preenchimento_sem-condicoes"> Vítima não teve condições de responder a este formulário</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="preenchimento_recusou"> Vítima recusou-se a preencher o formulário</label>
+            </div>
+            <div class="form-row">
+                <label><input type="checkbox" id="preenchimento_terceiro"> Terceiro comunicante respondeu a este formulário</label>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>CONCLUSÃO: Grau de risco baseado nas informações prestadas pela vítima:</h2>
+            <div class="form-row">
+                <label><input type="checkbox" id="grauRisco_medio"> MÉDIO</label>
+                <label><input type="checkbox" id="grauRisco_alto"> ALTO</label>
+                <label><input type="checkbox" id="grauRisco_extremo"> EXTREMO</label>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Observações:</h2>
+            <div class="observation-lines">
+                <div class="input-line-full" id="observacoes"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+                <div class="input-line-full"></div>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="avRisco.js"></script>
+</body>
+</html>
+

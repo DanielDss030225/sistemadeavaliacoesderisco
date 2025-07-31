@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação de Risco</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+
+            <link rel="icon" type="image/png" href="./meusite/logo.png"> 
+
+</head>
+
+
+ 
+
+<body>
+    <div class="layout">  
+
+      <div class="cabeçalho">
+      
+        <p class="userP" id="user-info">Carregando...</p>
+
+
+        <button class="Sair" onclick="logout()">Sair</button>
+      
+      
+      </div>
+    <div class="container">
+        <header>
+            <h1>Sistema de Avaliação de Risco e Modelos de Históricos Pvds</h1>
+        </header>
+
+        <div class="actions">
+                        <p>Acompanhamento de Avaliações</p>
+
+            <button id="btnNovaAvaliacao" class="btn primary">Nova Registro</button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar por RG da vítima...">
+            <button id="btnSearch" class="btn">Buscar</button>
+        </div>
+
+        <div class="avaliacoes-container">
+            <h2>Registros</h2>
+            <div id="listaAvaliacoes" class="lista-avaliacoes">
+                <!-- As avaliações serão carregadas dinamicamente aqui -->
+                <div class="loading">Carregando avaliações...</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div class="smartPhone"> 
+    <h1>Olá, Operador PVD!
+</h1>
+    <p class="pAbaixo">Percebi que você está acessando o sistema em um aparelho Android ou iOS. Lembre-se que o app está disponível apenas na Play Store. Clique no botão abaixo para acessá-lo.</p>
+ <a href="https://play.google.com/store/apps/details?id=SEU_ID_DO_APP" target="_blank" class="baixeOapp">Baixe o APP</a></div>
+
+            <script type="module" src="index.js"></script>
+
+</body>
+
+
+
+ <script type="module" src="./meusite/atualizarDados.js"></script>
+
+</html>
+

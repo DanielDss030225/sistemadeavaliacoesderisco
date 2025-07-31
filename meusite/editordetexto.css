@@ -1,0 +1,572 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+body.container {
+  background: #f7f9fc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+
+/* Cabeçalho */
+.cabeçalho {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3498db, #ffffff);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(65, 88, 208, 0.4);
+    margin-top: 20px;
+
+}
+
+.cabeçalho p#user-info {
+  font-weight: 600;
+  font-size: 0.9rem; /* Ajustado */
+}
+
+.cabeçalho button {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.9rem; /* Ajustado */
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.cabeçalho button:hover {
+  background-color: #e04343;
+}
+
+
+/* Fundo geral */
+.fundotela {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo e link */
+.maxlargura ul.center {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.maxlargura ul.center a {
+  text-decoration: none;
+}
+
+.logotipo img.imagem {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(65, 88, 208, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.logotipo img.imagem:hover {
+  transform: scale(1.05);
+}
+
+/* Título da página */
+.larguraDoTitulo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#titulopag {
+  font-size: 25px; /* Ajustado */
+  font-weight: 700;
+  text-shadow: 1px 1px 4px rgba(65, 88, 208, 0.3);
+}
+
+/* Fieldset estilizado */
+fieldset {
+  border: 2px solid  #3498db;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 35px;
+  background: #f0f4ff;
+  box-shadow: inset 0 0 10px #c1c9ff;
+  display: flex;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1rem; /* Ajustado */
+  color:  #3498db;
+  padding: 0 10px;
+  text-align: left;
+}
+
+/* Listas e inputs */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  max-width: 550px;
+  padding: 12px 16px;
+  font-size: 0.9rem; /* Ajustado */
+  border: 2px solid #8bb6f1;
+  border-radius: 10px;
+  outline-offset: 2px;
+  margin: 0px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: #3a7bd5; /* azul mais vibrante */
+  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  outline: none; /* remove a outline padrão do navegador */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="date"] {
+  width: 100%;
+  max-width: 550px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  border: 2px solid #8bb6f1;
+  border-radius: 10px;
+  outline-offset: 2px;
+  margin: 0px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  appearance: none;
+}
+
+input[type="date"]:focus {
+  border-color: #3a7bd5;
+  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  outline: none;
+}
+
+select {
+  width: 100%;
+  max-width: 550px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  border: 2px solid #a3b1ff;
+  border-radius: 10px;
+  outline-offset: 2px;
+  background-color: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none; /* Remove estilo padrão do sistema */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+select:focus {
+  border-color: #3a7bd5;
+  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  outline: none;
+}
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+}
+
+/* Classes personalizadas para inputs */
+.tamanhorg {
+  max-width: 250px;
+}
+
+.ocorrencia {
+  max-width: 400px;
+}
+
+.descricao {
+  font-size: 0.9rem; /* Ajustado */
+  resize: vertical;
+  max-width: 100%;
+  border-radius: 12px;
+   width: 100%;
+    min-height: 400px;
+    background-color: #ffffff;
+}
+
+/* Botão copiar texto e gerar */
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color:  #3498db;;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem; /* Ajustado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(65, 88, 208, 0.4);
+}
+
+button:hover {
+  background-color: #0056b3; /* azul escuro no hover */
+}
+
+/* Card botão gerar dados */
+.buttongerar ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cardGerar {
+  background: linear-gradient(45deg, #3498db, #6affb3);
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem; /* Ajustado */
+  color: #223344;
+  box-shadow: 0 6px 20px rgba(106, 106, 255, 0.5);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.cardGerar:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(106, 106, 255, 0.75);
+}
+
+.cardGerar p.selction {
+  margin: 0;
+  text-align: center;
+}
+
+.mensagem {
+  font-weight: 500;
+  font-size: 0.75rem; /* Ajustado */
+  color: #555;
+  margin-top: 6px;
+  text-align: center;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Alerta fullscreen estilizado */
+.alert-fullscreen {
+  position: fixed;
+  top: 23%;
+  left: 23%;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(135deg, #3498db, #ffffff);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem; /* Ajustado */
+  text-align: center;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(72, 82, 224, 0.9);
+}
+
+.alert-fullscreen button {
+  font-size: 1rem; /* Ajustado */
+  color: #3498db;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px 32px;
+  margin-top: 20px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.alert-fullscreen button:hover {
+  background-color: #f0f0f0;
+}
+
+.imagem {
+  height: 60px;
+  width: 60px;
+  margin-left: 50px;
+}
+
+.aImagem {
+  border-left: 100px;
+  width: 200px;
+  text-align: left;
+  background-color: transparent ;
+
+}
+
+.User {
+  color: white;
+  width: 60%;
+  text-align: right;
+  
+}
+
+.MensagemFechar{
+  color: white;
+ 
+
+}
+.selction {
+  color: white;
+}
+
+.alerta-sucesso {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  text-align: center;
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+fieldset { 
+  display: block;
+
+}
+
+.ulEndereco {
+  margin-top: 10px;
+  width: 100%;
+  background-color: transparent;
+
+}
+.DadosComplementaresLabel {
+  margin-bottom: 10px;
+}
+.ulEndereco li {
+  width: 100%;
+  background-color: transparent;
+  text-align: left;
+  align-items: left;
+  margin: 0px;
+}
+
+.ItemsEdit li {
+  width: 500px;
+  background-color: transparent;
+  text-align: left;
+  align-items: left;
+  margin: 7px;
+  display: block;
+}
+
+
+.dadosComplementares {
+  width: 100%;
+}
+
+
+
+.divEditor {
+  width: 100%;
+   min-height: 400px;
+
+}
+
+.fieldsetEditor {
+    width: 100%;
+  min-height: 400px;
+}
+
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #3498db, #ffffff);
+  padding: 0;
+  padding-bottom: 20px;
+    padding-top: 20px;
+
+margin-top: 30px;}
+
+
+.footerp {
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.footerdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  10% { opacity: 1; transform: translate(-50%, -50%); }
+  90% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(-50%, -60%); }
+}
+
+  .layout {
+    display: flex;
+      flex-direction: column;     /* itens em coluna */
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #fff7f7;
+  }
+
+  .smartPhone {
+  display: none; /* Corrige de 'Block' para 'flex' */
+}
+
+.ItemsEdit {
+  display: block;
+  
+}
+.content {
+  background-color: #dceeff;
+  padding: 25px;
+  border-radius: 19px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: flex;            /* ativa o flexbox */
+  align-items: center;      /* centraliza verticalmente */
+  justify-content: center;  /* centraliza horizontalmente */
+  flex-direction: column;   /* opcional: itens empilhados verticalmente */
+}
+
+
+.editarVoltar {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:  #3498db;;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.editarVoltar:hover {
+  background-color: #0056b3; /* azul escuro no hover */
+}
+
+@media (max-width: 768px) {
+  .layout {
+    display: none;
+  }
+
+  .smartPhone {
+  height: 100vh;
+  width: 100vw;
+  display: flex; /* Corrige de 'Block' para 'flex' */
+  flex-direction: column; /* Organiza os filhos em coluna (opcional) */
+  align-items: center;     /* Alinha horizontalmente */
+  justify-content: center; /* Alinha verticalmente */
+  background: linear-gradient(135deg, #3498db, #000000);
+  text-align: center;
+}
+
+.pAbaixo{
+    color: white;
+    width: 90%; 
+}
+
+.baixeOapp {
+    margin-top: 20px;
+    padding: 12px 20px;
+    width: 220px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f9fffc; /* verde agradável */
+    color: rgb(85, 84, 84);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+h1 {
+    color: white;
+}
+.baixeOapp:hover {
+  background: linear-gradient(135deg, #66bcf1, #ffffff);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+}
+
+

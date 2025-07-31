@@ -1,0 +1,264 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #000;
+    font-size: 11pt;
+}
+
+.container {
+    width: 21cm;
+    min-height: 29.7cm;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.logo-right img {
+    height: 60px;
+    width: auto;
+}
+.logo-left img {
+    height: 40px;
+    width: auto;
+}
+
+.title-center {
+    flex: 1;
+    text-align: center;
+}
+
+.title-center h1 {
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+    background-color: #d3d3d3;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #000;
+    text-transform: uppercase;
+}
+
+.section {
+    margin-bottom: 15px;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.form-row {
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.question {
+    margin-bottom: 15px;
+    border: 1px solid #000;
+    padding: 8px;
+}
+
+.question p {
+    margin: 0 0 8px 0;
+    font-weight: normal;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 5px;
+}
+
+.input-line {
+    display: inline-block;
+    border-bottom: 1px solid #000;
+    min-width: 150px;
+    height: 16px;
+    margin: 0 2px;
+}
+
+.input-line.x-small {
+    min-width: 20px;
+}
+
+.input-line.small {
+    min-width: 40px;
+}
+
+.input-line.medium {
+    min-width: 100px;
+}
+
+.input-line.large {
+    min-width: 200px;
+}
+
+.input-line.x-large {
+    min-width: 400px;
+}
+
+.input-line-full {
+    border-bottom: 1px solid #ffffff;
+    height: 20px;
+    margin-bottom: 8px;
+}
+    
+.observation-lines {
+    margin-top: 10px;
+}
+
+
+
+
+.divAssinaturaImg img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+  }
+.assP2, .assP {
+    margin-top: 0px;
+  }
+
+ 
+.assDescricao
+{
+   
+        text-align: center;
+
+}
+
+
+.input-line{ 
+    background-color: none;
+     align-items: center;
+    text-align: center;
+
+}
+label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 3px;
+    font-size: 10pt;
+    white-space: nowrap;
+    color: #000;
+}
+
+input[type="checkbox"] {
+    margin-right: 3px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #000;
+    vertical-align: middle;
+}
+
+.declaration {
+    text-align: center; /* Centraliza o texto e elementos inline */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza elementos blocados como a imagem */
+    justify-content: center;
+  }
+
+.declaration p {
+    margin-bottom: 10px;
+}
+
+/* Ajustes específicos para o layout em tabela */
+.checkbox-grid label {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 9pt;
+}
+
+.checkbox-list label {
+    margin-bottom: 3px;
+    font-size: 10pt;
+}
+
+/* Quebras de linha específicas */
+.form-row span {
+    white-space: nowrap;
+}
+ .smartPhone {
+  display: none; /* Corrige de 'Block' para 'flex' */
+}
+/* Ajustes para impressão */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+    
+    .container {
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 15px;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Estilos específicos para seções */
+.section:first-of-type {
+    margin-top: 0;
+}
+
+/* Ajustes para o cabeçalho das seções */
+.section h2:first-child {
+    margin-top: 0;
+}
+
+/* Espaçamento entre perguntas */
+.question + .question {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+/* Ajustes para campos de texto longos */
+.form-row:has(.input-line.x-large) {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estilo para a conclusão */
+.section:last-of-type h2 {
+    background-color: #f0f0f0;
+    font-size: 12pt;
+}
+

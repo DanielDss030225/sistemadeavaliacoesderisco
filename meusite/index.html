@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Históricos PVD</title>
+    
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="logo.png"> 
+
+</head >
+<body class="container">
+
+
+
+
+
+
+<div class="layout"> 
+  <div class="fundotela">
+    
+  
+    <nav class="nav-list" > 
+      <div class="cabeçalho">
+      
+        <p id="user-info">Carregando...</p>
+
+
+        <button class="Sair" onclick="logout()">Sair</button>
+      
+      
+      </div>
+     
+   <ul> 
+<a class="aImagem" href="#">
+
+     <li class="logo"> 
+      <div>&nbsp </div>
+
+      <img class="imagem" src="logo.png">
+     
+
+       <h3> 
+        Modelos de Históricos Pvd
+       </h3>
+       <div>&nbsp </div>
+ 
+     </li>
+     </a>
+    
+     <li class="inputCard" > <div class="dropdown">
+      
+        <input type="text" placeholder="Pesquisar.." id="myInput" onkeyup="filterFunction()">
+        <div id="myDropdown" class="dropdown-content">
+          <a id = "DSSA" href="editordetexto.html"><p> Diligência sem sucesso autor</p></a>
+          <a id = "DSSV" href="editordetexto.html"><p>Diligência sem sucesso vítima</p></a>
+          <a id = "IDV" href="editordetexto.html"><p>Inclusão da vítima</p></a>
+          <a id = "EDV" href="editordetexto.html"><p>Encaminhamento da vítima</p></a>
+          <a  id = "RDEDV" href="editordetexto.html"><p>Recusa de encaminhamento</p></a>
+
+          <a id = "NDA" href="editordetexto.html"><p>Notificação do autor</p></a>
+          <a id = "RDV" href="editordetexto.html"><p>Recusa da vítima</p></a>
+          <a id = "ADLPV" href="editordetexto.html"><p>Apresentação da lei para a vítima</p></a>
+          <a  id = "ADLPA" href="editordetexto.html"><p>Apresentação da lei para o autor</p></a>
+          <a id = "MDV" href="editordetexto.html"><p>Monitoramento da vítima</p></a>
+
+          <a id = "MDA" href="editordetexto.html"><p>Monitoramento do autor</p></a>
+          <a id = "CCT" href="editordetexto.html"><p>Contato com testemunha</p></a>
+          <a id = "ECAV" href="editordetexto.html"><p>Encerramento com a vítima</p></a>
+          <a id = "VPA" href="editordetexto.html"><p>Visita para autor</p></a>
+          <a id = "VTAV" href="editordetexto.html"><p>Visita tranquilizadora à vítima (Autor preso)</p></a>
+
+          <a id = "VTAVNC" href="editordetexto.html"><p>Visita tranquilizadora à vítima (Não cônjuge)</p></a>
+          <a id = "IDVEA" href="editordetexto.html"><p>Inclusão da vítima (Envolvendo Autoridades)</p></a>
+          <a id = "NDAEA" href="editordetexto.html"><p>Notificação do autor (Envolvendo Autoridades)</p></a>
+          <a id = "RDVEA" href="editordetexto.html"><p>Recusa da vítima (Envolvendo autoridades)</p></a>
+          <a id = "ADLPAVEA" href="editordetexto.html"><p>Apresentação da lei para a vítima (Envolvendo autoridades)</p> 
+          </a>  
+
+          <a id = "ANL" href="editordetexto.html"><p>Autor não localizado</p>
+          </a>
+          <a id = "VNL" href="editordetexto.html"><p>Vítima não localizada</p>
+          </a>
+
+
+
+
+
+
+          <a id = "ADLPAEA" href="editordetexto.html"> <p> Apresentação da lei para o autor (Envolvendo autoridades)</p>
+          </a>
+          <a id = "CCTEA" href="editordetexto.html"><p>Contato com testemunhas (Envolvendo autoridades)</p>
+          </a>
+          <a id = "EDVEA" href="editordetexto.html"><p>Encaminhamento da vítima (Envolvendo autoridades)</p>
+          </a>
+
+
+          <a id = "MDVEA" href="editordetexto.html"><p>Monitoramento da vítima (Envolvendo autoridades)</p>
+          </a>
+          <a id = "MDVEVDRAE" href="editordetexto.html"><p>Monitoramento da vítima em virtude de reincidência após encerramento</p>
+          </a>
+          <a id = "MDVEVDRAEEA" href="editordetexto.html"><p>Monitoramento da vítima em virtude de reincidência após encerramento (Envolvendo autoridades)</p>
+          </a>     
+          <a id = "MDAEA" href="editordetexto.html"><p>Monitoramento do autor (Envolvendo autoridades)</p>
+          </a>
+          <a id = "MDAEVDRAE" href="editordetexto.html"><p>Monitoramento do autor em virtude de reincidência após encerramento</p>
+          </a>
+
+          <a id = "MDAEVDRAEEA" href="editordetexto.html"><p>Monitoramento do autor em virtude de reincidência após encerramento (Envolvendo autoridades)</p>
+          </a>
+          <a id = "EDCEA" href="editordetexto.html"><p>Encerramento do caso (Envolvendo autoridades)</p>
+          </a>
+          <a id = "SDC" href="editordetexto.html"><p>Suspenção do caso</p>
+          </a>
+          <a id = "DPE" href="editordetexto.html"><p>Desligamento pela equipe</p>
+          </a>
+          <a id = "DPEEA" href="editordetexto.html"><p>Desligamento pela equipe (Envolvendo autoridades)</p>
+          </a>
+
+
+          <a id = "DPSDV" href="editordetexto.html"><p>Desligamento por solicitação da vítima</p>
+          </a>
+          <a id = "DPSDVEA" href="editordetexto.html"><p>Desligamento por solicitação da vítima (Envolvendo autoridades)</p>
+          </a>
+          <a id = "DPNLDV" href="editordetexto.html"><p>Desligamento por não localização da vítima</p>
+          </a>
+          <a id = "DPNLDVEA" href="editordetexto.html"><p>Desligamento por não localização da vítima (Envolvendo autoridades)</p>
+          </a>
+          <a  id = "RDEDVEA" href="editordetexto.html"><p>Recusa de encaminhamento (Envolvendo autoridades)</p>
+
+          </a>
+
+
+          <a  id = "CPGR" href="editordetexto.html"><p>Convite para grupo reflexivo</p>
+
+          </a>
+
+        </div>
+      
+
+        
+      </div></li>
+    
+   </ul>
+
+    </nav>
+    <nav> 
+        <ul> 
+          <a id = "DSSAS" href="editordetexto.html" >
+            <li>  
+                
+                <p>  Diligência sem Sucesso Autor                 
+                </p>
+            
+            </li>
+          </a>
+
+          <a id = "DSSVS" href="editordetexto.html">
+          <li>  
+           
+            <p>  Diligência sem sucesso vítima           
+            </p>
+        
+        </li>
+      </a>
+      <a id = "IDVS" href="editordetexto.html">
+
+          <li>  
+            <p>  Inclusão da vítima             
+            </p>
+        
+        </li>
+      </a>
+        </ul>
+     
+         </nav>
+         <nav> 
+          <ul> 
+            <a id = "EDVS" href="editordetexto.html">
+
+              <li>  
+                  <p>  Encaminhamento da vítima            
+                  </p>
+              </li>
+            </a>
+
+            <a id = "RDEDVS" href="editordetexto.html">
+
+            <li>  
+              <p>  Recusa de encaminhamento         
+              </p>
+           
+          </li>
+        </a>
+        <a id = "NDAS" href="editordetexto.html">
+
+            <li>  
+              <p>  Notificação do autor           
+              </p>
+          </li>
+        </a>
+
+          </ul>
+       
+           </nav>
+           <nav> 
+            <ul> 
+              <a id = "RDVS" href="editordetexto.html">
+
+                <li>  
+                  <p> Recusa da vítima             
+                  </p>
+                </li>
+              </a>
+
+              <a id = "ADLPVS" href="editordetexto.html">
+
+              <li>  
+                <p> Apresentação da lei para a vítima          
+                </p>
+            </li>
+          </a>
+
+          <a id = "ADLPAS" href="editordetexto.html">
+
+              <li>  
+                <p>  Apresentação da lei para o autor          
+                </p>
+            </li>
+          </a>
+
+            </ul>
+         
+             </nav>
+             <nav> 
+              <ul> 
+                <a id = "MDVS" href="editordetexto.html">
+
+                  <li>  
+                    <p> Monitoramento da vítima               
+                    </p>
+                  </li>
+                </a>
+
+                <a id = "MDAS" href="editordetexto.html">
+
+                <li>  
+                  <p> Monitoramento do autor           
+                  </p>
+              </li>
+            </a>
+            <a id = "CCTS" href="editordetexto.html">
+
+      
+                <li>  
+                  <p>  Contato com testemunha        
+                  </p>
+              </li>
+            </a>
+
+              </ul>
+           
+               </nav>
+
+               <nav> 
+                <ul> 
+                  <a id = "ECAVS" href="editordetexto.html">
+
+                    <li>  
+                      <p>Encerramento com a vítima              
+                      </p>             
+                </li>
+              </a>
+              <a id = "VPAS" href="editordetexto.html">
+
+                <li>  
+                  <p>Visita para autor              
+                  </p>             
+            </li>
+          </a>
+          <a id = "VTAVS" href="editordetexto.html">
+
+            <li>  
+            <p>Visita tranquilizadora à vítima (Autor preso)             
+              </p>             
+        </li>
+      </a>
+                </ul>
+             
+                 </nav>
+
+                 <nav> 
+                  <ul> 
+                  <a id = "RDVEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Recusa da vítima (Envolvendo autoridades)            
+                  </p>             
+                  </li>
+                  </a>
+                              
+                  </ul>               
+                  </nav>
+
+
+
+                 <nav> 
+                  <ul> 
+                  <a id = "VTAVNCS" href="editordetexto.html">
+                  <li>  
+                  <p>Visita tranquilizadora à vítima (Não cônjuge)            
+                  </p>             
+                  </li>
+                  </a>
+                  <a id = "IDVEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Inclusão da vítima (Envolvendo Autoridades)            
+                  </p>             
+                  </li>
+                  </a>
+                  <a id = "NDAEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Notificação do autor (Envolvendo Autoridades)           
+                  </p>             
+                  </li>
+                  </a>                
+                  </ul>               
+                  </nav>
+
+                  <nav> 
+                    <ul> 
+                    <a id = "VNLS" href="editordetexto.html">
+                    <li>  
+                    <p>Vítima não localizada           
+                    </p>             
+                    </li>
+                    </a>
+                    <a id = "ANLS" href="editordetexto.html">
+                    <li>  
+                    <p>Autor não localizado            
+                    </p>             
+                    </li>
+                    </a>
+                    <a id = "ADLPAVEAS" href="editordetexto.html">
+                    <li>  
+                    <p>Apresentação da lei para a vítima (Envolvendo autoridades)          
+                    </p>             
+                    </li>
+                    </a>                
+                    </ul>               
+                    </nav>
+
+
+ 
+                    <nav> 
+                      <ul> 
+                      <a id = "ADLPAEAS" href="editordetexto.html">
+                      <li>  
+                      <p>Apresentação da lei para o autor (Envolvendo autoridades)        
+                      </p>             
+                      </li>
+                      </a>
+                      <a id = "CCTEAS" href="editordetexto.html">                     
+                      <li>  
+                      <p>Contato com testemunhas (Envolvendo autoridades)           
+                      </p>             
+                      </li>
+                      </a>
+                      <a id = "EDVEAS" href="editordetexto.html">
+                      <li>  
+                      <p>Encaminhameno da vítima (Envolvendo autoridades)          
+                      </p>             
+                      </li>
+                      </a>                
+                      </ul>               
+                      </nav>
+    
+
+
+                       <nav> 
+                        <ul> 
+                        <a id = "MDVEAS" href="editordetexto.html">
+                        <li>  
+                        <p>Monitoramento da vítima (Envolvendo autoridades)       
+                        </p>             
+                        </li>
+                        </a>
+                        <a id = "MDVEVDRAES" href="editordetexto.html">
+                        <li>  
+                        <p>Mon. da vít. em virtude de reincidência após encerramento        
+                        </p>             
+                        </li>
+                        </a>
+                        <a id = "MDVEVDRAEEAS" href="editordetexto.html">
+                        <li>  
+                        <p>Mon. da vít. em virtude de reinc. após encerramento (Env. aut.)      
+                        </p>             
+                        </li>
+                        </a>                
+                        </ul>               
+                        </nav>
+
+
+                        
+                      
+
+
+
+                        <nav> 
+                          <ul> 
+                          <a id = "MDAEAS" href="editordetexto.html">
+                          <li>  
+                          <p>Monitoramento do autor (Env. aut.)          
+                          </p>             
+                          </li>
+                          </a>
+                          <a id = "MDAEVDRAES" href="editordetexto.html">
+                          <li>  
+                          <p>Mon. do aut. em virtude de reinc. após encer.     
+                          </p>             
+                          </li>
+                          </a>
+                          <a id = "MDAEVDRAEEAS" href="editordetexto.html">
+                          <li>  
+                          <p>Mon. do aut. em virtude de reinc. após encer. (Env. aut.)          
+                          </p>             
+                          </li>
+                          </a>                
+                          </ul>               
+                          </nav>
+
+
+                          <nav> 
+                            <ul> 
+                              <a id = "DPSDVEAS" href="editordetexto.html">                               <li>  
+                            <p>Deslig. por solic. da vítima (Env. aut.)             
+                            </p>             
+                            </li>
+                            </a>
+                            
+                                          
+                            </ul>               
+                            </nav>
+
+                       
+
+                          <nav> 
+                            <ul> 
+                             <a id = "EDCEAS" href="editordetexto.html">
+                            <li>  
+                            <p>Encerramento do caso (Envolvendo autoridades)
+                            </p>             
+                            </li>
+                            </a>
+                            <a id = "SDCS" href="editordetexto.html">
+                              <li>  
+                            <p>Suspenção do caso          
+                            </p>             
+                            </li>
+                            </a>
+                            <a id = "DPES" href="editordetexto.html">
+                              <li>  
+                            <p>Desligamento pela equipe          
+                            </p>             
+                            </li>
+                            </a>                
+                            </ul>               
+                            </nav>
+
+
+                            <nav> 
+                              <ul> 
+          <a id = "DPEEAS" href="editordetexto.html">
+                              <li>  
+                              <p>Desligamento pela equipe (Envolvendo autoridades)          
+                              </p>             
+                              </li>
+                              </a>
+                              <a id = "DPSDVS" href="editordetexto.html">
+                                <li>  
+                              <p>Desligamento por solicitação da vítima          
+                              </p>             
+                              </li>
+                              </a>
+
+                             
+                              <a id = "DPNLDVEAS" href="editordetexto.html">
+                                <li>  
+                              <p>Deslig. por não local. da vít. (Env. aut.)          
+                              </p>             
+                              </li>
+                              </a>
+                              
+                              </ul>               
+                              </nav>
+
+
+                              <nav> 
+                                <ul> 
+ <a  id = "RDEDVEAS" href="editordetexto.html">                               <li>  
+                                  <p>Recusa de encaminhamento (Env. aut.)            
+                                  </p>             
+                                  </li>
+                                  </a>  
+
+                      <a id = "DPNLDVS" href="editordetexto.html">
+                                <li>  
+                                <p>Deslig. por não local. da vít.        
+                                </p>             
+                                </li>
+                                </a>
+
+                                <a  id = "CPGRS" href="editordetexto.html">
+                                  <li>  
+                                <p>Convite para grupo reflexivo        
+                                </p>             
+                                </li>
+                                </a> 
+                               
+                                             
+                                </ul>               
+                                </nav>
+
+
+
+
+                  <div>&nbsp </div>               
+                 </div>
+                 <footer>
+                  
+    <p class="footerp">&nbsp &nbsp  </p>
+    <p class="footerp">     Este sistema foi desenvolvido por Daniel Silva, SD PM, 3 Cia Pm Ind PVD, para facilitar o filtro e edição dos modelos de históricos criados pela Sra. Bruna CB PM, 1 Cia Pm Ind PVD.
+    </p>
+    <p class="footerp"> &nbsp &nbsp </p>
+  
+  </footer>
+                         </div>
+
+               <div class="smartPhone"> 
+    <h1>Olá, Operador PVD!
+</h1>
+    <p class="pAbaixo">Percebi que você está acessando o sistema em um aparelho Android ou iOS. Lembre-se que o app está disponível apenas na Play Store. Clique no botão abaixo para acessá-lo.</p>
+ <a href="https://play.google.com/store/apps/details?id=SEU_ID_DO_APP" target="_blank" class="baixeOapp">Baixe o APP</a></div>
+
+<script>
+    function foinesse() { 
+        getSelection
+
+    }
+
+    
+// Obtém o link salvo
+const linkSalvo = localStorage.getItem("linkAtual");
+
+// Define como href do link, se existir
+if (linkSalvo) {
+  const link = document.querySelector('.aImagem');
+  link.setAttribute('href', linkSalvo);
+}
+
+</script>
+
+ <script>
+      function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+          txtValue = a[i].textContent || a[i].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+          } else {
+            a[i].style.display = "none";
+          }
+        }
+      }
+</script>
+
+
+<script>
+
+
+  document.getElementById("DSSA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
+  });
+  document.getElementById("DSSAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
+  });
+
+  document.getElementById("NDA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR");
+  });
+
+  document.getElementById("NDAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR");
+  });
+
+  document.getElementById("IDV").addEventListener("click", function(event) {
+     localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO");
+  }); 
+  document.getElementById("RDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA");
+  });
+  document.getElementById("ADLPV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA");
+  });
+  document.getElementById("ADLPA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA O AUTOR");
+  });
+  document.getElementById("EDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO");
+  });
+  document.getElementById("MDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA");
+  });
+  document.getElementById("MDA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR");
+  });
+  document.getElementById("ECAV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCERRAMENTO");
+  });
+  document.getElementById("RDEDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO");
+  });
+  document.getElementById("DSSV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA");
+  });
+  document.getElementById("CCT").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: CONTATO COM TESTEMUNHA");
+  });
+
+
+  document.getElementById("IDVS").addEventListener("click", function(event) {
+     localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO");
+  }); 
+  document.getElementById("RDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA");
+  });
+  document.getElementById("ADLPVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA");
+  });
+  document.getElementById("ADLPAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA O AUTOR");
+  });
+  document.getElementById("EDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO");
+  });
+  document.getElementById("MDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA");
+  });
+  document.getElementById("MDAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR");
+  });
+  document.getElementById("ECAVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCERRAMENTO");
+  });
+  document.getElementById("RDEDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO");
+  });
+  document.getElementById("DSSVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA");
+  });
+  document.getElementById("CCTS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: CONTATO COM TESTEMUNHA");
+  });
+  document.getElementById("VPAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA PARA AUTOR DE VIOLÊNCIA DOMÉSTICA");
+  });
+  document.getElementById("VTAVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (AUTOR PRESO)");
+  });
+  document.getElementById("VPA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA PARA AUTOR DE VIOLÊNCIA DOMÉSTICA");
+  });
+  document.getElementById("VTAV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (AUTOR PRESO)");
+  });
+  document.getElementById("VTAVNCS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (CASO DE NÃO-CONJUGALIDADE)");
+  });
+  document.getElementById("VTAVNC").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (CASO DE NÃO-CONJUGALIDADE)");
+  });
+  document.getElementById("IDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("IDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("NDAEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("NDAEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("VNLS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VÍTIMA NÃO LOCALIZADA");
+  });
+  document.getElementById("VNL").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VÍTIMA NÃO LOCALIZADA");
+  });
+  document.getElementById("ANL").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: AUTOR NÃO LOCALIZADO");
+  });
+  document.getElementById("ANLS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: AUTOR NÃO LOCALIZADO");
+  });
+  document.getElementById("ADLPAVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("ADLPAVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+
+    document.getElementById("ADLPAVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("ADLPAVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+//
+///
+////
+  //ESTES OBJETOS AINDA ESTAO SENDO TRABALHADOS 19  ITENS
+  document.getElementById("ADLPAEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA O AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("CCTEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: CONTATO COM TESTEMUNHAS (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("EDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("MDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("MDVEVDRAE").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO");
+  });
+  document.getElementById("MDVEVDRAEEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("MDAEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("MDAEVDRAE").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO");
+  });
+  document.getElementById("MDAEVDRAEEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("EDCEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("SDC").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: SUSPENSÃO DO CASO");
+  });
+  document.getElementById("DPE").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO PELA EQUIPE");
+  });
+  document.getElementById("DPEEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO PELA EQUIPE (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("DPSDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR SOLICITAÇÃO DA VÍTIMA");
+  });
+  document.getElementById("DPSDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR SOLICITAÇÃO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("DPNLDV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR NÃO LOCALIZAÇÃO DA VÍTIMA");
+  });
+  document.getElementById("DPNLDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR NÃO LOCALIZAÇÃO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDEDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "ASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("CPGR").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO");
+  });
+  //FINAL DOS NOVOS
+
+//
+///
+////
+  //ESTES OBJETOS AINDA ESTAO SENDO TRABALHADOS 19  ITENS
+  document.getElementById("ADLPAEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA O AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("CCTEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: CONTATO COM TESTEMUNHAS (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("EDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("MDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("MDVEVDRAES").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO");
+  });
+  document.getElementById("MDVEVDRAEEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+
+  document.getElementById("MDAEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("MDAEVDRAES").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO");
+  });
+  document.getElementById("MDAEVDRAEEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR EM VIRTUDE DE REINCIDÊNCIA APÓS O ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("EDCEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCERRAMENTO DO CASO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("SDCS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: SUSPENSÃO DO CASO");
+  });
+  document.getElementById("DPES").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO PELA EQUIPE");
+  });
+  document.getElementById("DPEEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO PELA EQUIPE (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("DPSDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR SOLICITAÇÃO DA VÍTIMA");
+  });
+  document.getElementById("DPSDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR SOLICITAÇÃO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("DPNLDVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR NÃO LOCALIZAÇÃO DA VÍTIMA");
+  });
+  document.getElementById("DPNLDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: DESLIGAMENTO POR NÃO LOCALIZAÇÃO DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDEDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "ASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("CPGRS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO");
+  });
+  //FINAL DOS NOVOS
+
+</script>
+
+
+
+
+  <script  src="./editorTexto.js"></script>
+ <script type="module" src="./atualizarDados.js"></script>
+  <script type="module" src="./firebaseConfig.js"></script>
+   <script type="module" src="./firebase-obter-valor.js"></script>
+   <script type="module" src="./firebase-salvar-valores.js"></script>
+<script type="module" src="firebase-main.js"></script>
+
+</html>
+

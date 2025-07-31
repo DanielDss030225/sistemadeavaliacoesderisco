@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="editordetexto.css">
+        <title>Modelos de Históricos PVD</title>
+    
+        <link rel="icon" type="image/png" href="logo.png"> 
+    
+       
+  <div id="loading-screen" style="
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+        margin-top: 0px;
+    z-index: 9999;">
+    Carregando...
+</div>
+
+  
+    </head>
+
+<body class="container">
+
+
+<div class="layout">  
+<div id="alertaSucesso" class="alerta-sucesso" style="display: none;">
+  Pronto! Os campos "*******"  foram substituidos com sucesso!
+</div>
+  <div class="cabeçalho">
+<a class="aImagem" href="#">
+      
+        <img class="imagem" src="logo.png">
+    </a>
+      
+       
+
+    
+
+    <p class="User" id="user-info">Carregando...</p>
+    <button onclick="logout()">Sair</button>
+  
+  
+  </div>
+ <div class="fundotela">
+
+  <!-- Div do alerta oculta inicialmente -->
+  <div id="fullscreenAlert" class="alert-fullscreen" style="display: none;">
+    <div class="elementoP" >
+      <p id="elementoRG" class="MensagemFechar" >É preciso preencher o NOME e RG da vítima!</p>
+      <button id="closeAlert">Fechar</button>
+    </div>
+  </div>
+
+<div class="maxlargura">
+  
+ 
+
+ <div class="larguraDoTitulo">
+  
+
+  <h3 id="titulopag"> &nbsp &nbsp Carregando Título &nbsp &nbsp </h3>
+  
+
+ </div>
+
+  
+
+
+ 
+
+    <fieldset> 
+      
+      <legend> Digite os dados da vítima</legend>
+       
+      <ul> 
+   <li>     
+     <input onblur="this.value = this.value.trim(), obterDadosVitima();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
+ </li> 
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  
+ </li>
+  <li> 
+  <input  onblur="this.value = this.value.trim();" id="cpfvitima" type="number" placeholder="CPF DA VÍTIMA" >                  
+ </li>
+       <li>
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
+       </li>   
+       </ul>  
+
+
+
+<ul> 
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoVitima" type="text" placeholder="OCUPAÇÃO ATUAL" > 
+
+  </li>
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecoVitima" type="text" placeholder="ENDEREÇO DA VÍTIMA" > 
+
+  </li>
+</ul> 
+
+
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeVitima"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaiVitima" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentovitima" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
+
+
+<ul> 
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="escolaridadeVitima">
+    <option value="">ESCOLARIDADE</option>
+    <option value="1">ANALFABETO (0100)</option>
+    <option value="2">ALFABETIZADO (0200)</option>
+    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
+    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
+    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
+    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
+    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
+    <option value="8">SUPERIOR COMPLETO (0800)</option>
+     <option value="12">MESTRADO (0910)</option>
+      <option value="13">DOUTORADO (0920)</option>
+       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
+        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
+  </select>
+</li>
+
+       <li class="ulEndereco">
+  <select class="ocorrencia" id="cor">
+    <option value="">COR/ RAÇA</option>
+    <option value="2">AMARELA (0200)</option>
+    <option value="3">BRANCA (0300)</option>
+    <option value="7">PRETO (0400)</option>
+    <option value="5">PARDA (0500)</option>
+    <option value="8">INDÍGENA (0700)</option>
+    <option value="6">IGNORADA (9800)</option>
+   
+  </select>
+</li>
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="estadoCivil">
+    <option value="">Estado Civil</option>
+    <option value="2">CASADO (0200)</option>
+    <option value="3">DIVORCIADO (0300)</option>
+    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
+    <option value="5">SOLTEIRO (0500)</option>
+    <option value="6">VIUVO (0600)</option>
+    <option value="7">UNIAO ESTAVEL (0700)</option>
+    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
+    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
+  </select>
+</li>
+</ul> 
+      </fieldset>
+
+
+     
+ 
+    
+
+
+      
+      <fieldset> 
+
+        <legend> Digite os dados do autor</legend>
+                    <ul>
+
+  <li>
+    <input  onblur="this.value = this.value.trim(), obterDadosAutor();" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
+
+  </li>
+  <li>
+    <input onblur="this.value = this.value.trim();"  id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
+
+
+  </li>
+   <li> 
+  <input  onblur="this.value = this.value.trim();" id="cpfautor" type="number" placeholder="CPF DA AUTOR" >                  
+
+
+ </li>
+  <li>
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
+
+  </li>
+  
+  </ul>
+
+  <ul>
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoAutor" type="text" placeholder="OCUPAÇÃO ATUAL" > 
+
+  </li>
+ <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecoAutor" type="text" placeholder="ENDEREÇO DO AUTOR" > 
+
+  </li>
+
+ </ul>
+ 
+
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeAutor"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaiAutor" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentoautor" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
+
+
+<ul> 
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="escolaridadeAutor">
+      <option value="">ESCOLARIDADE</option>
+    <option value="1">ANALFABETO (0100)</option>
+    <option value="2">ALFABETIZADO (0200)</option>
+    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
+    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
+    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
+    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
+    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
+    <option value="8">SUPERIOR COMPLETO (0800)</option>
+     <option value="12">MESTRADO (0910)</option>
+      <option value="13">DOUTORADO (0920)</option>
+       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
+        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
+  </select>
+</li>
+
+       <li class="ulEndereco">
+  <select class="ocorrencia" id="corAutor">
+     <option value="">COR/ RAÇA</option>
+    <option value="2">AMARELA (0200)</option>
+    <option value="3">BRANCA (0300)</option>
+    <option value="7">PRETO (0400)</option>
+    <option value="5">PARDA (0500)</option>
+    <option value="8">INDÍGENA (0700)</option>
+    <option value="6">IGNORADA (9800)</option>
+   
+  </select>
+</li>
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="estadoCivilAutor">
+     <option value="">Estado Civil</option>
+    <option value="2">CASADO (0200)</option>
+    <option value="3">DIVORCIADO (0300)</option>
+    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
+    <option value="5">SOLTEIRO (0500)</option>
+    <option value="6">VIUVO (0600)</option>
+    <option value="7">UNIAO ESTAVEL (0700)</option>
+    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
+    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
+  </select>
+</li>
+</ul> 
+
+</fieldset>
+
+    <fieldset>
+      <legend> Dados complementares do casal</legend>
+
+<ul> 
+
+ <li class="ulEndereco">
+
+  <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
+
+</li>
+
+ <li class="ulEndereco">
+
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
+
+</li>
+  
+</ul>
+
+
+<!-- DADOS COMPLEMENTARES EDITAVES NA PÁGINA INICIAL-->
+<ul class="ItemsEdit"> 
+<div class="content"> 
+<h2>Itens complementares (Da avaliação de risco)</h2>
+<p>Editaveis na página do indivíduo</p>
+
+ <li>
+<p class="DadosComplementaresLabel"> Relação entre as partes:</p>
+  <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="01" type="text" placeholder=""  disabled > 
+</li>
+
+ <li >
+<p class="DadosComplementaresLabel"> Estão Separados?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="02" type="text" placeholder="" disabled > 
+</li>
+<li id="SeSeparados">
+<p class="DadosComplementaresLabel"> Tempo de Separação:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="04" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Tempo de relacionamento:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="03" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Tem Filhos?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="05" type="text" placeholder="" disabled > 
+</li>
+<div id="SeTemFilhos"> 
+  <li >
+<p class="DadosComplementaresLabel"> Quantidade de filhos:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="06" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Nome e idade dos fihos:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="07" type="text" placeholder="" disabled > 
+</li>
+
+ </div>
+ <li >
+<p class="DadosComplementaresLabel"> Possui medidas protetivas de urgência?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="08" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> O(A) autor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="09" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões psicológicas:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="10" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões Físicas:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="11" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões Morais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="12" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel">  Agressões Patrimoniais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="13" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel">  Agressões Sexuais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="14" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> Autor faz uso abusivo de álcool ou de drogas ou medicamentos?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="15" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Autor já tentou suicídio ou falou em suicidar-se?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="16" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> Seu(s) filho(s) já presenciaram ato(s) de violência do(a) autor(a) contra você?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="17" type="text" placeholder="" disabled > 
+</li>
+
+
+
+<a class="editarVoltar" href="#"> Clique para editar</a>
+   </div>
+</ul>
+
+<!-- FINAL DO CÓDIGO - DADOS COMPLEMENTARES EDITAVES NA PÁGINA INICIAL-->
+
+    </fieldset>
+ 
+ 
+
+
+    <fieldset> 
+      
+      <legend> Digite os dados da testemunha</legend>
+       
+      <ul> 
+   <li>     
+     <input onblur="this.value = this.value.trim(), obterDadostestemunha();" class="tamanhorg" id="rgtestemunha"  type="number" placeholder="RG DA TESTEMUNHA" >                                  
+ </li> 
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="nometestemunha" type="text" placeholder="NOME DA TESTEMUNHA" >                  
+ </li>
+  <li> 
+  <input  onblur="this.value = this.value.trim();" id="cpftestemunha" type="number" placeholder="CPF DA TESTEMUNHA" >                  
+ </li>
+       <li>
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonetestemunha" type="tel" placeholder="TELEFONE DA TESTEMUNHA" > 
+       </li>   
+       </ul>  
+
+
+
+<ul> 
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaotestemunha" type="text" placeholder="OCUPAÇÃO ATUAL" > 
+
+  </li>
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecotestemunha" type="text" placeholder="ENDEREÇO DA TESTEMUNHA" > 
+
+  </li>
+</ul> 
+
+
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaetestemunha"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaitestemunha" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentotestemunha" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
+
+
+<ul> 
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="escolaridadetestemunha">
+    <option value="">ESCOLARIDADE</option>
+    <option value="1">ANALFABETO (0100)</option>
+    <option value="2">ALFABETIZADO (0200)</option>
+    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
+    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
+    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
+    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
+    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
+    <option value="8">SUPERIOR COMPLETO (0800)</option>
+    <option value="12">MESTRADO (0910)</option>
+    <option value="13">DOUTORADO (0920)</option>
+       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
+        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
+  </select>
+</li>
+
+       <li class="ulEndereco">
+  <select class="ocorrencia" id="cortestemunha">
+    <option value="">COR/ RAÇA</option>
+    <option value="2">AMARELA (0200)</option>
+    <option value="3">BRANCA (0300)</option>
+    <option value="7">PRETO (0400)</option>
+    <option value="5">PARDA (0500)</option>
+    <option value="8">INDÍGENA (0700)</option>
+    <option value="6">IGNORADA (9800)</option>
+   
+  </select>
+</li>
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="estadoCiviltestemunha">
+    <option value="">Estado Civil</option>
+    <option value="2">CASADO (0200)</option>
+    <option value="3">DIVORCIADO (0300)</option>
+    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
+    <option value="5">SOLTEIRO (0500)</option>
+    <option value="6">VIUVO (0600)</option>
+    <option value="7">UNIAO ESTAVEL (0700)</option>
+    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
+    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
+  </select>
+</li>
+</ul> 
+      </fieldset>
+
+ 
+
+<div class="buttongerar">
+ 
+  <ul>
+<a id="showAlert">
+  <li class="cardGerar">
+    <p class="selction">Atualizar Dados</p>
+  </li>
+  <h3 class="mensagem">Este botão substitui os "*******" pelos dados do formulário</h3>
+</a>
+
+  </ul>
+
+  
+
+</div>
+
+
+<ul>
+
+
+
+
+
+  <div class="divEditor">  
+  <fieldset class="fieldsetEditor"> 
+    <legend> Edite seu histórico</legend>
+    <div class="row">
+    <div class="col-12">
+
+        <textarea  name="descricao" id="idteste" cols="60" rows="10" placeholder="Modelo de histórico" class="descricao"></textarea>
+    </div>
+
+
+
+</fieldset>
+
+</div>
+</ul>
+<div class="center">
+  <button onclick="copiarTexto()">Copiar texto</button>
+
+</div>
+
+  
+</div>
+
+
+
+
+
+</div>
+<footer>
+                  
+    <p class="footerp">&nbsp &nbsp  </p>
+    <p class="footerp">     Este sistema foi desenvolvido por Daniel Silva, SD PM, 3 Cia Pm Ind PVD, para facilitar o filtro e edição dos modelos de históricos criados pela Sra. Bruna CB PM, 1 Cia Pm Ind PVD.
+    </p>
+    <p class="footerp"> &nbsp &nbsp </p>
+  
+  </footer>
+</div>
+
+<div class="smartPhone"> 
+    <h1>Olá, Operador PVD!
+</h1>
+    <p class="pAbaixo">Percebi que você está acessando o sistema em um aparelho Android ou iOS. Lembre-se que o app está disponível apenas na Play Store. Clique no botão abaixo para acessá-lo.</p>
+    <a href="https://play.google.com/store/apps/details?id=SEU_ID_DO_APP" target="_blank" class="baixeOapp">Baixe o APP</a>
+
+</div>
+
+
+</body>
+
+<!--scripts-->
+
+  <script  src="./editorTexto.js"></script>
+ <script type="module" src="./atualizarDados.js"></script>
+  <script type="module" src="./firebaseKeys.js"></script>
+   <script type="module" src="./firebase-obter-valor.js"></script>
+   <script type="module" src="./firebase-salvar-valores.js"></script>
+<script type="module" src="./firebase-main.js"></script>
+
+</html>
