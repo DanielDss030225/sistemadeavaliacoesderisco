@@ -90,7 +90,7 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width: 100px;
 }
 
 .btn-clear {
@@ -106,6 +106,7 @@ button {
 .btn-confirm {
     background: #4765FCFF;
     color: white;
+    
 }
 
 .btn-confirm:hover {
@@ -239,8 +240,7 @@ button {
   flex-direction: row; /* elementos lado a lado */
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+
   padding: 10px;
   box-sizing: border-box;
   background: #f8f8f8;
@@ -257,14 +257,17 @@ button {
   border-radius: 8px;
   background: white;
   width: 80vw;
-  height: 60vh;
+  height: 80vh;
     align-items: center;
   justify-content: center;
   text-align: center;
   place-content: center;
   touch-action: none; /* previne scroll ao desenhar no touch */
 }
-
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
 
 }
 
