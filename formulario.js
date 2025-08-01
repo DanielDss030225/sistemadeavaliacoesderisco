@@ -628,8 +628,7 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
             if (avaliacaoId) {
                 avaliacoesRef.child(avaliacaoId).update(formData)
                     .then(() => {
-                        alert('Avaliação atualizada com sucesso!');
-                        window.location.href = './index.html';
+alertaSucesso("✅ Avaliação atualizada com sucesso!");
 
                         // Se não houver pendências, mostrar botão de visualização
                         if (blocosPendentes.length === 0) {
@@ -647,7 +646,7 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
                 
                 novaAvaliacaoRef.set(formData)
                     .then(() => {
-                        alert('Avaliação salva com sucesso!');
+alertaSucesso("✅ Avaliação salva com sucesso!");
                         
                         // Atualizar URL para incluir o ID da avaliação
                         window.history.replaceState(null, null, `?id=${avaliacaoId}`);
@@ -684,9 +683,7 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
             
         }
 
-        document.getElementById("btnAssinatura2").addEventListener("click", function(event) {
-  salvarLink(); // chama a função
-});
+      
 
 
 function salvarLink() {
@@ -1081,3 +1078,67 @@ document.querySelectorAll('.progress-step').forEach(step => {
     step.classList.add('active');
   });
 });
+
+function alertaSucesso(mensagem, tempo = 2000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "#28a745"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
+
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
+}
+
+
+function alertaErro(mensagem, tempo = 2000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "red"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
+
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
+}
+
+
+document.getElementById('btnAssinatura2').addEventListener('click', function (e) {
+    e.preventDefault(); // Impede a navegação automática
+
+    // Chama a função salvar
+    salvarFormulario();
+  salvarLink(); // chama a função
+
+    // Após salvar, redireciona
+    window.location.href = './Sistema de assinaturas/';
+});
+ 
