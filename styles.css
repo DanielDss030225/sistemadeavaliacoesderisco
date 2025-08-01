@@ -753,6 +753,7 @@ p {
   transition: box-shadow 0.3s ease;
 }
 
+
 /* Responsividade */
 @media (max-width: 768px) {
     .avaliacao-item {
@@ -853,10 +854,8 @@ width: 100%;
 }
 .progress-container {
   display: flex;
-  flex-direction: column; /* ou 'row', dependendo do layout */
-  justify-content: flex-start; /* Alinha no eixo principal (vertical em column) */
   width: 10%;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .progress-bar {

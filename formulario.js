@@ -629,7 +629,8 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
                 avaliacoesRef.child(avaliacaoId).update(formData)
                     .then(() => {
                         alert('Avaliação atualizada com sucesso!');
-                        
+                        window.location.href = './index.html';
+
                         // Se não houver pendências, mostrar botão de visualização
                         if (blocosPendentes.length === 0) {
                             document.getElementById('btnVisualizar').style.display = 'block';
