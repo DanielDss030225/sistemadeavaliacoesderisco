@@ -25,10 +25,11 @@ const rg = document.getElementById("rgVitima").value;
 
   
   if (!rg){ 
-alert("RG da vítima vazio.");
   } else {
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();
+
+  
   if (!valor) { 
   };
 
@@ -119,7 +120,6 @@ const rg = document.getElementById("rgAgressor").value;
 
   
   if (!rg){ 
-alert("RG do Autor vazio.");
   } else {
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();

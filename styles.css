@@ -488,7 +488,6 @@ p {
     background-color: #f8f9fa;
     border-bottom: 1px solid #ddd;
     padding: 0;
-    height: 50px;
 }
 
 .tabs-list {
@@ -503,7 +502,6 @@ p {
 
 .tab-item {
     flex: 1;
-    min-width: 50px;
     padding: 0px 0px;
     cursor: pointer;
     border-bottom: 3px solid transparent;
@@ -776,16 +774,29 @@ p {
     display: none;
 }
 .container1 {
-    width: 90%;
+    width: 80%;
+    margin-right: 5px;
+}
+.base {
+    width: 80%;
+}
+.BackToEnd {
+ 
+    visibility: hidden; /* Oculta o texto original */
+
 }
 
-.BackToEnd {
+
+
+.BackToEnd::before {
+          content: "<";
+
   display: inline-block;
-  padding-bottom: 7px;
-  padding-top: 7px;
+  padding-bottom: 25px;
+  padding-top: 25px;
   padding-left: 3px;
   padding-right: 3px;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
   background: linear-gradient(135deg, #3498db, #3498db);
@@ -795,10 +806,14 @@ p {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
-  margin-bottom: 20px;
-  width: 40px;
   line-height: 15px;
   text-align: center;
+  visibility: visible;
+  margin-top: 50px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  width: 30px;
+
 }
 .btn.print,
 .btn.continue {
@@ -828,7 +843,23 @@ p {
   transform: translateY(-2px);
 }
 
-
-
-
+.header {
+    display: none;
+}
+.tabs-list {
+    display: none;
+}
+.progress-container {
+    width: 10%;
+}
+.progress-bar {
+    width: 10%;
+}
+.progress-step {
+    width: 30px;
+    height: 30px;
+}
+.layout {
+    width: 90%;
+}
 }
