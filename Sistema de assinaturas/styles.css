@@ -217,13 +217,10 @@ button {
         height: 250px;
     }
 
-    .buttons {
-        align-items: center;
-    }
-
+   
   
     .btn-confirm {
-        width: 70%;
+        width: 50%;
     }
 
     .loading-content {
@@ -264,10 +261,17 @@ button {
   place-content: center;
   touch-action: none; /* previne scroll ao desenhar no touch */
 }
-.buttons{
-    display: flex;
-    justify-content: space-between;
+.buttons {
+  position: fixed;
+  bottom: 0px; /* distância da borda inferior */
+  left: 0;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px; /* espaçamento lateral */
+  z-index: 999; /* garante que fique sobreposto */
 }
+
 
 }
 
