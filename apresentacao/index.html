@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness - Sistema de Desenvolvimento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="mindfulness_brain_transparent(1).png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="mindfulness_brain_transparent(1).png" alt="Mindfulness Logo" class="logo-img">
+                    <span class="logo-text">Mindfulness</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#features" class="nav-link">Funcionalidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#technology" class="nav-link">Tecnologia</a>
+                    </li>
+                    
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Mindfulness</span>
+                    <br>Conectando mente, corpo e propósito para transformar vidas.
+                </h1>
+                <p class="hero-description">
+Sistema de Avaliação de Risco e Modelos de Históricos Pvds - Desenvolvedor: Daniel Silva
+                    </p>
+                <div class="hero-buttons">
+                    <button onclick="abrirAvaliacaoRisco()" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Explorar Projeto
+                    </button>
+                   <button onclick="contato()" class="btn btn-secondary">
+    <i class="fas fa-play"></i> Suporte
+</button>
+ <button onclick="abrirAvaliacaoRisco()" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                       Clique para instalar o APK
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="banner2.png" alt="Mindfulness Banner" class="hero-img">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre o Projeto</h2>
+                <p class="section-subtitle">Inovação que conecta tecnologia e bem-estar</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Uma Nova Abordagem para o Desenvolvimento</h3>
+                    <p>
+                        O projeto Mindfulness representa uma revolução na forma como desenvolvemos sistemas e aplicações. 
+                        Combinando princípios de mindfulness com tecnologias avançadas, criamos soluções que não apenas 
+                        funcionam de forma eficiente, mas também promovem o bem-estar dos usuários.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-brain"></i>
+                            <h4>Inteligência Consciente</h4>
+                            <p>Algoritmos que consideram o impacto humano em cada decisão</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <h4>Design Empático</h4>
+                            <p>Interfaces que promovem calma e clareza mental</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Sustentabilidade</h4>
+                            <p>Código limpo e eficiente que respeita recursos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="mindfulness_brain_transparent(1).png" alt="Mindfulness Brain" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Funcionalidades Principais</h2>
+                <p class="section-subtitle">Recursos que fazem a diferença</p>
+            </div>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Sistema de Avaliação de Risco</h3>
+                    <p>Plataforma completa para registro e acompanhamento de avaliações de risco com interface intuitiva e segura.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Formulários dinâmicos</li>
+                        <li><i class="fas fa-check"></i> Busca avançada</li>
+                        <li><i class="fas fa-check"></i> Relatórios automáticos</li>
+                        <li><i class="fas fa-check"></i> Assinatura digital</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Avançada</h3>
+                    <p>Autenticação robusta e proteção de dados com Firebase, garantindo máxima segurança para informações sensíveis.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Autenticação Firebase</li>
+                        <li><i class="fas fa-check"></i> Criptografia de dados</li>
+                        <li><i class="fas fa-check"></i> Controle de acesso</li>
+                        <li><i class="fas fa-check"></i> Backup automático</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Design Responsivo</h3>
+                    <p>Interface adaptável que funciona perfeitamente em dispositivos móveis, tablets e desktops.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Mobile-first</li>
+                        <li><i class="fas fa-check"></i> Touch-friendly</li>
+                        <li><i class="fas fa-check"></i> Performance otimizada</li>
+                        <li><i class="fas fa-check"></i> Offline-ready</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologias Utilizadas</h2>
+                <p class="section-subtitle">Stack moderno e confiável</p>
+            </div>
+            <div class="tech-content">
+                <div class="tech-image">
+                    <img src="banner-Copia.png" alt="System Development" class="tech-img">
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-category">
+                        <h3>Frontend</h3>
+                        <div class="tech-items">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">JavaScript ES6+</span>
+                            <span class="tech-item">Responsive Design</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Backend & Database</h3>
+                        <div class="tech-items">
+                            <span class="tech-item">Firebase</span>
+                            <span class="tech-item">Realtime Database</span>
+                            <span class="tech-item">Firebase Auth</span>
+                            <span class="tech-item">Cloud Storage</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Ferramentas</h3>
+                        <div class="tech-items">
+                            <span class="tech-item">Git</span>
+                            <span class="tech-item">VS Code</span>
+                            <span class="tech-item">Chrome DevTools</span>
+                            <span class="tech-item">Firebase Console</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">+ Funcionalidades</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">/7 Suporte</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">% Segurança</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="mindfulness_brain_transparent(1).png" alt="Mindfulness Logo" class="footer-logo-img">
+                    <span class="footer-logo-text">Mindfulness</span>
+                </div>
+                <p class="footer-text">
+                    Desenvolvendo o futuro com consciência e tecnologia.
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mindfulness. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
