@@ -528,12 +528,13 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
                         console.error("Erro no upload:", error);
                         uploadStatus.textContent = "Erro no upload da assinatura.";
                         alert("Erro ao fazer upload da assinatura: " + error.message);
+                        
                     },
                     () => {
                         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
                             signatureUrlInput.value = downloadURL;
                             uploadStatus.textContent = "Assinatura salva com sucesso!";
-                            alert("Assinatura salva com sucesso!");
+alertaSucesso("Assinatura salva com sucesso!");
                         });
                     }
                 );
