@@ -149,7 +149,7 @@ margin-left: 10px;    color: white;
   top: 0;
   left: 10%; /* Deixa espaço para a barra esquerda */
   width: 75%; /* 100% - 10% (esquerda) - 10% (direita) */
-  height: 100vh;
+  height: 100%;
   display: flex;
   background-color: #dedbdb;
   box-sizing: border-box;
@@ -158,7 +158,7 @@ margin-left: 10px;    color: white;
 
 .base {
   flex: 1;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   background-color: #ffffff;
   padding: 0px;
@@ -781,8 +781,8 @@ p {
 
 .BackToEnd {
   display: inline-block;
-  padding-bottom: 4px;
-  padding-top: 4px;
+  padding-bottom: 7px;
+  padding-top: 7px;
   padding-left: 3px;
   padding-right: 3px;
   font-size: 10px;
