@@ -30,7 +30,6 @@ alert("RG da vítima vazio.");
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();
   if (!valor) { 
-  alert("Erro ao preencher dados.");
   };
 
 
@@ -113,6 +112,8 @@ function calcularIdade(dataNascimentoStr) {
 
 //function to obtain dados of autor
 export async function obterDadosAutor(path, dados) {
+  assinaturaAsssinador();
+
   // seu código
 const rg = document.getElementById("rgAgressor").value;
 
@@ -123,7 +124,6 @@ alert("RG do Autor vazio.");
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();
   if (!valor) { 
-  alert("Erro ao preencher dados.");
   };
 
 
@@ -165,7 +165,6 @@ alert("RG do Autor vazio.");
  cpfAgressor: 3,
  profissaoAgressor: 5,
 
-
  
   };
 
@@ -200,6 +199,25 @@ function calcularIdade2(dataNascimentoStr) {
 //END OF FUNCTION AUTOR
 
 
+
+function assinaturaAsssinador() {
+  const link = localStorage.getItem("linkdaimagem");
+  const img = document.getElementById("signaturePreview");
+  const inputHidden = document.getElementById("signatureUrl"); // input oculto
+
+  if (link && img) {
+    img.src = link;
+
+    if (inputHidden) {
+      inputHidden.value = link;
+    }
+
+
+    // Remove o link do localStorage após usar
+    localStorage.removeItem("linkdaimagem");
+  } else {
+  }
+}
 
 
 

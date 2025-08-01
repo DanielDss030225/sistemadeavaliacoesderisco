@@ -682,7 +682,17 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
             window.open(`avRisco.html?id=${avaliacaoId}`, '_blank');
             
         }
-        
+
+        document.getElementById("btnAssinatura2").addEventListener("click", function(event) {
+  salvarLink(); // chama a função
+});
+
+
+function salvarLink() {
+     localStorage.setItem("linkAtual", window.location.href);
+
+}
+
 function openEditor()  {
 //obtem os valors dos inputs tempoRelacionamento dataExpedicao
    let rgVitima = document.getElementById("rgVitima").value;
@@ -695,7 +705,7 @@ function openEditor()  {
 //armazena os valores no localStoragenumeroProcesso numeroProcesso
    localStorage.setItem("rgVitima", rgVitima);
    localStorage.setItem("rgAgressor", rgAgressor);
-   localStorage.setItem("linkAtual", window.location.href);
+salvarLink();
    localStorage.setItem("tempoRelacionamento", tempoRelacionamento);
    localStorage.setItem("tempoSeparacao", tempoSeparacao);
    localStorage.setItem("numeroProcesso", numeroProcesso);
@@ -1061,3 +1071,12 @@ function salvarFilhosPresenciaramViolencia() {
  
 
 
+document.querySelectorAll('.progress-step').forEach(step => {
+  step.addEventListener('click', () => {
+    // Remove active de todos
+    document.querySelectorAll('.progress-step').forEach(s => s.classList.remove('active'));
+    
+    // Adiciona active ao clicado
+    step.classList.add('active');
+  });
+});
