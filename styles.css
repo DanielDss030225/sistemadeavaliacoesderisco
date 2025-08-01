@@ -140,7 +140,7 @@ margin-left: 10px;    color: white;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 /* Conteúdo central */
@@ -776,11 +776,11 @@ width: 100%;
     display: none;
 }
 .container1 {
-    width: 80%;
+    width: 90%;
     margin-right: 5px;
 }
 .base {
-    width: 80%;
+    width: 100%;
 }
 .BackToEnd {
  
@@ -852,9 +852,13 @@ width: 100%;
     display: none;
 }
 .progress-container {
-    width: 10%;
-    margin-top: 0px;
+  display: flex;
+  flex-direction: column; /* ou 'row', dependendo do layout */
+  justify-content: flex-start; /* Alinha no eixo principal (vertical em column) */
+  width: 10%;
+  margin-top: 0;
 }
+
 .progress-bar {
     width: 10%;
 }
@@ -864,5 +868,16 @@ width: 100%;
 }
 .layout {
     width: 100%;
+}
+#btnVisualizar {
+  visibility: hidden;
+  
+}
+#btnSalvar {
+  width: 100%;
+  height: 35px;
+}
+#btnVoltar8 {
+  height: 35px;
 }
 }
