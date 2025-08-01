@@ -308,7 +308,7 @@ window.addEventListener('scroll', debouncedScrollHandler);
 console.log('Mindfulness presentation loaded successfully! 🧠✨');
 
 function abrirAvaliacaoRisco() {
-  window.location.href = "http://localhost/Preencher%20Avaliação%20De%20Risco/23/index.html";
+  window.location.href = "https://danieldss030225.github.io/sistemadeavaliacoesderisco/";
 }
 
 
