@@ -211,9 +211,7 @@ input[type="checkbox"] {
 .form-row span {
     white-space: nowrap;
 }
- .smartPhone {
-  display: none; /* Corrige de 'Block' para 'flex' */
-}
+ 
 /* Ajustes para impressão */
 @media print {
     body {

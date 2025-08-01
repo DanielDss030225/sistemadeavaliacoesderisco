@@ -92,7 +92,7 @@ input::placeholder {
   padding: 14px 0;
   width: 90%;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: bold;  
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -192,9 +192,7 @@ h2 {
 }
 
 
-  .smartPhone {
-  display: none; /* Corrige de 'Block' para 'flex' */
-}
+
  .layout {
   
   
@@ -204,50 +202,24 @@ h2 {
   }
 
 @media (max-width: 768px) {
-  .layout {
-  
-  
-    display: none;
-  }
-
-  .smartPhone {
-  height: 100vh;
-  width: 100vw;
-
-  display: flex; /* Corrige de 'Block' para 'flex' */
-  flex-direction: column; /* Organiza os filhos em coluna (opcional) */
-
-  align-items: center;     /* Alinha horizontalmente */
-  justify-content: center; /* Alinha verticalmente */
-
-  background: linear-gradient(135deg, #3498db, #000000);
-  text-align: center;
-}
-.pAbaixo{
-    color: white;
-    width: 90%;
-}
-.baixeOapp {
-    margin-top: 20px;
-    padding: 12px 20px;
-    width: 220px;
-    border: none;
-    border-radius: 25px;
-    background-color: #f9fffc; /* verde agradável */
-    color: rgb(85, 84, 84);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    text-decoration: none;
+  body {
+   background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.baixeOapp:hover {
-  background: linear-gradient(135deg, #66bcf1, #ffffff);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
+ .banner {
+  display: none;
 
+ }
+ .boxLogin { 
+  width: 100%;
+ }
 
+ 
 }
