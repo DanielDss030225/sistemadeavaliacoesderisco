@@ -23,6 +23,7 @@ import { firebaseConfig } from './firebaseConfig.js';
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
+
         // Verificar se é uma edição de avaliação existente
         document.addEventListener('DOMContentLoaded', function() {
             avaliacaoId = getUrlParameter('id');
@@ -30,6 +31,7 @@ import { firebaseConfig } from './firebaseConfig.js';
             if (avaliacaoId) {
                 // Carregar dados da avaliação existente
                 carregarDadosAvaliacao(avaliacaoId);
+                
             } else {
                 // Nova avaliação - mostrar apenas a primeira aba
                 showTab(1);
@@ -109,6 +111,7 @@ steps.forEach(step => {
 
         // Função para preencher o formulário com os dados carregados
         function preencherFormulario(data) {
+            
             // Preencher campos de texto
             const textInputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, input[type="hidden"]');
             textInputs.forEach(input => {
@@ -221,8 +224,7 @@ steps.forEach(step => {
 
         // Função para verificar se um bloco está preenchido
         function verificarBlocoPreenchido(blocoNum) {
-            obterDadosVitima();
-            obterDadosAutor();
+         
             switch (blocoNum) {
                 case 1:
                     return formData.nomeVitima && formData.cpfVitima && formData.rgVitima;
@@ -269,8 +271,7 @@ steps.forEach(step => {
 
 
         }
-import { obterDadosVitima } from './atualizarDados.js';
-import { obterDadosAutor } from './atualizarDados.js';
+
 
         // Função para inicializar eventos
         function inicializarEventos() {
@@ -534,7 +535,10 @@ document.getElementById("btnSalvarAssinatura").addEventListener("click", functio
                         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
                             signatureUrlInput.value = downloadURL;
                             uploadStatus.textContent = "Assinatura salva com sucesso!";
+                            salvarFormulario();
 alertaSucesso("Assinatura salva com sucesso!");
+
+
                         });
                     }
                 );
@@ -567,9 +571,10 @@ alertaSucesso("Assinatura salva com sucesso!");
         function navegarParaAba(abaNum) {
             // Coletar dados do formulário
             coletarDadosFormulario();
-            
+            salvarFormulario();
             // Mostrar a aba especificada
             showTab(abaNum);
+            
         }
 
         // Função para coletar dados do formulário
@@ -1143,3 +1148,43 @@ document.getElementById('btnAssinatura2').addEventListener('click', function (e)
     window.location.href = './Sistema de assinaturas/';
 });
  
+
+
+
+
+window.assinaturaAssinador = function() {
+
+  const link = localStorage.getItem("linkdaimagem");
+  const img = document.getElementById("signaturePreview");
+  const inputHidden = document.getElementById("signatureUrl");
+  const container = document.getElementById("signaturePreviewContainer");
+
+
+  if (link && img) {
+    img.src = link;
+
+    // Mostra o container da imagem, se estiver oculto
+    if (container) {
+      container.style.display = "block";
+    }
+
+    if (inputHidden) {
+      inputHidden.value = link;
+    }
+
+    // (Opcional) remover o link do localStorage após usar
+    // localStorage.removeItem("linkdaimagem");
+  } else {
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    assinaturaAssinador();
+        salvarFormulario();
+
+        localStorage.removeItem("linkdaimagem");
+
+  }, 1000); // 3000 milissegundos = 3 segundos
+});

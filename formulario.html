@@ -14,7 +14,6 @@
 </head>
 <body>
 
-             
 
 <div class="layout">  
 
@@ -101,11 +100,14 @@
                                     <h4>Dados Pessoais</h4>
                                     <div class="form-row">
                                           <div class="form-col">
-                                            <div class="form-group">
+                                            <div class="form-group"> 
                                                 <label for="rgVitima">RG:</label>
-                                                <input type="text" id="rgVitima" name="rgVitima" class="form-control" placeholder="00.000.000-0">
+                                                <input  type="text" id="rgVitima" name="rgVitima" class="form-control" placeholder="00.000.000-0" onblur="obterDadosVitima()">
                                             </div>
+                                            
                                         </div>
+   <a class="button2" onclick="obterDadosVitima(), assinaturaAssinador()">🔍</a>
+
                                         <div class="form-col">
                                             <div class="form-group">
                                                 <label for="cpfVitima">CPF:</label>
@@ -113,6 +115,7 @@
                                             </div>
                                         </div>                                                                            
                                     </div>
+                                    
                                     <div class="form-row">
                                         
                                         <div class="form-col">
@@ -404,13 +407,16 @@
                                 <!-- Sub-bloco: Dados Pessoais -->
                                 <div class="sub-block">
                                     <h4>Dados Pessoais</h4>
+
                                           <div class="form-row">
                                               <div class="form-col">
                                             <div class="form-group">
                                                 <label for="rgAgressor">RG:</label>
-                                                <input type="text" id="rgAgressor" name="rgAgressor" class="form-control" placeholder="00.000.000-0">
+                                                <input type="text" id="rgAgressor" name="rgAgressor" class="form-control" placeholder="00.000.000-0"  onblur="obterDadosAutor()">
                                             </div>
                                         </div>
+                                                                                                                    <a class="button2" onclick="obterDadosAutor()">🔍</a>
+
                                           <div class="form-col">
                                             <div class="form-group">
                                                 <label for="cpfAgressor">CPF:</label>

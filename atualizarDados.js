@@ -19,12 +19,17 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 //function to obtain dados of victim
-export async function obterDadosVitima(path, dados) {
+
+
+window.obterDadosVitima = async function(path, dados) {
+  
   // seu código
 const rg = document.getElementById("rgVitima").value;
 
   
   if (!rg){ 
+
+    alertaErro("Antes, digite o RG!");
   } else {
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();
@@ -92,6 +97,12 @@ if (dataNascimento && dataNascimento !== "NULL") {
 };  };
 
 
+
+
+
+
+
+
 function calcularIdade(dataNascimentoStr) {
   const hoje = new Date();
   const nascimento = new Date(dataNascimentoStr);
@@ -112,14 +123,14 @@ function calcularIdade(dataNascimentoStr) {
 
 
 //function to obtain dados of autor
-export async function obterDadosAutor(path, dados) {
-  assinaturaAsssinador();
-
+window.obterDadosAutor = async function(path, dados) {
   // seu código
 const rg = document.getElementById("rgAgressor").value;
 
   
   if (!rg){ 
+
+    alertaErro("Antes, digite o RG!");
   } else {
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   const valor = snapshot.val();
@@ -196,32 +207,33 @@ function calcularIdade2(dataNascimentoStr) {
 
   return idade;
 }
-//END OF FUNCTION AUTOR
 
 
 
-function assinaturaAsssinador() {
-  const link = localStorage.getItem("linkdaimagem");
-  const img = document.getElementById("signaturePreview");
-  const inputHidden = document.getElementById("signatureUrl"); // input oculto
-
-  if (link && img) {
-    img.src = link;
-
-    if (inputHidden) {
-      inputHidden.value = link;
-    }
 
 
-    // Remove o link do localStorage após usar
-    localStorage.removeItem("linkdaimagem");
-  } else {
-  }
+
+function alertaErro(mensagem, tempo = 2000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "red"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
+
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
 }
-
-
-
-
-
-
-

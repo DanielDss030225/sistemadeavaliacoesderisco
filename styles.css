@@ -609,10 +609,12 @@ p {
 }
 
 .form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  gap: 15px;
+  margin-bottom: 15px;
 }
+
 
 .form-col {
     flex: 1;
@@ -751,6 +753,31 @@ p {
   position: relative;
   box-shadow: 0 0 0 3px  #166aa2;/* círculo branco em volta */
   transition: box-shadow 0.3s ease;
+}
+.button2 {
+  width: 30px;
+  height: 30px;
+  padding: 5px 5px;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button2:hover {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.button2:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
 }
 
 
