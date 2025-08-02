@@ -311,6 +311,10 @@ function abrirAvaliacaoRisco() {
   window.location.href = "https://danieldss030225.github.io/sistemadeavaliacoesderisco/";
 }
 
+function baixarAPP() {
+  window.location.href = "https://play.google.com/store/apps/details?id=rppm.auxiliar.com.br";
+}
+
 
 function contato() {
     const numero = '5531987568467'; // Código do país (55) + DDD (31) + número
