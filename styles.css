@@ -257,6 +257,14 @@ header h1 {
     background-color: #2980b9;
 }
 
+.btn.primary2 {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn.primary2:hover {
+    background-color: #2980b9;
+}
 .btn.edit {
     background-color: #f39c12;
     color: white;
@@ -912,4 +920,10 @@ width: 100%;
 #btnVoltar8 {
   height: 35px;
 }
+
+.btn.primary2 {
+display: none;
+}
+
+
 }
