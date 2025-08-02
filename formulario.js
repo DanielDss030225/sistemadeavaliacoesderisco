@@ -692,12 +692,38 @@ alertaSucesso("✅ Avaliação salva com sucesso!");
       
 
 
-function salvarLink() {
+ function salvarLink() {
      localStorage.setItem("linkAtual", window.location.href);
 
 }
 
 function openEditor()  {
+// Limpa os dados antigos do localStorage
+localStorage.removeItem("rgVitima");
+localStorage.removeItem("rgAgressor");
+localStorage.removeItem("tempoRelacionamento");
+localStorage.removeItem("tempoSeparacao");
+localStorage.removeItem("numeroProcesso");
+localStorage.removeItem("dataExpedicao");
+localStorage.removeItem("relacaoVitimaAutor");
+localStorage.removeItem("separados");
+localStorage.removeItem("temFilhos");
+localStorage.removeItem("quantidadeFilhos");
+localStorage.removeItem("nomesIdadesFilhos");
+localStorage.removeItem("mpu");
+localStorage.removeItem("acessoArma");
+localStorage.removeItem("violenciasPsicologicas");
+localStorage.removeItem("agressoesFisicas");
+localStorage.removeItem("agressoesSexuais");
+localStorage.removeItem("agressoesPatrimoniais");
+localStorage.removeItem("agressoesMorais");
+localStorage.removeItem("usoSubstancias");
+localStorage.removeItem("suicidioAgressor");
+localStorage.removeItem("filhosPresenciaramViolencia");
+localStorage.removeItem("nome"); // referente ao tipo de protocolo SPVD
+localStorage.removeItem("linkAtual"); // usado no botão "OUTROS"
+localStorage.removeItem("linkdaimagem"); // assinatura
+
 //obtem os valors dos inputs tempoRelacionamento dataExpedicao
    let rgVitima = document.getElementById("rgVitima").value;
    let rgAgressor = document.getElementById("rgAgressor").value;
@@ -729,7 +755,7 @@ function salvarRelacaoVitimaAutor() {
     console.log("Salvo no localStorage:", textoSelecionado);
 separados()
   } else {
-    alert("Por favor, selecione uma relação.");
+    alert("Preencha corretamente todos os dados.");
   }
 }
 
@@ -747,7 +773,7 @@ function separados() {
     console.log("Salvo no localStorage:", textoSelecionado);
 temFilhos() 
   } else {
-    alert("Por favor, selecione uma relação.");
+    alert("Preencha corretamente todos os dados.");
   }
 }
 
@@ -780,7 +806,7 @@ if (textoSelecionado == "Não") {
 mpu()
 
   } else {
-    alert("Por favor, selecione uma relação.");
+    alert("Preencha corretamente todos os dados.");
   }
 
 }
@@ -796,7 +822,7 @@ function mpu() {
     console.log("Salvo no localStorage:", textoSelecionado);
  acessoArma()
   } else {
-    alert("Por favor, selecione uma relação.");
+    alert("Preencha corretamente todos os dados.");
   }
 }
 
@@ -811,7 +837,7 @@ function acessoArma() {
 salvarViolenciaPsicologica()
 
   } else {
-    alert("Por favor, selecione uma relação.");
+    alert("Preencha corretamente todos os dados.");
   }
 }
 

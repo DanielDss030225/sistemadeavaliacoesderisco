@@ -94,10 +94,23 @@ function buscarPorRG(rg) {
   });
 }
 
+
+ function salvarLink() {
+     localStorage.setItem("linkAtual", window.location.href);
+
+}
+
+
 // Event listeners para botões e busca
 document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
   window.location.href = 'formulario.html';
 });
+document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
+  salvarLink();
+  window.location.href = './meusite/index.html';
+});
+
+
 document.getElementById('btnSearch').addEventListener('click', () => {
   buscarPorRG(document.getElementById('searchInput').value);
 });
