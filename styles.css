@@ -123,6 +123,8 @@ margin-left: 10px;    color: white;
     
 }
 
+
+
 /* Lado esquerdo */
 .progress-container {
   position: fixed;
@@ -795,9 +797,10 @@ p {
 }
 
 
-/* Responsividade */
 @media (max-width: 768px) {
-    .avaliacao-item {
+   
+  /* ... seus estilos existentes ... */
+ .avaliacao-item {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -814,116 +817,153 @@ p {
 .avaliacoes-container {
 width: 100%;
 }
-    .barraLateral {
+.barraLateral {
     display: none;
 }
-.container1 {
-    width: 90%;
-    margin-right: 5px;
-}
-.base {
+
+  .progress-bar {
+    display: flex;
+    flex-direction: row; /* para os passos ficarem em linha */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente */
+    flex-wrap: nowrap;
+    gap: 20px;
     width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+    
+  }
+
+
+
+  .progress-step {
+    display: flex;
+    flex-direction: column; /* número em cima e label embaixo */
+    align-items: center; /* centraliza horizontalmente dentro do passo */
+    justify-content: center; /* centraliza verticalmente dentro do passo */
+    min-width: 25px;
+    font-size: 14px;
+    color: #ffffff; /* mudei para preto para melhor contraste, se quiser volte */
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
+  .progress-step-label {
+    margin-top: 5px;
+    text-align: center; /* centraliza o texto */
+    width: 100px; /* fixa largura para alinhar labels */
+    font-size: 12px;
+    color: #333;
+    white-space: normal;
+  }
+
+  .progress-step::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* centraliza verticalmente na metade do círculo */
+    left: 100%; /* começa na borda direita do círculo */
+    transform: translateY(-50%);
+    width: 20px; /* largura da linha entre círculos */
+    height: 1px; /* espessura da linha */
+    z-index: -1;
+  }
+
+  .progress-step.completed::after {
+    background-color: #2ecc71; /* cor da linha para passos completados */
+  }
+
+  /* Remove linha após o último passo */
+  .progress-step:last-child::after {
+    content: none;
+  }
+
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 30px;
+  width: 100%;
+  background: linear-gradient(to right, #ffffff, #bfe1ff);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  flex-direction: row;  /* para ficar tudo numa linha */
+  align-items: center;  /* centraliza verticalmente */
+  padding: 10px 10px;
+  overflow-x: auto;
+  height: auto;
+  gap: 20px; /* espaço entre o botão e a barra */
 }
+
 .BackToEnd {
- 
-    visibility: hidden; /* Oculta o texto original */
-
-}
-
-
-
-.BackToEnd::before {
-          content: "<";
-
-  display: inline-block;
-  padding-bottom: 25px;
-  padding-top: 25px;
-  padding-left: 3px;
-  padding-right: 3px;
-  font-size: 14px;
+  flex-shrink: 0;
+  display: inline-flex;         /* inline-flex para poder alinhar conteúdo */
+  align-items: center;          /* centraliza verticalmente o conteúdo do botão */
+  justify-content: center;      /* centraliza horizontalmente o texto */
+  padding: 8px 15px;            /* ajuste o padding para dar altura confortável */
+  font-size: 12px;
   font-weight: bold;
   color: white;
   background: linear-gradient(135deg, #3498db, #3498db);
-  border: none;
   border-radius: 5px;
-  text-decoration: none;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   cursor: pointer;
-  line-height: 15px;
-  text-align: center;
-  visibility: visible;
-  margin-top: 5px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  width: 30px;
-
-}
-.btn.print,
-.btn.continue {
-  display: none !important;
-}
-.btn-signature {
-  display: none !important;
-
-}
-.btn-signature2 {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none; /* remove o sublinhado */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 14px;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  margin: 0;                   /* zera margens para não afetar alinhamento */
+  height: 40px;                /* altura igual ou próxima dos círculos + label */
+  line-height: normal;         /* evita altura estranha de linha */
 }
 
-.btn-signature2:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; /* centraliza os círculos verticalmente */
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
 }
+
 
 .header {
     display: none;
 }
-.tabs-list {
+.progress-step-label {
     display: none;
 }
-.progress-container {
+
+
+.container {
+  top: 10%;
+
+
+}
+/* Conteúdo central */
+.container1 {
+  position: fixed;
+  top: 0;
+  left: 0%; /* Deixa espaço para a barra esquerda */
+  width: 100%; /* 100% - 10% (esquerda) - 10% (direita) */
+  height: 100%;
   display: flex;
-  width: 10%;
-  margin-top: 0px;
+  background-color: #dedbdb;
+  box-sizing: border-box;
+  z-index: 90;
+  top: 10%;
 }
-
-.progress-bar {
-    width: 10%;
-}
-.progress-step {
-    width: 30px;
-    height: 30px;
-}
-.layout {
-    width: 100%;
-}
-#btnVisualizar {
-  visibility: hidden;
-  
-}
-#btnSalvar {
-  width: 100%;
-  height: 35px;
-}
-#btnVoltar8 {
-  height: 35px;
-}
-
 .btn.primary2 {
-display: none;
+    display: none;
 }
-
-
+.btn.print {
+    display: none;
+}
 }
