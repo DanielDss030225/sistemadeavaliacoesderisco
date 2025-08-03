@@ -951,13 +951,13 @@ width: 100%;
 
 .BackToEnd {
   flex-shrink: 0;
-  display: none;         /* inline-flex para poder alinhar conteúdo */
-  align-items: center;          /* centraliza verticalmente o conteúdo do botão */
-  justify-content: center;      /* centraliza horizontalmente o texto */
-  padding: 8px 15px;            /* ajuste o padding para dar altura confortável */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
   font-size: 12px;
   font-weight: bold;
-  color: white;
+  color: transparent; /* Oculta o texto original */
   background: linear-gradient(135deg, #3498db, #3498db);
   border-radius: 5px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -965,9 +965,19 @@ width: 100%;
   text-decoration: none;
   user-select: none;
   white-space: nowrap;
-  margin: 0;                   /* zera margens para não afetar alinhamento */
-  height: 35px;                /* altura igual ou próxima dos círculos + label */
-  line-height: normal;         /* evita altura estranha de linha */
+  margin: 0;
+  height: 35px;
+  line-height: normal;
+  margin-left: 5px;
+  width: 40px;
+  position: relative; /* Necessário para posicionar o ::before */
+}
+
+.BackToEnd::before {
+  content: "<";         /* Novo conteúdo */
+  color: white;         /* Visível */
+  position: absolute;
+  font-size: 14px;
 }
 
 
@@ -1004,9 +1014,7 @@ width: 100%;
 .btn.primary2 {
     display: none;
 }
-.btn.primary {
-    display: none;
-}
+
 .btn.print {
     display: none;
 }
