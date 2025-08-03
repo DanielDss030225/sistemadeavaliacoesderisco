@@ -836,12 +836,14 @@ width: 100%;
 
 @media (max-width: 768px) {
    .tabs-list{
-    height: 6px;
+    height: 0px;
+    margin-top: 0px;
 
    }
    .tab-item {
     height: 6px;
    }
+   
   /* ... seus estilos existentes ... */
  .avaliacao-item {
         flex-direction: column;
@@ -942,7 +944,7 @@ width: 100%;
   
   overflow-x: auto;
   height: auto;
-  gap: 20px; /* espaço entre o botão e a barra */
+  gap: 10px; /* espaço entre o botão e a barra */
 }
 
 .BackToEnd {
@@ -972,7 +974,7 @@ width: 100%;
   justify-content: flex-start;
   align-items: center; /* centraliza os círculos verticalmente */
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 7px;
   width: 100%;
   overflow-x: auto;
   padding: 10px 0;
