@@ -215,7 +215,7 @@ margin-left: 10px;    color: white;
 .base header {
     position: sticky; /* Cola o header no topo dentro da base */
     top: 0;
-    background-color: #fff;
+    background-color: #857474;
     padding: 0px 0;
     z-index: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -596,8 +596,8 @@ p {
 }
 
 .tab-header {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     border-bottom: 2px solid #eee;
 }
 
@@ -838,10 +838,11 @@ width: 100%;
    .tabs-list{
     height: 0px;
     margin-top: 0px;
+    margin-bottom: 0px;
 
    }
    .tab-item {
-    height: 5px;
+    height:5px;
     margin-top: 0px;
    }
    
@@ -877,6 +878,7 @@ width: 100%;
     width: 100%;
     overflow-x: auto;
     padding: 5px;
+    margin-bottom: 0px;
 
   }
 
@@ -932,7 +934,7 @@ width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  margin-top: 25px;
+  margin-top: 20px;
   width: 100%;
   background: linear-gradient(to right, #ffffff, #bfe1ff);
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
@@ -945,6 +947,8 @@ width: 100%;
   
   overflow-x: auto;
   height: auto;
+      margin-bottom: 0px;
+
   gap: 10px; /* espaço entre o botão e a barra */
   
 }
@@ -1008,7 +1012,7 @@ width: 100%;
   background-color: #dedbdb;
   box-sizing: border-box;
   z-index: 90;
-  top: 10%;
+  top: 8%;
 
 }
 .btn.primary2 {
