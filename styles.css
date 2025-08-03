@@ -841,7 +841,8 @@ width: 100%;
 
    }
    .tab-item {
-    height: 6px;
+    height: 5px;
+    margin-top: 0px;
    }
    
   /* ... seus estilos existentes ... */
@@ -869,14 +870,14 @@ width: 100%;
   .progress-bar {
     display: flex;
     flex-direction: row; /* para os passos ficarem em linha */
-    justify-content: right; /* centraliza horizontalmente */
-    align-items: right; /* centraliza verticalmente */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente */
     flex-wrap: nowrap;
     gap: 10px;
     width: 100%;
     overflow-x: auto;
     padding: 5px;
-    
+
   }
 
 
@@ -940,7 +941,7 @@ width: 100%;
   flex-direction: row;  /* para ficar tudo numa linha */
   align-items: center;  /* centraliza verticalmente */
   padding: 0px;
-  padding-left: 15px;
+  padding-left: 0px;
   
   overflow-x: auto;
   height: auto;
@@ -950,7 +951,7 @@ width: 100%;
 
 .BackToEnd {
   flex-shrink: 0;
-  display: inline-flex;         /* inline-flex para poder alinhar conteúdo */
+  display: none;         /* inline-flex para poder alinhar conteúdo */
   align-items: center;          /* centraliza verticalmente o conteúdo do botão */
   justify-content: center;      /* centraliza horizontalmente o texto */
   padding: 8px 15px;            /* ajuste o padding para dar altura confortável */
@@ -969,22 +970,13 @@ width: 100%;
   line-height: normal;         /* evita altura estranha de linha */
 }
 
-.progress-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center; /* centraliza os círculos verticalmente */
-  flex-wrap: nowrap;
-  gap: 7px;
-  width: 100%;
-  overflow-x: auto;
-  padding: 10px 0;
-}
+
 
 
 .header {
     display: none;
 }
+
 .progress-step-label {
     display: none;
 }
@@ -1007,6 +999,7 @@ width: 100%;
   box-sizing: border-box;
   z-index: 90;
   top: 10%;
+
 }
 .btn.primary2 {
     display: none;
