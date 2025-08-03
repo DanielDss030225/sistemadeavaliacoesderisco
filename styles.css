@@ -390,9 +390,12 @@ p {
 
 .imgSalvar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* força os filhos a ficarem em coluna */
+  align-items: center;     /* centraliza horizontalmente */
+  gap: 10px;               /* espaço entre os itens */
   margin-top: 10px;
+  padding: 10px;
+  height: auto;
 }
 
 .imgSalvar img {
@@ -755,9 +758,43 @@ p {
 .tab-item:not(.active):hover .tab-title {
     color: #3498db;
 }
-.btn-signature2 {
-    display: none;
+
+.btn-wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+width: 100%;
 }
+
+.btn-signature2 {
+  display: none; /* ← alterado de inline-block para flex */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+  padding: 10px 10px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  width: 200px;
+  height: 40px; /* opcional: altura fixa para melhor alinhamento */
+  text-align: center;
+}
+
+.btn-signature2:hover {
+  background: linear-gradient(135deg, #2980b9, #1c639e);
+  transform: scale(1.02);
+}
+
+.btn-signature2:active {
+  transform: scale(0.98);
+}
+
+
   .progress-step.active {
     background-color: #3498db;
     color: white;
@@ -971,10 +1008,23 @@ width: 100%;
 .btn.primary2 {
     display: none;
 }
+.btn.primary {
+    display: none;
+}
 .btn.print {
     display: none;
 }
 .form-container {
     margin-bottom: 50px;
+}
+
+.btnAssinatura2 {
+    display: block;
+}
+.btn-signature2 {
+    display: flex;
+} 
+.btn-signature {
+    display: none;
 }
 }
