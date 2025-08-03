@@ -214,18 +214,17 @@ function calcularIdade2(dataNascimentoStr) {
 
 
 function alertaErro(mensagem, tempo = 2000) {
-  const notif = document.createElement("div");
+ const notif = document.createElement("div");
   notif.textContent = mensagem;
   notif.style.position = "fixed";
   notif.style.bottom = "20px";
   notif.style.right = "20px";
-  notif.style.background = "red"; // verde sucesso
-  notif.style.color = "#fff";
+notif.style.background = "linear-gradient(135deg, #ff3131ff, #ffffff)"; // verde sucesso para branco
+  notif.style.color = "#000000ff"; // texto branco
   notif.style.padding = "10px 15px";
   notif.style.borderRadius = "5px";
   notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
   notif.style.zIndex = "10000";
-  notif.style.fontWeight = "bold";
   notif.style.fontSize = "14px";
   notif.style.transition = "opacity 0.5s ease";
 
