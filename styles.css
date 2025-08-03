@@ -798,7 +798,13 @@ p {
 
 
 @media (max-width: 768px) {
-   
+   .tabs-list{
+    height: 6px;
+
+   }
+   .tab-item {
+    height: 6px;
+   }
   /* ... seus estilos existentes ... */
  .avaliacao-item {
         flex-direction: column;
@@ -846,8 +852,8 @@ width: 100%;
     color: #ffffff; /* mudei para preto para melhor contraste, se quiser volte */
     background-color: #e0e0e0;
     border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    height: 32px;
+    width: 32px;    
     position: relative;
     cursor: pointer;
     margin-left: 5px;
@@ -886,15 +892,17 @@ width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  margin-top: 30px;
+  margin-top: 25px;
   width: 100%;
   background: linear-gradient(to right, #ffffff, #bfe1ff);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
   z-index: 100;
   display: flex;
   flex-direction: row;  /* para ficar tudo numa linha */
   align-items: center;  /* centraliza verticalmente */
-  padding: 10px 10px;
+  padding: 0px;
+  padding-left: 15px;
+  
   overflow-x: auto;
   height: auto;
   gap: 20px; /* espaço entre o botão e a barra */
@@ -917,7 +925,7 @@ width: 100%;
   user-select: none;
   white-space: nowrap;
   margin: 0;                   /* zera margens para não afetar alinhamento */
-  height: 40px;                /* altura igual ou próxima dos círculos + label */
+  height: 35px;                /* altura igual ou próxima dos círculos + label */
   line-height: normal;         /* evita altura estranha de linha */
 }
 
@@ -965,5 +973,8 @@ width: 100%;
 }
 .btn.print {
     display: none;
+}
+.form-container {
+    margin-bottom: 50px;
 }
 }
