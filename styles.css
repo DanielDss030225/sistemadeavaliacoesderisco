@@ -843,7 +843,7 @@ width: 100%;
    }
    .tab-item {
     height:5px;
-    margin-top: 0px;
+    margin-top: 11px;
    }
    
   /* ... seus estilos existentes ... */
@@ -879,6 +879,8 @@ width: 100%;
     overflow-x: auto;
     padding: 5px;
     margin-bottom: 0px;
+    height: 55px;
+    margin-top: 10px;
 
   }
 
@@ -975,6 +977,7 @@ width: 100%;
   margin-left: 5px;
   width: 40px;
   position: relative; /* Necessário para posicionar o ::before */
+  margin-top: 10px;
 }
 
 .BackToEnd::before {
