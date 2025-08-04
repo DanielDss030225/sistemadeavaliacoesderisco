@@ -106,8 +106,33 @@ document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
   window.location.href = 'formulario.html';
 });
 document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
+  localStorage.removeItem("rgVitima");
+localStorage.removeItem("rgAgressor");
+localStorage.removeItem("tempoRelacionamento");
+localStorage.removeItem("tempoSeparacao");
+localStorage.removeItem("numeroProcesso");
+localStorage.removeItem("dataExpedicao");
+localStorage.removeItem("relacaoVitimaAutor");
+localStorage.removeItem("separados");
+localStorage.removeItem("temFilhos");
+localStorage.removeItem("quantidadeFilhos");
+localStorage.removeItem("nomesIdadesFilhos");
+localStorage.removeItem("mpu");
+localStorage.removeItem("acessoArma");
+localStorage.removeItem("violenciasPsicologicas");
+localStorage.removeItem("agressoesFisicas");
+localStorage.removeItem("agressoesSexuais");
+localStorage.removeItem("agressoesPatrimoniais");
+localStorage.removeItem("agressoesMorais");
+localStorage.removeItem("usoSubstancias");
+localStorage.removeItem("suicidioAgressor");
+localStorage.removeItem("filhosPresenciaramViolencia");
+localStorage.removeItem("nome"); // referente ao tipo de protocolo SPVD
+localStorage.removeItem("linkAtual"); // usado no botão "OUTROS"
+localStorage.removeItem("linkdaimagem"); // assinatura
   salvarLink();
-  window.location.href = './meusite/index.html';
+  window.location.href = './meusite2/index.html';
+  
 });
 
 

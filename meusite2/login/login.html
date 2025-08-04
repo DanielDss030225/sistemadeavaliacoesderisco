@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelos de Históricos PVD</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+</head>
+<body>
+
+  <!-- Tela de carregamento -->
+  <div id="loading-screen" style="
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 9999;
+  ">
+    Carregando...
+  </div>
+ <div class="layout">
+    <!-- Container centralizado -->
+    <div class="banner">
+      <h1>Este é um Sistema Mindfulness</h1>
+      <h2>Entre em contato e saiba mais.</h2>
+      <button onClick="contato()"class="buttonBanner">Saiba mais</button>
+    </div>
+  <div class="boxLogin"><div class="container">
+      <div class="login-box">
+
+        <div class="cima"> 
+        <img src="logo.png" alt="Logo da empresa" class="logo" />
+        <p>  Sistema de Avaliação de Risco e Modelos de Históricos Pvds
+</p>  </div>
+
+        <p class="logintitle">Faça login</p>
+
+        <form onsubmit="event.preventDefault(); login(); mostrarCarregamento();">
+          <input type="email" id="email" placeholder="Digite seu email" required />
+          <input type="password" id="password" placeholder="Digite sua senha" required />
+          <p id="meuTexto"></p>
+          <button class="buttonLogin" type="submit">Entrar</button>
+        </form>
+      </div>
+    
+
+    </div> </div> </div>
+  
+
+
+
+            <script type="module" src="index.js"></script>
+
+</body>
+  <!-- Firebase e scripts -->
+  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDQWO9csuYqrd0JyXa_cs4f3jAsjQAEWSw",
+      authDomain: "meu-site-fd954.firebaseapp.com",
+      projectId: "meu-site-fd954",
+      storageBucket: "meu-site-fd954.firebasestorage.app",
+      messagingSenderId: "1062346912662",
+      appId: "1:1062346912662:web:0f41873e12965c545363b7",
+      measurementId: "G-5HXX5ZZKER"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function mostrarCarregamento() {
+      document.getElementById("loading-screen").style.display = "flex";
+    }
+
+    function ocultarCarregamento() {
+      document.getElementById("loading-screen").style.display = "none";
+    }
+
+    function trocarTexto() {
+      document.getElementById("meuTexto").innerText =
+        "Dados inválidos! \n\n Verifique email e senha.";
+    }
+
+    ocultarCarregamento();
+  </script>
+  <script src="login.js"></script>
+
+</body>
+</html>

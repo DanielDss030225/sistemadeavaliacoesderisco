@@ -27,7 +27,6 @@ function ocultarCarregamento() {
 
 
 function showText() {
-atualizardados2();
 
 
 const nome = localStorage.getItem("nome");
@@ -284,15 +283,15 @@ if ( nome=="ASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO 
 if ( nome=="CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO") {
   document.getElementById("idteste").value = " CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO" + "\n\n" + " DURANTE O ACOMPANHAMENTO DO CASO DE VIOLÊNCIA DOMÉSTICA REFERENTE A ********* E *********, RG *********, CONVIDAMOS O ASSISTIDO PARA COMPARECIMENTO NÃO OBRIGATÓRIO AO GRUPO REFLEXIVO SOBRE GÊNERO PROMOVIDO PELO INSTITUTO CASA DA PALAVRA EM CONJUNTO COM A 1ª CIA PM IND PVD. O ENVOLVIDO FOI INFORMADO ACERCA DO PRÓXIMO ENCONTRO QUE OCORRERÁ NO DIA **/**/**** E QUE OS ENCONTROS OCORREM DE FORMA QUINZENAL. "
 }
-
 ocultarCarregamento()
-
-
 }
 
-// em outro arquivo
-
 //
+//
+//
+////
+//FUNCAO QUE ALTERA O TEXTO
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -345,101 +344,4 @@ if (linkSalvo) {
 if (linkSalvo) {
   const link = document.querySelector('.editarVoltar');
   link.setAttribute('href', linkSalvo);
-}
-
-
-//relacaoVitimaAutor
-//rgVitima   agressoesFisicas
-////rgAgressor mpu violenciasPsicologicas
-//FUNCAO QUE ALTERA O TEXTO temFilhos quantidadeFilhos nomesIdadesFilhos
-function atualizardados2() {
-
-  let CAMPO01 = document.getElementById("01");
-  let CAMPO02 = document.getElementById("02");
-  let CAMPO03 = document.getElementById("03");
-  let CAMPO04 = document.getElementById("04");
-  let CAMPO05 = document.getElementById("05");
-  let CAMPO06 = document.getElementById("06");
-  let CAMPO07 = document.getElementById("07");
-  let CAMPO08 = document.getElementById("08");
-  let CAMPO09 = document.getElementById("09");
-  let CAMPO10 = document.getElementById("10");
-  let CAMPO11 = document.getElementById("11");
-  let CAMPO12 = document.getElementById("12");
-  let CAMPO13 = document.getElementById("13");
-  let CAMPO14 = document.getElementById("14");
-  let CAMPO15 = document.getElementById("15");
-  let CAMPO16 = document.getElementById("16");
-  let CAMPO17 = document.getElementById("17");
-let medidaprotetiva = document.getElementById("medidaprotetiva"); 
-
-   const relacaoVitimaAutor = localStorage.getItem("relacaoVitimaAutor");
-   const separados = localStorage.getItem("separados");
-   const tempoRelacionamento = localStorage.getItem("tempoRelacionamento");
-   const tempoSeparacao = localStorage.getItem("tempoSeparacao");
-   const temFilhos = localStorage.getItem("temFilhos");
-   const quantidadeFilhos = localStorage.getItem("quantidadeFilhos");
-   const nomesIdadesFilhos = localStorage.getItem("nomesIdadesFilhos");
-   const mpu = localStorage.getItem("mpu");
-   const acessoArma = localStorage.getItem("acessoArma");
-   const violenciasPsicologicas = localStorage.getItem("violenciasPsicologicas");
-   const agressoesFisicas = localStorage.getItem("agressoesFisicas");
-   const agressoesMorais  = localStorage.getItem("agressoesMorais");
-   const agressoesPatrimoniais  = localStorage.getItem("agressoesPatrimoniais");
-   const agressoesSexuais = localStorage.getItem("agressoesSexuais");
-   const filhosPresenciaramViolencia  = localStorage.getItem("filhosPresenciaramViolencia");
-   const suicidioAgressor  = localStorage.getItem("suicidioAgressor");
-   const usoSubstancias = localStorage.getItem("usoSubstancias");
-   const numeroProcesso = localStorage.getItem("numeroProcesso");
-   
-  CAMPO01.value = relacaoVitimaAutor
-  CAMPO02.value = separados 
-  CAMPO03.value = tempoRelacionamento
-  CAMPO04.value = tempoSeparacao
-  CAMPO05.value = temFilhos
-  CAMPO06.value = quantidadeFilhos
-  CAMPO07.value = nomesIdadesFilhos
-  CAMPO08.value = mpu
-  CAMPO09.value = acessoArma
-  CAMPO10.value = violenciasPsicologicas
-  CAMPO11.value = agressoesFisicas
-  CAMPO12.value = agressoesMorais
-  CAMPO13.value = agressoesPatrimoniais
-  CAMPO14.value = agressoesSexuais
-  CAMPO15.value = usoSubstancias
-  CAMPO16.value = suicidioAgressor
-  CAMPO17.value = filhosPresenciaramViolencia
-
-setTimeout(() => {
-  medidaprotetiva.value = numeroProcesso;
-}, 2000); // 2000 milissegundos = 2 segundos
-
-
-
-  const rgVitima = localStorage.getItem("rgVitima");
-  let rgVitimaInput = document.getElementById("rgvitima");
-  rgVitimaInput.value = rgVitima
-
-    const rgAgressor = localStorage.getItem("rgAgressor");
-  let rgAgressorInput = document.getElementById("rgautor");
-  rgAgressorInput.value = rgAgressor
-obterDadosVitima()
-obterDadosAutor()
-
-
-const elementoSeSeparados = document.getElementById("SeSeparados");
-const elementoSeTemFilhos = document.getElementById("SeTemFilhos");
-
-if (CAMPO02.value === "Sim") {
-  elementoSeSeparados.style.display = "block";
-} else {
-  elementoSeSeparados.style.display = "none";
-}
-
-if (CAMPO05.value === "Não") {
-  elementoSeTemFilhos.style.display = "none";
-} else {
-  elementoSeTemFilhos.style.display = "Block";
-}
-
 }
