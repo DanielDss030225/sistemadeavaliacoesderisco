@@ -660,7 +660,7 @@ p {
 .form-actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 0px;
     padding-top: 20px;
     border-top: 1px solid #eee;
 }
@@ -936,8 +936,8 @@ width: 100%;
   margin-top: 20px;
   width: 100%;
   background: linear-gradient(to right, #ffffff, #bfe1ff);
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+  z-index: 0;
   display: flex;
   flex-direction: row;  /* para ficar tudo numa linha */
   align-items: center;  /* centraliza verticalmente */
@@ -997,7 +997,7 @@ width: 100%;
 
 
 .container {
-  top: 10%;
+  top: 0%;
 
 
 }
@@ -1009,10 +1009,10 @@ width: 100%;
   width: 100%; /* 100% - 10% (esquerda) - 10% (direita) */
   height: 100%;
   display: flex;
-  background-color: #dedbdb;
+  background-color: #000000;
   box-sizing: border-box;
   z-index: 90;
-  top: 8%;
+  top: 5.5%;
 
 }
 .btn.primary2 {
@@ -1023,7 +1023,7 @@ width: 100%;
     display: none;
 }
 .form-container {
-    margin-bottom: 100px;
+    margin-bottom: 0px;
 }
 
 .btnAssinatura2 {
@@ -1035,4 +1035,6 @@ width: 100%;
 .btn-signature {
     display: none;
 }
+
+
 }
