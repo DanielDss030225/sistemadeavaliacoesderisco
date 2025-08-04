@@ -28,7 +28,7 @@ function login() {
             }
 
             // Redirecionar
-            window.location.href = "https://danieldss030225.github.io/sistemadeavaliacoesderisco/";
+window.location.href = "../../index.html";
         })  
         .catch(error => {      
             ocultarCarregamento();
@@ -43,12 +43,3 @@ function contato() {
     window.open(url, '_blank'); // Abre em nova aba
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // Usuário está logado
-            window.location.href = "https://danieldss030225.github.io/sistemadeavaliacoesderisco/";
-  } else {
-    // Usuário NÃO está logado, redirecionar para login
-    window.location.href = "./login/login.html";
-  }
-});

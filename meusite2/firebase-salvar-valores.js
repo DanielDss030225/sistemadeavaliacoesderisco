@@ -12,7 +12,7 @@ onAuthStateChanged(auth, (user) => {
     if(userInfo) userInfo.innerText = `Usuário: ${user.email}`;
   } else {
     if(userInfo) userInfo.innerText = "Nenhum usuário autenticado";
-            window.location.href = "https://danieldss030225.github.io/sistemadeavaliacoesderisco/";
+               window.location.href = "./login/login.html";
 
   }
 });
