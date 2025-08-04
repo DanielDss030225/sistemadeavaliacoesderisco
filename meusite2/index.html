@@ -35,13 +35,13 @@ const firebaseConfig = {
             document.getElementById("user-info").innerText = `Usuário: ${user.email}`;
         } else {
             document.getElementById("user-info").innerText = "Nenhum usuário autenticado";
-            window.location.href = "login.html"; // Redireciona para login se não estiver logado
+            window.location.href = ".login/login.html"; // Redireciona para login se não estiver logado
         }
     });
  // Função para sair da conta
  function logout() {
         firebase.auth().signOut().then(() => {
-            window.location.href = "login.html";
+            window.location.href = "login/login.html";
         }).catch(error => {
             console.error("Erro ao sair:", error);
         });
@@ -60,8 +60,7 @@ const firebaseConfig = {
       
         <p id="user-info">Carregando...</p>
 
-                  <a href="dadosVitima.html"><p> Avaliação de Risco</p></a>
-
+        
         <button class="Sair" onclick="logout()">Sair</button>
       
       
@@ -557,10 +556,27 @@ const firebaseConfig = {
                
 
 <script>
-    function foinesse() { 
-        getSelection
+  
 
-    }
+     document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("pesquisaInput");
+    const dropdown = document.getElementById("listaResultados");
+
+    input.addEventListener("input", () => {
+      const valor = input.value.trim();
+      if (valor !== "") {
+        dropdown.classList.add("show");
+      } else {
+        dropdown.classList.remove("show");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.remove("show");
+      }
+    });
+  });
 </script>
 
  <script>
