@@ -1066,4 +1066,8 @@ width: 100%;  }
   .btn-signature {
     display: none;
   }
+  #btnVisualizar {
+    display: none !important;
+  }
+
 }

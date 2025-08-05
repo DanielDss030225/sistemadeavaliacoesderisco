@@ -557,6 +557,11 @@ alertaSucesso("Assinatura salva com sucesso!");
             // Evento para o botão de salvar
             document.getElementById("btnSalvar").addEventListener("click", function() {
                 salvarFormulario();
+                  setTimeout(function () {
+    window.location.href = "./index.html";
+  }, 1000);
+
+
             });
             
             // Evento para o botão de visualizar
