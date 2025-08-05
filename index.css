@@ -1273,4 +1273,7 @@ margin-top: 0px;
 align-items: center;
 text-align: center;
 }
+.btn.print {
+    display: none;
+}
 }

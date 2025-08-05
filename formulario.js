@@ -1197,9 +1197,10 @@ window.assinaturaAssinador = function() {
     if (inputHidden) {
       inputHidden.value = link;
     }
+    navegarParaAba(8);
 
     // (Opcional) remover o link do localStorage após usar
-    // localStorage.removeItem("linkdaimagem");
+    localStorage.removeItem("linkdaimagem");
   } else {
   }
 }
@@ -1214,3 +1215,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }, 1000); // 3000 milissegundos = 3 segundos
 });
+
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Elemento onde você quer detectar o gesto (pode ser o container principal)
+const swipeArea = document.body; // ou document.querySelector('.tabs-container')
+
+swipeArea.addEventListener('touchstart', function (e) {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+swipeArea.addEventListener('touchend', function (e) {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipeGesture();
+}, false);
+
+function handleSwipeGesture() {
+  const threshold = 50; // distância mínima para considerar como swipe
+
+  if (touchEndX < touchStartX - threshold) {
+    // Swipe para a esquerda → avançar
+    irParaProximaAba();
+  } else if (touchEndX > touchStartX + threshold) {
+    // Swipe para a direita → voltar
+    irParaAbaAnterior();
+  }
+}
+
+function getAbaAtivaAtual() {
+  const abaAtiva = document.querySelector('.tab-item.active');
+  return abaAtiva ? parseInt(abaAtiva.dataset.tab) : 1;
+}
+
+function irParaProximaAba() {
+  const atual = getAbaAtivaAtual();
+  if (atual < 8) {
+    navegarParaAba(atual + 1);
+  }
+}
+
+function irParaAbaAnterior() {
+  const atual = getAbaAtivaAtual();
+  if (atual > 1) {
+    navegarParaAba(atual - 1);
+  }
+}

@@ -244,7 +244,6 @@ async function confirmSignature() {
 
         // Salva link no localStorage
         localStorage.setItem("linkdaimagem", downloadURL);
-
         const linkAtual = localStorage.getItem("linkAtual");
         window.open(linkAtual, '_self');
 
@@ -255,6 +254,8 @@ async function confirmSignature() {
         hideLoadingOverlay();
         showStatus('Erro ao enviar assinatura. Tente novamente.', 'error');
     }
+
+
 }
 
 
