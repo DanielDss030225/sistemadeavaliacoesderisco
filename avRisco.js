@@ -277,12 +277,12 @@ function preencherFormulario(dados) {
     // Outras agressões patrimoniais
     preencherCampoPorId('outrasAgressoesPatrimoniais', dados.outrasAgressoesPatrimoniais);
 
-    // Agressão moral
-    if (dados.agressaoMoral && Array.isArray(dados.agressaoMoral)) {
-        dados.agressaoMoral.forEach(agressao => {
-            marcarCheckboxPorId(`agressaoMoral_${agressao}`, true);
-        });
-    }
+        // Agressão moral
+        if (dados.agressaoMoral && Array.isArray(dados.agressaoMoral)) {
+            dados.agressaoMoral.forEach(agressao => {
+                marcarCheckboxPorId(`agressaoMoral_${agressao}`, true);
+            });
+        }
 
     // Ocorrência policial
     if (dados.ocorrenciaPolicial) {
@@ -326,11 +326,22 @@ function preencherFormulario(dados) {
         marcarCheckboxPorId(`dificuldadesFinanceiras_${dados.dificuldadesFinanceiras}`, true);
     }
 
-    // Acesso a arma
-    if (dados.acessoArma) {
-        // Tratar como valor único (radio button) em vez de array
-        marcarCheckboxPorId(`acessoArma_${dados.acessoArma}`, true);
-    }
+
+if (dados.acessoArma && Array.isArray(dados.acessoArma)) {
+    dados.acessoArma.forEach(valor => {
+        // Este seletor agora funcionará corretamente
+        const checkbox = document.querySelector(`input[name="acessoArma"][value="${valor}"]`);
+        if (checkbox) {
+            checkbox.checked = true;
+        } else {
+            console.warn(`❗ Checkbox não encontrado para o valor: '${valor}'`);
+        }
+    });
+}
+
+
+
+
 
     // Ameaça/agressão a filhos
     if (dados.ameacaAgressaoFilhos && Array.isArray(dados.ameacaAgressaoFilhos)) {

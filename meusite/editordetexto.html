@@ -90,7 +90,7 @@
       <ul> 
         
    <li>     
-     <input onblur="this.value = this.value.trim(), obterDadosVitima();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
  </li> 
  <li> 
   <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  
@@ -111,30 +111,33 @@
 
 
 
-<ul> 
-     <li>
+<ul style="display: none;">
+
+   <li style="display: none;">
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoVitima" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
   </li>
-     <li>
+   <li style="display: none;">
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecoVitima" type="text" placeholder="ENDEREÇO DA VÍTIMA" > 
 
   </li>
 </ul> 
 
-<ul>
- <li>   
+<ul style="display: none;">
+
+ <li style="display: none;">  
     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeVitima"  type="text" placeholder="NOME DA MÃE" >                                  
  </li>
- <li> 
+ <li style="display: none;">
    <input  onblur="this.value = this.value.trim();" id="nomePaiVitima" type="text" placeholder="NOME DO PAI" >                  
  </li>
 </ul>
 
-  <ul> 
+<ul style="display: none;">
+
  
 
- <li>  <input 
+<li style="display: none;"> <input 
     onblur="this.value = this.value.trim();"  
     class="ocorrencia" 
     id="datanascimentovitima" 
@@ -142,7 +145,7 @@
     placeholder="DATA DE NASCIMENTO"
   >
 </li>
- <li>  <select class="ocorrencia" id="escolaridadeVitima">
+<li style="display: none;"><select class="ocorrencia" id="escolaridadeVitima">
     <option value="">ESCOLARIDADE</option>
     <option value="1">ANALFABETO (0100)</option>
     <option value="2">ALFABETIZADO (0200)</option>
@@ -161,10 +164,11 @@
    </ul>  
 
 
-<ul> 
+<ul style="display: none;">
 
 
- <li>  <select class="ocorrencia" id="cor">
+
+<li > <select class="ocorrencia" id="cor">
     <option value="">COR/ RAÇA</option>
     <option value="2">AMARELA (0200)</option>
     <option value="3">BRANCA (0300)</option>
@@ -175,7 +179,7 @@
    
   </select>
 </li>
- <li>  <select class="ocorrencia" id="estadoCivil">
+<li >  <select class="ocorrencia" id="estadoCivil">
     <option value="">Estado Civil</option>
     <option value="2">CASADO (0200)</option>
     <option value="3">DIVORCIADO (0300)</option>
@@ -203,7 +207,7 @@
                     <ul>
 
   <li>
-    <input  onblur="this.value = this.value.trim(), obterDadosAutor();" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
+    <input  onblur="this.value = this.value.trim()" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
 
   </li>
   <li>
@@ -233,7 +237,7 @@
 
 
 
-  <ul>
+  <ul style="display: none;">
  <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoAutor" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
   </li>
@@ -245,14 +249,15 @@
  
 
 
-  <ul> 
+<ul style="display: none;">
  <li>     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeAutor"  type="text" placeholder="NOME DA MÃE" >                                  
  </li> 
  <li>  <input  onblur="this.value = this.value.trim();" id="nomePaiAutor" type="text" placeholder="NOME DO PAI" >                  
  </li>
 
   </ul>  
-<ul>
+<ul style="display: none;">
+
  <li>  <input 
     onblur="this.value = this.value.trim();"  
     class="ocorrencia" 
@@ -281,7 +286,8 @@
    </ul>  
 
 
-<ul> 
+<ul style="display: none;">
+
 
 
  <li>  <select class="ocorrencia" id="corAutor">
@@ -310,6 +316,129 @@
 </ul> 
 
 </fieldset>
+
+
+
+    <fieldset> 
+      
+      <legend> Digite os dados da testemunha</legend>
+       
+      <ul> 
+   <li>     
+     <input onblur="this.value = this.value.trim(), obterDadostestemunha();" class="tamanhorg" id="rgtestemunha"  type="number" placeholder="RG DA TESTEMUNHA" >                                  
+ </li> 
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="nometestemunha" type="text" placeholder="NOME DA TESTEMUNHA" >                  
+ </li>
+ 
+       
+       
+       </ul>  
+
+<ul>
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="cpftestemunha" type="number" placeholder="CPF DA TESTEMUNHA" >                  
+ </li>
+       <li>
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonetestemunha" type="tel" placeholder="TELEFONE DA TESTEMUNHA" > 
+       </li>  
+
+</ul>
+
+
+
+
+
+
+
+<ul style="display: none;">
+
+
+ <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaotestemunha" type="text" placeholder="OCUPAÇÃO ATUAL" > 
+
+  </li>
+ <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecotestemunha" type="text" placeholder="ENDEREÇO DA TESTEMUNHA" > 
+
+  </li>
+</ul> 
+
+
+
+  <ul style="display: none;">
+
+ <li>     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaetestemunha"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+ <li>  <input  onblur="this.value = this.value.trim();" id="nomePaitestemunha" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+
+ </ul>
+
+ <ul style="display: none;">
+
+ <li>  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentotestemunha" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+
+ <li>  <select class="ocorrencia" id="escolaridadetestemunha">
+    <option value="">ESCOLARIDADE</option>
+    <option value="1">ANALFABETO (0100)</option>
+    <option value="2">ALFABETIZADO (0200)</option>
+    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
+    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
+    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
+    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
+    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
+    <option value="8">SUPERIOR COMPLETO (0800)</option>
+    <option value="12">MESTRADO (0910)</option>
+    <option value="13">DOUTORADO (0920)</option>
+       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
+        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
+  </select>
+</li>
+   </ul>  
+
+
+<ul style="display: none;">
+
+
+
+ <li>  <select class="ocorrencia" id="cortestemunha">
+    <option value="">COR/ RAÇA</option>
+    <option value="2">AMARELA (0200)</option>
+    <option value="3">BRANCA (0300)</option>
+    <option value="7">PRETO (0400)</option>
+    <option value="5">PARDA (0500)</option>
+    <option value="8">INDÍGENA (0700)</option>
+    <option value="6">IGNORADA (9800)</option>
+   
+  </select>
+</li>
+ <li>  <select class="ocorrencia" id="estadoCiviltestemunha">
+    <option value="">Estado Civil</option>
+    <option value="2">CASADO (0200)</option>
+    <option value="3">DIVORCIADO (0300)</option>
+    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
+    <option value="5">SOLTEIRO (0500)</option>
+    <option value="6">VIUVO (0600)</option>
+    <option value="7">UNIAO ESTAVEL (0700)</option>
+    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
+    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
+  </select>
+</li>
+</ul> 
+      </fieldset>
+
+
+
+
+
+
+
 
     <fieldset>
       <legend> Dados complementares do casal</legend>
@@ -435,116 +564,6 @@
  
  
 
-
-    <fieldset> 
-      
-      <legend> Digite os dados da testemunha</legend>
-       
-      <ul> 
-   <li>     
-     <input onblur="this.value = this.value.trim(), obterDadostestemunha();" class="tamanhorg" id="rgtestemunha"  type="number" placeholder="RG DA TESTEMUNHA" >                                  
- </li> 
- <li> 
-  <input  onblur="this.value = this.value.trim();" id="nometestemunha" type="text" placeholder="NOME DA TESTEMUNHA" >                  
- </li>
- 
-       
-       
-       </ul>  
-
-<ul>
- <li> 
-  <input  onblur="this.value = this.value.trim();" id="cpftestemunha" type="number" placeholder="CPF DA TESTEMUNHA" >                  
- </li>
-       <li>
-        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonetestemunha" type="tel" placeholder="TELEFONE DA TESTEMUNHA" > 
-       </li>  
-
-</ul>
-
-
-
-
-
-
-
-<ul> 
-
- <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaotestemunha" type="text" placeholder="OCUPAÇÃO ATUAL" > 
-
-  </li>
- <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecotestemunha" type="text" placeholder="ENDEREÇO DA TESTEMUNHA" > 
-
-  </li>
-</ul> 
-
-
-
-  <ul> 
- <li>     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaetestemunha"  type="text" placeholder="NOME DA MÃE" >                                  
- </li> 
- <li>  <input  onblur="this.value = this.value.trim();" id="nomePaitestemunha" type="text" placeholder="NOME DO PAI" >                  
- </li>
-
- </ul>
-
- <ul>
- <li>  <input 
-    onblur="this.value = this.value.trim();"  
-    class="ocorrencia" 
-    id="datanascimentotestemunha" 
-    type="date" 
-    placeholder="DATA DE NASCIMENTO"
-  >
-</li>
-
- <li>  <select class="ocorrencia" id="escolaridadetestemunha">
-    <option value="">ESCOLARIDADE</option>
-    <option value="1">ANALFABETO (0100)</option>
-    <option value="2">ALFABETIZADO (0200)</option>
-    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
-    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
-    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
-    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
-    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
-    <option value="8">SUPERIOR COMPLETO (0800)</option>
-    <option value="12">MESTRADO (0910)</option>
-    <option value="13">DOUTORADO (0920)</option>
-       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
-        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
-  </select>
-</li>
-   </ul>  
-
-
-<ul> 
-
-
- <li>  <select class="ocorrencia" id="cortestemunha">
-    <option value="">COR/ RAÇA</option>
-    <option value="2">AMARELA (0200)</option>
-    <option value="3">BRANCA (0300)</option>
-    <option value="7">PRETO (0400)</option>
-    <option value="5">PARDA (0500)</option>
-    <option value="8">INDÍGENA (0700)</option>
-    <option value="6">IGNORADA (9800)</option>
-   
-  </select>
-</li>
- <li>  <select class="ocorrencia" id="estadoCiviltestemunha">
-    <option value="">Estado Civil</option>
-    <option value="2">CASADO (0200)</option>
-    <option value="3">DIVORCIADO (0300)</option>
-    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
-    <option value="5">SOLTEIRO (0500)</option>
-    <option value="6">VIUVO (0600)</option>
-    <option value="7">UNIAO ESTAVEL (0700)</option>
-    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
-    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
-  </select>
-</li>
-</ul> 
-      </fieldset>
 
  
 

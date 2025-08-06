@@ -26,7 +26,7 @@ body.container {
   background: linear-gradient(135deg, #3498db, #ffffff);
   color: white;
   position: fixed;
-  height: 10%;
+  height: 55px;
 }
 
 .cabeçalho p#user-info {
@@ -476,7 +476,7 @@ margin-top: 30px;}
   height: 100vh; /* altura da tela inteira */
   background-color: #ffffff;
   /* margin-top: 80px;  Removido para não quebrar o layout */
-  margin-top:6%;
+  margin-top:55px;
   position: fixed;
 
 }
@@ -486,6 +486,7 @@ margin-top: 30px;}
   flex: 1;
   height: 100%;
   overflow-y: auto; /* ativa rolagem vertical */
+  
 }
 
 .telarow01 {
@@ -543,7 +544,9 @@ margin-top: 30px;}
 .editarVoltar:hover {
   background-color: #0056b3; /* azul escuro no hover */
 }
-
+h2 {
+  text-align: center;
+} 
 @media (max-width: 768px) {
  
   

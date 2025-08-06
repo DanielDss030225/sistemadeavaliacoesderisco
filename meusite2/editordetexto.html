@@ -111,30 +111,33 @@
 
 
 
-<ul> 
-     <li>
+<ul style="display: none;">
+
+   <li style="display: none;">
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoVitima" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
   </li>
-     <li>
+   <li style="display: none;">
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecoVitima" type="text" placeholder="ENDEREÇO DA VÍTIMA" > 
 
   </li>
 </ul> 
 
-<ul>
- <li>   
+<ul style="display: none;">
+
+ <li style="display: none;">  
     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeVitima"  type="text" placeholder="NOME DA MÃE" >                                  
  </li>
- <li> 
+ <li style="display: none;">
    <input  onblur="this.value = this.value.trim();" id="nomePaiVitima" type="text" placeholder="NOME DO PAI" >                  
  </li>
 </ul>
 
-  <ul> 
+<ul style="display: none;">
+
  
 
- <li>  <input 
+<li style="display: none;"> <input 
     onblur="this.value = this.value.trim();"  
     class="ocorrencia" 
     id="datanascimentovitima" 
@@ -142,7 +145,7 @@
     placeholder="DATA DE NASCIMENTO"
   >
 </li>
- <li>  <select class="ocorrencia" id="escolaridadeVitima">
+<li style="display: none;"><select class="ocorrencia" id="escolaridadeVitima">
     <option value="">ESCOLARIDADE</option>
     <option value="1">ANALFABETO (0100)</option>
     <option value="2">ALFABETIZADO (0200)</option>
@@ -161,10 +164,11 @@
    </ul>  
 
 
-<ul> 
+<ul style="display: none;">
 
 
- <li>  <select class="ocorrencia" id="cor">
+
+<li > <select class="ocorrencia" id="cor">
     <option value="">COR/ RAÇA</option>
     <option value="2">AMARELA (0200)</option>
     <option value="3">BRANCA (0300)</option>
@@ -175,7 +179,7 @@
    
   </select>
 </li>
- <li>  <select class="ocorrencia" id="estadoCivil">
+<li >  <select class="ocorrencia" id="estadoCivil">
     <option value="">Estado Civil</option>
     <option value="2">CASADO (0200)</option>
     <option value="3">DIVORCIADO (0300)</option>
@@ -233,7 +237,7 @@
 
 
 
-  <ul>
+  <ul style="display: none;">
  <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoAutor" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
   </li>
@@ -245,14 +249,15 @@
  
 
 
-  <ul> 
+<ul style="display: none;">
  <li>     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeAutor"  type="text" placeholder="NOME DA MÃE" >                                  
  </li> 
  <li>  <input  onblur="this.value = this.value.trim();" id="nomePaiAutor" type="text" placeholder="NOME DO PAI" >                  
  </li>
 
   </ul>  
-<ul>
+<ul style="display: none;">
+
  <li>  <input 
     onblur="this.value = this.value.trim();"  
     class="ocorrencia" 
@@ -281,7 +286,8 @@
    </ul>  
 
 
-<ul> 
+<ul style="display: none;">
+
 
 
  <li>  <select class="ocorrencia" id="corAutor">
@@ -311,27 +317,6 @@
 
 </fieldset>
 
-    <fieldset>
-      <legend> Dados complementares do casal</legend>
-
-<ul> 
-
- <li>
-  <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
-
-</li>
-
- <li>
-  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
-
-</li>
-  
-</ul>
-
-
-    </fieldset>
- 
- 
 
 
     <fieldset> 
@@ -366,7 +351,8 @@
 
 
 
-<ul> 
+<ul style="display: none;">
+
 
  <li>    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaotestemunha" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
@@ -378,7 +364,8 @@
 
 
 
-  <ul> 
+  <ul style="display: none;">
+
  <li>     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaetestemunha"  type="text" placeholder="NOME DA MÃE" >                                  
  </li> 
  <li>  <input  onblur="this.value = this.value.trim();" id="nomePaitestemunha" type="text" placeholder="NOME DO PAI" >                  
@@ -386,7 +373,8 @@
 
  </ul>
 
- <ul>
+ <ul style="display: none;">
+
  <li>  <input 
     onblur="this.value = this.value.trim();"  
     class="ocorrencia" 
@@ -415,7 +403,8 @@
    </ul>  
 
 
-<ul> 
+<ul style="display: none;">
+
 
 
  <li>  <select class="ocorrencia" id="cortestemunha">
@@ -443,6 +432,138 @@
 </li>
 </ul> 
       </fieldset>
+
+
+
+
+
+
+
+
+    <fieldset>
+      <legend> Dados complementares do casal</legend>
+
+<ul> 
+
+ <li>
+  <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
+
+</li>
+
+ <li>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
+
+</li>
+  
+</ul>
+
+
+<!-- DADOS COMPLEMENTARES EDITAVES NA PÁGINA INICIAL-->
+<ul  style="display: none;"    class="ItemsEdit"> 
+<div class="content"> 
+<h2>Itens complementares (Da avaliação de risco)</h2>
+<p>Editaveis na página do indivíduo</p>
+
+ <li>
+<p class="DadosComplementaresLabel"> Relação entre as partes:</p>
+  <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="01" type="text" placeholder=""  disabled > 
+</li>
+
+ <li >
+<p class="DadosComplementaresLabel"> Estão Separados?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="02" type="text" placeholder="" disabled > 
+</li>
+<li id="SeSeparados">
+<p class="DadosComplementaresLabel"> Tempo de Separação:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="04" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Tempo de relacionamento:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="03" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Tem Filhos?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="05" type="text" placeholder="" disabled > 
+</li>
+<div id="SeTemFilhos"> 
+  <li >
+<p class="DadosComplementaresLabel"> Quantidade de filhos:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="06" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Nome e idade dos fihos:</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="07" type="text" placeholder="" disabled > 
+</li>
+
+ </div>
+ <li >
+<p class="DadosComplementaresLabel"> Possui medidas protetivas de urgência?</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="08" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> O(A) autor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="09" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões psicológicas:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="10" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões Físicas:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="11" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel">  Agressões Morais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="12" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel">  Agressões Patrimoniais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="13" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel">  Agressões Sexuais:
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="14" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> Autor faz uso abusivo de álcool ou de drogas ou medicamentos?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="15" type="text" placeholder="" disabled > 
+</li>
+<li >
+<p class="DadosComplementaresLabel"> Autor já tentou suicídio ou falou em suicidar-se?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="16" type="text" placeholder="" disabled > 
+</li>
+
+<li >
+<p class="DadosComplementaresLabel"> Seu(s) filho(s) já presenciaram ato(s) de violência do(a) autor(a) contra você?
+</p>
+  <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="17" type="text" placeholder="" disabled > 
+</li>
+
+
+
+<a class="editarVoltar" href="#"> Clique para editar</a>
+   </div>
+</ul>
+
+<!-- FINAL DO CÓDIGO - DADOS COMPLEMENTARES EDITAVES NA PÁGINA INICIAL-->
+
+    </fieldset>
+ 
+ 
+
 
  
 

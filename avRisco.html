@@ -392,14 +392,33 @@
 
         <section class="section">
             <div class="question">
-                <p><strong>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?</strong></p>
-                <div class="form-row">
-                    <label><input type="checkbox" id="acessoArma_sim-usou"> Sim, usou</label>
-                    <label><input type="checkbox" id="acessoArma_sim-ameacou"> Sim, ameaçou usar</label>
-                    <label><input type="checkbox" id="acessoArma_tem-acesso"> Tem fácil acesso</label>
-                    <label><input type="checkbox" id="acessoArma_nao"> Não</label>
-                    <label><input type="checkbox" id="acessoArma_nao-sei"> Não sei</label>
-                </div>
+               <!-- Sub-bloco: Acesso a Armas (CORRIGIDO) -->
+<div class="sub-block2">
+  <h4>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?</h4>
+  <div class="checkbox-group2">
+    <div class="checkbox-item">
+      <input type="checkbox" id="acessoArma_simUsou" name="acessoArma" value="sim-usou">
+      <label for="acessoArma_simUsou">Sim, usou</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="acessoArma_simAmeacou" name="acessoArma" value="sim-ameacou">
+      <label for="acessoArma_simAmeacou">Sim, ameaçou usar</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="acessoArma_temAcesso" name="acessoArma" value="tem-acesso">
+      <label for="acessoArma_temAcesso">Tem fácil acesso</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="acessoArma_nao" name="acessoArma" value="nao">
+      <label for="acessoArma_nao">Não</label>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" id="acessoArma_naoSei" name="acessoArma" value="nao-sei">
+      <label for="acessoArma_naoSei">Não sei</label>
+    </div>
+  </div>
+</div>
+
             </div>
 
             <div class="question">

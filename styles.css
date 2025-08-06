@@ -879,7 +879,6 @@ width: 100%;  }
   top: 0;
   left: 0;
   margin-top: 27px;
-  width: 100%;
   background: linear-gradient(to right, #ffffff, #bfe1ff);
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -897,6 +896,9 @@ width: 100%;  }
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer/Edge */
     z-index: 1000;              /* fique sobre outros elementos */
+    width: 100%;
+  box-sizing: border-box;
+
 
 }
 
@@ -941,11 +943,10 @@ width: 100%;  }
 .progress-bar {
   display: flex;
   flex-direction: row;         /* Alinha os itens na horizontal */
-  justify-content: flex-start; /* Começa da esquerda (pode ser center se quiser centralizado) */
+  justify-content: center; /* Começa da esquerda (pode ser center se quiser centralizado) */
   align-items: center;
   flex-wrap: nowrap;           /* Garante que os itens fiquem em uma linha só */
   gap: 10px;
-  width: 100%;
   overflow-x: auto;            /* Rola na horizontal */
   overflow-y: hidden;          /* Impede rolagem vertical */
   padding: 5px;
@@ -955,6 +956,8 @@ width: 100%;  }
   /* Esconde visualmente a barra de rolagem */
   scrollbar-width: none;       /* Firefox */
   -ms-overflow-style: none;    /* IE/Edge */
+    min-width: 100%;
+  flex-grow: 1;
 }
 
 .progress-bar::-webkit-scrollbar {
@@ -972,11 +975,11 @@ width: 100%;  }
     color: #ffffff;
     background-color: #e0e0e0;
     border-radius: 50%;
-    height: 32px;
-    width: 32px;
+
     position: relative;
     cursor: pointer;
-    margin-left: 5px;
+    min-width: 35px;
+  flex: 0 0 auto;
   }
 
   /* Label abaixo do número do passo */

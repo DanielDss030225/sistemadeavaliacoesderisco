@@ -260,3 +260,11 @@ input[type="checkbox"] {
     font-size: 12pt;
 }
 
+
+.checkbox-group2 {
+    display: flex;
+    margin-top: 0px;
+}
+h4 {
+    margin: 0px;
+}

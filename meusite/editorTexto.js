@@ -371,7 +371,6 @@ function atualizardados2() {
   let CAMPO15 = document.getElementById("15");
   let CAMPO16 = document.getElementById("16");
   let CAMPO17 = document.getElementById("17");
-let medidaprotetiva = document.getElementById("medidaprotetiva"); 
 
    const relacaoVitimaAutor = localStorage.getItem("relacaoVitimaAutor");
    const separados = localStorage.getItem("separados");
@@ -392,6 +391,37 @@ let medidaprotetiva = document.getElementById("medidaprotetiva");
    const usoSubstancias = localStorage.getItem("usoSubstancias");
    const numeroProcesso = localStorage.getItem("numeroProcesso");
    
+   const cpfVitima = localStorage.getItem("cpfVitima");
+   const nomeVitima = localStorage.getItem("nomeVitima");
+   const telefoneVitima = localStorage.getItem("telefoneVitima");
+   const cpfAgressor = localStorage.getItem("cpfAgressor");
+   const nomeAgressor = localStorage.getItem("nomeAgressor");
+   const telefoneAgressor = localStorage.getItem("telefoneAgressor");
+   const redsOrigem = localStorage.getItem("redsOrigem");
+
+
+
+
+   
+  let nomevitima = document.getElementById("nomevitima");
+  let cpfvitima = document.getElementById("cpfvitima");
+  let telefonevitima = document.getElementById("telefonevitima");
+  let nomeautor = document.getElementById("nomeautor");
+  let cpfautor = document.getElementById("cpfautor");
+  let telefoneautor = document.getElementById("telefoneautor");
+  let medidaprotetiva = document.getElementById("medidaprotetiva"); 
+  let redsorigem = document.getElementById("redsorigem"); 
+
+  
+  cpfvitima.value = cpfVitima
+  nomevitima.value = nomeVitima
+  telefonevitima.value = telefoneVitima
+  cpfautor.value = cpfAgressor
+  nomeautor.value = nomeAgressor
+  telefoneautor.value = telefoneAgressor
+  medidaprotetiva.value = numeroProcesso
+  redsorigem.value = redsOrigem
+
   CAMPO01.value = relacaoVitimaAutor
   CAMPO02.value = separados 
   CAMPO03.value = tempoRelacionamento
@@ -410,11 +440,57 @@ let medidaprotetiva = document.getElementById("medidaprotetiva");
   CAMPO16.value = suicidioAgressor
   CAMPO17.value = filhosPresenciaramViolencia
 
-setTimeout(() => {
-  medidaprotetiva.value = numeroProcesso;
-}, 2000); // 2000 milissegundos = 2 segundos
-
-
+ if (!relacaoVitimaAutor) {
+  CAMPO01.value = "*********";
+ } 
+ if (!separados) {
+  CAMPO02.value = "*********";
+ } 
+ if (!tempoRelacionamento) {
+  CAMPO03.value = "*********";
+ } 
+ if (!tempoSeparacao) {
+  CAMPO04.value = "*********";
+} 
+if (!temFilhos) {
+  CAMPO05.value = "*********";
+ } 
+ if (!quantidadeFilhos) {
+  CAMPO06.value = "*********";
+ } 
+ if (!nomesIdadesFilhos) {
+  CAMPO07.value = "*********";
+ } 
+ if (!mpu) {
+  CAMPO08.value = "*********";
+ } 
+ if (!acessoArma) {
+  CAMPO09.value = "*********";
+ } 
+ if (!violenciasPsicologicas) {
+  CAMPO10.value = "*********";
+ } 
+ if (!agressoesFisicas) {
+  CAMPO11.value = "*********";
+ } 
+ if (!agressoesMorais) {
+  CAMPO12.value = "*********";
+ } 
+ if (!agressoesPatrimoniais) {
+  CAMPO13.value = "*********";
+ } 
+ if (!agressoesSexuais) {
+  CAMPO14.value = "*********";
+ } 
+ if (!usoSubstancias) {
+  CAMPO15.value = "*********";
+ } 
+ if (!suicidioAgressor) {
+  CAMPO16.value = "*********";
+ } 
+ if (!filhosPresenciaramViolencia) {
+  CAMPO17.value = "*********";
+ }
 
   const rgVitima = localStorage.getItem("rgVitima");
   let rgVitimaInput = document.getElementById("rgvitima");
@@ -423,8 +499,6 @@ setTimeout(() => {
     const rgAgressor = localStorage.getItem("rgAgressor");
   let rgAgressorInput = document.getElementById("rgautor");
   rgAgressorInput.value = rgAgressor
-obterDadosVitima()
-obterDadosAutor()
 
 
 const elementoSeSeparados = document.getElementById("SeSeparados");

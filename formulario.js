@@ -76,7 +76,6 @@ steps.forEach(step => {
   });
 });
 
-
         // Função para carregar dados da avaliação existente
         function carregarDadosAvaliacao(id) {
             const avaliacaoRef = database.ref('avaliacoes/' + id);
@@ -702,7 +701,8 @@ alertaSucesso("✅ Avaliação salva com sucesso!");
 
 }
 
-function openEditor()  {
+
+function deletarItens() {
 // Limpa os dados antigos do localStorage
 localStorage.removeItem("rgVitima");
 localStorage.removeItem("rgAgressor");
@@ -728,24 +728,58 @@ localStorage.removeItem("filhosPresenciaramViolencia");
 localStorage.removeItem("nome"); // referente ao tipo de protocolo SPVD
 localStorage.removeItem("linkAtual"); // usado no botão "OUTROS"
 localStorage.removeItem("linkdaimagem"); // assinatura
+localStorage.removeItem("cpfVitima");
+localStorage.removeItem("nomeVitima");
+localStorage.removeItem("telefoneVitima");
+localStorage.removeItem("cpfAgressor");
+localStorage.removeItem("nomeAgressor");
+localStorage.removeItem("telefoneAgressor");
+
+}
+
+let mudarLink = "01"
+
+function openEditor()  {
+deletarItens();
 
 //obtem os valors dos inputs tempoRelacionamento dataExpedicao
-   let rgVitima = document.getElementById("rgVitima").value;
-   let rgAgressor = document.getElementById("rgAgressor").value;
-   let tempoRelacionamento = document.getElementById("tempoRelacionamento").value;
-  let tempoSeparacao = document.getElementById("tempoSeparacao").value;
+    let rgVitima = document.getElementById("rgVitima").value;
+    let rgAgressor = document.getElementById("rgAgressor").value;
+    let tempoRelacionamento = document.getElementById("tempoRelacionamento").value;
+    let tempoSeparacao = document.getElementById("tempoSeparacao").value;
     let numeroProcesso = document.getElementById("numeroProcesso").value;
     let dataExpedicao = document.getElementById("dataExpedicao").value;
 
+    let cpfVitima = document.getElementById("cpfVitima").value;
+    let nomeVitima = document.getElementById("nomeVitima").value;
+    let telefoneVitima = document.getElementById("telefoneVitima").value;
+    let cpfAgressor = document.getElementById("cpfAgressor").value;
+    let nomeAgressor = document.getElementById("nomeAgressor").value;
+    let telefoneAgressor = document.getElementById("telefoneAgressor").value;
+
+    let redsOrigem = document.getElementById("redsOrigem").value;
+
 //armazena os valores no localStoragenumeroProcesso numeroProcesso
+//dadosdos individuos
    localStorage.setItem("rgVitima", rgVitima);
    localStorage.setItem("rgAgressor", rgAgressor);
-salvarLink();
+
+   localStorage.setItem("cpfVitima", cpfVitima);
+   localStorage.setItem("nomeVitima", nomeVitima);
+   localStorage.setItem("telefoneVitima", telefoneVitima);
+   localStorage.setItem("cpfAgressor", cpfAgressor);
+   localStorage.setItem("nomeAgressor", nomeAgressor);
+   localStorage.setItem("telefoneAgressor", telefoneAgressor);
+   localStorage.setItem("redsOrigem", redsOrigem);
    localStorage.setItem("tempoRelacionamento", tempoRelacionamento);
    localStorage.setItem("tempoSeparacao", tempoSeparacao);
    localStorage.setItem("numeroProcesso", numeroProcesso);
    localStorage.setItem("dataExpedicao", dataExpedicao);
+
+salvarLink();
 salvarRelacaoVitimaAutor();
+
+
 }
 
 //separados
@@ -760,7 +794,7 @@ function salvarRelacaoVitimaAutor() {
     console.log("Salvo no localStorage:", textoSelecionado);
 separados()
   } else {
-    alert("Preencha corretamente todos os dados.");
+    alert("Preencha o campo: relação VITIMA/AUTOR. PÁGINA 01.");
   }
 }
 
@@ -778,7 +812,7 @@ function separados() {
     console.log("Salvo no localStorage:", textoSelecionado);
 temFilhos() 
   } else {
-    alert("Preencha corretamente todos os dados.");
+    alert("Preencha o campo: SE ESTÃO SEPARADOS ATUALMENTE. PÁGINA 03.");
   }
 }
 
@@ -811,7 +845,7 @@ if (textoSelecionado == "Não") {
 mpu()
 
   } else {
-    alert("Preencha corretamente todos os dados.");
+    alert("Preencha o campo: SE TEM FILHOS - QUANTIDADE DE FILHOS. PÁGINA 06/ BLOCO III/ ITEM 18.");
   }
 
 }
@@ -827,7 +861,7 @@ function mpu() {
     console.log("Salvo no localStorage:", textoSelecionado);
  acessoArma()
   } else {
-    alert("Preencha corretamente todos os dados.");
+    alert("Preencha o campo: SE TEM MEDIDA PROTETIVA - NÚMERO DO DOCUMENTO. PÁGINA 03.");
   }
 }
 
@@ -842,7 +876,7 @@ function acessoArma() {
 salvarViolenciaPsicologica()
 
   } else {
-    alert("Preencha corretamente todos os dados.");
+    alert("Preencha o campo: SE TEM FÁCIL ACESSO A ARMA DE FOGO. PÁGINA 5/ BLOCO II/ ITEM: N° 15.");
   }
 }
 
@@ -1023,9 +1057,14 @@ function salvarFilhosPresenciaramViolencia() {
   localStorage.setItem("filhosPresenciaramViolencia", resposta);
 
   console.log("Violência presenciada pelos filhos salva:", resposta);
+if (mudarLink == "02") {
+  window.location.href = "./meusite/index.html";
 
-  // Redirecionamento
+} else {
   window.location.href = "./meusite/editordetexto.html";
+
+};
+  // Redirecionamento
 }
 
 
@@ -1036,72 +1075,85 @@ function salvarFilhosPresenciaramViolencia() {
 
 
   document.getElementById("DSSA").addEventListener("click", function(event) {
+       mudarLink = "01";
       openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
   });
 
  document.getElementById("DSSV").addEventListener("click", function(event) {
+     mudarLink = "01";
   openEditor();
+  
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA");
   });
 
   document.getElementById("NDA").addEventListener("click", function(event) {
+       mudarLink = "01";
     openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR");
     });
 
   document.getElementById("IDV").addEventListener("click", function(event) {
+       mudarLink = "01";
      openEditor();
      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO");
   });
   
 
   document.getElementById("RDV").addEventListener("click", function(event) {
+       mudarLink = "01";
       openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA");
   });
 
   document.getElementById("ADLPV").addEventListener("click", function(event) {
+       mudarLink = "01";
      openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA");
   });
 
   document.getElementById("ADLPA").addEventListener("click", function(event) {
+       mudarLink = "01";
      openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA O AUTOR");
   });
 
   document.getElementById("EDV").addEventListener("click", function(event) {
+       mudarLink = "01";
      openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO");
   });
 
 
   document.getElementById("MDV").addEventListener("click", function(event) {
+       mudarLink = "01";
      openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DA VÍTIMA");
   });
 
   document.getElementById("MDA").addEventListener("click", function(event) {
+       mudarLink = "01";
       openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: MONITORAMENTO DO AUTOR");
   });
 
   document.getElementById("ECAV").addEventListener("click", function(event) {
+       mudarLink = "01";
       openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCERRAMENTO");
   });
 
   document.getElementById("RDEDV").addEventListener("click", function(event) {
+       mudarLink = "01";
    openEditor();
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO");
   });
  
 
    document.getElementById("OUTROS").addEventListener("click", function(event) {
-   window.location.href = "./meusite/index.html";
-      localStorage.setItem("linkAtual", window.location.href);
-
+   mudarLink = "02";
+   openEditor();
+   
   });
  
 

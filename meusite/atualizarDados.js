@@ -2,263 +2,132 @@ import {mostrarAlertaSucesso} from "./firebase-salvar-valores.js";
 
  
 export function AtualizarDados()  {
-  
-let nome =  document.getElementById("titulopag").textContent; 
 
+//titulo do texto
+let nome =  document.getElementById("titulopag").textContent;
 let titulo = nome
+
+//mensagem do texto
 let mensagem01 = " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR "
+
+//dados autor
 let nomeautor = document.getElementById("nomeautor").value;  
 let rgautor = document.getElementById("rgautor").value; 
-let ocorrencia  = document.getElementById("redsorigem").value; 
+let telefoneautor = document.getElementById("telefoneautor").value; 
+//dados vitima
 let nomevitima = document.getElementById("nomevitima").value; 
 let rgvitima = document.getElementById("rgvitima").value; 
-let telefoneautor = document.getElementById("telefoneautor").value; 
 let telefonevitima = document.getElementById("telefonevitima").value; 
-let medidaprotetiva = document.getElementById("medidaprotetiva").value.trim();
-let enderecoVitima = document.getElementById("enderecoVitima").value; 
-let enderecoAutor = document.getElementById("enderecoAutor").value; 
-let seMedidas = "";
+//dados testemunha
+let nometestemunha = document.getElementById("nometestemunha").value; 
+let rgtestemunha = document.getElementById("rgtestemunha").value; 
+let telefonetestemunha = document.getElementById("telefonetestemunha").value; 
+//dados complementares
+let ocorrencia  = document.getElementById("redsorigem").value; 
+let medidaprotetiva = document.getElementById("medidaprotetiva").value;
 
-const dataExpedicao = localStorage.getItem("dataExpedicao");
-const dataISO = dataExpedicao;
-const [ano, mes, dia] = dataISO.split("-");
-const dataFormatada = `${dia}/${mes}/${ano}`;
 
-console.log(dataFormatada); // Saída: "25/02/2025"
+//obtem valores dos inputs da avaliação de risco
+let CAMPO01 = document.getElementById("01").value; //relacaoVitimaAutor
+let CAMPO02 = document.getElementById("02").value; //separados
+let CAMPO03 = document.getElementById("03").value; //tempoRelacionamento
+let CAMPO04 = document.getElementById("04").value; //tempoSeparacao
+let CAMPO05 = document.getElementById("05").value; //temFilhos
+let CAMPO06 = document.getElementById("06").value; //quantidadeFilhos
+let CAMPO07 = document.getElementById("07").value; //nomesIdadesFilhos
+let CAMPO08 = document.getElementById("08").value; //mpu
+let CAMPO09 = document.getElementById("09").value; //acessoArma
+let CAMPO10 = document.getElementById("10").value; //violenciasPsicologicas
+let CAMPO11 = document.getElementById("11").value; //agressoesFisicas
+let CAMPO12 = document.getElementById("12").value; //agressoesMorais
+let CAMPO13 = document.getElementById("13").value; //agressoesPatrimoniais
+let CAMPO14 = document.getElementById("14").value; //agressoesSexuais
+let CAMPO15 = document.getElementById("15").value; //usoSubstancias
+let CAMPO16 = document.getElementById("16").value; //suicidioAgressor
+let CAMPO17 = document.getElementById("17").value; //filhosPresenciaramViolencia
+let dataExpedicao = localStorage.getItem("dataExpedicao");
 
-if (medidaprotetiva === "") {
-  seMedidas = "";
+//CONDICIONAIS PARA AJUSTES DOS CAMPOS
+if (CAMPO03 < 2) {
+  CAMPO03 = CAMPO03 + " ANO";
 } else {
-  seMedidas = "A ASSISTIDA APRESENTOU AS MEDIDAS PROTETIVAS, PROCESSO Nº: " + medidaprotetiva + " EXPEDIDAS EM " + dataFormatada + ", E DISSE QUE ESTÁ TUDO BEM E QUE NÃO VOLTOU A TER NOVOS PROBLEMAS";
+CAMPO03 = CAMPO03 + " ANOS";
 };
 
 
-
-//this dados are the testemunha.
-  let nometestemunha = document.getElementById("nometestemunha").value; 
-  let rgtestemunha = document.getElementById("rgtestemunha").value; 
-  let telefonetestemunha = document.getElementById("telefonetestemunha").value;
-
-
-let CompanheiroSN = null; // valor inicial (null como texto ou sem aspas, dependendo da intenção)
-let relacaoSN = null
-let porHA = null
-let seSeparados = null
-let mesmoEndereco = null
-let sePossuiFilhos = null
-let sePossuiMPU = null
-let sePossuiArma = null
-let seAgressaoPsicologica = null
-let seAgressaoFisica = null
-let seAgressaoPatrimonial = null
-let seAgressaoMoral = null
-let seAgressaoSexual = null
-let usoSubstancias = null
-let suicidioAgressor = null
-let filhosPresenciaramViolencia = null
-
-let CAMPO01 = document.getElementById("01").value; 
-let CAMPO02 = document.getElementById("02").value;
-let CAMPO05 = document.getElementById("05").value;
-let CAMPO06 = document.getElementById("06").value;
-let CAMPO07 = document.getElementById("07").value;
-let CAMPO08 = document.getElementById("08").value;
-let CAMPO09 = document.getElementById("09").value;
-let CAMPO10 = document.getElementById("10").value;
-let CAMPO11 = document.getElementById("11").value;
-let CAMPO12 = document.getElementById("12").value;
-let CAMPO13 = document.getElementById("13").value;
-let CAMPO14 = document.getElementById("14").value;
-let CAMPO15 = document.getElementById("15").value;
-let CAMPO16 = document.getElementById("16").value;
-let CAMPO17 = document.getElementById("17").value;
-
-if (CAMPO16 == "SIM"){
-  if( CAMPO17 == "SIM") {
-suicidioAgressor = "ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE E PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. "
-  } else {
-    suicidioAgressor = "ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE. "
-  }
-
+if (CAMPO04 < 2) {
+  CAMPO04 = CAMPO04 + " ANO";
 } else {
-
-if( CAMPO17 == "SIM") {
-suicidioAgressor = "ALÉM DISSO, O ASSISTIDO JÁ PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. "
-  } else {
-    suicidioAgressor = ""
-  }
-
+CAMPO04 = CAMPO04 + " ANOS";
 };
 
-const contemAlcool = CAMPO15.includes("ÁLCOOL");
-  const contemDrogas = CAMPO15.includes("DROGAS");
-
-if (contemAlcool && contemDrogas) {
-     usoSubstancias = "COMPLEMENTOU QUE ELE FAZ USO DE BEBIDA ALCOÓLICA E DE DROGAS."
-  } else if (contemAlcool) {
-     usoSubstancias = "COMPLEMENTOU QUE ELE FAZ USO DE BEBIDA ALCOÓLICA."
-  } else if (contemDrogas) {
-     usoSubstancias = "COMPLEMENTOU QUE ELE FAZ USO DE DROGAS."
-  } else {
-     usoSubstancias = "COMPLEMENTOU QUE ELE NÃO FAZ USO DE BEBIDA ALCOÓLICA E DE DROGAS."
-  }
-
-
-let tempoRelacionamento = document.getElementById("03").value;
-let SeSeparados = document.getElementById("SeSeparados");
-
-let tempoSeparacao = "";
-
-if (SeSeparados && window.getComputedStyle(SeSeparados).display !== "none") {
-  tempoSeparacao = document.getElementById("04").value; 
-} else {
-  tempoSeparacao = "";
-}
-
-if (CAMPO05 === "Sim, com o agressor") {
-sePossuiFilhos = " POSSUEM " + CAMPO06 + " FILHOS EM COMUM " + "(" +CAMPO07+ ")";
-
-} else {
-  sePossuiFilhos = " NÃO POSSUEM FILHOS EM COMUM";
+if (dataExpedicao == "") {
+  dataExpedicao =  "*********";
 };
+//FINAL DA CONDICIONAL PARA AJUSTES DOS CAMPOS
 
-
-if (!CAMPO10) {
-seAgressaoPsicologica = "";
-
-} else {
-seAgressaoPsicologica = "- AGRESSÕES PSICOLÓGICAS ATRAVÉS DE: " + CAMPO10 +";\n\n";
-
-};  
-
-if (!CAMPO11) {
-seAgressaoFisica = "";
-
-} else {
-seAgressaoFisica = "- AGRESSÕES FÍSICAS ATRAVÉS DE: " + CAMPO11 +"; \n\n";
-};  
-
-if (!CAMPO12) {
-seAgressaoMoral = "";
-
-} else {
-seAgressaoMoral = "- AGRESSÕES MORAIS ATRAVÉS DE: " + CAMPO12 +";\n\n";
-};  
-
-if (!CAMPO13) {
-seAgressaoPatrimonial = "";
-
-} else {
-seAgressaoPatrimonial = "- AGRESSÕES PATRIMONIAIS ATRAVÉS DE: " + CAMPO13;
-};  
-
-if (!CAMPO14) {
-seAgressaoSexual = "";
-
-} else {
-seAgressaoSexual = "- AGRESSÕES SEXUAIS ATRAVÉS DE: " + CAMPO14 +".\n\n";
-};  
-
-//ARMA DE FOGO
-if (CAMPO09 === "Não") {
-sePossuiArma = " O ASSISTIDO NUNCA AMEAÇOU USAR ARMA DE FOGO CONTRA A VÍTIMA E NÃO TEM FÁCIL ACESSO.";
-
-} else if (CAMPO09 === "Sim, usou"){
-sePossuiArma = " O ASSISTIDO JÁ USOU ARMA DE FOGO CONTRA A VÍTIMA E POSSUI FÁCIL ACESSO.";
-} else if (CAMPO09 === "Sim, ameaçou usar"){
-sePossuiArma = " O ASSISTIDO JÁ AMEAÇOU USAR ARMA DE FOGO CONTRA A VÍTIMA E POSSUI FÁCIL ACESSO.";
-} else if (CAMPO09 === "Tem fácil acesso"){
-sePossuiArma = " O ASSISTIDO NUNCA AMEAÇOU USAR ARMA DE FOGO CONTRA A VÍTIMA MAS POSSUI FÁCIL ACESSO.";
-}else if (CAMPO09 === "Não sei"){
-sePossuiArma = " A VÍTIMA NÃO SOUBE INFORMAR SE O ASSISTIDO AMEAÇOU USAR ARMA DE FOGO CONTRA ELA OU POSSUI FÁCIL ACESSO.";
-};
-
-
-if (CAMPO02 === "Sim") {
-    CompanheiroSN = "EX-COMPANHEIRO";
-    relacaoSN = "RELACIONOU-SE";
-    porHA = "POR";
-    seSeparados ="; ESTÃO SEPARADOS HÁ "
-
-} else {
-    CompanheiroSN = "COMPANHEIRO";
-    relacaoSN = "RELACIONA-SE";
-    porHA = "HÁ";
-    seSeparados =" "
-};
-
-if (CAMPO08 === "Sim") {
-   sePossuiMPU = " POSSUI MEDIDAS PROTETIVAS";
-}  else if (CAMPO08 === "Não") {
-   sePossuiMPU = " NÃO POSSUI MEDIDAS PROTETIVAS";
-
-} else {
-     sePossuiMPU = " SOLICITOU POSSUI MEDIDAS PROTETIVAS";
-
-};
-
-
-if (enderecoVitima === enderecoAutor) {
-  mesmoEndereco = " RESIDEM NO MESMO IMÓVEL"
-
-} else {
-    mesmoEndereco = " NÃO RESIDEM NO MESMO IMÓVEL"
-
-
-};
-
-
-
-if (nometestemunha == "") {
-  nometestemunha = "*********"
-}
-if (rgtestemunha == "") {
-  rgtestemunha = "*********"
-}
-if (telefonetestemunha == "") {
-  telefonetestemunha = "*********"
-}
-
-if (nomeautor == "") {
-  nomeautor = "*********"
-}
-if (rgautor == "") {
-  rgautor = "*********"
-} else {
-
- mostrarAlertaSucesso();
-}
-
-if (ocorrencia == "") {
-  ocorrencia = "*********"
-}
+//if vitima
 if (nomevitima == "") {
-  nomevitima = "*********"
+  nomevitima = "*********";
 } else {
-
  mostrarAlertaSucesso();
-}
+};
 if (rgvitima == "") {
-  rgvitima = "*********"
-} 
-if (telefoneautor == "") {
-  telefoneautor = "*********"
-}
+  rgvitima = "*********";
+}; 
 if (telefonevitima == "") {
-  telefonevitima = "*********"
-}
-if (medidaprotetiva == "") {
-  medidaprotetiva = "*********"
+  telefonevitima = "*********";
+};
+
+//if autor
+if (nomeautor == "") {
+  nomeautor = "*********";
+};
+if (rgautor == "") {
+  rgautor = "*********";
+} else {
+ mostrarAlertaSucesso();
+};
+if (telefoneautor == "") {
+  telefoneautor = "*********";
 };
 
 
-//INCLUSÃO DA VÍTIMA
+//if testemunha
+if (nometestemunha == "") {
+  nometestemunha = "*********";
+};
+if (rgtestemunha == "") {
+  rgtestemunha = "*********";
+};
+if (telefonetestemunha == "") {
+  telefonetestemunha = "*********";
+};
+
+
+
+//dados complementares
+if (ocorrencia == "") {
+  ocorrencia = "*********";
+};
+if (medidaprotetiva == "") {
+  medidaprotetiva = "*********";
+};
+
+//dados complementares da avaliacao de risco
+if (CAMPO04 == "") {
+  CAMPO04 = "*********";
+};
+
+
+//INCLUSAO DA VITIMA
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO") {
  
-  document.getElementById("idteste").value = "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO" + "\n\n" + "CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM " + nomevitima + ", RG " + rgvitima + ", PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + " EM DESFAVOR DE SEU " + CompanheiroSN + ", " + nomeautor + ", RG " + rgautor + ".\n\n"  + 
-  "A ASSISTIDA INFORMOU QUE: " + relacaoSN +" COM O ASSISTIDO " +porHA+ " " + tempoRelacionamento  + ";" + mesmoEndereco + seSeparados + tempoSeparacao + ";" + sePossuiFilhos + "; REGISTROU 1 "+ " BOLETIM DE OCORRÊNCIA, EM VIRTUDE DE VIOLÊNCIA DOMÉSTICA;" +sePossuiMPU+ ";"+ sePossuiArma +  "\n\n" + nomevitima + " RESSALTOU QUE " + nomeautor + " JÁ COMETEU CONTRA ELA:\n\n"+ seAgressaoPsicologica +  seAgressaoFisica  + seAgressaoSexual  + seAgressaoMoral+seAgressaoPatrimonial + ".\n\n" + usoSubstancias +"\n\n" + suicidioAgressor+ seMedidas +  "\n\n"  + nomevitima + " ASSINOU O TERMO DE INCLUSÃO E FOI ORIENTADA SOBRE AS PROVIDÊNCIAS A SEREM ADOTADAS DIANTE DE NOVOS EPISÓDIOS DE VIOLÊNCIA."+  "\n\n" + "DAREMOS CONTINUIDADE AO MONITORAMENTO DO CASO." +  "\n\n" + "REDS RELACIONADOS AO CASO: " + ocorrencia 
-}
+  document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM " + nomevitima + ", RG " + rgvitima + ", PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + " EM DESFAVOR DE SEU (EX-) COMPANHEIRO, " + nomeautor + ", RG " + rgautor + ".\n\n"  + 
+  " A ASSISTIDA INFORMOU QUE: RELACIONA-SE (RELACIONOU-SE) COM O ASSISTIDO (POR) HÁ " + CAMPO03 + "; (NÃO) RESIDEM NO MESMO IMÓVEL; (ESTÃO SEPARADOS HÁ " + CAMPO04 + "); (NÃO) POSSUEM " + CAMPO06 + " FILHOS EM COMUM; REGISTROU " + "*********" + " BOLETINS DE OCORRÊNCIA, EM VIRTUDE DE VIOLÊNCIA DOMÉSTICA; (NÃO) POSSUI MEDIDAS PROTETIVAS; O ASSISTIDO (NÃO) POSSUI ARMA DE FOGO." +  "\n\n " + nomevitima + " RESSALTOU QUE " + nomeautor + " JÁ COMETEU AGRESSÕES PSICOLÓGICAS ATRAVÉS DE " + CAMPO10 + "; AGRESSÕES FÍSICAS ATRAVÉS DE " + CAMPO11 + "; AGRESSÕES SEXUAIS ATRAVÉS DE " + CAMPO14 + "; AGRESSÕES MORAIS ATRAVÉS DE " + CAMPO12 + "; E AGRESSÕES PATRIMONIAIS QUANDO " + CAMPO13 + ". ELE FAZ (NÃO FAZ) USO DE BEBIDA ALCOÓLICA E DE DROGAS. ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE E PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. A ASSISTIDA APRESENTOU AS MEDIDAS PROTETIVAS, PROCESSO Nº " + medidaprotetiva + ", REFERENTE AO " + "*********" + " JUIZADO DE VIOLÊNCIA DOMÉSTICA, EXPEDIDAS EM " + dataExpedicao + ", DISSE QUE ESTÁ TUDO BEM E QUE NÃO VOLTOU A TER NOVOS PROBLEMAS. (OU, A ASSISTIDA INFORMOU QUE NÃO SOLICITOU MEDIDAS PROTETIVAS EM DESFAVOR DO ASSISTIDO, ALEGANDO QUE NÃO HOUVE NECESSIDADE). (OU, A ASSISTIDA INFORMOU QUE SOLICITOU MEDIDAS PROTETIVAS E ESTÁ AGUARDANDO INTIMAÇÃO)." +  "\n\n "  + nomevitima + " ASSINOU O TERMO DE INCLUSÃO E FOI ORIENTADA SOBRE AS PROVIDÊNCIAS A SEREM ADOTADAS DIANTE DE NOVOS EPISÓDIOS DE VIOLÊNCIA."+  "\n\n" + " DAREMOS CONTINUIDADE AO MONITORAMENTO DO CASO." +  "\n\n" + " REDS RELACIONADOS AO CASO: " + ocorrencia 
+};
 
+//atualiza históricos
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO") {
   document.getElementById("idteste").value = " " + titulo  + "\n\n" + mensagem01 + nomeautor + ", RG: " + rgautor 
 + ", (PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + ", REGISTRADO EM SEU DESFAVOR POR SUA (EX-)COMPANHEIRA," + " " + nomevitima + ", RG " + rgvitima + ".)  (PARA APRESENTÁ-LO A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, "
@@ -266,8 +135,6 @@ if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZAD
 " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR O ASSISTIDO. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO" 
 + " " + telefoneautor + ", MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." 
 + "\n\n" + " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DO ASSISTIDO NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
-
-
 } 
 
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA") {
@@ -275,6 +142,7 @@ if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZAD
   " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR A ASSISTIDA. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO " + telefonevitima + ", MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." +  "\n\n" +
   " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DA ASSISTIDA NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
 }
+
 
 
 //encaminhamento
@@ -343,8 +211,6 @@ if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOL
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES)") {
   document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES) " + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS VISITA À "+ nomevitima +", RG "+ rgvitima +", DEVIDO AO REGISTRO DA OCORRÊNCIA Nº "+ ocorrencia +" ENTRE ELA E SEU (EX-) COMPANHEIRO, "+ nomeautor +", RG "+ rgautor +". " + "\n\n" + " "+ nomevitima +" ASSINOU O TERMO DE INCLUSÃO NO SPVD E RECEBEU UMA CÓPIA DO REFERIDO TERMO. AS INFORMAÇÕES COLETADAS SUBSIDIARÃO RELATÓRIO CIRCUNSTANCIADO DO CASO, QUE SERÁ ENCAMINHADO, POSTERIORMENTE, PARA AS AUTORIDADES COMPETENTES."
 }
-
-
 
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)") {
   document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM "+ nomeautor +", RG "+ rgautor + ", PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SPVD DEVIDO AO REDS Nº "+ ocorrencia +", REGISTRADO EM SEU DESFAVOR POR SUA (EX-) COMPANHEIRA, "+ nomevitima +", RG "+ rgvitima +". " + "\n\n" + " " + nomeautor + " ASSINOU O TERMO DE NOTIFICAÇÃO DE INSERÇÃO NO SPVD E RECEBEU UMA CÓPIA DO REFERIDO TERMO. DEMAIS INFORMAÇÕES COLETADAS SUBSIDIARÃO RELATÓRIO CIRCUNSTANCIADO DO CASO, QUE SERÁ ENCAMINHADO, POSTERIORMENTE, PARA AS AUTORIDADES COMPETENTES. "
@@ -451,7 +317,3 @@ if ( nome=="CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO") {
 
 // Exportando a função
 window.AtualizarDados = AtualizarDados();
-
-
-
-
