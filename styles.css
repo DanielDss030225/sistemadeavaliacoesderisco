@@ -910,10 +910,11 @@ color: #5a6268;
 
 
 .BackToEnd2 {
-           /* flex container para alinhamento */
-  align-items: center;              /* centraliza verticalmente */
-  justify-content: center;          /* centraliza horizontalmente */
-  padding: 5px 5px;                 /* padding igual */
+  display: inline-block;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
   font-size: 12px;
   font-weight: bold;
   color: white;
@@ -924,19 +925,34 @@ color: #5a6268;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   width: 100%;
-  line-height: normal;              /* remover line-height 0 para não prejudicar */
+  line-height: 15px;
   text-align: center;
-  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.BackToEnd2:hover {
+  background: linear-gradient(135deg, #3498db, #3498db);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.BackToEnd2:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px 
+
 }
 
 
 
 
 
-
-
+.BackToEnd3 {
+  display: none;
+ 
+}
 
 
 
@@ -1033,7 +1049,7 @@ form {
 .progress-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari e Opera */
 }
-.BackToEnd2 {
+.BackToEnd3 {
   display: inline-flex;             /* flex container para alinhamento */
   align-items: center;              /* centraliza verticalmente */
   justify-content: center;          /* centraliza horizontalmente */
