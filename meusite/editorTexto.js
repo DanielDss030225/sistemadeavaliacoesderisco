@@ -371,6 +371,9 @@ function atualizardados2() {
   let CAMPO15 = document.getElementById("15");
   let CAMPO16 = document.getElementById("16");
   let CAMPO17 = document.getElementById("17");
+  let CAMPO18 = document.getElementById("18");
+  let CAMPO19 = document.getElementById("19");
+  let CAMPO20 = document.getElementById("20");
 
    const relacaoVitimaAutor = localStorage.getItem("relacaoVitimaAutor");
    const separados = localStorage.getItem("separados");
@@ -391,6 +394,10 @@ function atualizardados2() {
    const usoSubstancias = localStorage.getItem("usoSubstancias");
    const numeroProcesso = localStorage.getItem("numeroProcesso");
    
+   const temFilhos2 = localStorage.getItem("temFilhos2");
+   const quantidadeFilhos2 = localStorage.getItem("quantidadeFilhos2");
+   const nomesIdadesFilhos2 = localStorage.getItem("nomesIdadesFilhos2");
+
    const cpfVitima = localStorage.getItem("cpfVitima");
    const nomeVitima = localStorage.getItem("nomeVitima");
    const telefoneVitima = localStorage.getItem("telefoneVitima");
@@ -412,33 +419,35 @@ function atualizardados2() {
   let medidaprotetiva = document.getElementById("medidaprotetiva"); 
   let redsorigem = document.getElementById("redsorigem"); 
 
-  
-  cpfvitima.value = cpfVitima
-  nomevitima.value = nomeVitima
-  telefonevitima.value = telefoneVitima
-  cpfautor.value = cpfAgressor
-  nomeautor.value = nomeAgressor
-  telefoneautor.value = telefoneAgressor
-  medidaprotetiva.value = numeroProcesso
-  redsorigem.value = redsOrigem
+  cpfvitima.value = cpfVitima.toUpperCase();
+nomevitima.value = nomeVitima.toUpperCase();
+telefonevitima.value = telefoneVitima.toUpperCase();
+cpfautor.value = cpfAgressor.toUpperCase();
+nomeautor.value = nomeAgressor.toUpperCase();
+telefoneautor.value = telefoneAgressor.toUpperCase();
+medidaprotetiva.value = numeroProcesso.toUpperCase();
+redsorigem.value = redsOrigem.toUpperCase();
 
-  CAMPO01.value = relacaoVitimaAutor
-  CAMPO02.value = separados 
-  CAMPO03.value = tempoRelacionamento
-  CAMPO04.value = tempoSeparacao
-  CAMPO05.value = temFilhos
-  CAMPO06.value = quantidadeFilhos
-  CAMPO07.value = nomesIdadesFilhos
-  CAMPO08.value = mpu
-  CAMPO09.value = acessoArma
-  CAMPO10.value = violenciasPsicologicas
-  CAMPO11.value = agressoesFisicas
-  CAMPO12.value = agressoesMorais
-  CAMPO13.value = agressoesPatrimoniais
-  CAMPO14.value = agressoesSexuais
-  CAMPO15.value = usoSubstancias
-  CAMPO16.value = suicidioAgressor
-  CAMPO17.value = filhosPresenciaramViolencia
+CAMPO01.value = relacaoVitimaAutor.toUpperCase();
+CAMPO02.value = separados.toUpperCase();
+CAMPO03.value = tempoRelacionamento.toUpperCase();
+CAMPO04.value = tempoSeparacao.toUpperCase();
+CAMPO05.value = temFilhos.toUpperCase();
+CAMPO06.value = quantidadeFilhos.toUpperCase();
+CAMPO07.value = nomesIdadesFilhos.toUpperCase();
+CAMPO08.value = mpu.toUpperCase();
+CAMPO09.value = acessoArma.toUpperCase();
+CAMPO10.value = violenciasPsicologicas.toUpperCase();
+CAMPO11.value = agressoesFisicas.toUpperCase();
+CAMPO12.value = agressoesMorais.toUpperCase();
+CAMPO13.value = agressoesPatrimoniais.toUpperCase();
+CAMPO14.value = agressoesSexuais.toUpperCase();
+CAMPO15.value = usoSubstancias.toUpperCase();
+CAMPO16.value = suicidioAgressor.toUpperCase();
+CAMPO17.value = filhosPresenciaramViolencia.toUpperCase();
+CAMPO18.value = temFilhos2.toUpperCase();
+CAMPO19.value = quantidadeFilhos2.toUpperCase();
+CAMPO20.value = nomesIdadesFilhos2.toUpperCase();
 
  if (!relacaoVitimaAutor) {
   CAMPO01.value = "*********";
@@ -491,7 +500,15 @@ if (!temFilhos) {
  if (!filhosPresenciaramViolencia) {
   CAMPO17.value = "*********";
  }
-
+if (!temFilhos2) {
+  CAMPO18.value = "*********";
+ } 
+ if (!quantidadeFilhos2) {
+  CAMPO19.value = "*********";
+ } 
+ if (!nomesIdadesFilhos2) {
+  CAMPO20.value = "*********";
+ } 
   const rgVitima = localStorage.getItem("rgVitima");
   let rgVitimaInput = document.getElementById("rgvitima");
   rgVitimaInput.value = rgVitima

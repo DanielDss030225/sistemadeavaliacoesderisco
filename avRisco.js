@@ -365,18 +365,23 @@ if (dados.acessoArma && Array.isArray(dados.acessoArma)) {
         marcarCheckboxPorId(`separacaoRecente_${dados.separacaoRecente}`, true);
     }
 
-    // Tem filhos
-    if (dados.temFilhos) {
-        marcarCheckboxPorId(`temFilhos_${dados.temFilhos}`, true);
-        
-        // Se tem filhos, preencher os campos de quantidade e nomes
-        if (dados.temFilhos === 'sim-com-agressor') {
-            preencherCampoPorId('quantidadeFilhos', dados.quantidadeFilhos);
-            preencherCampoPorId('nomesIdadesFilhos', dados.nomesIdadesFilhos);
-        } else if (dados.temFilhos === 'sim-outro-relacionamento') {
-            preencherCampoPorId('quantidadeFilhosOutro', dados.quantidadeFilhos);
-            preencherCampoPorId('nomesIdadesFilhosOutro', dados.nomesIdadesFilhos);
-        }
+    // Tem filhos - nova lógica para campos separados
+    if (dados.temFilhos === 'nao') {
+        marcarCheckboxPorId('temFilhos_nao', true);
+    }
+    
+    // Filhos com agressor
+    if (dados.temFilhosComAgressor) {
+        marcarCheckboxPorId('temFilhos_sim-com-agressor', true);
+        preencherCampoPorId('quantidadeFilhosComAgressor', dados.quantidadeFilhosComAgressor);
+        preencherCampoPorId('nomesIdadesFilhosComAgressor', dados.nomesIdadesFilhosComAgressor);
+    }
+    
+    // Filhos de outro relacionamento
+    if (dados.temFilhosOutroRelacionamento) {
+        marcarCheckboxPorId('temFilhos_sim-outro-relacionamento', true);
+        preencherCampoPorId('quantidadeFilhosOutroRelacionamento', dados.quantidadeFilhosOutroRelacionamento);
+        preencherCampoPorId('nomesIdadesFilhosOutroRelacionamento', dados.nomesIdadesFilhosOutroRelacionamento);
     }
 
     // Filho com deficiência

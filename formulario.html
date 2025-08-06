@@ -84,11 +84,13 @@
 </header>
 
 <div class="form-container">
-          
+
             <!-- Container das Abas com Slide -->
             <div class="tabs-container">
                 <div class="tabs-wrapper" id="tabsWrapper">
                     <form id="avaliacaoRiscoForm">
+                        <div class="sub-block2">                   <a href="./index.html" class="BackToEnd2">◀️</a>
+<p class="nomeAv">Cod: </p><p id="codigoAvaliacao"> Carregando...</p></div>
                         <!-- Aba 1: Identificação da Vítima -->
                         <div class="tab-content active" id="tab1">
                             <div class="tab-header">
@@ -1149,6 +1151,10 @@
                                             <input type="checkbox" id="agressaoMoral3" name="agressaoMoral" value="injuria">
                                             <label for="agressaoMoral3">Injúria</label>
                                         </div>
+                                         <div class="checkbox-item">
+                                            <input type="checkbox" id="agressaoMoral4" name="agressaoMoral" value="NenhumaAgressaoMoral">
+                                            <label for="agressaoMoral4">Nenhuma agressão moral</label>
+                                        </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-col">
@@ -1353,11 +1359,11 @@
   <div class="checkbox-group">
     <div class="checkbox-item">
       <input type="checkbox" id="acessoArma_simUsou" name="acessoArma" value="sim-usou">
-      <label for="acessoArma_simUsou">Sim, usou</label>
+      <label for="acessoArma_simUsou">Usou</label>
     </div>
     <div class="checkbox-item">
       <input type="checkbox" id="acessoArma_simAmeacou" name="acessoArma" value="sim-ameacou">
-      <label for="acessoArma_simAmeacou">Sim, ameaçou usar</label>
+      <label for="acessoArma_simAmeacou">Ameaçou usar</label>
     </div>
     <div class="checkbox-item">
       <input type="checkbox" id="acessoArma_temAcesso" name="acessoArma" value="tem-acesso">
@@ -1474,31 +1480,51 @@
                                     <h4>18. Você tem filhos?</h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
-                                            <input type="radio" id="temFilhos1" name="temFilhos" value="nao">
+                                            <input type="checkbox" id="temFilhos1" name="temFilhos" value="nao">
                                             <label for="temFilhos1">Não</label>
                                         </div>
                                         <div class="checkbox-item">
-                                            <input type="radio" id="temFilhos2" name="temFilhos" value="sim-com-agressor">
+                                            <input type="checkbox" id="temFilhos2" name="temFilhosComAgressor" value="sim-com-agressor">
                                             <label for="temFilhos2">Sim, com o agressor</label>
                                         </div>
                                         <div class="checkbox-item">
-                                            <input type="radio" id="temFilhos3" name="temFilhos" value="sim-outro-relacionamento">
+                                            <input type="checkbox" id="temFilhos3" name="temFilhosOutroRelacionamento" value="sim-outro-relacionamento">
                                             <label for="temFilhos3">Sim, de outro relacionamento</label>
                                         </div>
                                     </div>
                                 </div>
-                                    <div id="filhosDetalhesRow" style="display: none;">
+                                
+                                <!-- Detalhes filhos com agressor -->
+                                <div id="filhosComAgressorDetalhes" style="display: none;">
                                     <div class="form-row">
                                         <div class="form-col">
                                             <div class="form-group">
-                                                <label for="quantidadeFilhos">Quantos filhos?</label>
-                                                <input type="number" id="quantidadeFilhos" name="quantidadeFilhos" class="form-control" min="0">
+                                                <label for="quantidadeFilhosComAgressor">Quantos filhos com o agressor?</label>
+                                                <input type="number" id="quantidadeFilhosComAgressor" name="quantidadeFilhosComAgressor" class="form-control" min="0">
                                             </div>
                                         </div>
                                         <div class="form-col">
                                             <div class="form-group">
-                                                <label for="nomesIdadesFilhos">Nome e idade:</label>
-                                                <input type="text" id="nomesIdadesFilhos" name="nomesIdadesFilhos" class="form-control">
+                                                <label for="nomesIdadesFilhosComAgressor">Nome e idade:</label>
+                                                <input type="text" id="nomesIdadesFilhosComAgressor" name="nomesIdadesFilhosComAgressor" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Detalhes filhos de outro relacionamento -->
+                                <div id="filhosOutroRelacionamentoDetalhes" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="quantidadeFilhosOutroRelacionamento">Quantos filhos de outro relacionamento?</label>
+                                                <input type="number" id="quantidadeFilhosOutroRelacionamento" name="quantidadeFilhosOutroRelacionamento" class="form-control" min="0">
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="nomesIdadesFilhosOutroRelacionamento">Nome e idade:</label>
+                                                <input type="text" id="nomesIdadesFilhosOutroRelacionamento" name="nomesIdadesFilhosOutroRelacionamento" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -1887,8 +1913,13 @@
                                 <div class="form-actions">
                                     <button type="button" class="btn" id="btnVoltar8">Voltar</button>
                                     <button type="button" class="btn primary" id="btnSalvar">Salvar Avaliação</button>
+                                
+
                                     <button type="button" class="btn" id="btnVisualizar" style="display: none;">Visualizar para Impressão</button>
                                 </div>
+
+
+
                             </div>
                         </div>
                     </form>
@@ -1923,7 +1954,16 @@
         </div>
 </div> 
 
-
+<!-- Modal de redirecionamento -->
+<div id="redirect-modal" style="display:none;">
+  <div id="redirect-backdrop"></div>
+  <div id="redirect-box">
+    <h1 class="sucessoModal">Sucesso!</h1>
+    <p> Avaliação de risco registrada/atualizada.</p>
+    <button id="btn-ir-para-index">Ir para o início</button>
+    <button id="btn-ficar-na-pagina">Ficar nesta página</button>
+  </div>
+</div>
         <script type="module" src="formulario.js"></script>
         <script type="module" src="atualizarDados.js"></script>
  <script type="module" src="./meusite/atualizarDados.js"></script>

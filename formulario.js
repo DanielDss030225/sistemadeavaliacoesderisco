@@ -26,8 +26,9 @@ import { firebaseConfig } from './firebaseConfig.js';
 
         // Verificar se é uma edição de avaliação existente
         document.addEventListener('DOMContentLoaded', function() {
+          let codigoAvaliacao = document.getElementById("codigoAvaliacao");
             avaliacaoId = getUrlParameter('id');
-            
+            codigoAvaliacao.textContent = avaliacaoId;
             if (avaliacaoId) {
                 // Carregar dados da avaliação existente
                 carregarDadosAvaliacao(avaliacaoId);
@@ -186,8 +187,31 @@ steps.forEach(step => {
                 document.getElementById('artigosAntecedentesAgressorRow').style.display = 'flex';
             }
             
-            if (data.temFilhos === 'sim-com-agressor' || data.temFilhos === 'sim-outro-relacionamento') {
-                document.getElementById('filhosDetalhesRow').style.display = 'block';
+            // Mostrar/ocultar campos condicionais de filhos
+            if (data.temFilhosComAgressor) {
+                document.getElementById('temFilhos2').checked = true;
+                document.getElementById('filhosComAgressorDetalhes').style.display = 'block';
+                if (data.quantidadeFilhosComAgressor) {
+                    document.getElementById('quantidadeFilhosComAgressor').value = data.quantidadeFilhosComAgressor;
+                }
+                if (data.nomesIdadesFilhosComAgressor) {
+                    document.getElementById('nomesIdadesFilhosComAgressor').value = data.nomesIdadesFilhosComAgressor;
+                }
+            }
+            
+            if (data.temFilhosOutroRelacionamento) {
+                document.getElementById('temFilhos3').checked = true;
+                document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'block';
+                if (data.quantidadeFilhosOutroRelacionamento) {
+                    document.getElementById('quantidadeFilhosOutroRelacionamento').value = data.quantidadeFilhosOutroRelacionamento;
+                }
+                if (data.nomesIdadesFilhosOutroRelacionamento) {
+                    document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = data.nomesIdadesFilhosOutroRelacionamento;
+                }
+            }
+            
+            if (data.temFilhos === 'nao') {
+                document.getElementById('temFilhos1').checked = true;
             }
             
             if (data.acompanhamentoPsicologicoVitima === 'sim') {
@@ -221,26 +245,59 @@ steps.forEach(step => {
             }
         }
 
-        // Função para verificar se um bloco está preenchido
+        // Função para verificar se um bloco está preenchido redsOrigem
         function verificarBlocoPreenchido(blocoNum) {
          
             switch (blocoNum) {
                 case 1:
-                    return formData.nomeVitima && formData.cpfVitima && formData.rgVitima;
+                 return formData.nomeVitima &&
+       formData.rgVitima &&
+       formData.idadeVitima &&
+       formData.estadoCivilVitima &&
+       formData.nacionalidadeVitima &&
+       formData.pmVitima &&
+       formData.corRacaVitima &&
+       formData.relacaoVitimaAutor;
+
                 case 2:
-                    return formData.nomeAgressor && formData.cpfAgressor && formData.rgAgressor;
-                case 3:
-                    return formData.tempoRelacionamento && formData.separados;
+      return formData.nomeAgressor &&
+       formData.rgAgressor &&
+       formData.idadeAgressor &&
+       formData.estadoCivilAgressor &&
+       formData.nacionalidadeAgressor &&
+       formData.escolaridadeAgressor &&
+       formData.telefoneAgressor &&
+       formData.pmAgressor &&
+       formData.corRacaAgressor &&
+       formData.antecedentesCriminaisAgressor;
+                 case 3:
+                   
+return formData.tempoRelacionamento &&
+       formData.separados &&
+       formData.tempoViolencia &&
+       formData.mpu &&
+       formData.representou &&
+       formData.intimacaoVitima &&
+       formData.autorIntimado;
                 case 4:
-                    return formData.agressaoFisica || formData.atendimentoMedico || formData.violenciaPsicologica;
+                   return formData.agressaoFisica && 
+       formData.atendimentoMedico &&
+       formData.violenciaPsicologica &&
+       formData.agressaoSexual &&
+       formData.agressaoPatrimonial &&
+       formData.agressaoMoral &&
+       formData.ocorrenciaPolicial &&
+       formData.ameacasFrequentes;
+
                 case 5:
                     return formData.usoSubstancias || formData.doencaMental || formData.acompanhamentoPsicologico;
                 case 6:
-                    return formData.separacaoRecente && formData.temFilhos && formData.filhoDeficiencia && formData.conflitoGuardaFilhos;
+                    return formData.separacaoRecente  && formData.filhoDeficiencia && formData.conflitoGuardaFilhos;
                 case 7:
                     return formData.localRisco && formData.situacaoMoradia && formData.dependenciaFinanceira;
                 case 8:
                     return formData.nomeCompleto && formData.preenchimento && formData.grauRisco;
+                    
                 default:
                     return false;
             }
@@ -339,10 +396,46 @@ steps.forEach(step => {
                 });
             });
             
-            document.querySelectorAll('input[name="temFilhos"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    document.getElementById('filhosDetalhesRow').style.display = (this.value === 'sim-com-agressor' || this.value === 'sim-outro-relacionamento') ? 'block' : 'none';
-                });
+            // Eventos para campos condicionais de filhos
+            document.getElementById('temFilhos1').addEventListener('change', function() {
+                if (this.checked) {
+                    // Se "Não" for selecionado, desmarcar os checkboxes e ocultar campos
+                    document.getElementById('temFilhos2').checked = false;
+                    document.getElementById('temFilhos3').checked = false;
+                    document.getElementById('filhosComAgressorDetalhes').style.display = 'none';
+                    document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'none';
+                    // Limpar campos
+                    document.getElementById('quantidadeFilhosComAgressor').value = '';
+                    document.getElementById('nomesIdadesFilhosComAgressor').value = '';
+                    document.getElementById('quantidadeFilhosOutroRelacionamento').value = '';
+                    document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = '';
+                }
+            });
+            
+            document.getElementById('temFilhos2').addEventListener('change', function() {
+                if (this.checked) {
+                    // Se "Sim, com o agressor" for selecionado, desmarcar "Não" e mostrar campos
+                    document.getElementById('temFilhos1').checked = false;
+                    document.getElementById('filhosComAgressorDetalhes').style.display = 'block';
+                } else {
+                    // Se desmarcado, ocultar campos e limpar
+                    document.getElementById('filhosComAgressorDetalhes').style.display = 'none';
+                    document.getElementById('quantidadeFilhosComAgressor').value = '';
+                    document.getElementById('nomesIdadesFilhosComAgressor').value = '';
+                }
+            });
+            
+            document.getElementById('temFilhos3').addEventListener('change', function() {
+                if (this.checked) {
+                    // Se "Sim, de outro relacionamento" for selecionado, desmarcar "Não" e mostrar campos
+                    document.getElementById('temFilhos1').checked = false;
+                    document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'block';
+                } else {
+                    // Se desmarcado, ocultar campos e limpar
+                    document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'none';
+                    document.getElementById('quantidadeFilhosOutroRelacionamento').value = '';
+                    document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = '';
+                }
             });
             
             document.querySelectorAll('input[name="acompanhamentoPsicologicoVitima"]').forEach(radio => {
@@ -556,14 +649,25 @@ alertaSucesso("Assinatura salva com sucesso!");
             // Evento para o botão de salvar
             document.getElementById("btnSalvar").addEventListener("click", function() {
                 salvarFormulario();
-                alertaSucesso("✅ Avaliação salva com sucesso!");
 
-                  setTimeout(function () {
+                //VAI PARA INDEX.HTML
+           setTimeout(function () {
+  document.getElementById("redirect-modal").style.display = "flex";
+
+  document.getElementById("btn-ir-para-index").addEventListener("click", function () {
     window.location.href = "./index.html";
-  }, 1000);
+  });
+
+  document.getElementById("btn-ficar-na-pagina").addEventListener("click", function () {
+    document.getElementById("redirect-modal").style.display = "none";
+    // Nenhuma ação extra aqui!
+  });
+}, 100);
 
 
-            });
+
+
+            }); //FINAL DA FUNCAO SALVAR AVALIACAO
             
             // Evento para o botão de visualizar
             document.getElementById("btnVisualizar").addEventListener("click", function() {
@@ -577,6 +681,7 @@ alertaSucesso("Assinatura salva com sucesso!");
         function navegarParaAba(abaNum) {
             // Coletar dados do formulário
             coletarDadosFormulario();
+           
             salvarFormulario();
             // Mostrar a aba especificada
             showTab(abaNum);
@@ -624,6 +729,7 @@ alertaSucesso("Assinatura salva com sucesso!");
 
         // Função para salvar o formulário
         function salvarFormulario() {
+  
             // Coletar dados do formulário
             coletarDadosFormulario();
             
@@ -672,7 +778,8 @@ alertaSucesso("✅ Avaliação salva com sucesso!");
                         alert('Erro ao salvar avaliação!');
                     });
             }
-            
+                      deletarChaveDaAvaliacao();
+
         }
 
         // Função para visualizar para impressão
@@ -716,6 +823,9 @@ localStorage.removeItem("separados");
 localStorage.removeItem("temFilhos");
 localStorage.removeItem("quantidadeFilhos");
 localStorage.removeItem("nomesIdadesFilhos");
+localStorage.removeItem("temFilhos2");
+localStorage.removeItem("quantidadeFilhos2");
+localStorage.removeItem("nomesIdadesFilhos2");
 localStorage.removeItem("mpu");
 localStorage.removeItem("acessoArma");
 localStorage.removeItem("violenciasPsicologicas");
@@ -818,38 +928,80 @@ temFilhos()
 }
 
 
-
 function temFilhos() {
-           let quantidadeFilhos = document.getElementById("quantidadeFilhos").value;
-           let nomesIdadesFilhos = document.getElementById("nomesIdadesFilhos").value;
+          
+  const naoTem = document.getElementById("temFilhos1").checked;
+  const filhosComAgressor = document.getElementById("temFilhos2").checked;
+  const filhosOutroRelacionamento = document.getElementById("temFilhos3").checked;
 
-  const temFilhos = document.querySelector('input[name="temFilhos"]:checked');
 
-  if (temFilhos) {
-    const textoSelecionado = document.querySelector(`label[for="${temFilhos.id}"]`).innerText;
-
-    localStorage.setItem('temFilhos', textoSelecionado);
-    console.log("Salvo no localStorage:", textoSelecionado);
-    
-if (textoSelecionado == "Não") {
-
-} else if ( textoSelecionado == "Sim, com o agressor") {
-        localStorage.setItem('quantidadeFilhos', quantidadeFilhos);
-                localStorage.setItem('nomesIdadesFilhos', nomesIdadesFilhos);
-
- 
-} else {
-      localStorage.setItem('quantidadeFilhos', quantidadeFilhos);
-                localStorage.setItem('nomesIdadesFilhos', nomesIdadesFilhos);
+  // Verifica e salva filhos com agressor
+  if (filhosComAgressor) {
+    const labelComAgressor = document.querySelector('label[for="temFilhos2"]').innerText.trim();
+    const quantidade = document.getElementById("quantidadeFilhosComAgressor").value || "";
+    const nomes = document.getElementById("nomesIdadesFilhosComAgressor").value || "";
+ //alert(labelComAgressor);
+  //alert(quantidade);
+  //alert(nomes);
+    localStorage.setItem("temFilhos", labelComAgressor);
+    localStorage.setItem("quantidadeFilhos", quantidade);
+    localStorage.setItem("nomesIdadesFilhos", nomes);
   
-}
-mpu()
-
-  } else {
-    alert("Preencha o campo: SE TEM FILHOS - QUANTIDADE DE FILHOS. PÁGINA 06/ BLOCO III/ ITEM 18.");
   }
 
-}
+  // Verifica e salva filhos de outro relacionamento
+  if (filhosOutroRelacionamento) {
+    const labelOutro = document.querySelector('label[for="temFilhos3"]').innerText.trim();
+    const quantidade = document.getElementById("quantidadeFilhosOutroRelacionamento").value || "";
+    const nomes = document.getElementById("nomesIdadesFilhosOutroRelacionamento").value || "";
+ //alert(labelOutro);
+ // alert(quantidade);
+ // alert(nomes);
+
+    localStorage.setItem("temFilhos2", labelOutro);
+    localStorage.setItem("quantidadeFilhos2", quantidade);
+    localStorage.setItem("nomesIdadesFilhos2", nomes);
+
+  }
+   
+    if (naoTem) {
+   localStorage.setItem("temFilhos", "Não tem");
+    localStorage.setItem("quantidadeFilhos", "*********");
+    localStorage.setItem("nomesIdadesFilhos", "*********"); 
+     localStorage.setItem("temFilhos2", "Não tem");
+    localStorage.setItem("quantidadeFilhos2", "*********");
+    localStorage.setItem("nomesIdadesFilhos2", "*********"); 
+   }
+
+  // Caso nenhum checkbox esteja selecionado
+  if (!filhosComAgressor && !filhosOutroRelacionamento  && !naoTem) {
+    alert("Preencha o campo: SE TEM FILHOS - PÁGINA 06/ BLOCO III/ ITEM 18.");
+    return;
+  }
+
+
+   if (!filhosComAgressor){
+     localStorage.setItem("temFilhos", "Não tem");
+    localStorage.setItem("quantidadeFilhos", "*********");
+    localStorage.setItem("nomesIdadesFilhos", "*********"); 
+   
+  }
+
+   if (!filhosOutroRelacionamento){
+    localStorage.setItem("temFilhos2", "Não tem");
+    localStorage.setItem("quantidadeFilhos2", "*********");
+    localStorage.setItem("nomesIdadesFilhos2", "*********"); 
+   
+  }
+  // Se tudo estiver certo
+ mpu(); // sua função de próximo passo
+} 
+
+
+
+
+
+//FINAL DO TESTE
 
 
 function mpu() {
@@ -867,15 +1019,18 @@ function mpu() {
 }
 
 function acessoArma() {
-  const acessoArma = document.querySelector('input[name="acessoArma"]:checked');
+  const checkboxesSelecionados = document.querySelectorAll('input[name="acessoArma"]:checked');
 
-  if (acessoArma) {
-    const textoSelecionado = document.querySelector(`label[for="${acessoArma.id}"]`).innerText;
+  if (checkboxesSelecionados.length > 0) {
+    const textosSelecionados = Array.from(checkboxesSelecionados).map(checkbox => {
+      const label = document.querySelector(`label[for="${checkbox.id}"]`);
+      return label ? label.innerText.toUpperCase() : '';
+    });
 
-    localStorage.setItem('acessoArma', textoSelecionado);
-    console.log("Salvo no localStorage:", textoSelecionado);
-salvarViolenciaPsicologica()
-
+    const respostaFinal = textosSelecionados.join(", ");
+    localStorage.setItem('acessoArma', respostaFinal);
+    console.log("Salvo no localStorage:", respostaFinal);
+    salvarViolenciaPsicologica();
   } else {
     alert("Preencha o campo: SE TEM FÁCIL ACESSO A ARMA DE FOGO. PÁGINA 5/ BLOCO II/ ITEM: N° 15.");
   }
@@ -1319,4 +1474,62 @@ function irParaAbaAnterior() {
   if (atual > 1) {
     navegarParaAba(atual - 1);
   }
+}
+
+
+
+
+
+  //TESTANDO /**
+function deletarChaveDaAvaliacao(avaliacaoId) {
+  
+    const codigoAvaliacao = document.getElementById("codigoAvaliacao").textContent;
+    avaliacaoId = codigoAvaliacao;
+
+    if (!avaliacaoId) {
+        console.error("ID da avaliação é obrigatório.");
+        alertaErro("Erro: Faltam informações para deletar o campo.");
+        return;
+    }
+
+    // Verifica quais checkboxes estão marcados
+    const temFilhos1 = document.getElementById("temFilhos1").checked; // Não
+    const temFilhos2 = document.getElementById("temFilhos2").checked; // Sim, com agressor
+    const temFilhos3 = document.getElementById("temFilhos3").checked; // Sim, outro relacionamento
+
+    const camposParaRemover = {};
+
+    if (!temFilhos1) {
+        camposParaRemover["temFilhos"] = null;
+    }
+
+    if (!temFilhos2) {
+        camposParaRemover["temFilhosComAgressor"] = null;
+        camposParaRemover["quantidadeFilhosComAgressor"] = null;
+        camposParaRemover["nomesIdadesFilhosComAgressor"] = null;
+    }
+
+    if (!temFilhos3) {
+        camposParaRemover["temFilhosOutroRelacionamento"] = null;
+        camposParaRemover["quantidadeFilhosOutroRelacionamento"] = null;
+        camposParaRemover["nomesIdadesFilhosOutroRelacionamento"] = null;
+    }
+
+    if (Object.keys(camposParaRemover).length === 0) {
+        console.log("Nenhum campo para remover.");
+        return;
+    }
+
+    // Referência no Firebase
+    const avaliacaoRef = database.ref('avaliacoes/' + avaliacaoId);
+
+    // Remove os campos do Firebase
+    avaliacaoRef.update(camposParaRemover)
+        .then(() => {
+            console.log("Campos não selecionados foram removidos com sucesso!");
+        })
+        .catch((error) => {
+            console.error("Erro ao deletar os campos:", error);
+            alertaErro("Erro ao remover campos desmarcados.");
+        });
 }

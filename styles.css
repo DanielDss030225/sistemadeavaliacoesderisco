@@ -81,40 +81,6 @@ margin-left: 10px;    color: white;
 
 
 
-.BackToEnd2 {
-  display: inline-block;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 15px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #3498db, #3498db);
-  border: none;
-  border-radius: 25px;
-  text-decoration: none;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin-bottom: 20px;
-  width: 100%;
-  line-height: 15px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.BackToEnd2:hover {
-  background: linear-gradient(135deg, #3498db, #3498db);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
-
-.BackToEnd2:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
 .container {
     max-width: auto;
@@ -684,7 +650,21 @@ p {
     margin-bottom: 10px;
     color: #2c3e50;
 }
+.sub-block2 {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 3px solid #3498db;
+    margin-left: 50px;
+    width: 80%;
+    display: flex;
 
+}
+.sub-block2 p {
+  color: #1c639e;
+  margin-left: 5px;
+}
 .hidden {
     display: none;
 }
@@ -840,6 +820,127 @@ width: 100%;
   box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
 }
 
+
+
+/* Animação: fade com zoom suave */
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Container principal do modal */
+#redirect-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none; /* aparece com JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Fundo escurecido */
+#redirect-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* Caixa do alerta */
+#redirect-box {
+  position: relative; 
+  z-index: 2;
+  background: linear-gradient(135deg, #2ecc71, #ffffff); /* verde sucesso */
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeZoomIn 0.5s ease forwards;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo dos botões */
+#redirect-box button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Botão azul (Ir para o início) */
+#btn-ir-para-index {
+  background-color: #3498db; /* verde sucesso forte */
+  color: white;
+}
+#btn-ir-para-index:hover {
+  background-color: rgb(30, 125, 189);
+}
+
+/* Botão cinza (Ficar na página) */
+#btn-ficar-na-pagina {
+  background-color: #6c757d;
+  color: white;
+}
+#btn-ficar-na-pagina:hover {
+  background-color: #5a6268;
+}
+
+.sucessoModal {
+color: #5a6268;
+}
+
+
+
+
+.BackToEnd2 {
+           /* flex container para alinhamento */
+  align-items: center;              /* centraliza verticalmente */
+  justify-content: center;          /* centraliza horizontalmente */
+  padding: 5px 5px;                 /* padding igual */
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #3498db, #3498db);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 0;
+  width: 100%;
+  line-height: normal;              /* remover line-height 0 para não prejudicar */
+  text-align: center;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   /* Oculta a lista de abas em telas pequenas */
   .tabs-list {
@@ -853,7 +954,34 @@ width: 100%;
     flex-direction: column;
     align-items: flex-start;
 width: 100%;  }
+form {
+  display: flex;               /* necessário para funcionar align-items e justify-content */
+  flex-direction: column;      /* para organizar filhos verticalmente */
+  align-items: center;         /* centraliza horizontalmente os filhos */
+  justify-content: center;     /* centraliza verticalmente os filhos */
+  padding: 0px;               /* opcional, para espaçamento */
+  min-height: 100vh;           /* opcional, para ocupar toda altura da tela */
+  box-sizing: border-box;
+  width: 100%;      /* garante padding interno */
+}
 
+.sub-block2 {
+  width: 85%;
+  margin: 0;                  /* remove margem */
+  background-color: #e9f2f9;
+  /* Como está dentro do form flex column, ela vai ficar centralizada na largura pelo align-items do form */
+  /* Se quiser centralizar texto dentro do .sub-block2, pode adicionar: */
+  text-align: center;          /* opcional */
+  /* Se quiser alinhar itens internos com flex: */
+  display: flex;               
+  align-items: center;
+  justify-content: center;
+  padding: 10px;               /* opcional */
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+  
   .avaliacao-info {
     margin-bottom: 15px;
     width: 100%;
@@ -904,6 +1032,30 @@ width: 100%;  }
 
 .progress-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari e Opera */
+}
+.BackToEnd2 {
+  display: inline-flex;             /* flex container para alinhamento */
+  align-items: center;              /* centraliza verticalmente */
+  justify-content: center;          /* centraliza horizontalmente */
+  padding: 3px 3px;
+  padding-bottom: 10px;                 /* padding igual */
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ffffff, #3498db);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 0;
+  width: 60px;
+  height: 40px;
+  margin-right: 10px;
+  line-height: normal;              /* remover line-height 0 para não prejudicar */
+  text-align: center;
+  
 }
 
   /* Botão de voltar estilizado como ícone */
