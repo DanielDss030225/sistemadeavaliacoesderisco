@@ -556,6 +556,8 @@ alertaSucesso("Assinatura salva com sucesso!");
             // Evento para o botão de salvar
             document.getElementById("btnSalvar").addEventListener("click", function() {
                 salvarFormulario();
+                alertaSucesso("✅ Avaliação salva com sucesso!");
+
                   setTimeout(function () {
     window.location.href = "./index.html";
   }, 1000);
@@ -638,7 +640,6 @@ alertaSucesso("Assinatura salva com sucesso!");
             if (avaliacaoId) {
                 avaliacoesRef.child(avaliacaoId).update(formData)
                     .then(() => {
-alertaSucesso("✅ Avaliação atualizada!");
 
                         // Se não houver pendências, mostrar botão de visualização
                         if (blocosPendentes.length === 0) {
@@ -1182,7 +1183,7 @@ notif.style.background = "linear-gradient(135deg, #2ecc71, #ffffff)"; // verde s
   notif.style.zIndex = "10000";
   notif.style.fontSize = "14px";
   notif.style.transition = "opacity 0.5s ease";
-  notif.style.color = "#000000ff"; // texto branco
+  notif.style.color = "#494747ff"; // texto branco
 
 
   document.body.appendChild(notif);
