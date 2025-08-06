@@ -961,10 +961,25 @@ color: #5a6268;
   /* Oculta a lista de abas em telas pequenas */
   .tabs-list {
     height: 0px;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 0px;
   }
-
+  .tab-item {
+    background-color: #656565;
+    margin-top: 0px;
+    margin-bottom: 0px;
+   height: 4px;
+  }
+  header {
+    background-color: #000000;
+    margin-top: 0px;
+    height: 0px;
+  }
+ ul {
+   height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+ }
   /* Ajusta o layout dos itens de avaliação */
   .avaliacao-item {
     flex-direction: column;
@@ -1030,7 +1045,7 @@ form {
   padding: 0px;
   padding-left: 0px;
   overflow-x: auto; /* habilita a rolagem horizontal */
-  height: 60px;
+  height: 65px;
   margin-bottom: 0px;
   gap: 10px;
   align-items: center;       /* Centraliza verticalmente */
@@ -1118,7 +1133,7 @@ form {
   overflow-x: auto;            /* Rola na horizontal */
   overflow-y: hidden;          /* Impede rolagem vertical */
   padding: 5px;
-  margin: 10px 10px;
+  margin: 0px 0px;
   height: auto;
 
   /* Esconde visualmente a barra de rolagem */
@@ -1200,7 +1215,7 @@ form {
 
   .container1 {
     position: fixed;
-    top: 7%;
+    top: 6.5%;
     left: 0;
     width: 100%;
     height: 100%;
