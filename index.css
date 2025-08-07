@@ -222,7 +222,6 @@ margin-left: 10px;    color: white;
 .base header {
     position: sticky; /* Cola o header no topo dentro da base */
     top: 0;
-    background-color: #857474;
     padding: 0px 0;
     z-index: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -233,15 +232,20 @@ margin-left: 10px;    color: white;
 header h1 {
     color: #2c3e50;
     margin-bottom: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 /* Botões e ações */
 .actions {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-left: 10px;
+    height: auto;
+
 }
+
 
 .btn {
     padding: 10px 15px;
@@ -316,6 +320,8 @@ header h1 {
 .search-container {
     display: flex;
     margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .search-container input {
@@ -334,10 +340,12 @@ header h1 {
 
 /* Lista de avaliações */
 .avaliacoes-container {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
+margin-left: 5%;
+margin-right: 5%;
 }
 
 .avaliacoes-container h2 {
@@ -389,6 +397,20 @@ header h1 {
 .avaliacao-info .status {
     font-weight: bold;
     margin-top: 5px;
+}
+
+.logoCabesalhoPhone {
+    border-radius: 50px;
+    padding: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #dcebf5;
+    margin-bottom: 10px;
+}
+
+.menuButton2 {
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .status.pendente {
@@ -860,6 +882,22 @@ width: 100%;
   box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
 }
 
+.buttonModelos {
+    width:  200px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+.buttonModelos2 {
+    width:  200px;
+    color: white;
+        text-align: center;
+  align-items: center;
+    justify-content: center;
+    
+}
 @media (max-width: 768px) {
  
 /* Tablets */
@@ -889,7 +927,7 @@ width: 100%;
         padding: 8px 10px;
     }
     
-    
+  
     
     .userP {
         font-size: 0.8rem;
@@ -1326,11 +1364,37 @@ button.btn2 {
     justify-content: center;
     align-items: center;
     width: 100%;
+
+    margin-left: 0%;
+    margin-right: 0%;
+text-align: center;
 }
 .btnSalvarAssinatura {
     display: none;
 }
 .cabeçalho{
     height:60px ;
+      z-index: 9999;        /* bem acima dos demais */
+
+}
+
+.buttonModelos {
+    width:  200px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.buttonModelos2 {
+    width:  200px;
+    color: white;
+        text-align: center;
+  align-items: center;
+    justify-content: center;
+        width: 100%;
+
+    
 }
 }
