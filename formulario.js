@@ -335,6 +335,7 @@ return formData.tempoRelacionamento &&
 
 setTimeout(() => {
 deletarChaveDaAvaliacao();
+
 ;}, 1000); // 1000 milissegundos = 1 segundo
 
         }
@@ -740,7 +741,7 @@ alertaSucesso("Assinatura salva com sucesso!");
 
         // Função para salvar o formulário
         function salvarFormulario() {
-  
+    console.log("campos salvos com sucesso!");
             // Coletar dados do formulário
             coletarDadosFormulario();
             
