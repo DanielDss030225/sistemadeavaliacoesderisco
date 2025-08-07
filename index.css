@@ -262,6 +262,26 @@ header h1 {
     color: white;
 }
 
+
+.btn2 {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-left: 10px;
+}
+
+.btn2:hover {
+    transform: translateY(-2px);
+}
+
+.btn2.primary {
+    background-color: #3498db;
+    color: white;
+}
+
 .btn.primary:hover {
     background-color: #2980b9;
 }
@@ -869,10 +889,7 @@ width: 100%;
         padding: 8px 10px;
     }
     
-    .cabeçalho button {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
+    
     
     .userP {
         font-size: 0.8rem;
@@ -1275,5 +1292,45 @@ text-align: center;
 }
 .btn.print {
     display: none;
+}
+.logoCabesalhoPhone {
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.actions {
+margin-top: 0px;
+margin-bottom: none;
+display: none;
+
+}
+.search-container {
+margin-left: 10px;
+margin-right: 10px;
+margin-top: 0px;
+}
+
+button.btn2 {
+    width: auto;
+}
+.btn.primary {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.menuButton2 {
+    margin-top: 55px;
+    padding: 15px;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.btnSalvarAssinatura {
+    display: none;
+}
+.cabeçalho{
+    height:60px ;
 }
 }
