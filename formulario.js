@@ -28,7 +28,14 @@ import { firebaseConfig } from './firebaseConfig.js';
         document.addEventListener('DOMContentLoaded', function() {
           let codigoAvaliacao = document.getElementById("codigoAvaliacao");
             avaliacaoId = getUrlParameter('id');
-            codigoAvaliacao.textContent = avaliacaoId;
+            if (!avaliacaoId) {
+                          codigoAvaliacao.textContent = "Carregando...";
+
+            } else {
+
+                          codigoAvaliacao.textContent = avaliacaoId;
+
+            }
             if (avaliacaoId) {
                 // Carregar dados da avaliação existente
                 carregarDadosAvaliacao(avaliacaoId);
@@ -300,6 +307,7 @@ return formData.tempoRelacionamento &&
                     
                 default:
                     return false;
+                    
             }
         }
         // Função para atualizar a barra de progresso
@@ -325,6 +333,9 @@ return formData.tempoRelacionamento &&
             // Marcar passo ativo
             document.getElementById(`step${currentTab}`).classList.add('active');
 
+setTimeout(() => {
+deletarChaveDaAvaliacao();
+;}, 1000); // 1000 milissegundos = 1 segundo
 
         }
 
@@ -764,7 +775,13 @@ alertaSucesso("Assinatura salva com sucesso!");
                 novaAvaliacaoRef.set(formData)
                     .then(() => {
 alertaSucesso("✅ Avaliação salva com sucesso!");
-                        
+
+                               let codigoAvaliacao = document.getElementById("codigoAvaliacao");
+codigoAvaliacao.textContent = avaliacaoId.trim();
+
+
+
+              
                         // Atualizar URL para incluir o ID da avaliação
                         window.history.replaceState(null, null, `?id=${avaliacaoId}`);
                         
@@ -778,7 +795,7 @@ alertaSucesso("✅ Avaliação salva com sucesso!");
                         alert('Erro ao salvar avaliação!');
                     });
             }
-                      deletarChaveDaAvaliacao();
+             
 
         }
 
@@ -1482,7 +1499,6 @@ function irParaAbaAnterior() {
 
   //TESTANDO /**
 function deletarChaveDaAvaliacao(avaliacaoId) {
-  
     const codigoAvaliacao = document.getElementById("codigoAvaliacao").textContent;
     avaliacaoId = codigoAvaliacao;
 

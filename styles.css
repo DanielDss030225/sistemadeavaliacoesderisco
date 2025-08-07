@@ -991,7 +991,6 @@ form {
   align-items: center;         /* centraliza horizontalmente os filhos */
   justify-content: center;     /* centraliza verticalmente os filhos */
   padding: 0px;               /* opcional, para espaçamento */
-  min-height: 100vh;           /* opcional, para ocupar toda altura da tela */
   box-sizing: border-box;
   width: 100%;      /* garante padding interno */
 }
@@ -1068,20 +1067,19 @@ form {
   display: inline-flex;             /* flex container para alinhamento */
   align-items: center;              /* centraliza verticalmente */
   justify-content: center;          /* centraliza horizontalmente */
-  padding: 3px 3px;
-  padding-bottom: 10px;                 /* padding igual */
+  padding: 0px 0px;
+  padding-bottom: 0px;                 /* padding igual */
   font-size: 30px;
   font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #ffffff, #3498db);
+  color: rgb(255, 255, 255);
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   text-decoration: none;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   margin-bottom: 0;
-  width: 60px;
+  width: 40px;
   height: 40px;
   margin-right: 10px;
   line-height: normal;              /* remover line-height 0 para não prejudicar */
