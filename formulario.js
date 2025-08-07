@@ -1440,8 +1440,7 @@ window.assinaturaAssinador = function() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     assinaturaAssinador();
-        salvarFormulario();
-
+//PARE AQUI
         localStorage.removeItem("linkdaimagem");
 
   }, 1000); // 3000 milissegundos = 3 segundos
