@@ -365,24 +365,35 @@ if (dados.acessoArma && Array.isArray(dados.acessoArma)) {
         marcarCheckboxPorId(`separacaoRecente_${dados.separacaoRecente}`, true);
     }
 
-    // Tem filhos - nova lógica para campos separados
-    if (dados.temFilhos === 'nao') {
+   
+        
+            
+            
+         if (Array.isArray(dados.temFilhos)) {
+    if (dados.temFilhos.includes('nao')) {
         marcarCheckboxPorId('temFilhos_nao', true);
+
     }
+    if (dados.temFilhos.includes('sim-com-agressor')) {
+                document.getElementById('temFilhos_sim-com-agressor').checked = true;
+          preencherCampoPorId('quantidadeFilhosComAgressor', dados.quantidadeFilhosComAgressor);
+          preencherCampoPorId('nomesIdadesFilhosComAgressor', dados.nomesIdadesFilhosComAgressor);
+
+    }
+    if (dados.temFilhos.includes('sim-outro-relacionamento')) {
+
+                document.getElementById('temFilhos_sim-outro-relacionamento').checked = true;
+                preencherCampoPorId('quantidadeFilhosOutroRelacionamento', dados.quantidadeFilhosOutroRelacionamento);
+                preencherCampoPorId('nomesIdadesFilhosOutroRelacionamento', dados.nomesIdadesFilhosOutroRelacionamento);
     
-    // Filhos com agressor
-    if (dados.temFilhosComAgressor) {
-        marcarCheckboxPorId('temFilhos_sim-com-agressor', true);
-        preencherCampoPorId('quantidadeFilhosComAgressor', dados.quantidadeFilhosComAgressor);
-        preencherCampoPorId('nomesIdadesFilhosComAgressor', dados.nomesIdadesFilhosComAgressor);
-    }
-    
-    // Filhos de outro relacionamento
-    if (dados.temFilhosOutroRelacionamento) {
-        marcarCheckboxPorId('temFilhos_sim-outro-relacionamento', true);
-        preencherCampoPorId('quantidadeFilhosOutroRelacionamento', dados.quantidadeFilhosOutroRelacionamento);
-        preencherCampoPorId('nomesIdadesFilhosOutroRelacionamento', dados.nomesIdadesFilhosOutroRelacionamento);
-    }
+
+              
+              
+              
+                }
+            
+    };
+
 
     // Filho com deficiência
     if (dados.filhoDeficiencia) {

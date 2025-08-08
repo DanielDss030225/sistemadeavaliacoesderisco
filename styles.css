@@ -862,7 +862,7 @@ width: 100%;
 #redirect-box {
   position: relative; 
   z-index: 2;
-  background: linear-gradient(135deg, #2ecc71, #ffffff); /* verde sucesso */
+  background: linear-gradient(135deg, #14ac53, #3acc77); /* verde sucesso */
   padding: 25px 30px;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
@@ -903,9 +903,11 @@ width: 100%;
 }
 
 .sucessoModal {
-color: #5a6268;
+color: #ffffff;
 }
-
+.pModal {
+  color: white;
+}
 
 
 

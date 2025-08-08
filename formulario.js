@@ -194,19 +194,27 @@ steps.forEach(step => {
                 document.getElementById('artigosAntecedentesAgressorRow').style.display = 'flex';
             }
             
-            // Mostrar/ocultar campos condicionais de filhos
-            if (data.temFilhosComAgressor) {
+        
+            
+            
+         if (Array.isArray(data.temFilhos)) {
+    if (data.temFilhos.includes('nao')) {
+
+    }
+    if (data.temFilhos.includes('sim-com-agressor')) {
                 document.getElementById('temFilhos2').checked = true;
                 document.getElementById('filhosComAgressorDetalhes').style.display = 'block';
                 if (data.quantidadeFilhosComAgressor) {
                     document.getElementById('quantidadeFilhosComAgressor').value = data.quantidadeFilhosComAgressor;
-                }
+                };
                 if (data.nomesIdadesFilhosComAgressor) {
                     document.getElementById('nomesIdadesFilhosComAgressor').value = data.nomesIdadesFilhosComAgressor;
-                }
-            }
+                };
             
-            if (data.temFilhosOutroRelacionamento) {
+
+    }
+    if (data.temFilhos.includes('sim-outro-relacionamento')) {
+
                 document.getElementById('temFilhos3').checked = true;
                 document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'block';
                 if (data.quantidadeFilhosOutroRelacionamento) {
@@ -215,12 +223,13 @@ steps.forEach(step => {
                 if (data.nomesIdadesFilhosOutroRelacionamento) {
                     document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = data.nomesIdadesFilhosOutroRelacionamento;
                 }
-            }
             
-            if (data.temFilhos === 'nao') {
-                document.getElementById('temFilhos1').checked = true;
-            }
-            
+    }
+}
+
+
+
+
             if (data.acompanhamentoPsicologicoVitima === 'sim') {
                 document.getElementById('orgaoAcompanhamentoRow').style.display = 'block';
             }
@@ -333,10 +342,7 @@ return formData.tempoRelacionamento &&
             // Marcar passo ativo
             document.getElementById(`step${currentTab}`).classList.add('active');
 
-setTimeout(() => {
-deletarChaveDaAvaliacao();
 
-;}, 1000); // 1000 milissegundos = 1 segundo
 
         }
 
@@ -1463,7 +1469,7 @@ swipeArea.addEventListener('touchend', function (e) {
 }, false);
 
 function handleSwipeGesture() {
-  const threshold = 50; // distância mínima para considerar como swipe
+  const threshold = 100; // distância mínima para considerar como swipe
 
   if (touchEndX < touchStartX - threshold) {
     // Swipe para a esquerda → avançar
@@ -1496,56 +1502,3 @@ function irParaAbaAnterior() {
 
 
 
-
-  //TESTANDO /**
-function deletarChaveDaAvaliacao(avaliacaoId) {
-    const codigoAvaliacao = document.getElementById("codigoAvaliacao").textContent;
-    avaliacaoId = codigoAvaliacao;
-
-    if (!avaliacaoId) {
-        console.error("ID da avaliação é obrigatório.");
-        alertaErro("Erro: Faltam informações para deletar o campo.");
-        return;
-    }
-
-    // Verifica quais checkboxes estão marcados
-    const temFilhos1 = document.getElementById("temFilhos1").checked; // Não
-    const temFilhos2 = document.getElementById("temFilhos2").checked; // Sim, com agressor
-    const temFilhos3 = document.getElementById("temFilhos3").checked; // Sim, outro relacionamento
-
-    const camposParaRemover = {};
-
-    if (!temFilhos1) {
-        camposParaRemover["temFilhos"] = null;
-    }
-
-    if (!temFilhos2) {
-        camposParaRemover["temFilhosComAgressor"] = null;
-        camposParaRemover["quantidadeFilhosComAgressor"] = null;
-        camposParaRemover["nomesIdadesFilhosComAgressor"] = null;
-    }
-
-    if (!temFilhos3) {
-        camposParaRemover["temFilhosOutroRelacionamento"] = null;
-        camposParaRemover["quantidadeFilhosOutroRelacionamento"] = null;
-        camposParaRemover["nomesIdadesFilhosOutroRelacionamento"] = null;
-    }
-
-    if (Object.keys(camposParaRemover).length === 0) {
-        console.log("Nenhum campo para remover.");
-        return;
-    }
-
-    // Referência no Firebase
-    const avaliacaoRef = database.ref('avaliacoes/' + avaliacaoId);
-
-    // Remove os campos do Firebase
-    avaliacaoRef.update(camposParaRemover)
-        .then(() => {
-            console.log("Campos não selecionados foram removidos com sucesso!");
-        })
-        .catch((error) => {
-            console.error("Erro ao deletar os campos:", error);
-            alertaErro("Erro ao remover campos desmarcados.");
-        });
-}
