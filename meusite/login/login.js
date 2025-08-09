@@ -28,9 +28,7 @@ function login() {
             }
 
             // Redirecionar
-window.location.href = "../../index.html";
-
-        })  
+window.location.href = "../../index.html";  })  
         .catch(error => {      
             ocultarCarregamento();
             trocarTexto();
@@ -43,3 +41,4 @@ function contato() {
     const url = `https://wa.me/${numero}?text=${mensagem}`;
     window.open(url, '_blank'); // Abre em nova aba
 }
+

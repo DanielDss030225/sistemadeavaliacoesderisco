@@ -124,8 +124,8 @@
                                     <div class="form-row">
                                           <div class="form-col">
                                             <div class="form-group"> 
-                                                <label for="rgVitima">RG:</label>
-                                                <input  type="text" id="rgVitima" name="rgVitima" class="form-control" placeholder="00.000.000-0" onblur="obterDadosVitima()">
+                                                <label for="rgVitima">RG:<p class="obrigatorio">*</p></label>
+                                                <input  type="text" id="rgVitima" name="rgVitima" class="form-control" placeholder="00.000.000-0" onblur="obterDadosVitima()"> 
                                             </div>
                                             
                                         </div>
@@ -143,7 +143,7 @@
                                         
                                         <div class="form-col">
                                             <div class="form-group">
-                                                <label for="nomeVitima">Nome:</label>
+                                                <label for="nomeVitima">Nome:<p class="obrigatorio">*</p></label>
                                                 <input type="text" id="nomeVitima" name="nomeVitima" class="form-control" required>
                                             </div>
                                         </div>
@@ -440,7 +440,7 @@
                                           <div class="form-row">
                                               <div class="form-col">
                                             <div class="form-group">
-                                                <label for="rgAgressor">RG:</label>
+                                                <label for="rgAgressor">RG:<p class="obrigatorio">*</p></label>
                                                 <input type="text" id="rgAgressor" name="rgAgressor" class="form-control" placeholder="00.000.000-0"  onblur="obterDadosAutor()">
                                             </div>
                                         </div>
@@ -458,7 +458,7 @@
                                     <div class="form-row">
                                         <div class="form-col">
                                             <div class="form-group">
-                                                <label for="nomeAgressor">Nome:</label>
+                                                <label for="nomeAgressor">Nome:<p class="obrigatorio">*</p></label>
                                                 <input type="text" id="nomeAgressor" name="nomeAgressor" class="form-control" required>
                                             </div>
                                         </div>
@@ -724,13 +724,13 @@
                                 <div class="form-row">
                                     <div class="form-col">
                                         <div class="form-group">
-                                            <label for="tempoRelacionamento">Tempo de relacionamento:</label>
+                                            <label for="tempoRelacionamento">Tempo de relacionamento:<p class="obrigatorio">*</p></label>
                                             <input type="text" id="tempoRelacionamento" name="tempoRelacionamento" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-col">
                                         <div class="form-group">
-                                            <label>Estão separados?</label>
+                                            <label>Estão separados?<p class="obrigatorio">*</p></label>
                                             <div class="checkbox-group">
                                                 <div class="checkbox-item">
                                                     <input type="radio" id="separados1" name="separados" value="nao">
@@ -875,7 +875,7 @@
                             </div>
                             <div class="tab-body">
                                 <div class="sub-block">
-                                    <h4>1. O(A) agressor(a) já praticou alguma(s) destas agressões físicas contra você?</h4>
+                                    <h4>1. O(A) agressor(a) já praticou alguma(s) destas agressões físicas contra você?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="agressaoFisica1" name="agressaoFisica" value="queimadura">
@@ -968,7 +968,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>3. O(A) agressor(a) já praticou alguma dessas violências psicológicas contra você?</h4>
+                                    <h4>3. O(A) agressor(a) já praticou alguma dessas violências psicológicas contra você?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="violenciaPsicologica1" name="violenciaPsicologica" value="ameaca-morte">
@@ -1042,7 +1042,7 @@
 
                                 <!-- Sub-bloco: Agressões Sexuais -->
                                 <div class="sub-block">
-                                    <h4>4. O(A) agressor(a) já praticou alguma(s) destas agressões sexuais contra você?</h4>
+                                    <h4>4. O(A) agressor(a) já praticou alguma(s) destas agressões sexuais contra você?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="agressaoSexual1" name="agressaoSexual" value="forcou-uso-contraceptivos">
@@ -1088,7 +1088,7 @@
 
                                 <!-- Sub-bloco: Agressões Patrimoniais -->
                                 <div class="sub-block">
-                                    <h4>5. O(A) agressor(a) já praticou alguma(s) destas agressões patrimoniais contra você?</h4>
+                                    <h4>5. O(A) agressor(a) já praticou alguma(s) destas agressões patrimoniais contra você?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="agressaoPatrimonial1" name="agressaoPatrimonial" value="danificou-moveis">
@@ -1138,7 +1138,7 @@
 
                                 <!-- Sub-bloco: Agressões Morais -->
                                 <div class="sub-block">
-                                    <h4>6. O(A) agressor(a) já praticou alguma(s) destas agressões morais contra você?</h4>
+                                    <h4>6. O(A) agressor(a) já praticou alguma(s) destas agressões morais contra você?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="agressaoMoral1" name="agressaoMoral" value="calunia">
@@ -1218,7 +1218,7 @@
                             </div>
                             <div class="tab-body">
                                 <div class="sub-block">
-                                    <h4>9. O(A) agressor(a) faz uso abusivo de álcool ou de drogas ou medicamentos?</h4>
+                                    <h4>9. O(A) agressor(a) faz uso abusivo de álcool ou de drogas ou medicamentos?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="usoSubstancias1" name="usoSubstancias" value="alcool">
@@ -1478,7 +1478,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>18. Você tem filhos?</h4>
+                                    <h4>18. Você tem filhos?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="checkbox" id="temFilhos1" name="temFilhos" value="nao">
@@ -1736,7 +1736,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>28. Qual sua situação de moradia?</h4>
+                                    <h4>28. Qual sua situação de moradia?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="radio" id="situacaoMoradia1" name="situacaoMoradia" value="propria">
@@ -1764,7 +1764,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>29. Você se considera dependente financeiramente do(a) agressor(a)?</h4>
+                                    <h4>29. Você se considera dependente financeiramente do(a) agressor(a)?<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="radio" id="dependenciaFinanceira1" name="dependenciaFinanceira" value="sim">
@@ -1831,7 +1831,7 @@
                                     <div class="form-row">
                                         <div class="form-col">
                                             <div class="form-group">
-                                                <label for="nomeCompleto">Nome Completo:</label>
+                                                <label for="nomeCompleto">Nome Completo:<p class="obrigatorio">*</p></label>
                                                 <input type="text" id="nomeCompleto" name="nomeCompleto" class="form-control">
                                             </div>
                                         </div>
@@ -1861,7 +1861,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>PARA PREENCHIMENTO PELO POLICIAL MILITAR:</h4>
+                                    <h4>PARA PREENCHIMENTO PELO POLICIAL MILITAR:<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="radio" id="preenchimento1" name="preenchimento" value="sem-ajuda">
@@ -1887,7 +1887,7 @@
                                 </div>
 
                                 <div class="sub-block">
-                                    <h4>CONCLUSÃO: Grau de risco baseado nas informações prestadas pela vítima:</h4>
+                                    <h4>CONCLUSÃO: Grau de risco baseado nas informações prestadas pela vítima:<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="radio" id="grauRisco1" name="grauRisco" value="medio">

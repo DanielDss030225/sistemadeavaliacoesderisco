@@ -28,8 +28,7 @@ function login() {
             }
 
             // Redirecionar
-window.location.href = "../../index.html";
-        })  
+window.location.href = "../../index.html";  })  
         .catch(error => {      
             ocultarCarregamento();
             trocarTexto();

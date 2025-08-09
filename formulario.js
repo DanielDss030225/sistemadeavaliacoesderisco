@@ -52,6 +52,7 @@ import { firebaseConfig } from './firebaseConfig.js';
 
         // Função para mostrar uma aba específica
    function showTab(tabNumber) {
+
     const baseElement = document.querySelector('.base');
     if (baseElement) {
         baseElement.scrollTo({ top: 0, behavior: 'auto' }); // instantâneo
@@ -70,6 +71,14 @@ import { firebaseConfig } from './firebaseConfig.js';
 
     currentTab = tabNumber;
     atualizarBarraProgresso();
+     if (tabNumber != 1) {
+    salvarFormulario();
+}
+ if (tabNumber == 8) { //nomeCompleto
+  let nomeVitima = document.getElementById("nomeVitima").value;
+  let nomeCompleto = document.getElementById("nomeCompleto");
+ nomeCompleto.value = nomeVitima;
+}
 }
 
 const steps = document.querySelectorAll('.progress-step');
@@ -267,50 +276,28 @@ steps.forEach(step => {
             switch (blocoNum) {
                 case 1:
                  return formData.nomeVitima &&
-       formData.rgVitima &&
-       formData.idadeVitima &&
-       formData.estadoCivilVitima &&
-       formData.nacionalidadeVitima &&
-       formData.pmVitima &&
-       formData.corRacaVitima &&
-       formData.relacaoVitimaAutor;
+       formData.rgVitima;
 
                 case 2:
       return formData.nomeAgressor &&
-       formData.rgAgressor &&
-       formData.idadeAgressor &&
-       formData.estadoCivilAgressor &&
-       formData.nacionalidadeAgressor &&
-       formData.escolaridadeAgressor &&
-       formData.telefoneAgressor &&
-       formData.pmAgressor &&
-       formData.corRacaAgressor &&
-       formData.antecedentesCriminaisAgressor;
+       formData.rgAgressor;
                  case 3:
                    
 return formData.tempoRelacionamento &&
-       formData.separados &&
-       formData.tempoViolencia &&
-       formData.mpu &&
-       formData.representou &&
-       formData.intimacaoVitima &&
-       formData.autorIntimado;
+       formData.separados;
                 case 4:
                    return formData.agressaoFisica && 
-       formData.atendimentoMedico &&
        formData.violenciaPsicologica &&
        formData.agressaoSexual &&
        formData.agressaoPatrimonial &&
-       formData.agressaoMoral &&
-       formData.ocorrenciaPolicial &&
-       formData.ameacasFrequentes;
+       formData.agressaoMoral;
 
                 case 5:
-                    return formData.usoSubstancias || formData.doencaMental || formData.acompanhamentoPsicologico;
+                    return formData.usoSubstancias;
                 case 6:
-                    return formData.separacaoRecente  && formData.filhoDeficiencia && formData.conflitoGuardaFilhos;
+                    return formData.temFilhos;
                 case 7:
-                    return formData.localRisco && formData.situacaoMoradia && formData.dependenciaFinanceira;
+                    return formData.situacaoMoradia && formData.dependenciaFinanceira;
                 case 8:
                     return formData.nomeCompleto && formData.preenchimento && formData.grauRisco;
                     
@@ -427,6 +414,14 @@ return formData.tempoRelacionamento &&
                     document.getElementById('nomesIdadesFilhosComAgressor').value = '';
                     document.getElementById('quantidadeFilhosOutroRelacionamento').value = '';
                     document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = '';
+                } else {
+                 let temFilhos2Input = document.getElementById('temFilhos2');
+let temFilhos3Input = document.getElementById('temFilhos3');
+
+if (!temFilhos2Input.checked && !temFilhos3Input.checked) {
+                        document.getElementById('temFilhos1').checked = true;
+
+}
                 }
             });
             
@@ -440,6 +435,16 @@ return formData.tempoRelacionamento &&
                     document.getElementById('filhosComAgressorDetalhes').style.display = 'none';
                     document.getElementById('quantidadeFilhosComAgressor').value = '';
                     document.getElementById('nomesIdadesFilhosComAgressor').value = '';
+                
+              let temFilhos2Input = document.getElementById('temFilhos2');
+let temFilhos3Input = document.getElementById('temFilhos3');
+
+if (!temFilhos2Input.checked && !temFilhos3Input.checked) {
+                        document.getElementById('temFilhos1').checked = true;
+
+}
+
+                    
                 }
             });
             
@@ -453,6 +458,14 @@ return formData.tempoRelacionamento &&
                     document.getElementById('filhosOutroRelacionamentoDetalhes').style.display = 'none';
                     document.getElementById('quantidadeFilhosOutroRelacionamento').value = '';
                     document.getElementById('nomesIdadesFilhosOutroRelacionamento').value = '';
+                   
+                    let temFilhos2Input = document.getElementById('temFilhos2');
+let temFilhos3Input = document.getElementById('temFilhos3');
+
+if (!temFilhos2Input.checked && !temFilhos3Input.checked) {
+                        document.getElementById('temFilhos1').checked = true;
+
+}
                 }
             });
             
@@ -698,8 +711,7 @@ alertaSucesso("Assinatura salva com sucesso!");
         // Função para navegar para uma aba específica
         function navegarParaAba(abaNum) {
             // Coletar dados do formulário
-            coletarDadosFormulario();
-           
+            coletarDadosFormulario();         
             salvarFormulario();
             // Mostrar a aba especificada
             showTab(abaNum);
@@ -744,68 +756,64 @@ alertaSucesso("Assinatura salva com sucesso!");
             atualizarBlocosPendentes();
             
         }
+function salvarFormulario() {
+    setTimeout(() => {
+        console.log("campos salvos com sucesso!");
 
-        // Função para salvar o formulário
-        function salvarFormulario() {
-    console.log("campos salvos com sucesso!");
-            // Coletar dados do formulário
-            coletarDadosFormulario();
-            
-            // Adicionar metadados
-            formData.dataRegistro = formData.dataRegistro || Date.now();
-            formData.dataAtualizacao = Date.now();
-            formData.status = blocosPendentes.length > 0 ? 'pendente' : 'completo';
-            formData.cpfAgressor = formData.cpfAgressor ? formData.cpfAgressor.replace(/\D/g, '') : '';
-            
-            // Referência para a avaliação no Firebase
-            const avaliacoesRef = database.ref('avaliacoes');
-            
-            // Se for uma edição, atualizar a avaliação existente
-            if (avaliacaoId) {
-                avaliacoesRef.child(avaliacaoId).update(formData)
-                    .then(() => {
+        // Coletar dados do formulário
+        coletarDadosFormulario();
 
-                        // Se não houver pendências, mostrar botão de visualização
-                        if (blocosPendentes.length === 0) {
-                            document.getElementById('btnVisualizar').style.display = 'block';
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Erro ao atualizar avaliação:', error);
-                        alert('Erro ao atualizar avaliação!');
-                    });
-            } else {
-                // Se for uma nova avaliação, criar um novo registro
-                const novaAvaliacaoRef = avaliacoesRef.push();
-                avaliacaoId = novaAvaliacaoRef.key;
-                
-                novaAvaliacaoRef.set(formData)
-                    .then(() => {
-alertaSucesso("✅ Avaliação salva com sucesso!");
+        // Adicionar metadados
+        formData.dataRegistro = formData.dataRegistro || Date.now();
+        formData.dataAtualizacao = Date.now();
+        formData.status = blocosPendentes.length > 0 ? 'pendente' : 'completo';
+        formData.cpfAgressor = formData.cpfAgressor ? formData.cpfAgressor.replace(/\D/g, '') : '';
 
-                               let codigoAvaliacao = document.getElementById("codigoAvaliacao");
-codigoAvaliacao.textContent = avaliacaoId.trim();
+        // Referência para a avaliação no Firebase
+        const avaliacoesRef = database.ref('avaliacoes');
 
+        if (avaliacaoId) {
+            // Atualizar registro existente
+            avaliacoesRef.child(avaliacaoId).update(formData)
+                .then(() => {
+                    if (blocosPendentes.length === 0) {
+                        document.getElementById('btnVisualizar').style.display = 'block';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Erro ao atualizar avaliação:', error);
+                    alert('Erro ao atualizar avaliação!');
+                });
+        } else {
+            // Criar novo registro
+            const novaAvaliacaoRef = avaliacoesRef.push();
+            avaliacaoId = novaAvaliacaoRef.key;
 
+            novaAvaliacaoRef.set(formData)
+                .then(() => {
+                    alertaSucesso("✅ Avaliação salva com sucesso!");
 
-              
-                        // Atualizar URL para incluir o ID da avaliação
-                        window.history.replaceState(null, null, `?id=${avaliacaoId}`);
-                        
-                        // Se não houver pendências, mostrar botão de visualização
-                        if (blocosPendentes.length === 0) {
-                            document.getElementById('btnVisualizar').style.display = 'block';
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Erro ao salvar avaliação:', error);
-                        alert('Erro ao salvar avaliação!');
-                    });
-            }
-             
+                    let codigoAvaliacao = document.getElementById("codigoAvaliacao");
+                    codigoAvaliacao.textContent = avaliacaoId.trim();
 
+                    window.history.replaceState(null, null, `?id=${avaliacaoId}`);
+
+                    if (blocosPendentes.length === 0) {
+                        document.getElementById('btnVisualizar').style.display = 'block';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Erro ao salvar avaliação:', error);
+                    alert('Erro ao salvar avaliação!');
+                });
         }
+    }, 2000); // 3 segundos de atraso
+}
 
+
+
+
+        
         // Função para visualizar para impressão
         function visualizarParaImpressao() {
             // Verificar se todos os blocos estão preenchidos
@@ -1222,6 +1230,8 @@ function salvarSuicidioAgressor() {
 
   // Redirecionamento
 salvarFilhosPresenciaramViolencia() }
+
+
 
 function salvarFilhosPresenciaramViolencia() {
   const selectedRadio = document.querySelector('input[name="filhosPresenciaramViolencia"]:checked');

@@ -583,15 +583,25 @@ p {
 
 .form-group {
     margin-bottom: 15px;
+    
 }
 
 .form-group label {
-    display: block;
+    display: flex;
     margin-bottom: 5px;
     font-weight: bold;
     color: #2c3e50;
+    align-items: center;
+    gap:5px;  
 }
 
+.obrigatorio {
+  color: red;
+  align-items: center;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  padding-bottom: 0px;
+}
 .form-control {
     width: 100%;
     padding: 10px;
@@ -823,7 +833,10 @@ width: 100%;
   box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
 }
 
-
+h4 {
+  display: flex;
+  gap: 5px;
+}
 
 /* Animação: fade com zoom suave */
 @keyframes fadeZoomIn {
@@ -961,7 +974,7 @@ color: #ffffff;
 
 
 
-
+ 
 @media (max-width: 768px) {
   /* Oculta a lista de abas em telas pequenas */
   .tabs-list {

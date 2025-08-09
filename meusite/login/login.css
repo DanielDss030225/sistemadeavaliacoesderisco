@@ -136,11 +136,12 @@ ul li {
   background-position: center; /* centraliza a imagem */
   background-repeat: no-repeat;/* evita repetição da imagem */
   display: flex;
-  justify-content: start;
+  justify-content: end;
   align-items: center;
   flex-direction: column;
   margin-top: 0px;
   margin-bottom: 0px;
+
   
 }
 
@@ -201,6 +202,7 @@ h2 {
     width: 100vw;
   }
 
+  
 @media (max-width: 768px) {
   body {
     background: linear-gradient(to right, #a1c4fd, #c2e9fb);
