@@ -1125,37 +1125,6 @@ width: 100%;
     }
 }
 
-/* Modo escuro */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a1a1a;
-        color: #ffffff;
-    }
-    
-    .avaliacoes-container, .form-container, .tab-content {
-        background-color: #2d2d2d;
-        color: #ffffff;
-    }
-    
-    .avaliacao-item {
-        background-color: #3d3d3d;
-    }
-    
-    .form-control {
-        background-color: #3d3d3d;
-        border-color: #555;
-        color: #ffffff;
-    }
-    
-    .tab-item {
-        background-color: #2d2d2d;
-    }
-    
-    .tab-item.active {
-        background-color: #3d3d3d;
-    }
-}
-
 /* Utilitários */
 .hidden {
     display: none !important;
