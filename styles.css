@@ -1069,10 +1069,10 @@ form {
   display: none; /* Chrome, Safari e Opera */
 }
 .BackToEnd3 {
-  display: inline-flex;             /* flex container para alinhamento */
+  display: flex;             /* flex container para alinhamento */
   align-items: center;              /* centraliza verticalmente */
   justify-content: center;          /* centraliza horizontalmente */
-  padding: 7px 7px;
+  padding: 10px 10px;
   font-size: 20px;
   font-weight: bold;
   color: rgb(255, 255, 255);
@@ -1089,6 +1089,10 @@ form {
   line-height: normal;              /* remover line-height 0 para não prejudicar */
   text-align: center;
   background-color: #088ee8;
+  width: 50%;
+  height: 100%;
+  margin-top: 13px;
+  margin-bottom: 0px;
 }
 
   /* Botão de voltar estilizado como ícone */
@@ -1261,6 +1265,18 @@ form {
 #btnSalvarAssinatura {
   /* estilos aqui */
  display: none;
+
+}
+.fundoTopo {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  height: auto;
+}
+.nomeAv {
+  display: none;
 }
 
 }
