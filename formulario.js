@@ -29,7 +29,7 @@ import { firebaseConfig } from './firebaseConfig.js';
           let codigoAvaliacao = document.getElementById("codigoAvaliacao");
             avaliacaoId = getUrlParameter('id');
             if (!avaliacaoId) {
-                          codigoAvaliacao.textContent = "Carregando...";
+                          codigoAvaliacao.textContent = "Dê o primeiro passo...";
 
             } else {
 

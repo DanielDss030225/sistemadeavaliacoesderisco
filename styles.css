@@ -665,6 +665,9 @@ p {
   color: #1c639e;
   margin-left: 5px;
 }
+
+
+
 .hidden {
     display: none;
 }
@@ -1069,8 +1072,7 @@ form {
   display: inline-flex;             /* flex container para alinhamento */
   align-items: center;              /* centraliza verticalmente */
   justify-content: center;          /* centraliza horizontalmente */
-  padding: 4px 4px;
-  padding-bottom: 0px;                 /* padding igual */
+  padding: 7px 7px;
   font-size: 20px;
   font-weight: bold;
   color: rgb(255, 255, 255);
