@@ -1069,24 +1069,24 @@ form {
   display: inline-flex;             /* flex container para alinhamento */
   align-items: center;              /* centraliza verticalmente */
   justify-content: center;          /* centraliza horizontalmente */
-  padding: 0px 0px;
+  padding: 4px 4px;
   padding-bottom: 0px;                 /* padding igual */
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(255, 255, 255);
   border: none;
-  border-radius: 0px;
+  border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   margin-bottom: 0;
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: auto;
   margin-right: 10px;
   line-height: normal;              /* remover line-height 0 para não prejudicar */
   text-align: center;
-  
+  background-color: #088ee8;
 }
 
   /* Botão de voltar estilizado como ícone */
@@ -1255,5 +1255,8 @@ form {
   #btnVisualizar {
     display: none !important;
   }
+ .btn.primary {
+  display: none;
+ }
 
 }
