@@ -380,7 +380,7 @@
 
                                 <!-- Sub-bloco: Relação Vítima/Autor -->
                                 <div class="sub-block">
-                                    <h4>Relação vítima/autor:</h4>
+                                    <h4>Relação vítima/autor:<p class="obrigatorio">*</p></h4>
                                     <div class="checkbox-group">
                                         <div class="checkbox-item">
                                             <input type="radio" id="relacaoVitimaAutor1" name="relacaoVitimaAutor" value="conjuge">
@@ -763,7 +763,7 @@
                                 <div class="form-row">
                                     <div class="form-col">
                                         <div class="form-group">
-                                            <label>Possui Medida Protetiva de Urgência (MPU)?</label>
+                                            <label>Possui Medida Protetiva de Urgência (MPU)?<p class="obrigatorio">*</p></label>
                                             <div class="checkbox-group">
                                                 <div class="checkbox-item">
                                                     <input type="radio" id="mpu1" name="mpu" value="sim">
@@ -1356,7 +1356,7 @@
 
 <!-- Sub-bloco: Acesso a Armas -->
 <div class="sub-block">
-  <h4>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?</h4>
+  <h4>15. O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?<p class="obrigatorio">*</p></h4>
   <div class="checkbox-group">
     <div class="checkbox-item">
       <input type="checkbox" id="acessoArma_simUsou" name="acessoArma" value="sim-usou">
@@ -1969,6 +1969,69 @@
         <script type="module" src="atualizarDados.js"></script>
  <script type="module" src="./meusite/atualizarDados.js"></script>
 
+
+<!--spinner-->
+
+<style>
+#spinnerAlert {
+  display: none; /* começa oculto */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#spinnerAlert.active {
+  display: flex;
+}
+
+.spinnerBox {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column; /* coloca um abaixo do outro */
+  align-items: center;    /* centraliza horizontalmente */
+  justify-content: center;/* centraliza verticalmente */
+  gap: 10px;
+  width: auto;
+}
+
+
+.imgSpinner {
+  width: 300px;   /* largura da imagem */
+  height: 300px;  /* altura da imagem */
+  object-fit: contain; /* mantém proporção */
+
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  align-items: center;
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+</style>
+<div id="spinnerAlert">
+  <div class="spinnerBox">
+    <img class="imgSpinner" src="logo.png">
+    <div class="spinner"></div>
+  </div>
+</div>
+
+
+</div>
 </body>
 </html>
 

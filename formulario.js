@@ -2,8 +2,8 @@
         // Configuração do Firebase
 import { firebaseConfig } from './firebaseConfig.js';
 
-
-        // Inicializar Firebase
+showSpinnerAlert();
+setTimeout(hideSpinnerAlert, 1100);         // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
         const storage = firebase.storage();
@@ -14,7 +14,7 @@ import { firebaseConfig } from './firebaseConfig.js';
         let blocosPendentes = [1, 2, 3, 4, 5, 6, 7, 8];
         let blocosPreenchidos = [];
         let currentTab = 1;
-
+        let marcadorSpinner = 2;
         // Função para obter parâmetros da URL
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -807,7 +807,7 @@ function salvarFormulario() {
                     alert('Erro ao salvar avaliação!');
                 });
         }
-    }, 2000); // 3 segundos de atraso
+    }, 1000); // 3 segundos de atraso
 }
 
 
@@ -884,7 +884,7 @@ let mudarLink = "01"
 
 function openEditor()  {
 deletarItens();
-
+  salvarFormulario();
 //obtem os valors dos inputs tempoRelacionamento dataExpedicao
     let rgVitima = document.getElementById("rgVitima").value;
     let rgAgressor = document.getElementById("rgAgressor").value;
@@ -922,8 +922,9 @@ deletarItens();
 salvarLink();
 salvarRelacaoVitimaAutor();
 
+marcadorSpinner = 1;
 
-}
+} 
 
 //separados
 
@@ -1251,13 +1252,39 @@ if (mudarLink == "02") {
   window.location.href = "./meusite/index.html";
 
 } else {
-  window.location.href = "./meusite/editordetexto.html";
-
+// Exemplo de uso
+showSpinnerAlert();
+setTimeout(hideSpinnerAlert, 1100); 
 };
   // Redirecionamento
 }
 
+function showSpinnerAlert() {
+  document.getElementById("spinnerAlert").style.display = "flex";
+}
 
+function hideSpinnerAlert() {
+    document.getElementById("spinnerAlert").style.display = "none";
+if (marcadorSpinner == 1) {
+    window.location.href = "./meusite/editordetexto.html";
+
+} else {
+    document.getElementById("spinnerAlert").style.display = "none";
+}
+
+
+
+}
+
+// Animação do spinner
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}`;
+document.head.appendChild(style);
+
+// Fecha após 3 segundos
 
 
 

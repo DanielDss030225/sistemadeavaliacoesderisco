@@ -247,7 +247,7 @@ async function confirmSignature() {
         const linkAtual = localStorage.getItem("linkAtual");
         window.open(linkAtual, '_self');
 
-        setTimeout(() => hideStatus(), 3000);
+        setTimeout(() => hideStatus(), 1000);
 
     } catch (error) {
         console.error('Erro ao enviar assinatura:', error);
