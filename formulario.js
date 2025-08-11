@@ -1269,7 +1269,7 @@ if (marcadorSpinner == 1) {
     window.location.href = "./meusite/editordetexto.html";
 
 } else {
-    document.getElementById("spinnerAlert").style.display = "none";
+    
 }
 
 

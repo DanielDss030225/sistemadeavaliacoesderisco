@@ -13,6 +13,9 @@ body {
    
 }
 
+body.no-scroll {
+  overflow: hidden; /* impede barra de rolagem */
+}
 
 /* Cabeçalho */
 .cabeçalho {

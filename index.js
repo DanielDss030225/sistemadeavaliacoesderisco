@@ -11,6 +11,8 @@ const avaliacoesRef = database.ref('avaliacoes');
  * passando um array de objetos { key, ...dados } em ordem decrescente por dataRegistro.
  */
 function renderAvaliacoes(listaAvaliacoes, avaliacoes) {
+  showSpinnerAlert();
+setTimeout(hideSpinnerAlert, 500); 
   listaAvaliacoes.innerHTML = '';
   avaliacoes.forEach(avaliacao => {
     const temPendencias = avaliacao.status === 'pendente';
@@ -147,3 +149,17 @@ document.getElementById('searchInput').addEventListener('keypress', e => {
 
 // Carrega avaliações ao iniciar a página
 document.addEventListener('DOMContentLoaded', carregarAvaliacoes);
+
+
+function showSpinnerAlert() {
+  document.getElementById("spinnerAlert").classList.add("active");
+  document.body.classList.add("no-scroll");
+
+}
+
+function hideSpinnerAlert() {
+  document.getElementById("spinnerAlert").classList.remove("active");
+  document.body.classList.remove("no-scroll");
+  
+}
+

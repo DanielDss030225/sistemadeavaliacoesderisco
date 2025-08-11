@@ -67,6 +67,66 @@
  
 
 
+<!--spinner-->
+
+<style>
+#spinnerAlert {
+  display: none; /* começa oculto */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999; /* bem alto para ficar acima de tudo */
+}
+
+#spinnerAlert.active {
+  display: flex;
+}
+
+.spinnerBox {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column; /* coloca um abaixo do outro */
+  align-items: center;    /* centraliza horizontalmente */
+  justify-content: center;/* centraliza verticalmente */
+  gap: 10px;
+  width: auto;
+}
+
+
+.imgSpinner {
+  width: 200px;   /* largura da imagem */
+  height: 200px;  /* altura da imagem */
+  object-fit: contain; /* mantém proporção */
+
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  align-items: center;
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+</style>
+<div id="spinnerAlert">
+  <div class="spinnerBox">
+<img class="imgSpinner" src="anigif.gif" alt="Meu gif animado">
+    <div class="spinner"></div>
+  </div>
+</div>
+
 </body>
 
             <script type="module" src="./index.js"></script>
