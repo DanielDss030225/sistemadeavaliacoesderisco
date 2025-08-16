@@ -44,7 +44,7 @@ body.container {
   font-weight: 700;
   color: white;
   transition: background-color 0.3s ease;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 .cabeçalho button:hover {
@@ -56,9 +56,11 @@ body.container {
 /* Fundo geral */
 .fundotela {
   width: 100%;
-  background: white;
-  padding: 30px 30px;
+  background: rgb(255, 255, 255);
+  padding: 30px 40px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  
+
 }
 
 /* Logo e link */
@@ -88,7 +90,7 @@ body.container {
 /* Título da página */
 .larguraDoTitulo {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 #titulopag {
@@ -97,30 +99,24 @@ body.container {
   text-shadow: 1px 1px 4px rgba(65, 88, 208, 0.3);
 }
 
-
-
-
-
-
-
-
 /* Fieldset estilizado */
 fieldset {
-  border: 2px solid  #3498db;
+  border: 1px solid  #3498db;
   border-radius: 12px;
-  padding: 25px 30px;
+  padding: 0px 0px;
   margin-bottom: 35px;
-  background: #f0f4ff;
-  box-shadow: inset 0 0 10px #c1c9ff;
+  background: #ffffff;
+  box-shadow: inset 0 0 10px #ffffff;
   display: flex;
 }
 
 legend {
   font-weight: 700;
-  font-size: 1rem; /* Ajustado */
-  color:  #3498db;
+  font-size: 18px; /* Ajustado */
+  color:  #353535;
   padding: 0 10px;
   text-align: left;
+
 }
 
 /* Listas e inputs */
@@ -148,8 +144,9 @@ input[type="tel"],
 textarea {
   width: 100%;
   padding: 12px 16px;
+
   font-size: 0.9rem; /* Ajustado */
-  border: 2px solid #8bb6f1;
+  border: 1px solid #8bb6f1;
   border-radius: 10px;
   outline-offset: 2px;
   margin: 0px;
@@ -171,7 +168,7 @@ input[type="date"] {
   width: 100%;
   padding: 12px 16px;
   font-size: 0.9rem;
-  border: 2px solid #8bb6f1;
+  border: 1px solid #8bb6f1;
   border-radius: 10px;
   outline-offset: 2px;
   margin: 0px;
@@ -214,14 +211,7 @@ select {
   background-size: 12px;
 }
 
-/* Classes personalizadas para inputs */
-.tamanhorg {
-  width: 100%;
-}
 
-.ocorrencia {
-  width: 100%;
-}
 
 .descricao {
   font-size: 0.9rem; /* Ajustado */
@@ -262,7 +252,7 @@ button:hover {
   padding-left: 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 0px;
   flex-wrap: wrap;
 }
 .cardGerar {
@@ -391,15 +381,11 @@ fieldset {
 
 }
 
-.ulEndereco {
-  margin-top: 10px;
-  width: 100%;
-  background-color: transparent;
 
-}
 .DadosComplementaresLabel {
   margin-bottom: 10px;
 }
+
 .ulEndereco li {
   width: 100%;
   background-color: transparent;
@@ -413,7 +399,7 @@ fieldset {
   background-color: transparent;
   text-align: left;
   align-items: left;
-  margin: 7px;
+  margin: 0px;
   display: block;
 }
 
@@ -433,6 +419,8 @@ fieldset {
 .fieldsetEditor {
     width: 100%;
   min-height: 400px;
+    padding: 30px;
+
 }
 
 
@@ -488,13 +476,29 @@ margin-top: 30px;}
 
 }
 
-.telarow01,
+
 .telarow02 {
   flex: 1;
   height: 100%;
-  overflow-y: auto; /* ativa rolagem vertical */
+  overflow-y: auto;
+  width: 29%;
+  border-right: 1px solid #c5e1ff;
+  background-color: #fff;
+
+  /* Elevação mais intensa */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+
+  /* Para garantir que esteja acima visualmente (se for sobreposto) */
+  position: relative;
+  z-index: 10;
 }
 
+
+.telarow01{
+width: 70%;
+  height: 100%;
+  overflow-y: auto; /* ativa rolagem vertical */
+}
 .telarow01 {
   background-color: #ffffff;
 }
@@ -520,7 +524,8 @@ margin-top: 30px;}
 }
 .content {
   background-color: #dceeff;
-  padding: 25px;
+  padding-left: 25px;
+  padding-right: 30px;
   border-radius: 19px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -531,7 +536,10 @@ margin-top: 30px;}
   flex-direction: column;   /* opcional: itens empilhados verticalmente */
 }
 
-
+.DadosComplementaresLabel {
+  margin-top: 10px;
+  color: #3498db;
+}
 .editarVoltar {
   display: inline-block;
   padding: 10px 20px;
@@ -545,15 +553,25 @@ margin-top: 30px;}
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 20px;
+  margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+
 }
 
 .editarVoltar:hover {
   background-color: #0056b3; /* azul escuro no hover */
 }
-
-
 h2 {
   text-align: center;
+} 
+
+.fieldsetDiligencia {
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 50px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 @media (max-width: 768px) {
  

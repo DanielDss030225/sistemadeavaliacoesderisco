@@ -70,28 +70,22 @@
   
  
 
- <div class="larguraDoTitulo">
-  
-
-  <h3 id="titulopag"> &nbsp &nbsp Carregando Título &nbsp &nbsp </h3>
-  
-
- </div>
-
-  
 
 
  
 
     <fieldset> 
       
-      <legend> Digite os dados da vítima</legend>
+      <legend>Dados da vítima</legend>
        
       <ul> 
         
    <li>     
      <input onblur="this.value = this.value.trim()" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
- </li> 
+ </li>
+        </ul>  
+<ul> 
+
  <li> 
   <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  
  </li>
@@ -103,6 +97,9 @@
 <li> 
   <input  onblur="this.value = this.value.trim();" id="cpfvitima" type="number" placeholder="CPF DA VÍTIMA" >                  
  </li>
+       </ul>  
+<ul> 
+
        <li>
         <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
        </li> 
@@ -117,6 +114,8 @@
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaoVitima" type="text" placeholder="OCUPAÇÃO ATUAL" > 
 
   </li>
+      
+
    <li style="display: none;">
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecoVitima" type="text" placeholder="ENDEREÇO DA VÍTIMA" > 
 
@@ -203,13 +202,16 @@
       
       <fieldset> 
 
-        <legend> Digite os dados do autor</legend>
+        <legend>Dados do autor</legend>
                     <ul>
 
   <li>
     <input  onblur="this.value = this.value.trim()" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
 
   </li>
+        </ul>  
+<ul> 
+
   <li>
     <input onblur="this.value = this.value.trim();"  id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
 
@@ -228,6 +230,9 @@
 
 
  </li>
+       </ul>  
+<ul> 
+
   <li>
     <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
 
@@ -321,12 +326,15 @@
 
     <fieldset> 
       
-      <legend> Digite os dados da testemunha</legend>
+      <legend>Dados da testemunha</legend>
        
       <ul> 
    <li>     
      <input onblur="this.value = this.value.trim(), obterDadostestemunha();" class="tamanhorg" id="rgtestemunha"  type="number" placeholder="RG DA TESTEMUNHA" >                                  
  </li> 
+       </ul>  
+<ul> 
+
  <li> 
   <input  onblur="this.value = this.value.trim();" id="nometestemunha" type="text" placeholder="NOME DA TESTEMUNHA" >                  
  </li>
@@ -339,6 +347,9 @@
  <li> 
   <input  onblur="this.value = this.value.trim();" id="cpftestemunha" type="number" placeholder="CPF DA TESTEMUNHA" >                  
  </li>
+       </ul>  
+<ul> 
+
        <li>
         <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonetestemunha" type="tel" placeholder="TELEFONE DA TESTEMUNHA" > 
        </li>  
@@ -441,7 +452,7 @@
 
 
     <fieldset>
-      <legend> Dados complementares do casal</legend>
+      <legend> Dados complementares</legend>
 
 <ul> 
 
@@ -449,7 +460,8 @@
   <input class="dadosComplementares" onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
 
 </li>
-
+</ul> 
+  <ul> 
  <li>
   <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
 
@@ -473,6 +485,7 @@
 <p class="DadosComplementaresLabel"> Estão Separados?</p>
   <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="02" type="text" placeholder="" disabled > 
 </li>
+
 <li id="SeSeparados">
 <p class="DadosComplementaresLabel"> Tempo de Separação:</p>
   <input   class="dadosComplementares" onblur="this.value = this.value.trim();"  class="ocorrencia" id="04" type="text" placeholder="" disabled > 
@@ -599,6 +612,63 @@
 <div class="fundotela1">
 <ul>
   <div class="divEditor">  
+    
+     <div class="larguraDoTitulo">
+  
+
+  <h3 id="titulopag"> &nbsp &nbsp Carregando Título &nbsp &nbsp </h3>
+
+  
+  <fieldset style="display: none" class="fieldsetDiligencia"> 
+    <legend>Qual foi o motivo da diligência?</legend>
+  
+
+                                    <div class="checkbox-group">
+                                      <!--para vitima-->
+                                      <div style="display: none" id="divVitima"> 
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental1" name="doencaMental" value="sim-medicacao">
+                                            <label for="doencaMental1">Inclusão da Vítima</label>
+                                        </div>
+                                           <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental3" name="doencaMental" value="sim-sem-medicacao">
+                                            <label for="doencaMental3">Apresentação da lei para a Vítima</label>
+                                        </div>
+                                             <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental5" name="doencaMental" value="nao">
+                                            <label for="doencaMental5">Monitoramento da Vítima</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental7" name="doencaMental" value="nao-com-medicacao">
+                                            <label for="doencaMental7">Encerramento</label>
+                                        </div>
+                                        </div>
+                                        <!--PARA AUTOR-->
+                                       <div style="display: none" id="divAutor"> 
+
+                                        <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental2" name="doencaMental" value="sim-medicacao">
+                                            <label for="doencaMental2">Notificação do Autor</label>
+                                        </div>
+                                     
+                                          <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental4" name="doencaMental" value="sim-sem-medicacao">
+                                            <label for="doencaMental4">Apresentação da lei para o Autor</label>
+                                        </div>
+                                   
+                                          <div class="checkbox-item">
+                                            <input type="radio" id="doencaMental6" name="doencaMental" value="nao">
+                                            <label for="doencaMental6">Monitoramento do Autor</label>
+                                        </div>
+                                       </div>
+                                      
+                                    </div>
+</fieldset>
+
+ </div>
+
+  
+
   <fieldset class="fieldsetEditor"> 
     <legend> Edite seu histórico</legend>
     <div class="row">

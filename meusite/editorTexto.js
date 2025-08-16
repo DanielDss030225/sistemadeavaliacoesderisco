@@ -1,6 +1,8 @@
 
 
 function copiarTexto() {
+
+  
     const input = document.getElementById("idteste");
 
     // Seleciona o texto dentro do input
@@ -27,6 +29,8 @@ function ocultarCarregamento() {
 
 
 function showText() {
+    document.getElementById("doencaMental1").checked = true;
+
 atualizardados2();
 
 
@@ -35,6 +39,9 @@ const nome = localStorage.getItem("nome");
   document.getElementById("titulopag").textContent =  nome
 
 if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO") {
+  document.querySelector('.fieldsetDiligencia').style.display = 'block'; // ou 'flex', dependendo do seu layout
+document.getElementById('divAutor').style.display = 'block';
+
   document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR *********, RG: *********, (PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, REGISTRADO EM SEU DESFAVOR POR SUA (EX-)COMPANHEIRA, *********, RG *********.)  (PARA APRESENTÁ-LO A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, *********.) (PARA MONITORAR O CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, RG *********.)" +  "\n\n"  + 
   " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR O ASSISTIDO. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO *********, MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." +  "\n\n" +
   " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DO ASSISTIDO NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
@@ -43,6 +50,9 @@ if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO
 
 
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA") {
+    document.querySelector('.fieldsetDiligencia').style.display = 'block'; // ou 'flex', dependendo do seu layout
+document.getElementById('divVitima').style.display = 'block';
+
 document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR *********, RG: *********,, (PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, EM DESFAVOR DE SEU (EX-)COMPANHEIRO, *********, RG *********. (PARA APRESENTÁ-LA A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********. (PARA MONITORAR O CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********. (PARA ENCERRAR O MONITORAMENTO DO CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********.)" +  "\n\n"  + 
   " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR A ASSISTIDA. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO *********, MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." +  "\n\n" +
   " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DA ASSISTIDA NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."

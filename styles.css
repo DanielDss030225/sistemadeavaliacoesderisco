@@ -965,6 +965,42 @@ color: #ffffff;
 
 
 
+.pronto {
+  display: inline-block;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #2ecc71, #23b660);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 100%;
+  line-height: 15px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.pronto:hover {
+  background: linear-gradient(135deg, #27b864, #23b660);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.pronto:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px 
+
+}
+
 
 
 .BackToEnd3 {
