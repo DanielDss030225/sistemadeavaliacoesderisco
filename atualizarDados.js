@@ -187,7 +187,7 @@ for (const [id, indice] of Object.entries(mapeamentoInputs)) {
 
 // ✅ Adicionar a idade calculada no campo "idadeVitima"
 const dataNascimento2 = dadosArray[11]; // índice da data
-if (dataNascimento2 && dataNascimento !== "NULL") {
+if (dataNascimento2 && dataNascimento2 !== "NULL") {
   const idade2 = calcularIdade2(dataNascimento2);
   atualizarInput("idadeAgressor", idade2);
 }
@@ -195,9 +195,9 @@ if (dataNascimento2 && dataNascimento !== "NULL") {
 };  };
 
 
-function calcularIdade2(dataNascimentoStr) {
+function calcularIdade2(dataNascimentoStr2) {
   const hoje2 = new Date();
-  const nascimento2 = new Date(dataNascimentoStr);
+  const nascimento2 = new Date(dataNascimentoStr2);
   let idade = hoje2.getFullYear() - nascimento2.getFullYear();
   const mes = hoje2.getMonth() - nascimento2.getMonth();
 
