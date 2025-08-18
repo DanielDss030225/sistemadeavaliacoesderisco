@@ -136,7 +136,9 @@ li {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 0px;
+  width: 100%;
 }
+
 
 input[type="text"],
 input[type="number"],
