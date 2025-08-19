@@ -269,6 +269,8 @@ button:hover {
   cursor: pointer;
   user-select: none;
   transition: transform 0.25s ease, box-shadow 0.3s ease;
+    width: 200px;
+  margin-right: 30px;
 }
 
 .cardGerar:hover {
@@ -282,14 +284,14 @@ button:hover {
 }
 
 .mensagem {
-  font-weight: 500;
+   font-weight: 500;
   font-size: 0.75rem; /* Ajustado */
   color: #555;
   margin-top: 6px;
   text-align: center;
-  width: 100%;
+  width:200px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 30px;
 }
 
 /* Alerta fullscreen estilizado */
