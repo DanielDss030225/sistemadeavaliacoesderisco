@@ -27,6 +27,7 @@ body.no-scroll {
   background: linear-gradient(135deg, #3498db, #ffffff);
   color: white;
   position: fixed;
+  z-index: 1000;
 }
 .userP
 {
@@ -53,6 +54,8 @@ margin-left: 10px;    color: white;
 .cabeçalho button:hover {
   background-color: #e04343;
 }
+
+
 .BackToEnd {
   display: inline-block;
   padding: 15px 15px;
@@ -76,6 +79,31 @@ margin-left: 10px;    color: white;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
 }
+
+
+.BackToEnd4 {
+  display: inline-block;
+  padding: 15px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #3498db, #3498db);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: auto;
+  line-height: 15px;
+}
+
+.BackToEnd4:hover {
+  background: linear-gradient(135deg, #3498db, #3498db);
+
+}
+
+
 
 .BackToEnd:active {
   transform: translateY(1px);
@@ -123,10 +151,16 @@ margin-left: 10px;    color: white;
     max-width: auto;
     margin: 0 auto;
     padding: 20px;
-    
+    background-color: none;
 }
 
-
+.container3 {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 15px;
+    padding-bottom: 20px;
+    background-color: white;
+}
 
 /* Lado esquerdo */
 .progress-container {
@@ -218,10 +252,6 @@ margin-left: 10px;    color: white;
 
 
 
-
-
-
-
 .base header {
     position: sticky; /* Cola o header no topo dentro da base */
     top: 0;
@@ -236,6 +266,7 @@ header h1 {
     color: #2c3e50;
     margin-bottom: 10px;
     margin-top: 30px;
+    text-align: center;
 }
 
 /* Botões e ações */
@@ -296,11 +327,26 @@ header h1 {
 .btn.primary2 {
     background-color: #3498db;
     color: white;
+        height: 35px;
+
 }
 
 .btn.primary2:hover {
     background-color: #2980b9;
 }
+
+
+.btn.primary3 {
+    background-color: #f39c12;
+    color: white;
+    height: 35px;
+    
+}
+
+.btn.primary3:hover {
+    background-color: #e67e22;
+}
+
 .btn.edit {
     background-color: #f39c12;
     color: white;
@@ -411,6 +457,14 @@ margin-right: 5%;
     margin-bottom: 10px;
 }
 
+.logoCabesalhoPhone2 {
+    border-radius: 50px;
+    padding: 0px;
+    padding-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #dcebf5;
+}
 .menuButton2 {
     margin-left: 3%;
     margin-right: 3%;
@@ -460,15 +514,18 @@ p {
 .imgSalvar button {
   margin-bottom: 5px;
 }
-
 .menuButton2 {
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px 0;
     width: auto;
+    height: 60px;              /* define altura fixa ou flexível */
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* alinha para a direita */
+    align-items: center;       /* centraliza verticalmente */
+    background-color: #ffffff;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
 }
-
 
 
     .progress-bar {

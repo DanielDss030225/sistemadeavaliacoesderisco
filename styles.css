@@ -29,6 +29,8 @@ body {
 {
 margin-left: 10px;    color: white;
 }
+
+
 .cabeçalho p#user-info {
   font-weight: 600;
   font-size: 0.9rem; /* Ajustado */ 
@@ -383,11 +385,11 @@ p {
 }
 
 .menuButton2 {
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px 0;
     width: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* alinha na horizontal (direita) */
+    align-items: center;       /* alinha na vertical (meio) */
 }
 
 

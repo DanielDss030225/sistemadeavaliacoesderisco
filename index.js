@@ -107,6 +107,10 @@ function buscarPorRG(rg) {
 document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
   window.location.href = 'formulario.html';
 });
+document.getElementById('powerBI').addEventListener('click', () => {
+  window.location.href = 'powerBi.html';
+});
+
 document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
   localStorage.removeItem("rgVitima");
 localStorage.removeItem("rgAgressor");

@@ -131,7 +131,7 @@ ul li {
 
 .banner {
   width: 50%;
-  background-image: url('banner2.png'); /* <- ajuste aqui */
+  background-image: url('banner03.png'); /* <- ajuste aqui */
   background-size: cover;      /* cobre todo o espaço disponível */
   background-position: center; /* centraliza a imagem */
   background-repeat: no-repeat;/* evita repetição da imagem */
