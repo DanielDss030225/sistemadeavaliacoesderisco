@@ -264,6 +264,7 @@ header h1 {
 .search-container {
     display: flex;
     margin-bottom: 30px;
+
 }
 
 .search-container input {

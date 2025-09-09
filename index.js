@@ -102,11 +102,13 @@ function buscarPorRG(rg) {
 
 }
 
-
-// Event listeners para botões e busca
+ 
+// Event listeners para botões e busca  baixarApp
 document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
   window.location.href = 'formulario.html';
 });
+
+
 document.getElementById('powerBI').addEventListener('click', () => {
   window.location.href = 'powerBi.html';
 });
@@ -119,7 +121,12 @@ document.getElementById('autoformmozzila').addEventListener('click', () => {
     '_blank'   // abre em nova aba
   );
 });
-
+document.getElementById('baixarApp').addEventListener('click', () => {
+  window.open(
+    'https://play.google.com/store/apps/details?id=rppm.auxiliar.com.br&pli=1', 
+    '_blank'   // abre em nova aba
+  );
+});
 document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
   localStorage.removeItem("rgVitima");
 localStorage.removeItem("rgAgressor");
