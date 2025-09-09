@@ -334,13 +334,22 @@ header h1 {
 .btn.primary2:hover {
     background-color: #2980b9;
 }
+.btn.primary4 {
+    background-color: #3498db;
+    color: white;
+        height: 35px;
+        
+width: 100%;
+}
 
+.btn.primary4:hover {
+    background-color: #2980b9;
+}
 
 .btn.primary3 {
     background-color: #f39c12;
     color: white;
     height: 35px;
-    
 }
 
 .btn.primary3:hover {
@@ -468,6 +477,7 @@ margin-right: 5%;
 .menuButton2 {
     margin-left: 3%;
     margin-right: 3%;
+    margin-bottom: 10px;
 }
 
 .status.pendente {
@@ -526,7 +536,19 @@ p {
     padding-left: 20px;
     border-radius: 20px;
 }
-
+.menuButton3 {
+    width: auto;
+    height: 60px;              /* altura fixa (ou pode usar min-height se quiser mais flexível) */
+    display: flex;
+    justify-content: center;   /* centraliza no eixo horizontal */
+    align-items: center;       /* centraliza no eixo vertical */
+    background-color: #ffffff;
+    padding: 0 20px;           /* padding uniforme nos lados */
+    border-radius: 20px;
+    margin: 0 3% 10px 3%;      /* margens laterais e inferior */
+    box-sizing: border-box;    /* garante que padding não estoure a largura */
+    gap: 10px;                 /* espaço entre os elementos internos */
+}
 
     .progress-bar {
         display: flex;
@@ -950,6 +972,37 @@ width: 100%;
     justify-content: center;
     
 }
+.buttonModelos4 {
+    width: 300px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* impede quebra de linha */
+}
+.buttonModelos5 {
+    width: 100%;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* impede quebra de linha */
+}
+.btn.primary5 {
+    background-color: #3498db;
+    color: white;
+    height: 35px;
+    width: 100%;
+    display: block;        /* garante que ele se comporte como bloco */
+    border: none;          /* remove borda padrão */
+    border-radius: 6px;    /* deixa mais bonito */
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
 .buttonModelos2 {
     width:  200px;
     color: white;
@@ -1374,7 +1427,7 @@ display: none;
 .search-container {
 margin-left: 10px;
 margin-right: 10px;
-margin-top: 0px;
+margin-top: 70px;
 }
 
 button.btn2 {
@@ -1425,5 +1478,32 @@ text-align: center;
         width: 100%;
 
     
+}
+
+.menuButton3 {
+    width: auto;
+    height: 60px;              /* altura fixa (ou pode usar min-height se quiser mais flexível) */
+    justify-content: center;   /* centraliza no eixo horizontal */
+    align-items: center;       /* centraliza no eixo vertical */
+    background-color: #ffffff;
+    padding: 0 20px;           /* padding uniforme nos lados */
+    border-radius: 20px;
+    margin: 0 3% 10px 3%;      /* margens laterais e inferior */
+    box-sizing: border-box;    /* garante que padding não estoure a largura */
+    gap: 10px;                 /* espaço entre os elementos internos */
+display: none;
+}
+.menuButton2 {
+    width: auto;
+    height: 60px;              /* altura fixa (ou pode usar min-height se quiser mais flexível) */
+    justify-content: center;   /* centraliza no eixo horizontal */
+    align-items: center;       /* centraliza no eixo vertical */
+    background-color: #ffffff;
+    padding: 0 20px;           /* padding uniforme nos lados */
+    border-radius: 20px;
+    margin: 0 3% 10px 3%;      /* margens laterais e inferior */
+    box-sizing: border-box;    /* garante que padding não estoure a largura */
+    gap: 10px;                 /* espaço entre os elementos internos */
+display: none;
 }
 }

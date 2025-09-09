@@ -110,6 +110,15 @@ document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
 document.getElementById('powerBI').addEventListener('click', () => {
   window.location.href = 'powerBi.html';
 });
+document.getElementById('autoformgoogle').addEventListener('click', () => {
+alert("Em desenvolvimento.")});
+
+document.getElementById('autoformmozzila').addEventListener('click', () => {
+  window.open(
+    'https://addons.mozilla.org/pt-BR/firefox/addon/rppm-mindfulness-greenmesh/', 
+    '_blank'   // abre em nova aba
+  );
+});
 
 document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
   localStorage.removeItem("rgVitima");
