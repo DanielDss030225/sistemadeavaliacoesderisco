@@ -112,8 +112,20 @@ document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
 document.getElementById('powerBI').addEventListener('click', () => {
   window.location.href = 'powerBi.html';
 });
+
 document.getElementById('autoformgoogle').addEventListener('click', () => {
-alert("Em desenvolvimento.")});
+    // Caminho do arquivo na raiz do projeto
+    const arquivo = 'ExtensaoPVD-Chrome.zip'; // substitua pelo nome do seu arquivo
+
+    // Cria um link temporário
+    const link = document.createElement('a');
+    link.href = arquivo;
+    link.download = arquivo; // nome do arquivo que será baixado
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
 
 document.getElementById('autoformmozzila').addEventListener('click', () => {
   window.open(

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPA - Formulário</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            max-width: 780px; /* Slightly reduced width */
+            margin: 10px auto;
+            box-sizing: border-box;
+            font-size: 0.85em; /* Reduced global font size */
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .header h3 {
+            margin-bottom: 3px;
+            font-size: 1.1em;
+        }
+        .header h4 {
+            margin-top: 0;
+            font-size: 1em;
+        }
+        .section-title {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .field-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 3px;
+            align-items: baseline;
+        }
+        .field-group label {
+            font-weight: bold;
+            margin-right: 3px;
+            white-space: nowrap;
+        }
+        .field-group input[type="text"],
+        .field-group input[type="email"],
+        .field-group input[type="tel"] {
+            border: none;
+            border-bottom: 1px solid #000;
+            flex-grow: 1;
+            padding: 0 1px;
+            margin-right: 5px;
+            min-width: 40px; /* Adjust as needed */
+        }
+        .field-group input[type="checkbox"] {
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+        .field-group span {
+            white-space: nowrap;
+        }
+        .field-group .half-width {
+            width: 48%;
+        }
+        .field-group .quarter-width {
+            width: 23%;
+        }
+        .field-group .eighth-width {
+            width: 10%;
+        }
+        .table-container {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8em; /* Further reduced font size for table */
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 2px;
+            text-align: left;
+            vertical-align: top;
+        }
+        table input[type="text"] {
+            width: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        table input[type="checkbox"] {
+            margin: 0 1px;
+        }
+        .print-button {
+            display: block;
+            margin: 15px auto;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                border: none;
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                font-size: 0.8em; /* Final adjustment for print */
+            }
+            .field-group input[type="text"],
+            .field-group input[type="email"],
+            .field-group input[type="tel"] {
+                border-bottom: 1px solid #000 !important; /* Ensure border is visible on print */
+            }
+            table input[type="text"] {
+                border: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+<img src="https://feirai9.policiamilitar.mg.gov.br/wp-content/uploads/2022/07/policia-militar-mg-logo.png"
+     style="height: 40px; width: 90px;">
+        <h3>TERCEIRA REGIÃO DE POLÍCIA MILITAR</h3>
+        <h4>TERCEIRA COMPANHIA DE POLÍCIA MILITAR INDEPENDENTE DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA</h4>
+    </div>
+
+    <div class="field-group">
+        <label>Unidade de área:</label>
+        <input type="text" value="1ª CIA IND /Eq. Alpha" style="flex-grow: 0; width: 180px;">
+        <label style="margin-left: 10px;">Origem do caso:</label>
+        <input type="text">
+    </div>
+
+    <h3 class="section-title"></h3>
+    <div class="field-group">
+        <label>Vítima:</label>
+        <input type="text">
+        <label>RG:</label>
+        <input type="text" style="flex-grow: 0; width: 120px;">
+    </div>
+    <div class="field-group">
+        <label>Escolaridade:</label>
+        <input type="text" class="quarter-width">
+        <label>Estado Civil:</label>
+        <input type="text" class="quarter-width">
+        <label>Tel:</label>
+        <input type="tel" class="eighth-width">
+    </div>
+    <div class="field-group">
+        <label>Cor:</label>
+        <input type="text" class="quarter-width">
+        <label>Profissão:</label>
+        <input type="text" class="quarter-width">
+        <label>Tel:</label>
+        <input type="tel" class="eighth-width">
+    </div>
+    <div class="field-group">
+        <label>Email:</label>
+        <input type="email">
+        <label>Policial Militar:</label>
+        ( ) Não <input type="checkbox"> ( ) Sim, Unidade <input type="text" style="flex-grow: 0; width: 80px;">
+    </div>
+    <div class="field-group">
+        <label>Autoridade:</label>
+        ( ) Não <input type="checkbox"> ( ) Sim, Órgão <input type="text" style="flex-grow: 0; width: 80px;">
+        <label>CPF:</label>
+        <input type="text" style="flex-grow: 0; width: 120px;">
+    </div>
+    <div class="field-group">
+        <label>End:</label>
+        <input type="text">
+        <span> - /MG</span>
+    </div>
+    <div class="field-group">
+        <label>End. Trabalho:</label>
+        <input type="text">
+    </div>
+    <div class="field-group">
+        <label>Medidas Protetivas:</label>
+        <input type="text" style="flex-grow: 0; width: 200px;">
+        <span>, JUVID, </span>
+        <input type="text" style="flex-grow: 0; width: 25px;"> / <input type="text" style="flex-grow: 0; width: 25px;"> / <input type="text" style="flex-grow: 0; width: 40px;">
+    </div>
+
+    <h3 class="section-title"></h3>
+    <div class="field-group">
+        <label>Autor:</label>
+        <input type="text">
+        <label>RG:</label>
+        <input type="text" style="flex-grow: 0; width: 120px;">
+    </div>
+    <div class="field-group">
+        <label>Escolaridade:</label>
+        <input type="text" class="quarter-width">
+        <label>Estado Civil:</label>
+        <input type="text" class="quarter-width">
+        <label>Tel:</label>
+        <input type="tel" class="eighth-width">
+    </div>
+    <div class="field-group">
+        <label>Cor:</label>
+        <input type="text" class="quarter-width">
+        <label>Profissão:</label>
+        <input type="text" class="quarter-width">
+        <label>Tel:</label>
+        <input type="tel" class="eighth-width">
+    </div>
+    <div class="field-group">
+        <label>Email:</label>
+        <input type="email">
+        <label>Policial Militar:</label>
+        ( ) Não <input type="checkbox"> ( ) Sim, Unidade <input type="text" style="flex-grow: 0; width: 80px;">
+    </div>
+    <div class="field-group">
+        <label>Autoridade:</label>
+        ( ) Não <input type="checkbox"> ( ) Sim, Órgão <input type="text" style="flex-grow: 0; width: 80px;">
+        <label>CPF:</label>
+        <input type="text" style="flex-grow: 0; width: 120px;">
+    </div>
+    <div class="field-group">
+        <label>End:</label>
+        <input type="text">
+    </div>
+    <div class="field-group">
+        <label>End. Trabalho:</label>
+        <input type="text">
+    </div>
+    <div class="field-group">
+        <label>Antecedentes criminais:</label>
+        ( ) Não <input type="checkbox"> ( ) Sim, Quais? <input type="text">
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Horário/Data</th>
+                    <th style="width: 40%;">Nº Registro (REDS)</th>
+                    <th style="width: 30%;">Protocolo de 2ª Resposta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 18px;">:<input type="text" style="width: 18px;"> <input type="text" style="width: 18px;"> / <input type="text" style="width: 18px;"> / <input type="text" style="width: 30px;"></td>
+                    <td>( ) BO <input type="checkbox"> ( ) BOS <input type="checkbox"> Nº <input type="text" style="width: 80px;"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="field-group">
+        <label>DATA DE ABERTURA:</label>
+        <input type="text" style="flex-grow: 0; width: 40px;"> / <input type="text" style="flex-grow: 0; width: 40px;"> / <input type="text" style="flex-grow: 0; width: 60px;">
+        <label style="margin-left: 10px;">DATA DE ENCERRAMENTO:</label>
+        <input type="text" style="flex-grow: 0; width: 40px;"> / <input type="text" style="flex-grow: 0; width: 40px;"> / <input type="text" style="flex-grow: 0; width: 60px;">
+    </div>
+
+    <button class="print-button" onclick="window.print()">Imprimir</button>
+</body>
+</html>
+
