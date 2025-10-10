@@ -7,13 +7,32 @@ const database = firebase.database();
 const avaliacoesRef = database.ref('avaliacoes');
 
 /**
+ * Helper: atualiza o texto do elemento #resultadoBusca com segurança
+ */
+function setResultadoBusca(text) {
+  const el = document.getElementById('resultadoBusca');
+  if (el) el.textContent = text;
+}
+
+/**
  * Renderiza uma lista de avaliações no DOM,
  * passando um array de objetos { key, ...dados } em ordem decrescente por dataRegistro.
  */
 function renderAvaliacoes(listaAvaliacoes, avaliacoes) {
   showSpinnerAlert();
-setTimeout(hideSpinnerAlert, 500); 
-  listaAvaliacoes.innerHTML = '';
+  setTimeout(hideSpinnerAlert, 500);
+
+  listaAvaliacoes.innerHTML = '0';
+
+// Atualiza contagem com segurança
+if (Array.isArray(avaliacoes)) {
+  const count = avaliacoes.length > 0 ? avaliacoes.length : 0;
+
+  setResultadoBusca(`${count}`);
+} else {
+  setResultadoBusca('0');
+}
+
   avaliacoes.forEach(avaliacao => {
     const temPendencias = avaliacao.status === 'pendente';
     const div = document.createElement('div');
@@ -30,24 +49,27 @@ setTimeout(hideSpinnerAlert, 500);
       </div>
       <div class="avaliacao-acoes">
         <button class="btn edit" data-key="${avaliacao.key}">Ver Mais</button>
-        ${!temPendencias
-          ? `<button class="btn print" data-key="${avaliacao.key}">Imprimir Avaliação</button>`
-          : `<button class="btn continue" data-key="${avaliacao.key}">Continuar Avaliação</button>`
+        ${
+          !temPendencias
+            ? `<button class="btn print" data-key="${avaliacao.key}">Imprimir Avaliação</button>`
+            : `<button class="btn continue" data-key="${avaliacao.key}">Continuar Avaliação</button>`
         }
       </div>
     `;
     listaAvaliacoes.appendChild(div);
   });
 
-  // Registra eventos
+  // Registra eventos (seguro)
   document.querySelectorAll('.btn.edit, .btn.continue').forEach(btn => {
     btn.addEventListener('click', e => {
-      window.location.href = `formulario.html?id=${e.target.dataset.key}`;
+      const key = e.currentTarget.dataset.key;
+      if (key) window.location.href = `formulario.html?id=${key}`;
     });
   });
   document.querySelectorAll('.btn.print').forEach(btn => {
     btn.addEventListener('click', e => {
-      window.open(`avRisco.html?id=${e.target.dataset.key}`, '_blank');
+      const key = e.currentTarget.dataset.key;
+      if (key) window.open(`avRisco.html?id=${key}`, '_blank');
     });
   });
 }
@@ -55,11 +77,13 @@ setTimeout(hideSpinnerAlert, 500);
 // Carrega todas as avaliações em ordem decrescente
 function carregarAvaliacoes() {
   const listaAvaliacoes = document.getElementById('listaAvaliacoes');
-  listaAvaliacoes.innerHTML = '<div class="loading">Carregando avaliações...</div>';
+  if (!listaAvaliacoes) return;
+
+  listaAvaliacoes.innerHTML = '<div class="loading"></div>';
 
   avaliacoesRef.orderByChild('dataRegistro').on('value', snapshot => {
     if (!snapshot.exists()) {
-      listaAvaliacoes.innerHTML = '<div class="no-data">Nenhuma avaliação encontrada.</div>';
+      listaAvaliacoes.innerHTML = '<div class="no-data"></div>';
       return;
     }
     const avals = [];
@@ -74,9 +98,12 @@ function carregarAvaliacoes() {
 // Busca avaliações filtradas por RG (e mantém ordem decrescente)
 function buscarPorRG(rg) {
   const listaAvaliacoes = document.getElementById('listaAvaliacoes');
-  listaAvaliacoes.innerHTML = '<div class="loading">Buscando...</div>';
+  if (!listaAvaliacoes) return;
 
-  const rgLimpo = rg.replace(/\D/g, '');
+  listaAvaliacoes.innerHTML = '<div class="loading">Buscando...</div>';
+  setResultadoBusca('Buscando registros...');
+
+  const rgLimpo = (rg || '').replace(/\D/g, '');
   if (!rgLimpo) {
     carregarAvaliacoes();
     return;
@@ -84,7 +111,8 @@ function buscarPorRG(rg) {
 
   avaliacoesRef.orderByChild('rgVitima').equalTo(rgLimpo).once('value', snapshot => {
     if (!snapshot.exists()) {
-      listaAvaliacoes.innerHTML = '<div class="no-data">Nenhuma avaliação encontrada com este RG.</div>';
+      listaAvaliacoes.innerHTML = '<div class="no-data"></div>';
+      setResultadoBusca('0');
       return;
     }
     const avals = [];
@@ -96,102 +124,89 @@ function buscarPorRG(rg) {
   });
 }
 
-
- function salvarLink() {
-     localStorage.setItem("linkAtual", window.location.href);
-
+function salvarLink() {
+  localStorage.setItem('linkAtual', window.location.href);
 }
 
- 
-// Event listeners para botões e busca  baixarApp
-document.getElementById('btnNovaAvaliacao').addEventListener('click', () => {
-  window.location.href = 'formulario.html';
-});
+/* 
+  -> Liga todos os event listeners de forma segura depois que o DOM estiver carregado.
+     Assim evitamos erros caso algum botão não exista.
+*/
+document.addEventListener('DOMContentLoaded', () => {
+  // Botões principais (verifica existência antes de adicionar)
+  const btnNova = document.getElementById('btnNovaAvaliacao');
+  if (btnNova) btnNova.addEventListener('click', () => { window.location.href = 'formulario.html'; });
 
+  const btnPowerBI = document.getElementById('powerBI');
+  if (btnPowerBI) btnPowerBI.addEventListener('click', () => { window.location.href = 'powerBi.html'; });
 
-document.getElementById('powerBI').addEventListener('click', () => {
-  window.location.href = 'powerBi.html';
-});
-
-document.getElementById('autoformgoogle').addEventListener('click', () => {
-    // Caminho do arquivo na raiz do projeto
-    const arquivo = 'ExtensaoPVD-Chrome.zip'; // substitua pelo nome do seu arquivo
-
-    // Cria um link temporário
+  const btnAutoGoogle = document.getElementById('autoformgoogle');
+  if (btnAutoGoogle) btnAutoGoogle.addEventListener('click', () => {
+    const arquivo = 'ExtensaoPVD-Chrome.zip';
     const link = document.createElement('a');
     link.href = arquivo;
-    link.download = arquivo; // nome do arquivo que será baixado
+    link.download = arquivo;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-});
+  });
 
+  const btnAutoMoz = document.getElementById('autoformmozzila');
+  if (btnAutoMoz) btnAutoMoz.addEventListener('click', () => {
+    window.open('https://addons.mozilla.org/pt-BR/firefox/addon/rppm-mindfulness-greenmesh/', '_blank');
+  });
 
-document.getElementById('autoformmozzila').addEventListener('click', () => {
-  window.open(
-    'https://addons.mozilla.org/pt-BR/firefox/addon/rppm-mindfulness-greenmesh/', 
-    '_blank'   // abre em nova aba
-  );
-});
-document.getElementById('baixarApp').addEventListener('click', () => {
-  window.open(
-    'https://play.google.com/store/apps/details?id=rppm.auxiliar.com.br&pli=1', 
-    '_blank'   // abre em nova aba
-  );
-});
-document.getElementById('modelosDeHistoricos').addEventListener('click', () => {
-  localStorage.removeItem("rgVitima");
-localStorage.removeItem("rgAgressor");
-localStorage.removeItem("tempoRelacionamento");
-localStorage.removeItem("tempoSeparacao");
-localStorage.removeItem("numeroProcesso");
-localStorage.removeItem("dataExpedicao");
-localStorage.removeItem("relacaoVitimaAutor");
-localStorage.removeItem("separados");
-localStorage.removeItem("temFilhos");
-localStorage.removeItem("quantidadeFilhos");
-localStorage.removeItem("nomesIdadesFilhos");
-localStorage.removeItem("mpu");
-localStorage.removeItem("acessoArma");
-localStorage.removeItem("violenciasPsicologicas");
-localStorage.removeItem("agressoesFisicas");
-localStorage.removeItem("agressoesSexuais");
-localStorage.removeItem("agressoesPatrimoniais");
-localStorage.removeItem("agressoesMorais");
-localStorage.removeItem("usoSubstancias");
-localStorage.removeItem("suicidioAgressor");
-localStorage.removeItem("filhosPresenciaramViolencia");
-localStorage.removeItem("nome"); // referente ao tipo de protocolo SPVD
-localStorage.removeItem("linkAtual"); // usado no botão "OUTROS"
-localStorage.removeItem("linkdaimagem"); // assinatura
-  salvarLink();
-  window.location.href = './meusite2/index.html';
-  
-});
+  const btnBaixarApp = document.getElementById('baixarApp');
+  if (btnBaixarApp) btnBaixarApp.addEventListener('click', () => {
+    window.open('https://play.google.com/store/apps/details?id=rppm.auxiliar.com.br&pli=1', '_blank');
+  });
 
+  const btnModelos = document.getElementById('modelosDeHistoricos');
+  if (btnModelos) btnModelos.addEventListener('click', () => {
+    // Remove apenas as chaves que você usava
+    const keysToRemove = [
+      "rgVitima","rgAgressor","tempoRelacionamento","tempoSeparacao","numeroProcesso","dataExpedicao",
+      "relacaoVitimaAutor","separados","temFilhos","quantidadeFilhos","nomesIdadesFilhos","mpu",
+      "acessoArma","violenciasPsicologicas","agressoesFisicas","agressoesSexuais","agressoesPatrimoniais",
+      "agressoesMorais","usoSubstancias","suicidioAgressor","filhosPresenciaramViolencia","nome",
+      "linkAtual","linkdaimagem"
+    ];
+    keysToRemove.forEach(k => localStorage.removeItem(k));
+    salvarLink();
+    window.location.href = './meusite2/index.html';
+  });
 
-document.getElementById('btnSearch').addEventListener('click', () => {
-  buscarPorRG(document.getElementById('searchInput').value);
-});
-document.getElementById('searchInput').addEventListener('keypress', e => {
-  if (e.key === 'Enter') {
-    buscarPorRG(e.target.value);
+  // Busca
+  const btnSearch = document.getElementById('btnSearch');
+  const searchInput = document.getElementById('searchInput');
+  if (btnSearch) btnSearch.addEventListener('click', () => buscarPorRG(searchInput?.value || ''));
+  if (searchInput) searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') buscarPorRG(e.target.value); });
+
+  // Voltar ao topo (container rolável)
+  const container = document.querySelector('.container');
+  const btnVoltarTopo = document.getElementById('btnVoltarTopo');
+  if (container && btnVoltarTopo) {
+    container.addEventListener('scroll', () => {
+      btnVoltarTopo.classList.toggle('show', container.scrollTop > 100);
+    });
+    btnVoltarTopo.addEventListener('click', () => {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
+
+  // Carrega as avaliações assim que o DOM estiver pronto
+  carregarAvaliacoes();
 });
 
-// Carrega avaliações ao iniciar a página
-document.addEventListener('DOMContentLoaded', carregarAvaliacoes);
-
-
+/* Spinner helpers */
 function showSpinnerAlert() {
-  document.getElementById("spinnerAlert").classList.add("active");
-  document.body.classList.add("no-scroll");
-
+  const spinner = document.getElementById('spinnerAlert');
+  if (spinner) spinner.classList.add('active');
+  document.body.classList.add('no-scroll');
 }
 
 function hideSpinnerAlert() {
-  document.getElementById("spinnerAlert").classList.remove("active");
-  document.body.classList.remove("no-scroll");
-  
+  const spinner = document.getElementById('spinnerAlert');
+  if (spinner) spinner.classList.remove('active');
+  document.body.classList.remove('no-scroll');
 }
-

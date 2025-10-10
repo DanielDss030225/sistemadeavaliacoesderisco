@@ -30,6 +30,17 @@
       </div>
     <div class="container">
        
+                        
+                         <div class="logoCabesalhoPhone"> 
+                                  <img class="logocia" src="logoCia.png">
+
+        <header>
+            <h1>Sistema de Avaliação de Risco e Modelos de Históricos Pvds</h1>
+        </header>
+
+   </div> 
+         
+        
        
                         <div class="menuButton3">
                             <div class="actions">
@@ -58,27 +69,24 @@
 
 
 
-                        
-                         <div class="logoCabesalhoPhone"> 
-                                  <img class="logocia" src="logoCia.png">
 
-        <header>
-            <h1>Sistema de Avaliação de Risco e Modelos de Históricos Pvds</h1>
-        </header>
 
-   </div> 
-         
-        
-
+        <div class="avaliacoes-container">
+          <div class="newavaliation">        
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar por RG da vítima...">
             <button id="btnSearch" class="btn2">Buscar</button>
-        </div>
+        </div>   
+        <div class="divNewAv">
+                   <p id="resultadoBusca" class="resultado-busca"></p> <!-- contador de resultados -->
 
-        <div class="avaliacoes-container">
-          <div class="newavaliation">                  <button id="btnNovaAvaliacao" class="btn primary6"> <p class="buttonModelos2"> Nova Avaliação de Risco</p></button>
+                         <button id="btnNovaAvaliacao" class="btn primary6"> <p class="buttonModelos2"> Nova Avaliação de Risco</p></button>
+
+
+        </div>   
 </div>
             <h2>Registros</h2>
+
             <div id="listaAvaliacoes" class="lista-avaliacoes">
                 <!-- As avaliações serão carregadas dinamicamente aqui -->
                 <div class="loading">Carregando avaliações...</div>
@@ -149,6 +157,8 @@
     <div class="spinner"></div>
   </div>
 </div>
+<!-- Botão flutuante "Voltar ao topo" -->
+<button id="btnVoltarTopo" title="Voltar ao topo">⬆</button>
 
 </body>
 
