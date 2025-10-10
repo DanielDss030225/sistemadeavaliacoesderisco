@@ -167,10 +167,13 @@ margin-left: 10px;    color: white;
     padding: 15px;
     padding-bottom: 20px;
     background-color: white;
-    height: 600px;
+    height: 120vh;
     overflow: scroll;
     margin-top: 60px;
     padding-top: 0px;
+    padding-bottom:180px;
+      margin-bottom: 100px;
+
 }
 
 /* Lado esquerdo */
