@@ -938,7 +938,9 @@ function salvarRelacaoVitimaAutor() {
     console.log("Salvo no localStorage:", textoSelecionado);
 separados()
   } else {
-    alert("Preencha o campo: relação VITIMA/AUTOR. PÁGINA 01.");
+separados()
+    localStorage.setItem('relacaoVitimaAutor', "*********");
+
   }
 }
 
@@ -956,8 +958,10 @@ function separados() {
     console.log("Salvo no localStorage:", textoSelecionado);
 temFilhos() 
   } else {
-    alert("Preencha o campo: SE ESTÃO SEPARADOS ATUALMENTE. PÁGINA 03.");
-  }
+temFilhos()  
+    localStorage.setItem('separados', "*********");
+
+}
 }
 
 
@@ -1007,10 +1011,7 @@ function temFilhos() {
    }
 
   // Caso nenhum checkbox esteja selecionado
-  if (!filhosComAgressor && !filhosOutroRelacionamento  && !naoTem) {
-    alert("Preencha o campo: SE TEM FILHOS - PÁGINA 06/ BLOCO III/ ITEM 18.");
-    return;
-  }
+
 
 
    if (!filhosComAgressor){
@@ -1047,7 +1048,9 @@ function mpu() {
     console.log("Salvo no localStorage:", textoSelecionado);
  acessoArma()
   } else {
-    alert("Preencha o campo: SE TEM MEDIDA PROTETIVA - NÚMERO DO DOCUMENTO. PÁGINA 03.");
+    acessoArma()
+        localStorage.setItem('mpu', "*********");
+
   }
 }
 
@@ -1065,7 +1068,9 @@ function acessoArma() {
     console.log("Salvo no localStorage:", respostaFinal);
     salvarViolenciaPsicologica();
   } else {
-    alert("Preencha o campo: SE TEM FÁCIL ACESSO A ARMA DE FOGO. PÁGINA 5/ BLOCO II/ ITEM: N° 15.");
+      salvarViolenciaPsicologica();
+              localStorage.setItem('acessoArma', "*********");
+
   }
 }
 

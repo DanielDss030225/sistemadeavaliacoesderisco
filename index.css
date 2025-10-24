@@ -2,8 +2,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box ;
+    font-family: Arial, sans-serif !important;
 }
 
 body {
@@ -37,10 +37,7 @@ body.no-scroll {
 {
 margin-left: 10px;    color: white;
 }
-.cabeçalho p#user-info {
-  font-weight: 600;
-  font-size: 0.9rem; /* Ajustado */ 
-}
+
 
 .cabeçalho button {
   background-color: #ff4d4d;
@@ -154,11 +151,27 @@ margin-left: 10px;    color: white;
 .container {
     max-width: auto;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
     background-color: none;
     overflow: scroll;
-    height: 100vh;
-    margin-top: 60px;
+    height: 120vh;
+    position: inherit;
+    width: 100%;
+    z-index: 2000;
+    background-color: #ffffff(0 94% 6%);
+    margin-top: 80px;
+}
+
+.container02 {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: none;
+   
+    position: inherit;
+    width: 100%;
+    z-index: 2000;
+    background-color: #ffffff(0 94% 6%);
 }
 
 .container3 {
@@ -175,7 +188,13 @@ margin-left: 10px;    color: white;
       margin-bottom: 100px;
 
 }
-
+.botaoMenu {
+    margin-right: 10px !important;
+    width: 50px !important;
+}
+.ic-ajuda {
+    width: 50px !important;
+}
 /* Lado esquerdo */
 .progress-container {
   position: fixed;
@@ -184,7 +203,7 @@ margin-left: 10px;    color: white;
     transform: translateY(-50%);
     width: 10%;
     height: 100vh;
-    background: linear-gradient(to bottom, #ffffff, #bfe1ff); /* degradê azul claro → branco */
+    background: linear-gradient(to bottom, #ffffff, #c0b595); /* degradê azul claro → branco */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 100;
 
@@ -304,6 +323,8 @@ header h1 {
     font-weight: bold;
     transition: background-color 0.3s, transform 0.2s;
     margin-left: 10px;
+            color: rgb(255, 255, 255) !important;
+
 }
 
 .btn:hover {
@@ -311,8 +332,8 @@ header h1 {
 }
 
 .btn.primary {
-    background-color: #3498db;
-    color: white;
+    background-color: #c0b595;
+    color: #6d6651 !important;
 }
 
 
@@ -324,57 +345,72 @@ header h1 {
     font-weight: bold;
     transition: background-color 0.3s, transform 0.2s;
     margin-left: 10px;
+    background-color: transparent !important;
+        color: rgb(52, 52, 52) !important;
+
 }
 
-.btn2:hover {
+.btn2:hover, .btn2:focus {
     transform: translateY(-2px);
+    background-color: #c0b595 !important;
 }
 
 .btn2.primary {
-    background-color: #3498db;
-    color: white;
+    background-color: #c0b595;
+           color: rgb(52, 52, 52) !important;
+
 }
 
 .btn.primary:hover {
-    background-color: #2980b9;
+    background-color: #c0b595;
 }
 
 .btn.primary2 {
-    background-color: #3498db;
-    color: white;
-        height: 35px;
+    background-color:transparent;
+    color: #6d6651 !important;
 
+        height: auto;
+width: 100% !important;
 }
 
 .btn.primary2:hover {
-    background-color: #2980b9;
+    background-color: #c0b595;
 }
 
 .btn.primary4 {
-    background-color: #3498db;
-    color: white;
-        height: 35px;
+    background-color: transparent;
+    color: #6d6651 !important;
+
+        height: auto;
         
-width: 100%;
+width: 100% !important;
 }
 
 .btn.primary4:hover {
-    background-color: #2980b9;
+    background-color: #c0b595;
 }
 
 
 .btn.primary6 {
     background-color: #2ecc71;
-    color: white;
-        height: 35px;
+    color: #ffffff !important;
+
+        height: auto;
         
 width: auto;
 margin-bottom: 20px;
+min-width: 300px;
 }
 
 
+.btn.primary6 p {
+    color:#f3fff8!important;
+
+}
+
 .btn.primary6:hover {
     background-color: #27ae60;
+      color: #ffffff !important;
 }
 
 .newavaliation {
@@ -389,9 +425,12 @@ margin-bottom: 20px;
     width: 40%;
 }
 .btn.primary3 {
-    background-color: #f39c12;
-    color: white;
-    height: 35px;
+    background-color:transparent;
+    color: #6d6651 !important;
+    height: auto;
+  
+    width: 100% !important;
+    min-width: 250px;
 }
 
 .btn.primary3:hover {
@@ -400,7 +439,8 @@ margin-bottom: 20px;
 
 .btn.edit {
     background-color: #f39c12;
-    color: white;
+            color: rgb(255, 255, 255) !important;
+
 }
 
 .btn.edit:hover {
@@ -422,17 +462,24 @@ margin-bottom: 20px;
     margin-bottom: 20px;
 margin-right: 10px;
     width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
 
 }
 
 .search-container input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: transparent;
     border-radius: 4px 0 0 4px;
     font-size: 16px;
 }
-
+/* Quando o input estiver com foco */
+.search-container input:focus {
+    border: 2px solid #c0b595; /* marrom mais escuro */
+    outline: none; /* remove o contorno padrão do navegador */
+}
 .search-container button {
     border-radius: 0 4px 4px 0;
     background-color: #3498db;
@@ -441,13 +488,11 @@ margin-right: 10px;
 
 /* Lista de avaliações */
 .avaliacoes-container {
-    background-color: #ffffff;
+    background-color: none;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-margin-left: 1%;
-margin-right: 1%;
-margin-bottom: 150px;   
+    padding: 0px;
+
+
 }
 
 .avaliacoes-container h2 {
@@ -468,9 +513,11 @@ margin-bottom: 150px;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    
+    background-color: white;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 
@@ -484,6 +531,11 @@ margin-bottom: 150px;
 
 .avaliacao-info {
     flex: 1;
+    gap: 0px !important;
+}
+.avaliacao-info p {
+    margin: 2px 0 !important;
+    line-height: 1.9 !important;
 }
 
 .avaliacao-info h3 {
@@ -502,17 +554,22 @@ margin-bottom: 150px;
 }
 
 .logoCabesalhoPhone {
-    border-radius: 20px;
-    background-color: #dcebf5;
+    border-radius: 0px;
+    background-color: #7e7e7e; /* cor de fallback caso a imagem não carregue */
     margin-bottom: 10px;
     padding: 20px;
     height: 200px;
     display: flex;
-    
+
+    /* Imagem de fundo */
+    background-image: url('fundologocia.png'); /* substitua pelo caminho correto */
+    background-size: cover;      /* cobre todo o elemento */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* não repete a imagem */
 }
 
 .logoCabesalhoPhone {
-    border-left: 5px solid #00a6ff;
+    border-left: 5px solid #292929;
 }
 
 .logoCabesalhoPhone2 {
@@ -527,6 +584,7 @@ margin-bottom: 150px;
 .logocia {
     height: 170px;
     width: 80x;
+    margin-right: 15px;
 }
 .status.pendente {
     color: #e74c3c;
@@ -579,7 +637,8 @@ p {
     display: flex;
     justify-content: flex-end; /* alinha para a direita */
     align-items: center;       /* centraliza verticalmente */
-    background-color: #ffffff;
+    background-color: transparent;
+
     padding-right: 20px;
     padding-left: 20px;
         margin-bottom: 10px;
@@ -591,7 +650,7 @@ p {
     display: flex;
     justify-content: center;   /* centraliza no eixo horizontal */
     align-items: center;       /* centraliza no eixo vertical */
-    background-color: #ffffff;
+    background-color: transparent;
     padding: 0 20px;           /* padding uniforme nos lados */
     box-sizing: border-box;    /* garante que padding não estoure a largura */
     gap: 10px;                 /* espaço entre os elementos internos */
@@ -768,6 +827,7 @@ p {
     width: 100%;
     padding: 20px;
     min-height: 600px;
+    background-color: #00a6ff;
 }
 
 .tab-content:not(.active) {
@@ -1013,8 +1073,8 @@ width: 100%;
 }
 
 .buttonModelos {
-    width:  200px;
-    color: white;
+    width:  100%;
+ 
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -1022,38 +1082,51 @@ width: 100%;
 }
 .buttonModelos4 {
     width: 250px;
-    color: white;
+
     text-align: center;
     align-items: center;
     justify-content: center;
     white-space: nowrap; /* impede quebra de linha */
 }
+
 .buttonModelos5 {
-    width: 100%;
-    color: white;
+    width: 100% !important;
     text-align: center;
     align-items: center;
     justify-content: center;
     white-space: nowrap; /* impede quebra de linha */
 }
+
 .btn.primary5 {
-    background-color: #3498db;
-    color: white;
-    height: 35px;
-    width: 100%;
-    display: block;        /* garante que ele se comporte como bloco */
-    border: none;          /* remove borda padrão */
-    border-radius: 6px;    /* deixa mais bonito */
+    background-color: transparent; /* transparente por padrão */
+    color: #6d6651 !important;
+
+      height: auto;
+    width: 100% !important;
+    display: block;        
+    border: none;          
+    border-radius: 6px;    
     font-weight: bold;
     text-align: center;
     cursor: pointer;
     padding-right: 30px;
     padding-left: 30px;
+
+    transition: background-color 0.3s, color 0.3s; /* animação suave */
 }
+
+/* Cor quando o botão for focado ou hover */
+.btn.primary5:hover,
+.btn.primary5:focus {
+    background-color: #c0b595; /* cor normal ao focar */
+    color: #ffffff !important; /* opcional: muda a cor do texto para contraste */
+    outline: none; /* remove contorno de foco padrão, se quiser */
+}
+
 
 .buttonModelos2 {
     width:  200px;
-    color: white;
+
         text-align: center;
   align-items: center;
     justify-content: center;
@@ -1061,13 +1134,33 @@ width: 100%;
 }
 
 
+.tituloSistema {
+    font-size: 35px !important;
+            color: rgb(0, 0, 0) !important;
+           
+display: flex;
+justify-content: end;
+width: 75%;
+text-align: right;
+right: 0;
+margin: 0px;
 
+}
+
+.tituloDivFundo {
+    display: flex;
+justify-content: end;
+width: 100%;
+text-align: right;
+right: 0;
+}
 #btnVoltarTopo {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #93b9f3; /* azul primário */
-  color: white;
+    background-color: #c0b595; /* cor normal ao focar */
+        color: rgb(52, 52, 52) !important;
+
   border: none;
   outline: none;
   cursor: pointer;
@@ -1079,8 +1172,8 @@ width: 100%;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.2s ease;
   z-index: 9999;
-  height: 60px;
-  width: 60px;
+  height: 50px !important;
+  width: 50px !important;
 }
 
 #btnVoltarTopo.show {
@@ -1090,7 +1183,7 @@ width: 100%;
 }
 
 #btnVoltarTopo:hover {
-  background-color: #0b5ed7;
+    background-color: #8c846d; /* cor normal ao focar */
   transform: scale(1.1);
 }
 
@@ -1104,7 +1197,7 @@ width: 100%;
   border-radius: 12px;
   display: inline-block;
   background-color: #f0f0f0;   /* fundo neutro */
-  color: #333;                 /* texto escuro */
+    color: #6d6651 !important;
   transition: background-color 0.3s, color 0.3s;
   margin-bottom: 20px;
   width: 70px;
@@ -1121,11 +1214,34 @@ width: 100%;
 /* Quando não houver resultados */
 .resultado-busca.sem-resultados {
   background-color: #f8f8f8;   /* cinza claro */
-  color: #999;                 /* cinza escuro */
+    color: #6d6651 !important;
 }
 
+headerPM {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 120px !important;
+}
 
+.fe {
+    height: 40px !important;
+}
 
+a {
+    min-height: 40px !important;
+}
+.central {
+    z-index: 9000 !important;
+}
+
+.menuTwuGeral {
+    background-color: #ffffff;
+    border-radius: 10px;
+border-left: 2px solid rgb(77, 77, 77); /* vermelho */
+    
+}
 @media (max-width: 768px) {
  
 /* Tablets */
@@ -1133,7 +1249,7 @@ width: 100%;
     .container {
         padding: 80px 30px 20px;
     }
-    
+ 
     header h1 {
         font-size: 1.6rem;
     }
@@ -1154,7 +1270,10 @@ width: 100%;
     .cabeçalho {
         padding: 8px 10px;
     }
-    
+    .btn.primary6 {
+        width: 100%;
+        min-width: 250px;
+    }
   
     
     .userP {
@@ -1542,7 +1661,7 @@ display: none;
 .search-container {
 margin-left: 0px;
 margin-right: 0px;
-    margin-top: 0px;
+    margin-top: 20px;
     }
 #resultadoBusca {
     width: 100px;   
@@ -1593,16 +1712,7 @@ text-align: center;
     width: 100%;
     
 }
-.buttonModelos2 {
-    min-width:  200px;
-    color: white;
-        text-align: center;
-  align-items: center;
-    justify-content: center;
-        width: 100%;
 
-    
-}
 
 .menuButton3 {
     width: auto;

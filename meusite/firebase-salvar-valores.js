@@ -9,7 +9,11 @@ const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
   const userInfo = document.getElementById("user-info");
   if (user) {
-    if(userInfo) userInfo.innerText = `Usuário: ${user.email}`;
+
+if (userInfo) {
+  const email = user.email;
+  userInfo.innerText = email.length > 30 ? "Usuário: " + email.slice(0, 30) + "..." : "Usuário: " + email;
+}
   } else {
     if(userInfo) userInfo.innerText = "Nenhum usuário autenticado";
             window.location.href = "./login/login.html";

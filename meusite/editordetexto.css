@@ -23,8 +23,7 @@ body.container {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #3498db, #ffffff);
-  color: white;
+background: linear-gradient(to bottom, #c0b595, #c0b595); /* degradê azul claro → branco */  color: white;
   position: fixed;
   height: 55px;
 }
@@ -35,20 +34,19 @@ body.container {
 }
 
 .cabeçalho button {
-  background-color: #ff4d4d;
+  background-color: transparent;
   border: none;
   padding: 10px 18px;
   font-size: 0.9rem; /* Ajustado */
   border-radius: 6px;
   cursor: pointer;
   font-weight: 700;
-  color: white;
-  transition: background-color 0.3s ease;
+  color: rgb(67, 67, 67);
   margin-right: 40px;
 }
 
 .cabeçalho button:hover {
-  background-color: #e04343;
+  background-color: #ada384;
 }
 
 
@@ -76,7 +74,7 @@ body.container {
 }
 
 .logotipo img.imagem {
-  width: 120px;
+  width: 80px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(65, 88, 208, 0.3);
@@ -101,7 +99,7 @@ body.container {
 
 /* Fieldset estilizado */
 fieldset {
-  border: 1px solid  #3498db;
+  border: 1px solid #ada384;
   border-radius: 12px;
   padding: 0px 0px;
   margin-bottom: 35px;
@@ -147,7 +145,7 @@ textarea {
   padding: 12px 16px;
 
   font-size: 0.9rem; /* Ajustado */
-  border: 1px solid #8bb6f1;
+  border: 1px solid #ada384;
   border-radius: 10px;
   outline-offset: 2px;
   margin: 0px;
@@ -159,7 +157,7 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-  border-color: #3a7bd5; /* azul mais vibrante */
+  border-color: #ada384;
   box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
   outline: none; /* remove a outline padrão do navegador */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -169,7 +167,7 @@ input[type="date"] {
   width: 100%;
   padding: 12px 16px;
   font-size: 0.9rem;
-  border: 1px solid #8bb6f1;
+  border: 1px solid #ada384;
   border-radius: 10px;
   outline-offset: 2px;
   margin: 0px;
@@ -181,7 +179,7 @@ input[type="date"] {
 }
 
 input[type="date"]:focus {
-  border-color: #3a7bd5;
+  border-color: #8b8267;
   box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
   outline: none;
 }
@@ -190,7 +188,7 @@ select {
   width: 100%;
   padding: 12px 16px;
   font-size: 0.9rem;
-  border: 2px solid #a3b1ff;
+  border: 2px solid #ada384;
   border-radius: 10px;
   outline-offset: 2px;
   background-color: white;
@@ -201,7 +199,7 @@ select {
 }
 
 select:focus {
-  border-color: #3a7bd5;
+  border-color: #ada384;
   box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
   outline: none;
 }
@@ -231,7 +229,7 @@ select {
 }
 
 button {
-  background-color:  #3498db;;
+  background-color:  #ada384;
   color: white;
   border: none;
   padding: 14px 28px;
@@ -240,11 +238,10 @@ button {
   font-size: 1rem; /* Ajustado */
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 4px 15px rgba(65, 88, 208, 0.4);
 }
 
 button:hover {
-  background-color: #0056b3; /* azul escuro no hover */
+  background-color: #7a7158;
 }
 
 /* Card botão gerar dados */
@@ -301,7 +298,7 @@ button:hover {
   left: 23%;
   width: 50%;
   height: 50%;
-  background: linear-gradient(135deg, #3498db, #ffffff);
+  background: linear-gradient(135deg, #ada384, #ffffff);
   color: white;
   display: flex;
   justify-content: center;
@@ -317,7 +314,7 @@ button:hover {
 
 .alert-fullscreen button {
   font-size: 1rem; /* Ajustado */
-  color: #3498db;
+  color: #ada384;
   background-color: white;
   border: none;
   border-radius: 8px;
@@ -334,8 +331,8 @@ button:hover {
 }
 
 .imagem {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 45px;
   margin-left: 50px;
 }
 
@@ -348,7 +345,7 @@ button:hover {
 }
 
 .User {
-  color: white;
+  color: rgb(73, 73, 73);
   width: 60%;
   text-align: right;
   
@@ -433,7 +430,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #3498db, #ffffff);
+  background: linear-gradient(135deg, #ada384, #ffffff);
   padding: 0;
   padding-bottom: 20px;
     padding-top: 20px;
@@ -529,7 +526,7 @@ width: 70%;
   
 }
 .content {
-  background-color: #dceeff;
+  background-color: #ada38451;
   padding-left: 25px;
   padding-right: 30px;
   border-radius: 19px;
@@ -544,12 +541,12 @@ width: 70%;
 
 .DadosComplementaresLabel {
   margin-top: 10px;
-  color: #3498db;
+  color: #887437;
 }
 .editarVoltar {
   display: inline-block;
   padding: 10px 20px;
-  background-color:  #3498db;;
+  background-color:  #ada384;
   color: white;
   text-decoration: none;
   border: none;
@@ -566,7 +563,7 @@ width: 70%;
 }
 
 .editarVoltar:hover {
-  background-color: #0056b3; /* azul escuro no hover */
+  background-color: #766f58;
 }
 h2 {
   text-align: center;
@@ -592,7 +589,7 @@ h1 {
     color: white;
 }
 .baixeOapp:hover {
-  background: linear-gradient(135deg, #66bcf1, #ffffff);
+  background: linear-gradient(135deg, #ada384, #ffffff);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }

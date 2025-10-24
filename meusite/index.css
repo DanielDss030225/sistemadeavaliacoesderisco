@@ -20,11 +20,9 @@ body {
   height: 55px;
 }
 
-.cabeçalho p#user-info {
-  font-weight: 600;
-  font-size: 0.9rem; /* Ajustado */
+span {
+  width: auto !important;
 }
-
 .cabeçalho button {
   background-color: #ff4d4d;
   border: none;
