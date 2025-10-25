@@ -1136,7 +1136,7 @@ width: 100%;
 
 .tituloSistema {
     font-size: 35px !important;
-            color: rgb(0, 0, 0) !important;
+            color: rgb(46, 46, 46) !important;
            
 display: flex;
 justify-content: end;

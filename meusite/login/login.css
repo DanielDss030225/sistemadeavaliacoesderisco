@@ -7,12 +7,15 @@
 
 /* Plano de fundo geral */
 body {
-  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  background: linear-gradient(to right, #776f56, #c0b595);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+      background-image: url('fundologocia2.png'); /* substitua pelo caminho correto */
+
+  
 }
 
 /* Container principal */
@@ -29,7 +32,7 @@ border-bottom-right-radius:20px ;
 
 /* Logo */
 .container img {
-  width: 80px;
+  width: 73px;
   height: 80px;
   margin-bottom: 0px;
   padding: 0px;
@@ -44,11 +47,10 @@ border-bottom-right-radius:20px ;
   margin-top: 25px;
 }
 .cima {
-  background: linear-gradient(to right, #4e8ef6, #c2e9fb);
+  background: linear-gradient(to right, #776f56, #c0b595);
   padding: 15px;
 border-top-left-radius: 20px;
-color: #ffffff;
-}
+color: #3a3a3a;}
 
 
 
@@ -66,7 +68,7 @@ input[type="password"] {
 }
 
 input:focus {
-  border-color: #7da0fa;
+  border-color: #c0b595;
   outline: none;
   background-color: #ffffff;
   box-shadow: 0 0 6px rgba(125, 160, 250, 0.4);
@@ -86,7 +88,7 @@ input::placeholder {
 
 /* Botão de login */
 .buttonLogin {
-  background-color: #5a85f5;
+  background-color: #8e8362;
   color: white;
   border: none;
   padding: 14px 0;
@@ -100,7 +102,7 @@ input::placeholder {
 }
 
 .buttonLogin:hover {
-  background-color: #3d6ee3;
+  background-color: #a59b7f;
 }
 
 /* Lista e item único */
@@ -131,7 +133,7 @@ ul li {
 
 .banner {
   width: 50%;
-  background-image: url('banner2.png'); /* <- ajuste aqui */
+  background-image: url('banner03.png'); /* <- ajuste aqui */
   background-size: cover;      /* cobre todo o espaço disponível */
   background-position: center; /* centraliza a imagem */
   background-repeat: no-repeat;/* evita repetição da imagem */
@@ -147,10 +149,10 @@ ul li {
 
 h1 {
   margin-top: 20px;
-  color: white;
+  color: rgb(36, 36, 36);
 }
 h2 {
-  color: white;
+  color: rgb(36, 36, 36);
 
 }
 .buttonBanner {
@@ -159,7 +161,7 @@ h2 {
   margin-bottom: 30px;
   margin-top: 30px;
 
-  background: linear-gradient(135deg, #27ae60, #219150);
+    background: transparent;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -174,7 +176,7 @@ h2 {
 }
 
 .buttonBanner:hover {
-  background: linear-gradient(135deg, #219150, #1b7f44);
+    background: linear-gradient(to right, #978f74, #978f74);
   transform: scale(1.03);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -205,7 +207,7 @@ h2 {
   
 @media (max-width: 768px) {
   body {
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    background: linear-gradient(to right, #c0b595, #c0b595);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100%;
     margin: 0;
@@ -213,6 +215,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+          background-image: url('fundologocia2.png'); /* substitua pelo caminho correto */
+
   }
 
   .banner {

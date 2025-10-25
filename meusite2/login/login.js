@@ -36,9 +36,8 @@ window.location.href = "../../index.html";  })
         });
 }
 function contato() {
-    const numero = '5531987568467'; // Código do país (55) + DDD (31) + número
+    const numero = '5531982654515'; // Código do país (55) + DDD (31) + número
     const mensagem = encodeURIComponent("Olá, gostaria de entrar em contato.");
     const url = `https://wa.me/${numero}?text=${mensagem}`;
     window.open(url, '_blank'); // Abre em nova aba
 }
-
