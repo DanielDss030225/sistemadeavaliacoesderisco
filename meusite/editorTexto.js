@@ -350,6 +350,10 @@ if (linkSalvo) {
   const link = document.querySelector('.aImagem');
   link.setAttribute('href', linkSalvo);
 }
+if (linkSalvo) {
+  const link = document.querySelector('.BackToEnd4');
+  link.setAttribute('href', linkSalvo);
+}
 
 // Define como href do link, se existir
 if (linkSalvo) {

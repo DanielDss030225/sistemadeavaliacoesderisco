@@ -37,7 +37,7 @@ margin-left: 10px;    color: white;
 }
 
 .cabeçalho button {
-  background-color: #ff4d4d;
+  background-color: transparent;
   border: none;
   padding: 10px 10px;
   font-size: 0.9rem; /* Ajustado */
@@ -50,7 +50,7 @@ margin-left: 10px;    color: white;
 }
 
 .cabeçalho button:hover {
-  background-color: #e04343;
+  background-color: #ada384;
 }
 .BackToEnd {
   display: inline-block;
@@ -68,6 +68,9 @@ margin-left: 10px;    color: white;
   margin-bottom: 20px;
   width: 70px;
   line-height: 15px;
+    border-left: 1px solid #6f6853;
+    border-bottom: 1px solid #6f6853;
+
 }
 
 .BackToEnd:hover {
@@ -244,7 +247,7 @@ header h1 {
 }
 .btn.edit {
     background-color: #f39c12;
-    color: white;
+    color: #7b654a;
 }
 
 .btn.edit:hover {
@@ -253,11 +256,12 @@ header h1 {
 
 .btn.print, .btn.continue {
     background-color: #2ecc71;
-    color: white;
+    color: #7b654a;
 }
 
 .btn.print:hover, .btn.continue:hover {
     background-color: #27ae60;
+    color: #7b654a;
 }
 
 /* Barra de busca */
@@ -947,6 +951,8 @@ color: #ffffff;
   text-align: center;
   align-items: center;
   justify-content: center;
+  border-left: 1px solid #6f6853;
+  border-bottom: 1px solid #6f6853;;
 }
 
 .BackToEnd2:hover {

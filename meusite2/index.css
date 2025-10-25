@@ -20,10 +20,7 @@ background: linear-gradient(to bottom, #c0b595, #c0b595); /* degradê azul claro
   position: fixed;
   height: 55px;
 }
-.imagem {
-  width: 50px;
-  height: 58px;
-}
+
 span {
   width: auto !important;
 }
@@ -58,7 +55,7 @@ span {
   width: 98%;
   max-height: 90vh;
   overflow-y: auto;
-  background-color: #f0f4ff; /* tom claro azul do fieldset */
+  background-color: #eaeaea; /* tom claro azul do fieldset */
   font-size: 18px;
   border: 1px solid #c0b595;
   border-radius: 10px;
@@ -68,7 +65,7 @@ span {
 .dropdown-content a {
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #c0b595;
+  
   height: 20%;
   margin: 0px;
   text-decoration: none;
@@ -77,7 +74,7 @@ span {
 }
 
 .dropdown-content a p {
-  color: #c0b595;
+  color: #655e48;
   margin-left: 50px;
   margin-right: 50px;
   text-decoration: none;
@@ -104,25 +101,25 @@ input {
   text-decoration: none;
   display: flex;
   height: 25px;
-  border: 2px solid #ffffff; /* borda azul suave */
+  border: 1px solid #ffffff; /* borda azul suave */
   outline-offset: 2px;
   font-family: Arial, Helvetica, sans-serif;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-  border-color: #ffffff; /* azul mais vibrante */
-  box-shadow: 0 0 4px 1px rgba(151, 139, 97, 0.5);
+  border-color: #bfbfbf; /* azul mais vibrante */
   outline: none; /* remove a outline padrão do navegador */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 
-
+.imagem {
+  width: 50px;
+  height: 58px;
+}
 p {
   font-size: 1rem;
   color: #333; /* texto escuro */
@@ -140,8 +137,12 @@ img {
   display: flex;
   padding-bottom: 10px;
   padding-top: 10px;
+ border-left: 3px solid #ada384;
+ border-bottom-left-radius: 8px;
 }
-
+.inputCard {
+  border-radius: 8px;
+}
 footer {
   width: 100%;
   display: flex;
@@ -168,15 +169,17 @@ background: linear-gradient(to bottom, #c0b595, #c0b595); /* degradê azul claro
 
 ul li {
   background-color: #ffffff;
-  border: 1px solid #ddd;
+  border-left: 3px solid #ada384;
   margin: 20px 20px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 2px 2px 5px rgba(65, 88, 208, 0.15); /* sombra azulada leve */
   transition: transform 0.2s ease;
   height: 50px;
   width: 80%;
   align-items: center;
+  border-bottom-left-radius: 0px;
+  
 }
 
 ul li:hover {

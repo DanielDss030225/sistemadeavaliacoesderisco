@@ -576,6 +576,29 @@ h2 {
   padding-bottom: 20px;
   padding-top: 20px;
 }
+
+
+.BackToEnd4 {
+  display: inline-block;
+  padding: 15px 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(72, 72, 72);
+  background: transparent;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: auto;
+  line-height: 15px;
+  width: auto;
+}
+
+.BackToEnd4:hover {
+  background-color: #938869;
+}
 @media (max-width: 768px) {
  
   
