@@ -933,7 +933,7 @@ color: #ffffff;
   padding-top: 15px;
   font-size: 12px;
   font-weight: bold;
-  color: white;
+  color: rgb(73, 73, 73);
   background: linear-gradient(135deg, #c0b595, #c0b595);
   border: none;
   border-radius: 25px;

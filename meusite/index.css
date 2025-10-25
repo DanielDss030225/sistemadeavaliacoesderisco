@@ -14,8 +14,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 00px 10px;
-  background: linear-gradient(135deg, #3498db, #ffffff);
-  color: white;
+background: linear-gradient(to bottom, #c0b595, #c0b595); /* degradê azul claro → branco */  color: white;
+    color: rgb(97, 97, 97);
+
   position: fixed;
   height: 55px;
 }
@@ -24,20 +25,20 @@ span {
   width: auto !important;
 }
 .cabeçalho button {
-  background-color: #ff4d4d;
+  background-color: transparent;
   border: none;
   padding: 10px 18px;
   font-size: 0.9rem; /* Ajustado */
   border-radius: 6px;
   cursor: pointer;
   font-weight: 700;
-  color: white;
+  color: rgb(97, 97, 97);
   transition: background-color 0.3s ease;
   margin-right: 30px;
 }
 
 .cabeçalho button:hover {
-  background-color: #e04343;
+  background-color: #ada384;
 }
 
 
@@ -56,7 +57,7 @@ span {
   overflow-y: auto;
   background-color: #f0f4ff; /* tom claro azul do fieldset */
   font-size: 18px;
-  border: 1px solid #3498db;
+  border: 1px solid #c0b595;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(65, 88, 208, 0.3);
 }
@@ -64,7 +65,7 @@ span {
 .dropdown-content a {
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #3498db;
+  color: #c0b595;
   height: 20%;
   margin: 0px;
   text-decoration: none;
@@ -73,7 +74,7 @@ span {
 }
 
 .dropdown-content a p {
-  color: #3498db;
+  color: #c0b595;
   margin-left: 50px;
   margin-right: 50px;
   text-decoration: none;
@@ -89,7 +90,7 @@ span {
 }
 
 .dropdown a:hover {
-  background-color: #c1c9ff; /* azul claro hover */
+  background-color: #90876d; /* azul claro hover */
 }
 
 input {
@@ -100,7 +101,7 @@ input {
   text-decoration: none;
   display: flex;
   height: 25px;
-  border: 2px solid #a3b1ff; /* borda azul suave */
+  border: 2px solid #ffffff; /* borda azul suave */
   outline-offset: 2px;
   font-family: Arial, Helvetica, sans-serif;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -110,15 +111,18 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-  border-color: #3a7bd5; /* azul mais vibrante */
-  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  border-color: #ffffff; /* azul mais vibrante */
+  box-shadow: 0 0 4px 1px rgba(151, 139, 97, 0.5);
   outline: none; /* remove a outline padrão do navegador */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 
-
+.imagem {
+  width: 50px;
+  height: 58px;
+}
 p {
   font-size: 1rem;
   color: #333; /* texto escuro */
@@ -143,8 +147,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #3498db, #ffffff);
-  padding: 0;
+background: linear-gradient(to bottom, #c0b595, #c0b595); /* degradê azul claro → branco */  color: white;
+    color: rgb(97, 97, 97);  padding: 0;
 }
 
 .footerp {
@@ -153,7 +157,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+    color: rgb(97, 97, 97);  
 }
 
 .footerdiv {
@@ -193,13 +197,14 @@ ul {
 a {
   text-align: center;
   align-items: center;
-  color:  #3498db;
+  color:  #575757;
   text-decoration: none;
   width: 100%;
 }
 
 footer p {
-  color: white;
+      color: rgb(97, 97, 97);  
+
 }
 
 nav {
@@ -211,25 +216,26 @@ nav {
 }
 
 .fundotela {
-  background-color: #f0f4ff; /* fundo azul claro */
+  background-color: #ffffff; /* fundo azul claro */
   margin-top: 55px;
   position: fixed;
   overflow: auto;
   height: 90vh;
 }
 .fundotela1 {
-  background-color: #f0f4ff; /* fundo azul claro */
+  background-color: #ffffff; /* fundo azul claro */
 }
 
 
 h2 {
   text-align: center;
-  color: #4158d0;
+  color: #978e72;
 }
 
 
 .cabeçalho p {
-  color: white;
+      color: rgb(97, 97, 97);  
+
 }
 
 
