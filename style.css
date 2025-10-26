@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
@@ -267,4 +269,71 @@ input[type="checkbox"] {
 }
 h4 {
     margin: 0px;
+}
+
+
+@media print {
+    .container {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+    }
+}
+@media print {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+@media print {
+    body, .header {
+        -webkit-print-color-adjust: exact; /* para Chrome/Safari */
+        print-color-adjust: exact;         /* para Firefox */
+    }
+}
+@media print {
+    body, .header-table th {
+        -webkit-print-color-adjust: exact; /* Chrome/Safari */
+        print-color-adjust: exact;         /* Firefox */
+    }
+}
+body {
+    line-height: 1.0; /* de 1.4 para 1.2 */
+}
+.question {
+    margin-bottom: 4px; /* de 15px para 8px */
+    padding: 6px; /* reduzir um pouco */
+}
+.section {
+    margin-bottom: 5px; /* de 15px para 10px */
+    padding: 4px; /* de 10px para 8px */
+}
+.form-row {
+    margin-bottom: 5px; /* de 8px para 5px */
+}
+body, label, .question p {
+    font-size: 10pt;
+}
+.input-line {
+    height: 14px; /* de 16px para 14px */
+    margin: 0 1px;
+}
+.input-line-full {
+    height: 16px; /* de 20px para 16px */
+}
+.checkbox-grid {
+    gap: 3px; /* de 5px para 3px */
+}
+.checkbox-list {
+    gap: 2px; /* de 3px para 2px */
+}
+label {
+    margin-right: 10px; /* de 15px para 10px */
+    margin-bottom: 2px; /* de 3px para 2px */
+}
+@media print {
+    .section {
+        page-break-inside: avoid; /* evita quebrar seção */
+    }
 }

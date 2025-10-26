@@ -5,6 +5,11 @@
     box-sizing: border-box ;
     font-family: Arial, sans-serif !important;
 }
+/* Força todos os textos de <p> e <a> a terem uma única cor */
+button
+{
+  color: #4a3f2a !important; /* marrom caqui escuro */
+}
 
 body {
     background-color: #f4f4f4;
@@ -494,6 +499,7 @@ margin-right: 10px;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
+        border: 1px solid #57503c; /* marrom mais escuro */
         border-left: 2px solid #57503c; /* marrom mais escuro */
 
 
@@ -514,7 +520,7 @@ margin-right: 10px;
 }
 .search-container button {
     border-radius: 0 4px 4px 0;
-    background-color: #3498db;
+    background-color: #ada384;
     color: white;
 }
 
@@ -970,7 +976,7 @@ p {
 }
 
 .btn-signature:hover {
-    background-color: #2980b9;
+    background-color: #5f5f5f;
 }
 
 /* Estilos para visualização de impressão */

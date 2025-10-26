@@ -281,7 +281,7 @@ header h1 {
 
 .search-container button {
     border-radius: 0 4px 4px 0;
-    background-color: #3498db;
+    background-color: #afa587;
     color: white;
 }
 
@@ -422,7 +422,7 @@ p {
 }
 
 .progress-step.active {
-    background-color: #3498db;
+    background-color: #afa587;
 }
 
 .progress-step.completed {
@@ -513,7 +513,7 @@ p {
 }
 
 .tab-item:hover {
-    background-color: #e9ecef;
+    background-color: #ada384;
 }
 
 .tab-item.active {
@@ -591,7 +591,7 @@ p {
 
 .form-group label {
     display: flex;
-    margin-bottom: 5px;
+    margin: 5px;
     font-weight: bold;
     color: #2c3e50;
     align-items: center;
@@ -696,7 +696,7 @@ p {
 }
 
 .btn-signature:hover {
-    background-color: #2980b9;
+    background-color: #ada384;
 }
 
 /* Estilos para visualização de impressão */
@@ -747,13 +747,13 @@ p {
 
 /* Efeitos de hover melhorados */
 .tab-item:not(.active):hover .tab-number {
-    background-color: #3498db;
+    background-color: #ada384;
     color: white;
     transform: scale(1.1);
 }
 
 .tab-item:not(.active):hover .tab-title {
-    color: #3498db;
+    color: #ada384;
 }
 
 .btn-wrapper2 {
@@ -783,7 +783,7 @@ width: 100%;
 }
 
 .btn-signature2:hover {
-  background: linear-gradient(135deg, #2980b9, #1c639e);
+  background: linear-gradient(135deg, #ada384, #ada384);
   transform: scale(1.02);
 }
 
@@ -908,7 +908,7 @@ h4 {
   color: white;
 }
 #btn-ir-para-index:hover {
-  background-color: rgb(30, 125, 189);
+  background-color: #ada384;
 }
 
 /* Botão cinza (Ficar na página) */
@@ -917,7 +917,7 @@ h4 {
   color: white;
 }
 #btn-ficar-na-pagina:hover {
-  background-color: #5a6268;
+  background-color: #ada384;
 }
 
 .sucessoModal {
@@ -1004,7 +1004,39 @@ color: #ffffff;
   box-shadow: 0 4px 10px 
 
 }
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none; /* remove o contorno azul padrão */
+  border-color: #afa587; /* cor de borda personalizada, por exemplo, bege */
+  box-shadow: 0 0 5px #c0b595; /* brilho suave opcional */
+}
 
+/* Radios personalizados — ligeiramente menores */
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #8f8669; /* marrom caqui */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+input[type="radio"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 4px rgba(143, 134, 105, 0.4);
+}
+
+/* Efeito ao focar */
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(192, 181, 149, 0.7);
+}
+
+/* Cor mais escura quando marcado */
+input[type="radio"]:checked {
+  accent-color: #6f6853; /* marrom caqui mais escuro */
+}
 
 
 .BackToEnd3 {
@@ -1056,7 +1088,7 @@ form {
 .sub-block2 {
   width: 85%;
   margin: 0;                  /* remove margem */
-  background-color: #e9f2f9;
+  background-color: #e6e6e6;
   /* Como está dentro do form flex column, ela vai ficar centralizada na largura pelo align-items do form */
   /* Se quiser centralizar texto dentro do .sub-block2, pode adicionar: */
   text-align: center;          /* opcional */
@@ -1157,7 +1189,7 @@ form {
     font-size: 12px;
     font-weight: bold;
     color: transparent; /* Oculta texto */
-    background: linear-gradient(135deg, #3498db, #3498db);
+    background: linear-gradient(135deg, #ada384, #ada384);
     border-radius: 5px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;

@@ -71,7 +71,6 @@ input:focus {
   border-color: #c0b595;
   outline: none;
   background-color: #ffffff;
-  box-shadow: 0 0 6px rgba(125, 160, 250, 0.4);
 }
 
 input::placeholder {
